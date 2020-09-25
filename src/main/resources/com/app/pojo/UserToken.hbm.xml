@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 25, 2020 2:22:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.app.pojo.UserToken" table="user_token" catalog="tts" optimistic-lock="version">
+        <id name="id" type="string">
+            <column name="id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="createBy" type="string">
+            <column name="create_by" length="32" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="128" />
+        </property>
+        <property name="token" type="string">
+            <column name="token" length="36" unique="true" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="16" />
+        </property>
+        <property name="createAt" type="timestamp">
+            <column name="create_at" length="19" />
+        </property>
+        <property name="updateAt" type="timestamp">
+            <column name="update_at" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

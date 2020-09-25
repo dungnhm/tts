@@ -38,7 +38,7 @@ public class LoginHandler implements Handler<RoutingContext> {
                 routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
                 routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
                 //List<Users> list = (List<Users>) clipServices.findAllByProperty("from Users where username = '" + username + "'", null, 0, Users.class, 0);
-                List<Users> list = (List<Users>) clipServices.findAllByProperty("select * from ", null, 0, Users.class, 0);
+                List<Users> list = (List<Users>) clipServices.findAllByProperty("from Users", null, 0, Users.class, 0);
                 System.out.println("users size: " + list.size());
 //                Users resultUser = list.get(0);
 //                if (resultUser.getUsername().equals(username) && resultUser.getMd5Password().equals(password)) {

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 25, 2020 2:22:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.app.pojo.Transfer" table="transfer" catalog="tts">
+        <id name="id" type="string">
+            <column name="id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="java.lang.Integer">
+            <column name="version" />
+        </version>
+        <property name="fromWalletId" type="string">
+            <column name="from_wallet_id" length="32" />
+        </property>
+        <property name="toWalletId" type="string">
+            <column name="to_wallet_id" length="32" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="10" />
+        </property>
+        <property name="amount" type="java.lang.Long">
+            <column name="amount" precision="10" scale="0" />
+        </property>
+        <property name="shipmentId" type="string">
+            <column name="shipment_id" length="32" />
+        </property>
+        <property name="details" type="string">
+            <column name="details" length="50" />
+        </property>
+        <property name="financialStatus" type="string">
+            <column name="financial_status" length="10" />
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="19" />
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

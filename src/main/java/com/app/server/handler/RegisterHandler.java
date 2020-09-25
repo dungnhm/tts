@@ -37,17 +37,17 @@ public class RegisterHandler implements Handler<RoutingContext> {
                 if (list.size() > 0) {
                     duplicate = true;
                 }
-                if (!duplicate) {
-                    Users newUser = new Users(username, password);
-                    clipServices.save(newUser, 0, Users.class, 0);
-                    data.put("status","register successed");
-                    routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.CREATED.code());
-                    routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.CREATED.reasonPhrase());
-                } else {
-                    data.put("status","register failed");
-                    routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
-                    routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
-                }
+//                if (!duplicate) {
+//                    //Users newUser = new Users(name, pass);
+//                    clipServices.save(newUser, 0, Users.class, 0);
+//                    data.put("status","register successed");
+//                    routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.CREATED.code());
+//                    routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.CREATED.reasonPhrase());
+//                } else {
+//                    data.put("status","register failed");
+//                    routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
+//                    routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
+//                }
                 routingContext.put(AppParams.RESPONSE_DATA, data);
                 future.complete();
             } catch (Exception e) {

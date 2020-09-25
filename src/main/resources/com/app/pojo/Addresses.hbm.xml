@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 25, 2020 2:22:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.app.pojo.Addresses" table="addresses" catalog="tts">
+        <id name="id" type="string">
+            <column name="id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="java.lang.Integer">
+            <column name="version" />
+        </version>
+        <property name="address1" type="string">
+            <column name="address1" length="150" />
+        </property>
+        <property name="address2" type="string">
+            <column name="address2" length="150" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="50" not-null="true" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="50" not-null="true" />
+        </property>
+        <property name="zip" type="string">
+            <column name="zip" length="50" not-null="true" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" length="50" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="50" />
+        </property>
+        <property name="company" type="string">
+            <column name="company" length="50" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="50" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="50" />
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="19" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="10" />
+        </property>
+        <property name="pickupId" type="java.lang.Integer">
+            <column name="pickup_id" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="created_by" length="32" />
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="19" />
+        </property>
+        <property name="updatedBy" type="string">
+            <column name="updated_by" length="32" />
+        </property>
+    </class>
+</hibernate-mapping>
