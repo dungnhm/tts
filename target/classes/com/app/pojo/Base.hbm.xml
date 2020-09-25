@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 17, 2020 2:55:05 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.app.pojo.Base" table="base">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity"></generator>
+        </id>
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+        <property name="short_name" type="string">
+            <column name="short_name" />
+        </property>
+        <property name="active" type="java.lang.Integer">
+            <column name="active" />
+        </property>
+        <property name="createdTime" type="timestamp">
+            <column name="createdTime" length="19" />
+        </property>
+        <property name="lastUpdate" type="timestamp">
+            <column name="lastUpdate" length="19" />
+        </property>
+        <property name="sizes" type="string">
+            <column name="sizes" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,82 @@
+24/09/2020 13:46:57 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+24/09/2020 13:46:57 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+24/09/2020 13:46:57 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+24/09/2020 13:46:57 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+24/09/2020 13:47:54 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+24/09/2020 13:47:54 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+24/09/2020 13:47:54 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+24/09/2020 13:47:55 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+24/09/2020 13:47:56 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+24/09/2020 13:47:57 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+24/09/2020 13:47:58 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+24/09/2020 13:47:59 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+24/09/2020 13:47:59 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+24/09/2020 13:47:59 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+24/09/2020 13:48:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 24 13:48:00 ICT 2020
+24/09/2020 13:48:00 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+24/09/2020 13:48:20 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+24/09/2020 13:48:20 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+   "username": "userthirteen",
+    "password": "68423"
+}
+
+24/09/2020 13:48:21 INFO  org.hibernate.hql.internal.QueryTranslatorFactoryInitiator : HHH000397: Using ASTQueryTranslatorFactory
+24/09/2020 13:48:22 INFO  com.app.server.handler.common.ResponseHandler : 
+
+24/09/2020 13:48:22 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 401  Unauthorized
+24/09/2020 13:48:22 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"username":"userthirteen","status":"login failed"}
+24/09/2020 13:48:22 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+24/09/2020 13:49:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 24 13:49:00 ICT 2020
+24/09/2020 13:50:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 24 13:50:00 ICT 2020
+24/09/2020 13:51:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 24 13:51:00 ICT 2020
+24/09/2020 13:52:11 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+24/09/2020 13:52:11 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+24/09/2020 13:52:11 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+24/09/2020 13:52:11 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+24/09/2020 13:52:12 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+24/09/2020 13:52:13 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+24/09/2020 13:52:15 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+24/09/2020 13:52:15 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+24/09/2020 13:52:15 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+24/09/2020 13:52:15 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+24/09/2020 13:52:16 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+24/09/2020 13:52:43 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/register *************
+24/09/2020 13:52:43 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userfourteen",
+    "password": "984633"
+}
+
+24/09/2020 13:52:43 INFO  org.hibernate.hql.internal.QueryTranslatorFactoryInitiator : HHH000397: Using ASTQueryTranslatorFactory
+24/09/2020 13:52:44 INFO  com.app.server.handler.common.ResponseHandler : 
+
+24/09/2020 13:52:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+24/09/2020 13:52:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"username":"userfourteen","status":"register successed"}
+24/09/2020 13:52:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+24/09/2020 13:52:57 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+24/09/2020 13:52:57 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+  "username": "userfourteen",
+    "password": "984633"
+}
+
+24/09/2020 13:52:57 INFO  com.app.server.handler.common.ResponseHandler : 
+
+24/09/2020 13:52:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+24/09/2020 13:52:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"username":"userfourteen","status":"login successed"}
+24/09/2020 13:52:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+24/09/2020 13:53:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 24 13:53:00 ICT 2020
+24/09/2020 13:53:12 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/changePassword *************
+24/09/2020 13:53:12 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userfourteen",
+    "password": "984633",
+    "newPassword": "99666"
+}
+
+24/09/2020 13:53:12 INFO  com.app.server.handler.common.ResponseHandler : 
+
+24/09/2020 13:53:12 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+24/09/2020 13:53:12 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"username":"userfourteen","status":"change password successed"}
+24/09/2020 13:53:12 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+

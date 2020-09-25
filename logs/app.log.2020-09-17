@@ -1,0 +1,897 @@
+17/09/2020 11:29:52 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 11:29:52 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 11:29:52 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 11:29:52 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 11:29:53 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 11:51:04 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 11:51:04 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 11:51:04 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 11:51:04 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 11:51:05 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 11:51:06 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 11:51:07 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 11:51:07 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 11:51:07 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 11:51:08 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 11:51:09 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 11:54:03 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 11:54:03 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 11:54:03 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 11:54:03 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 11:54:04 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 11:54:05 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 11:54:06 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 11:54:06 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 11:54:06 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 11:54:06 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 11:54:07 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 11:55:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 11:55:00 ICT 2020
+17/09/2020 11:57:42 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 11:57:42 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 11:57:42 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 11:57:42 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 11:57:47 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 11:57:48 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 11:57:52 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 11:57:52 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 11:57:53 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 11:57:53 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 11:57:54 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 11:58:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 11:58:00 ICT 2020
+17/09/2020 12:00:53 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 12:00:53 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 12:00:53 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 12:00:53 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 12:00:54 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 12:00:55 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 12:00:56 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 12:00:56 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 12:00:56 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 12:00:56 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 12:00:57 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 12:01:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 12:01:00 ICT 2020
+17/09/2020 13:52:08 ERROR com.app.encrypt.AESCrypt : 
+javax.crypto.BadPaddingException: pad block corrupted
+	at org.bouncycastle.jce.provider.JCEBlockCipher.engineDoFinal(Unknown Source)
+	at javax.crypto.Cipher.doFinal(Cipher.java:2164)
+	at com.app.encrypt.AESCrypt.decrypt(AESCrypt.java:83)
+	at com.app.encrypt.AESCrypt.decrypt(AESCrypt.java:69)
+	at com.app.orderservice.Test.main(Test.java:19)
+17/09/2020 13:57:03 ERROR com.app.encrypt.AESCrypt : 
+javax.crypto.BadPaddingException: pad block corrupted
+	at org.bouncycastle.jce.provider.JCEBlockCipher.engineDoFinal(Unknown Source)
+	at javax.crypto.Cipher.doFinal(Cipher.java:2164)
+	at com.app.encrypt.AESCrypt.decrypt(AESCrypt.java:83)
+	at com.app.encrypt.AESCrypt.decrypt(AESCrypt.java:69)
+	at com.app.orderservice.Test.main(Test.java:19)
+17/09/2020 14:07:01 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 14:07:01 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 14:07:01 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 14:07:01 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 14:07:03 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 14:07:03 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 14:07:04 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 14:07:04 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 14:07:04 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 14:07:05 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 14:07:06 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 14:08:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:08:00 ICT 2020
+17/09/2020 14:09:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:09:00 ICT 2020
+17/09/2020 14:10:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:10:00 ICT 2020
+17/09/2020 14:11:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:11:00 ICT 2020
+17/09/2020 14:12:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:12:00 ICT 2020
+17/09/2020 14:13:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:13:00 ICT 2020
+17/09/2020 14:14:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:14:00 ICT 2020
+17/09/2020 14:15:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:15:00 ICT 2020
+17/09/2020 14:16:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:16:00 ICT 2020
+17/09/2020 14:17:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:17:00 ICT 2020
+17/09/2020 14:18:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:18:00 ICT 2020
+17/09/2020 14:19:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:19:00 ICT 2020
+17/09/2020 14:19:31 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  //webhook/api/notifyOrder/hungdt *************
+17/09/2020 14:19:31 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userfive",
+    "password": "5768724234",
+    "newPassword": "12345"
+}
+
+17/09/2020 14:19:31 INFO  com.app.server.handler.common.ResponseHandler : 
+
+17/09/2020 14:19:31 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 404  Not Found
+17/09/2020 14:19:31 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {}
+17/09/2020 14:19:31 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 14:20:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:20:00 ICT 2020
+17/09/2020 14:20:52 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/notifyOrder/hungdt *************
+17/09/2020 14:20:52 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userfive",
+    "password": "5768724234",
+    "newPassword": "12345"
+}
+
+17/09/2020 14:20:52 INFO  com.app.server.handler.common.ResponseHandler : 
+
+17/09/2020 14:20:52 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 404  Not Found
+17/09/2020 14:20:52 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {}
+17/09/2020 14:20:52 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 14:21:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:21:00 ICT 2020
+17/09/2020 14:22:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:22:00 ICT 2020
+17/09/2020 14:23:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:23:00 ICT 2020
+17/09/2020 14:24:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:24:00 ICT 2020
+17/09/2020 14:25:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:25:00 ICT 2020
+17/09/2020 14:26:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:26:00 ICT 2020
+17/09/2020 14:27:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:27:00 ICT 2020
+17/09/2020 14:28:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:28:00 ICT 2020
+17/09/2020 14:29:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:29:00 ICT 2020
+17/09/2020 14:30:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:30:00 ICT 2020
+17/09/2020 14:31:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:31:00 ICT 2020
+17/09/2020 14:32:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:32:00 ICT 2020
+17/09/2020 14:33:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:33:00 ICT 2020
+17/09/2020 14:34:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:34:00 ICT 2020
+17/09/2020 14:35:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:35:00 ICT 2020
+17/09/2020 14:36:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:36:00 ICT 2020
+17/09/2020 14:37:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:37:00 ICT 2020
+17/09/2020 14:38:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:38:00 ICT 2020
+17/09/2020 14:39:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:39:00 ICT 2020
+17/09/2020 14:40:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:40:00 ICT 2020
+17/09/2020 14:41:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:41:00 ICT 2020
+17/09/2020 14:42:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:42:00 ICT 2020
+17/09/2020 14:43:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:43:00 ICT 2020
+17/09/2020 14:44:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:44:00 ICT 2020
+17/09/2020 14:45:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:45:00 ICT 2020
+17/09/2020 14:46:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:46:00 ICT 2020
+17/09/2020 14:47:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:47:00 ICT 2020
+17/09/2020 14:48:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:48:00 ICT 2020
+17/09/2020 14:49:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:49:00 ICT 2020
+17/09/2020 14:50:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:50:00 ICT 2020
+17/09/2020 14:51:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 14:51:00 ICT 2020
+17/09/2020 15:04:58 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 15:04:58 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 15:04:58 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 15:04:58 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 15:04:59 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 15:04:59 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 15:05:00 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 15:05:01 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 15:05:01 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 15:05:01 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 15:05:02 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 15:05:11 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /login *************
+17/09/2020 15:05:11 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "66568"
+}
+
+17/09/2020 15:05:11 INFO  com.app.server.handler.common.ResponseHandler : 
+
+17/09/2020 15:05:11 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 404  Not Found
+17/09/2020 15:05:11 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {}
+17/09/2020 15:05:11 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 15:06:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:06:00 ICT 2020
+17/09/2020 15:07:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:07:00 ICT 2020
+17/09/2020 15:07:32 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 15:07:32 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 15:07:32 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 15:07:32 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 15:07:33 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 15:07:33 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 15:07:34 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 15:07:34 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 15:07:34 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 15:07:35 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 15:07:36 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 15:07:44 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /login *************
+17/09/2020 15:07:44 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "66568"
+}
+
+17/09/2020 15:07:44 INFO  com.app.server.handler.common.ResponseHandler : 
+
+17/09/2020 15:07:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 404  Not Found
+17/09/2020 15:07:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {}
+17/09/2020 15:07:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 15:08:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:08:00 ICT 2020
+17/09/2020 15:08:27 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 15:08:27 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "66568"
+}
+
+17/09/2020 15:08:27 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.ClassCastException: io.vertx.rxjava.core.http.HttpServerRequest cannot be cast to io.vertx.core.http.HttpServerRequest
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:27)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:272)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+17/09/2020 15:08:28 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 15:08:28 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 15:08:28 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 15:09:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:09:00 ICT 2020
+17/09/2020 15:16:13 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 15:16:13 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 15:16:13 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 15:16:13 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 15:16:14 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 15:16:15 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 15:16:16 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 15:16:16 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 15:16:16 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 15:16:16 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 15:16:17 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 15:16:22 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 15:16:22 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "66568"
+}
+
+17/09/2020 15:16:22 INFO  com.app.server.handler.common.ResponseHandler : 
+
+17/09/2020 15:16:22 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 404  Not Found
+17/09/2020 15:16:22 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {}
+17/09/2020 15:16:22 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 15:36:54 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 15:36:54 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 15:36:54 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 15:36:54 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 15:36:56 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 15:36:56 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 15:36:57 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 15:36:57 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 15:36:57 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 15:36:58 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 15:36:59 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 15:37:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:37:00 ICT 2020
+17/09/2020 15:37:13 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 15:37:13 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "66568"
+}
+
+17/09/2020 15:37:13 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.dao.hibernate.GenericDaoHibernate.findById(GenericDaoHibernate.java:94)
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:36)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:272)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+17/09/2020 15:37:13 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 15:37:13 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 15:37:13 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 15:38:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:38:00 ICT 2020
+17/09/2020 15:39:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:39:00 ICT 2020
+17/09/2020 15:40:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:40:00 ICT 2020
+17/09/2020 15:41:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:41:00 ICT 2020
+17/09/2020 15:42:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:42:00 ICT 2020
+17/09/2020 15:43:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:43:00 ICT 2020
+17/09/2020 15:46:31 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 15:46:31 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 15:46:31 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 15:46:31 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 15:46:32 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 15:46:32 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 15:46:34 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 15:46:34 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 15:46:34 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 15:46:34 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 15:46:35 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 15:46:36 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 15:46:36 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "66568"
+}
+
+17/09/2020 15:46:36 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:36)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:272)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+17/09/2020 15:46:36 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 15:46:36 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 15:46:36 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 15:47:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:47:00 ICT 2020
+17/09/2020 15:48:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:48:00 ICT 2020
+17/09/2020 15:49:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:49:00 ICT 2020
+17/09/2020 15:50:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:50:00 ICT 2020
+17/09/2020 15:51:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:51:00 ICT 2020
+17/09/2020 15:52:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:52:00 ICT 2020
+17/09/2020 15:53:40 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 15:53:40 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 15:53:40 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 15:53:41 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 15:53:42 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 15:53:42 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 15:53:44 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 15:53:44 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 15:53:44 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 15:53:44 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 15:53:46 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 15:53:53 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 15:53:53 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "66568"
+}
+
+17/09/2020 15:53:53 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:36)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:272)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+17/09/2020 15:53:53 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 15:53:53 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 15:53:53 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 15:54:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:54:00 ICT 2020
+17/09/2020 15:55:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:55:00 ICT 2020
+17/09/2020 15:56:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:56:00 ICT 2020
+17/09/2020 15:57:18 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 15:57:18 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 15:57:18 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 15:57:18 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 15:57:19 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 15:57:19 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 15:57:21 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 15:57:21 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 15:57:21 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 15:57:21 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 15:57:22 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 15:57:30 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 15:57:30 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "66568"
+}
+
+17/09/2020 15:57:31 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.dao.hibernate.GenericDaoHibernate.save(GenericDaoHibernate.java:69)
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:38)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:272)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+17/09/2020 15:57:31 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 15:57:31 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 15:57:31 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 15:58:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 15:58:00 ICT 2020
+17/09/2020 16:17:37 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 16:17:37 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 16:17:37 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 16:17:37 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 16:17:39 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 16:17:39 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 16:17:41 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 16:17:41 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 16:17:41 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 16:17:41 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 16:17:42 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 16:17:50 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 16:17:50 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "66568"
+}
+
+17/09/2020 16:18:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:18:00 ICT 2020
+17/09/2020 16:18:00 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+17/09/2020 16:18:01 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 16:18:01 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 16:18:01 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 16:24:41 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 16:24:41 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 16:24:41 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 16:24:41 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 16:24:42 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 16:24:43 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 16:24:44 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 16:24:44 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 16:24:44 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 16:24:44 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 16:24:45 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 16:24:55 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 16:24:55 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "66568"
+}
+
+17/09/2020 16:24:55 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.dao.hibernate.GenericDaoHibernate.findById(GenericDaoHibernate.java:94)
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:37)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:272)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+17/09/2020 16:24:55 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 16:24:55 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 16:24:55 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 16:25:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:25:00 ICT 2020
+17/09/2020 16:25:31 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 16:25:31 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 16:25:31 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 16:25:32 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 16:25:33 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 16:25:33 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 16:25:35 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 16:25:35 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 16:25:35 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 16:25:35 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 16:25:36 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 16:25:47 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 16:25:47 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "66568"
+}
+
+17/09/2020 16:25:57 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+17/09/2020 16:25:57 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 16:25:57 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 16:25:57 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 16:26:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:26:00 ICT 2020
+17/09/2020 16:26:19 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.dao.hibernate.GenericDaoHibernate.findById(GenericDaoHibernate.java:94)
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:37)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:272)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+17/09/2020 16:26:35 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 16:26:35 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 16:26:35 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 16:26:35 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 16:26:37 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 16:26:38 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 16:26:39 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 16:26:39 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 16:26:39 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 16:26:40 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 16:26:41 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 16:26:52 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 16:26:52 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "66568"
+}
+
+17/09/2020 16:27:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:27:00 ICT 2020
+17/09/2020 16:27:02 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+17/09/2020 16:27:02 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 16:27:02 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 16:27:02 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 16:28:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:28:00 ICT 2020
+17/09/2020 16:29:52 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 16:29:52 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 16:29:52 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 16:29:52 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 16:29:53 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 16:29:53 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 16:29:55 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 16:29:55 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 16:29:55 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 16:29:55 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 16:29:56 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 16:30:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:30:00 ICT 2020
+17/09/2020 16:30:17 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 16:30:17 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "66568"
+}
+
+17/09/2020 16:30:18 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.dao.hibernate.GenericDaoHibernate.findById(GenericDaoHibernate.java:94)
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:37)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:272)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+17/09/2020 16:30:18 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 16:30:18 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 16:30:18 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 16:31:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:31:00 ICT 2020
+17/09/2020 16:32:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:32:00 ICT 2020
+17/09/2020 16:33:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:33:00 ICT 2020
+17/09/2020 16:34:04 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 16:34:04 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 16:34:04 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 16:34:04 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 16:34:05 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 16:34:06 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 16:34:07 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 16:34:07 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 16:34:07 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 16:34:07 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 16:34:08 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 16:34:18 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 16:34:18 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "66568"
+}
+
+17/09/2020 16:34:18 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:37)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:272)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+17/09/2020 16:34:18 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 16:34:18 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 16:34:18 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 16:35:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:35:00 ICT 2020
+17/09/2020 16:36:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:36:00 ICT 2020
+17/09/2020 16:37:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:37:00 ICT 2020
+17/09/2020 16:38:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:38:00 ICT 2020
+17/09/2020 16:43:14 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 16:43:14 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 16:43:14 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 16:43:14 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 16:43:16 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 16:43:16 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 16:43:17 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 16:43:17 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 16:43:17 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 16:43:17 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 16:43:18 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 16:43:26 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 16:43:26 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "755435"
+}
+
+17/09/2020 16:43:26 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:37)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:272)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+17/09/2020 16:43:26 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 16:43:26 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 16:43:26 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 16:44:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:44:00 ICT 2020
+17/09/2020 16:45:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:45:00 ICT 2020
+17/09/2020 16:46:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:46:00 ICT 2020
+17/09/2020 16:47:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:47:00 ICT 2020
+17/09/2020 16:48:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:48:00 ICT 2020
+17/09/2020 16:49:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:49:00 ICT 2020
+17/09/2020 16:50:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 16:50:00 ICT 2020
+17/09/2020 16:51:25 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 16:51:25 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 16:51:25 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 16:51:25 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 16:51:27 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 16:51:27 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 16:51:28 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 16:51:28 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 16:51:28 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 16:51:29 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 16:51:30 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 16:51:39 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 16:51:39 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "755435"
+}
+
+17/09/2020 16:51:39 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:37)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:272)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+17/09/2020 16:51:39 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 16:51:39 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 16:51:39 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 16:54:30 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 16:54:30 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 16:54:30 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 16:54:30 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 16:54:31 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 16:54:31 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 16:54:32 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 16:54:32 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 16:54:32 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 16:54:33 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 16:54:34 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 16:54:44 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 16:54:44 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "755435"
+}
+
+17/09/2020 16:54:44 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:37)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:272)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+17/09/2020 16:54:44 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 16:54:44 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 16:54:44 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 17:02:01 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 17:02:01 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 17:02:01 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 17:02:01 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 17:02:03 WARN  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl : HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+17/09/2020 17:02:03 INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl : HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/testbackend?zeroDateTimeBehavior=convertToNull]
+17/09/2020 17:02:03 INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl : HHH10001001: Connection properties: {handling_mode=DELAYED_ACQUISITION_AND_HOLD, user=root}
+17/09/2020 17:02:03 INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl : HHH10001003: Autocommit mode: false
+17/09/2020 17:02:03 INFO  org.hibernate.engine.jdbc.connections.internal.PooledConnections : HHH000115: Hibernate connection pool size: 20 (min=1)
+17/09/2020 17:02:03 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 17:02:04 INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl : HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/testbackend?zeroDateTimeBehavior=convertToNull]
+17/09/2020 17:04:57 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 17:04:57 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 17:04:57 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 17:04:57 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 17:04:59 WARN  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000472: Hikari properties were encountered, but the Hikari ConnectionProvider was not found on the classpath; these properties are going to be ignored.
+17/09/2020 17:04:59 WARN  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl : HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+17/09/2020 17:04:59 INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl : HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/testbackend?zeroDateTimeBehavior=convertToNull]
+17/09/2020 17:04:59 INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl : HHH10001001: Connection properties: {handling_mode=DELAYED_ACQUISITION_AND_HOLD, user=root, autocommit=true, release_mode=auto}
+17/09/2020 17:04:59 INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl : HHH10001003: Autocommit mode: true
+17/09/2020 17:04:59 INFO  org.hibernate.engine.jdbc.connections.internal.PooledConnections : HHH000115: Hibernate connection pool size: 20 (min=1)
+17/09/2020 17:04:59 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 17:05:00 INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl : HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/testbackend?zeroDateTimeBehavior=convertToNull]
+17/09/2020 17:09:58 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 17:09:58 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 17:09:58 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 17:09:58 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 17:10:00 WARN  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000472: Hikari properties were encountered, but the Hikari ConnectionProvider was not found on the classpath; these properties are going to be ignored.
+17/09/2020 17:10:00 WARN  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl : HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+17/09/2020 17:10:00 INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl : HHH10001005: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/testbackend?zeroDateTimeBehavior=convertToNull]
+17/09/2020 17:10:00 INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl : HHH10001001: Connection properties: {handling_mode=DELAYED_ACQUISITION_AND_HOLD, user=root, autocommit=true, release_mode=auto}
+17/09/2020 17:10:00 INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl : HHH10001003: Autocommit mode: true
+17/09/2020 17:10:00 INFO  org.hibernate.engine.jdbc.connections.internal.PooledConnections : HHH000115: Hibernate connection pool size: 20 (min=1)
+17/09/2020 17:10:00 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 17:10:01 INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl : HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/testbackend?zeroDateTimeBehavior=convertToNull]
+17/09/2020 17:12:28 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 17:12:28 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 17:12:28 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 17:12:29 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 17:12:30 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 17:14:14 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 17:14:14 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 17:14:14 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 17:14:14 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 17:14:15 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 17:14:16 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 17:14:17 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 17:14:17 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 17:14:17 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 17:14:17 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 17:14:18 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 17:14:28 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 17:14:28 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "755435"
+}
+
+17/09/2020 17:14:28 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:37)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:272)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+17/09/2020 17:14:28 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 17:14:28 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 17:14:28 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 17:15:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:15:00 ICT 2020
+17/09/2020 17:16:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:16:00 ICT 2020
+17/09/2020 17:17:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:17:00 ICT 2020
+17/09/2020 17:18:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:18:00 ICT 2020
+17/09/2020 17:19:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:19:00 ICT 2020
+17/09/2020 17:20:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:20:00 ICT 2020
+17/09/2020 17:21:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:21:00 ICT 2020
+17/09/2020 17:22:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:22:00 ICT 2020
+17/09/2020 17:23:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:23:00 ICT 2020
+17/09/2020 17:24:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:24:00 ICT 2020
+17/09/2020 17:25:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:25:00 ICT 2020
+17/09/2020 17:26:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:26:00 ICT 2020
+17/09/2020 17:27:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:27:00 ICT 2020
+17/09/2020 17:27:39 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 17:27:39 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 17:27:39 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 17:27:39 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 17:27:40 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 17:27:41 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 17:27:42 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 17:27:42 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 17:27:42 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 17:27:42 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 17:27:43 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 17:27:54 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 17:27:54 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "755435"
+}
+
+17/09/2020 17:27:54 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:44)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:272)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+17/09/2020 17:27:54 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 17:27:54 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 17:27:54 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 17:28:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:28:00 ICT 2020
+17/09/2020 17:31:11 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 17:31:11 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 17:31:11 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 17:31:11 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 17:31:12 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 17:31:13 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 17:31:14 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 17:31:14 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 17:31:14 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 17:31:14 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 17:31:15 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 17:31:23 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 17:31:23 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "755435"
+}
+
+17/09/2020 17:31:23 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:44)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:272)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+17/09/2020 17:31:23 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 17:31:23 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 17:31:23 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 17:32:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:32:00 ICT 2020
+17/09/2020 17:33:15 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 17:33:15 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 17:33:15 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 17:33:15 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 17:33:16 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 17:33:16 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 17:33:18 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 17:33:18 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 17:33:18 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 17:33:18 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 17:33:19 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 17:33:27 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 17:33:27 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "755435"
+}
+
+17/09/2020 17:33:27 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:45)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:272)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+17/09/2020 17:33:27 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+17/09/2020 17:33:27 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+17/09/2020 17:33:27 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 17:34:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:34:00 ICT 2020
+17/09/2020 17:35:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:35:00 ICT 2020
+17/09/2020 17:36:11 INFO  org.hibernate.Version : HHH000412: Hibernate Core {5.2.10.Final}
+17/09/2020 17:36:11 INFO  org.hibernate.cfg.Environment : HHH000206: hibernate.properties not found
+17/09/2020 17:36:11 WARN  org.hibernate.boot.jaxb.internal.stax.LocalXmlResourceResolver : HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+17/09/2020 17:36:12 INFO  org.hibernate.annotations.common.reflection.java.JavaReflectionManager : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+17/09/2020 17:36:13 INFO  org.hibernate.engine.jdbc.connections.internal.ConnectionProviderInitiator : HHH000130: Instantiating explicit connection provider: com.zaxxer.hikari.hibernate.HikariConnectionProvider
+17/09/2020 17:36:13 INFO  org.hibernate.dialect.Dialect : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+17/09/2020 17:36:14 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+17/09/2020 17:36:14 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+17/09/2020 17:36:14 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+17/09/2020 17:36:14 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+17/09/2020 17:36:15 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+17/09/2020 17:36:27 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* PUT  /webhook/api/login *************
+17/09/2020 17:36:27 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "username": "userthree",
+    "password": "755435"
+}
+
+17/09/2020 17:36:27 INFO  com.app.server.handler.common.ResponseHandler : 
+
+17/09/2020 17:36:27 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+17/09/2020 17:36:27 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: kkkm
+17/09/2020 17:36:27 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+17/09/2020 17:37:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:37:00 ICT 2020
+17/09/2020 17:38:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:38:00 ICT 2020
+17/09/2020 17:39:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:39:00 ICT 2020
+17/09/2020 17:40:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:40:00 ICT 2020
+17/09/2020 17:41:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:41:00 ICT 2020
+17/09/2020 17:42:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:42:00 ICT 2020
+17/09/2020 17:43:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:43:00 ICT 2020
+17/09/2020 17:44:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:44:00 ICT 2020
+17/09/2020 17:45:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Sep 17 17:45:00 ICT 2020
