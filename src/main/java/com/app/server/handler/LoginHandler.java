@@ -29,16 +29,18 @@ public class LoginHandler implements Handler<RoutingContext> {
                 JsonObject jsonResponse = new JsonObject();
                 //lay tham so username, password tu path
                 JsonObject jsonRequest = routingContext.getBodyAsJson();
-                String username = jsonRequest.getString("username");
+                String username = jsonRequest.getString("name");
+                String email = jsonRequest.getString("email");
                 String password = Md5Code.md5(jsonRequest.getString("password"));
                 //String data = "login failed";
                 JsonObject data = new JsonObject();
-                data.put("username", username);
+                data.put("name", username);
                 data.put("status", "login failed");
                 routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
                 routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
-                //List<Users> list = (List<Users>) clipServices.findAllByProperty("from Users where username = '" + username + "'", null, 0, Users.class, 0);
+               
                 List<Users> list = (List<Users>) clipServices.findAllByProperty("from Users", null, 0, Users.class, 0);
+                 //Users là class chứ ko phải là table trong database 
                 System.out.println("users size: " + list.size());
 //                Users resultUser = list.get(0);
 //                if (resultUser.getUsername().equals(username) && resultUser.getMd5Password().equals(password)) {
