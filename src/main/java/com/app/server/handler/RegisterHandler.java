@@ -13,8 +13,12 @@ import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
 import io.vertx.rxjava.core.http.HttpServerRequest;
 import io.vertx.rxjava.ext.web.RoutingContext;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import org.apache.commons.validator.routines.EmailValidator;
 
 public class RegisterHandler implements Handler<RoutingContext> {
 
@@ -47,9 +51,12 @@ public class RegisterHandler implements Handler<RoutingContext> {
                 if (!password.equals(reTypePassword)) {
                     duplicate = true;
                     data.put("reason", "password and retype password are not matched");
-                }
-                if (!duplicate) {
+                } else if (!duplicate && isValid(email)) {
+
                     Users newUser = new Users(uuid, name, email, password);
+//                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+//                    Date date = new Date();
+//                    newUser.setCreatedAt(date);
                     clipServices.save(newUser, uuid, Users.class, 0);
                     data.put("message", "register successed");
                     routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.CREATED.code());
@@ -80,4 +87,9 @@ public class RegisterHandler implements Handler<RoutingContext> {
         RegisterHandler.clipServices = clipServices;
     }
 
+    public static boolean isValid(String email) {
+        boolean valid = false;
+        valid = EmailValidator.getInstance().isValid(email);
+        return valid;
+    }
 }

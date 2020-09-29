@@ -1,2 +1,0 @@
-# tts
-demo connect database 

@@ -29,15 +29,15 @@ public class ChangePasswordHandler implements Handler<RoutingContext> {
                 JsonObject jsonResponse = new JsonObject();
                 //lay tham so username, password tu path
                 JsonObject jsonRequest = routingContext.getBodyAsJson();
-                String username = jsonRequest.getString("username");
+                String username = jsonRequest.getString("email");
                 String password = Md5Code.md5(jsonRequest.getString("password"));
                 String newPassword = jsonRequest.getString("newPassword");
                 JsonObject data = new JsonObject();
-//                data.put("username", username);
+//                data.put("email", email);
 //                data.put("status","change password failed");
 //                routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
 //                routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
-//                List<Users> list = (List<Users>) clipServices.findAllByProperty("from Users where username = '" + username + "'", null, 0, Users.class, 0);
+//                List<Users> list = (List<Users>) clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0, Users.class, 0);
 //                if (list.size() > 0) {
 //                    Users resultUser = list.get(0);
 //                    if (resultUser.getUsername().equals(username) && resultUser.getMd5Password().equals(password)) {

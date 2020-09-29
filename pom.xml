@@ -189,17 +189,12 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.21</version>
         </dependency>
-        <!--        <dependency>
-            <groupId>unknown.binary</groupId>
-            <artifactId>mysql-connector-java-5.1.23-bin</artifactId>
-            <version>SNAPSHOT</version>
+        
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>1.4.1</version>
         </dependency>
-        -->
-        <!--        <dependency>
-            <groupId>unknown.binary</groupId>
-            <artifactId>mysql-connector-java-8.0.13</artifactId>
-            <version>SNAPSHOT</version>
-        </dependency>-->
     </dependencies>
     
     <build>

@@ -14,6 +14,7 @@ import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
 import io.vertx.rxjava.core.http.HttpServerRequest;
 import io.vertx.rxjava.ext.web.RoutingContext;
+import io.vertx.rxjava.ext.web.Session;
 import java.util.List;
 
 public class LoginHandler implements Handler<RoutingContext> {
@@ -25,29 +26,42 @@ public class LoginHandler implements Handler<RoutingContext> {
 
         routingContext.vertx().executeBlocking(future -> {
             try {
+                Session session = routingContext.session();
                 HttpServerRequest httpServerRequest = routingContext.request();
+
                 JsonObject jsonResponse = new JsonObject();
                 //lay tham so username, password tu path
                 JsonObject jsonRequest = routingContext.getBodyAsJson();
-                String username = jsonRequest.getString("name");
+                //String username = jsonRequest.getString("name");
                 String email = jsonRequest.getString("email");
-                String password = Md5Code.md5(jsonRequest.getString("password"));
+                //String password = Md5Code.md5(jsonRequest.getString("password"));
+                String password = jsonRequest.getString("password");
                 //String data = "login failed";
                 JsonObject data = new JsonObject();
-                data.put("name", username);
+                data.put("email", email);
                 data.put("status", "login failed");
                 routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
                 routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
-               
-                List<Users> list = (List<Users>) clipServices.findAllByProperty("from Users", null, 0, Users.class, 0);
-                 //Users là class chứ ko phải là table trong database 
+
+                List<Users> list = (List<Users>) clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0, Users.class, 0);
+                //Users là class chứ ko phải là table trong database 
                 System.out.println("users size: " + list.size());
-//                Users resultUser = list.get(0);
-//                if (resultUser.getUsername().equals(username) && resultUser.getMd5Password().equals(password)) {
-//                    data.put("status", "login successed");
-//                    routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
-//                    routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
-//                }
+                if (list.size() > 0) {
+                    Users userResult = list.get(0);
+                    if (userResult.getPassword().equals(password)) {
+                        if (session != null) {
+                            session.regenerateId();
+                            System.out.println(session.regenerateId().id());
+                            session.put("email", email);
+                            System.out.println("Session cookie " + routingContext.getCookie("vertx-web.session").getValue());
+                        } else {
+                            System.out.println("session is null");
+                        }
+                        data.put("status", "login successed");
+                        routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
+                        routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
+                    }
+                }
                 routingContext.put(AppParams.RESPONSE_DATA, data);
                 future.complete();
             } catch (Exception e) {
