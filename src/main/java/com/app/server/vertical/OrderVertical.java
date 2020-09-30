@@ -7,13 +7,13 @@ package com.app.server.vertical;
 
 import com.app.server.handler.ChangePasswordHandler;
 import com.app.server.handler.LoginHandler;
+import com.app.server.handler.OptionHandler;
 import com.app.server.handler.OrderNotifyHandler;
 import com.app.server.handler.RegisterHandler;
 import com.app.server.handler.WalletInfoHandler;
 import com.app.server.handler.common.ExceptionHandler;
 import com.app.server.handler.common.RequestLoggingHandler;
 import com.app.server.handler.common.ResponseHandler;
-import com.app.server.handler.common.SessionsHandler;
 import com.app.util.LoggerInterface;
 import com.app.util.StringPool;
 import io.vertx.core.http.HttpClientOptions;
@@ -81,8 +81,9 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
         super.start();
 
         Router router = Router.router(vertx);
-        router.route().handler(BodyHandler.create());
         router.route().handler(CookieHandler.create());
+        router.route().handler(BodyHandler.create());
+
         router.route().handler(ResponseTimeHandler.create());
         router.route().handler(TimeoutHandler.create(connectionTimeOut));
         router.route().handler(new RequestLoggingHandler());
@@ -104,10 +105,11 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
         httpServerOptions.setPort(serverPort);
         httpServerOptions.setTcpKeepAlive(connectionKeepAlive);
         httpServerOptions.setIdleTimeout(connectionIdleTimeOut);
-
+        
         HttpServer httpServer = vertx.createHttpServer(httpServerOptions);
 
         httpServer.requestHandler(router);
+        
         httpServer.listen(result -> {
             if (result.failed()) {
                 logger.error("[INIT] START ORDER API ERROR " + result.cause());
@@ -122,6 +124,7 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
         Router router = Router.router(vertx);
         //xet uri de xem handler nao se bat login, handler nao khong bat login
         router.route(HttpMethod.POST, "/notifyOrder/:source").handler(new OrderNotifyHandler());
+        router.route(HttpMethod.OPTIONS, "/login").handler(new OptionHandler());
         router.route(HttpMethod.POST, "/login").handler(new LoginHandler());
         router.route(HttpMethod.POST, "/register").handler(new RegisterHandler());
         router.route(HttpMethod.POST, "/changePassword").handler(new ChangePasswordHandler());

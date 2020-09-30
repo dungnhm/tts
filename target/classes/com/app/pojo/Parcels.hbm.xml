@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 25, 2020 2:22:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.app.pojo.Parcels" table="parcels" catalog="tts">
+        <id name="id" type="string">
+            <column name="id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="java.lang.Integer">
+            <column name="version" />
+        </version>
+        <property name="shipmentId" type="string">
+            <column name="shipment_id" length="32" />
+        </property>
+        <property name="length" type="java.lang.Float">
+            <column name="length" precision="12" scale="0" />
+        </property>
+        <property name="width" type="java.lang.Float">
+            <column name="width" precision="12" scale="0" />
+        </property>
+        <property name="height" type="java.lang.Float">
+            <column name="height" precision="12" scale="0" />
+        </property>
+        <property name="weight" type="float">
+            <column name="weight" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="predefinedPackage" type="string">
+            <column name="predefined_package" length="32" />
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="19" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="created_by" length="32" />
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="19" />
+        </property>
+        <property name="updatedBy" type="string">
+            <column name="updated_by" length="32" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -29,6 +29,7 @@ public class ResponseHandler implements Handler<RoutingContext>, LoggerInterface
         httpServerResponse.setStatusMessage(responseDesc);
         httpServerResponse.putHeader(HttpHeaders.CONTENT_TYPE.toString(), AppConstants.CONTENT_TYPE_APPLICATION_JSON);
         httpServerResponse.putHeader(HttpHeaders.CONTENT_LENGTH.toString(), AppUtil.getContentLength(responseBody));
+        httpServerResponse.putHeader("Access-Control-Allow-Origin", "true");
         logger.info(StringPool.NEW_LINE);
         logger.info("[RESPONSE] " + responseCode + StringPool.DOUBLE_SPACE + responseDesc);
         String responseBodyLog = responseBody;

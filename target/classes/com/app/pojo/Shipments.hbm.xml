@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 25, 2020 2:22:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.app.pojo.Shipments" table="shipments" catalog="tts">
+        <id name="id" type="string">
+            <column name="id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="java.lang.Integer">
+            <column name="version" />
+        </version>
+        <property name="fromAddress" type="string">
+            <column name="from_address" length="32" />
+        </property>
+        <property name="toAddress" type="string">
+            <column name="to_address" length="32" />
+        </property>
+        <property name="carrierId" type="string">
+            <column name="carrier_id" length="32" />
+        </property>
+        <property name="appliedFee" type="big_decimal">
+            <column name="applied_fee" precision="12" />
+        </property>
+        <property name="actualFee" type="big_decimal">
+            <column name="actual_fee" precision="12" />
+        </property>
+        <property name="discount" type="big_decimal">
+            <column name="discount" precision="12" />
+        </property>
+        <property name="currency" type="string">
+            <column name="currency" length="5" />
+        </property>
+        <property name="payload" type="string">
+            <column name="payload" length="1073741824" />
+        </property>
+        <property name="financialStatus" type="string">
+            <column name="financial_status" length="10" />
+        </property>
+        <property name="shippingStatus" type="string">
+            <column name="shipping_status" length="10" />
+        </property>
+        <property name="shippingDesc" type="string">
+            <column name="shipping_desc" />
+        </property>
+        <property name="trackingCode" type="string">
+            <column name="tracking_code" length="50" />
+        </property>
+        <property name="trackingUrl" type="string">
+            <column name="tracking_url" />
+        </property>
+        <property name="labelUrl" type="string">
+            <column name="label_url" />
+        </property>
+        <property name="refund" type="java.lang.Integer">
+            <column name="refund" />
+        </property>
+        <property name="trackers" type="string">
+            <column name="trackers" length="1073741824" />
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="19" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="created_by" length="32" />
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="19" />
+        </property>
+        <property name="updatedBy" type="string">
+            <column name="updated_by" length="32" />
+        </property>
+        <property name="paymentAt" type="timestamp">
+            <column name="payment_at" length="19" />
+        </property>
+        <property name="deliveryAt" type="timestamp">
+            <column name="delivery_at" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

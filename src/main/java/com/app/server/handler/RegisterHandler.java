@@ -36,7 +36,7 @@ public class RegisterHandler implements Handler<RoutingContext> {
                 String name = jsonRequest.getString("name");
                 String password = jsonRequest.getString("password");
                 String email = jsonRequest.getString("email");
-                String reTypePassword = jsonRequest.getString("reTypePassword");
+                String confirmPassword = jsonRequest.getString("confirmPassword");
                 JsonObject data = new JsonObject();
                 data.put("email", email);
                 List<Users> list = (List<Users>) clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0, Users.class, 0);
@@ -48,15 +48,15 @@ public class RegisterHandler implements Handler<RoutingContext> {
                     duplicate = true;
                     data.put("reason", "email is duplicated");
                 }
-                if (!password.equals(reTypePassword)) {
+                if (!password.equals(confirmPassword)) {
                     duplicate = true;
-                    data.put("reason", "password and retype password are not matched");
+                    data.put("reason", "password and confirm password are not matched");
                 } else if (!duplicate && isValid(email)) {
 
                     Users newUser = new Users(uuid, name, email, password);
-//                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-//                    Date date = new Date();
-//                    newUser.setCreatedAt(date);
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                    Date date = new Date();
+                    newUser.setCreatedAt(date);
                     clipServices.save(newUser, uuid, Users.class, 0);
                     data.put("message", "register successed");
                     routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.CREATED.code());
