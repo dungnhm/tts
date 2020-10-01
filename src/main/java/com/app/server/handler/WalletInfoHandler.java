@@ -8,6 +8,7 @@ package com.app.server.handler;
 import com.app.encode.Md5Code;
 import com.app.models.ClipServices;
 import com.app.pojo.Users;
+import com.app.session.redis.SessionStore;
 import com.app.util.AppParams;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
@@ -17,7 +18,7 @@ import io.vertx.rxjava.ext.web.RoutingContext;
 import io.vertx.rxjava.ext.web.Session;
 import java.util.List;
 
-public class WalletInfoHandler implements Handler<RoutingContext> {
+public class WalletInfoHandler implements Handler<RoutingContext>, SessionStore {
 
     static ClipServices clipServices;
 
@@ -26,11 +27,15 @@ public class WalletInfoHandler implements Handler<RoutingContext> {
 
         routingContext.vertx().executeBlocking(future -> {
             try {
-                Session session = routingContext.session();
-                System.out.println(session.oldId());
-                String email = session.get("email");
-                System.out.println(email);
-                System.out.println("Session cookie " + routingContext.getCookie("vertx-web.session").getValue());
+                HttpServerRequest httpServerRequest = routingContext.request();
+                String email = httpServerRequest.getParam("email");
+                
+                JsonObject data = new JsonObject();
+                data.put("email", email);
+                data.put("ssid", jedis.get("id"));
+                data.put("ssemail", jedis.get("email"));
+                data.put("ssid2", jedis.hgetAll(email).get("id"));
+                routingContext.put(AppParams.RESPONSE_DATA, data);
                 future.complete();
             } catch (Exception e) {
                 routingContext.fail(e);

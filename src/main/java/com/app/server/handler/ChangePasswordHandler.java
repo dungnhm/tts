@@ -29,26 +29,26 @@ public class ChangePasswordHandler implements Handler<RoutingContext> {
                 JsonObject jsonResponse = new JsonObject();
                 //lay tham so username, password tu path
                 JsonObject jsonRequest = routingContext.getBodyAsJson();
-                String username = jsonRequest.getString("email");
-                String password = Md5Code.md5(jsonRequest.getString("password"));
+                String email = jsonRequest.getString("email");
+                String password = jsonRequest.getString("password");
                 String newPassword = jsonRequest.getString("newPassword");
                 JsonObject data = new JsonObject();
-//                data.put("email", email);
-//                data.put("status","change password failed");
-//                routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
-//                routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
-//                List<Users> list = (List<Users>) clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0, Users.class, 0);
-//                if (list.size() > 0) {
-//                    Users resultUser = list.get(0);
-//                    if (resultUser.getUsername().equals(username) && resultUser.getMd5Password().equals(password)) {
-//                        // "login successed";
-//                        Users newUser = new Users(resultUser.getId(), username, newPassword);
-//                        clipServices.update(newUser, newUser.getId(), Users.class, 0);
-//                        data.put("status","change password successed");
-//                        routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
-//                        routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
-//                    }
-//                }
+                data.put("email", email);
+                data.put("status", "change password failed");
+                routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
+                routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
+                List<Users> list = (List<Users>) clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0, Users.class, 0);
+                if (list.size() > 0) {
+                    Users resultUser = list.get(0);
+                    if (resultUser.getEmail().equals(email) && resultUser.getPassword().equals(password)) {
+                        // "login successed";
+                        Users newUser = new Users(resultUser.getId(), resultUser.getName(), email, newPassword);
+                        clipServices.update(newUser, newUser.getId(), Users.class, 0);
+                        data.put("status", "change password successed");
+                        routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
+                        routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
+                    }
+                }
                 routingContext.put(AppParams.RESPONSE_DATA, data);
                 future.complete();
             } catch (Exception e) {

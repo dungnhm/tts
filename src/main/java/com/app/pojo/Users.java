@@ -43,7 +43,6 @@ public class Users implements java.io.Serializable {
         this.name = name;
         this.email = email;
         this.password = password;
-        
     }
 
     public Users(String id, String name, String email, String password, Date createdAt, Date updatedAt, Date lastLogin, String state, String countryCode) {
