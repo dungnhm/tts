@@ -89,7 +89,7 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
         router.route().handler(new RequestLoggingHandler());
 
         router.route().handler(SessionHandler
-                .create(LocalSessionStore.create(vertx))
+                .create(LocalSessionStore.create(vertx,"test tts", 30000))
                 .setCookieHttpOnlyFlag(true)
                 .setCookieSecureFlag(true)
         );
@@ -128,7 +128,7 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
         router.route(HttpMethod.POST, "/login").handler(new LoginHandler());
         router.route(HttpMethod.POST, "/register").handler(new RegisterHandler());
         router.route(HttpMethod.POST, "/changePassword").handler(new ChangePasswordHandler());
-        router.route(HttpMethod.GET, "/wallet").handler(new WalletInfoHandler());
+        router.route(HttpMethod.GET, "/wallet/:email").handler(new WalletInfoHandler());
         return router;
     }
 }
