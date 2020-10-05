@@ -28,15 +28,22 @@ public class WalletInfoHandler implements Handler<RoutingContext>, SessionStore 
         routingContext.vertx().executeBlocking(future -> {
             try {
                 HttpServerRequest httpServerRequest = routingContext.request();
-                String email = httpServerRequest.getParam("email");
-                Session s = routingContext.session();
-                String e = s.get("email");
-                System.out.println("e = " + e + "|" + s.id());
+                String sessionId = httpServerRequest.getParam("sessionId");
                 JsonObject data = new JsonObject();
-//                data.put("email", email);
-//                data.put("ssid", jedis.get("id"));
-//                data.put("ssemail", jedis.get("email"));
-//                data.put("ssid2", jedis.hgetAll(email).get("id"));
+
+                String email = jedis.hgetAll(sessionId).get("email");
+                System.out.println("email nhan duoc tu sessionid: " + email);
+                List<Users> list = (List<Users>) clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0, Users.class, 0);
+
+                if (list.size() > 0) {
+                    Users userResult = list.get(0);
+
+                    data.put("id", userResult.getId());
+                    data.put("name", userResult.getName());
+                } else {
+                    data.put("message", "fail");
+                }
+                //data.put("ssid2", jedis.hgetAll(sessionId).get("password"));
                 routingContext.put(AppParams.RESPONSE_DATA, data);
                 future.complete();
             } catch (Exception e) {
@@ -52,7 +59,7 @@ public class WalletInfoHandler implements Handler<RoutingContext>, SessionStore 
     }
 
     public static void setClipServices(ClipServices clipServices) {
-        LoginHandler.clipServices = clipServices;
+        WalletInfoHandler.clipServices = clipServices;
     }
 
 }

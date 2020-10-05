@@ -6,6 +6,7 @@
 package com.app.server.vertical;
 
 import com.app.server.handler.ChangePasswordHandler;
+import com.app.server.handler.DashboardHandler;
 import com.app.server.handler.LoginHandler;
 import com.app.server.handler.OptionHandler;
 import com.app.server.handler.OrderNotifyHandler;
@@ -22,9 +23,12 @@ import io.vertx.core.http.HttpServerOptions;
 import io.vertx.rxjava.core.AbstractVerticle;
 import io.vertx.rxjava.core.http.HttpClient;
 import io.vertx.rxjava.core.http.HttpServer;
+import io.vertx.rxjava.ext.auth.AuthProvider;
 import io.vertx.rxjava.ext.web.Router;
+import io.vertx.rxjava.ext.web.handler.AuthHandler;
 import io.vertx.rxjava.ext.web.handler.BodyHandler;
 import io.vertx.rxjava.ext.web.handler.CookieHandler;
+import io.vertx.rxjava.ext.web.handler.RedirectAuthHandler;
 import io.vertx.rxjava.ext.web.handler.ResponseTimeHandler;
 import io.vertx.rxjava.ext.web.handler.SessionHandler;
 import io.vertx.rxjava.ext.web.handler.TimeoutHandler;
@@ -83,13 +87,18 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
         Router router = Router.router(vertx);
         router.route().handler(CookieHandler.create());
         router.route().handler(BodyHandler.create());
+        AuthProvider authProvider = null;
+
+       // router.route().handler(SessionHandler.create(LocalSessionStore.create(vertx)).setAuthProvider(authProvider));
+
+        AuthHandler redirectAuthHandler = RedirectAuthHandler.create(authProvider);
 
         router.route().handler(ResponseTimeHandler.create());
         router.route().handler(TimeoutHandler.create(connectionTimeOut));
         router.route().handler(new RequestLoggingHandler());
 
         router.route().handler(SessionHandler
-                .create(LocalSessionStore.create(vertx,"test tts", 30000))
+                .create(LocalSessionStore.create(vertx, "test tts", 30000))
                 .setCookieHttpOnlyFlag(true)
                 .setCookieSecureFlag(true)
         );
@@ -105,11 +114,11 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
         httpServerOptions.setPort(serverPort);
         httpServerOptions.setTcpKeepAlive(connectionKeepAlive);
         httpServerOptions.setIdleTimeout(connectionIdleTimeOut);
-        
+
         HttpServer httpServer = vertx.createHttpServer(httpServerOptions);
 
         httpServer.requestHandler(router);
-        
+
         httpServer.listen(result -> {
             if (result.failed()) {
                 logger.error("[INIT] START ORDER API ERROR " + result.cause());
@@ -128,7 +137,8 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
         router.route(HttpMethod.POST, "/login").handler(new LoginHandler());
         router.route(HttpMethod.POST, "/register").handler(new RegisterHandler());
         router.route(HttpMethod.POST, "/changePassword").handler(new ChangePasswordHandler());
-        router.route(HttpMethod.GET, "/wallet/:email").handler(new WalletInfoHandler());
+        router.route(HttpMethod.GET, "/wallet/:sessionId").handler(new WalletInfoHandler());
+        router.route(HttpMethod.GET, "/dashboard").handler(new DashboardHandler());
         return router;
     }
 }

@@ -14,12 +14,10 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
 import io.vertx.rxjava.core.http.HttpServerRequest;
-import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 import io.vertx.rxjava.ext.web.Session;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.params.SetParams;
 
@@ -59,17 +57,21 @@ public class LoginHandler implements Handler<RoutingContext>, SessionStore {
                         if (session != null) {
                             session.regenerateId();
                             System.out.println(session.regenerateId().id());
-                            session.put("email", email);
-//                            Jedis jedis = new Jedis("localhost");
+                            session.put("email", email);//session dang co id va email
+                            //Jedis jedis = new Jedis("localhost");
                             System.out.println("Connection to server sucessfully");
                             //check whether server is running or not
                             System.out.println("Server is running: " + jedis.ping());
+                            HashMap<String, String> sessionData = new HashMap<String, String>(); 
+                            sessionData.put("email", email);
+                            sessionData.put("password", password);
                             SetParams sp = new SetParams();
                             sp.ex(30 * 60);//
-                            jedis.set(session.id(), email, sp);
-
+                           // jedis.set(session.id(), email, sp);
+                            jedis.hmset(session.id(), sessionData);
                             System.out.println("store session timeout " + session.timeout());
-                            System.out.println("store sessin id: " + jedis.hgetAll(email).get("id"));
+                            System.out.println("store sessin id: " + jedis.hgetAll(session.id()).get("email"));
+                            System.out.println("store sessin id: " + jedis.hgetAll(session.id()).get("password"));
                             //Cookie cookie = routingContext.getCookie("vertx-web.session");
                             //cookie.setDomain("192.168.0.226");
                             //System.out.println("session cookie: " + cookie.getValue());
