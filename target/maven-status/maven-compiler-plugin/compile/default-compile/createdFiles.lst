@@ -7,6 +7,7 @@ com\app\util\AppConstants.class
 com\app\dao\GenericDao.class
 com\app\server\handler\common\SessionsHandler.class
 com\app\util\StringPool.class
+com\app\server\handler\DashboardHandler.class
 com\app\util\StringUtil.class
 com\app\server\handler\common\RequestLoggingHandler.class
 com\app\pojo\Parcels.class
@@ -21,6 +22,7 @@ com\app\util\AppParams.class
 com\app\pojo\MainObject.class
 com\app\pojo\UserToken.class
 com\app\server\handler\ChangePasswordHandler.class
+com\app\server\handler\CreateShipmentsHandler.class
 com\app\server\vertical\OrderVertical.class
 com\app\error\exception\SystemException.class
 com\app\util\Common.class
@@ -42,6 +44,7 @@ com\app\pojo\Content.class
 com\app\services\AppContext.class
 com\app\util\ContextUtil.class
 com\app\pojo\Notify.class
+com\app\server\handler\ShowShipmentsHandler.class
 com\app\pojo\Base.class
 com\app\dao\hibernate\GenericDaoHibernate.class
 com\app\util\SendEmail.class

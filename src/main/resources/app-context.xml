@@ -148,7 +148,12 @@
     <bean id="dashboardHandler" class="com.app.server.handler.DashboardHandler">
         <property name="clipServices" ref="clipServices"/>
     </bean>
-   
+    <bean id="showShipmentsHandler" class="com.app.server.handler.ShowShipmentsHandler">
+        <property name="clipServices" ref="clipServices"/>
+    </bean>
+   <bean id="createShipmentsHandler" class="com.app.server.handler.CreateShipmentsHandler">
+        <property name="clipServices" ref="clipServices"/>
+    </bean>
     
     <!-- config scheduler -->
     
