@@ -154,6 +154,12 @@
    <bean id="createShipmentsHandler" class="com.app.server.handler.CreateShipmentsHandler">
         <property name="clipServices" ref="clipServices"/>
     </bean>
+       <bean id="ShipmentsHandler" class="com.app.server.handler.ShipmentsHandler">
+        <property name="clipServices" ref="clipServices"/>
+    </bean>
+    <bean id="BillingHandler" class="com.app.server.handler.BillingHandler">
+        <property name="clipServices" ref="clipServices"/>
+    </bean>
     
     <!-- config scheduler -->
     
