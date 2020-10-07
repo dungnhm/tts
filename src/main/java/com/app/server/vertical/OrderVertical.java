@@ -149,6 +149,9 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
         router.route(HttpMethod.GET, "/dashboard/:sessionId").handler(new DashboardHandler());
         router.route(HttpMethod.POST, "/showShipments").handler(new ShowShipmentsHandler());
         router.route(HttpMethod.POST, "/createShipments").handler(new CreateShipmentsHandler());
+router.route(HttpMethod.POST, "/shipments").handler(new ShipmentsHandler());
+        
+        router.route(HttpMethod.POST, "/billing").handler(new BillingHandler());
         return router;
     }
 }
