@@ -19,6 +19,7 @@ import com.app.server.handler.common.RequestLoggingHandler;
 import com.app.server.handler.common.ResponseHandler;
 import com.app.util.LoggerInterface;
 import com.app.util.StringPool;
+import com.mysql.cj.protocol.AuthenticationProvider;
 import io.vertx.core.http.HttpClientOptions;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.core.http.HttpServerOptions;
@@ -54,8 +55,8 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
     public static HttpClient httpClient;
     public static HttpClient httpsClient;
 
-    //AuthProvider authProvider = ShiroAuth.create(vertx, new ShiroAuthOptions());
-    
+    protected AuthenticationProvider authProvider;
+
     public void setServerHost(String serverHost) {
         this.serverHost = serverHost;
     }
@@ -93,6 +94,8 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
         Router router = Router.router(vertx);
         router.route().handler(CookieHandler.create());
         router.route().handler(BodyHandler.create());
+
+        //authProvider = PropertyFileAuthentication.create(vertx, "login/loginusers.properties");
         // router.route().handler(SessionHandler.create(LocalSessionStore.create(vertx)).setAuthProvider(authProvider));
 
         router.route().handler(ResponseTimeHandler.create());
@@ -104,10 +107,8 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
                 .setCookieHttpOnlyFlag(true)
                 .setCookieSecureFlag(true)
         );
-        
-        
-        //AuthHandler redirectAuthHandler = RedirectAuthHandler.create(authProvider);
 
+        //AuthHandler redirectAuthHandler = RedirectAuthHandler.create(authProvider);
         router.mountSubRouter(apiPrefix, initAPI());
 
         router.route().failureHandler(new ExceptionHandler());
@@ -137,8 +138,8 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
 
         Router router = Router.router(vertx);
         //xet uri de xem handler nao se bat login, handler nao khong bat login
-       // router.route("/private/*").handler(RedirectAuthHandler.create(authProvider));
-        
+        // router.route("/private/*").handler(RedirectAuthHandler.create(authProvider));
+
         router.route(HttpMethod.POST, "/notifyOrder/:source").handler(new OrderNotifyHandler());
         router.route(HttpMethod.OPTIONS, "/login").handler(new OptionHandler());
         router.route(HttpMethod.POST, "/login").handler(new LoginHandler());
