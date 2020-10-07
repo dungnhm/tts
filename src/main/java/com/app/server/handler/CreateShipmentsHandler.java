@@ -9,6 +9,7 @@ import com.app.models.ClipServices;
 import com.app.pojo.Addresses;
 import com.app.pojo.Parcels;
 import com.app.pojo.Shipments;
+import com.app.pojo.Users;
 import com.app.session.redis.SessionStore;
 import com.app.util.AppParams;
 import com.google.gson.Gson;
@@ -40,8 +41,9 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
                 JsonObject jsonRequest = routingContext.getBodyAsJson();
                 //session of logging in user
                 String sessionId = jsonRequest.getString("sessionId");
-                String email = jedis.hgetAll(sessionId).get("email");
-                System.out.println(email);
+                Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
+                String email = loggedInUser.getEmail();
+                System.out.println(loggedInUser.getName() + " "+ loggedInUser.getId());
                 //ship to
                 String name = jsonRequest.getString("name");
                 String phoneNumber = jsonRequest.getString("phoneNumber");
@@ -105,8 +107,7 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
                 newParcel.setCreatedBy(email);
                 newParcel.setCreatedAt(date);
                 clipServices.save(newParcel, parcelId, Parcels.class, 0);
-                
-                
+
                 routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.CREATED.code());
                 routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.CREATED.reasonPhrase());
                 routingContext.put(AppParams.RESPONSE_DATA, data);

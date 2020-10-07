@@ -369,3 +369,82 @@ Caused by: org.hibernate.PropertyValueException: not-null property references a 
 07/10/2020 10:29:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
 
 07/10/2020 10:30:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Wed Oct 07 10:30:00 ICT 2020
+07/10/2020 10:58:34 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+07/10/2020 10:58:34 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+07/10/2020 10:58:35 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+07/10/2020 10:58:35 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+07/10/2020 10:58:36 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+07/10/2020 10:58:52 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /tts/api/login *************
+07/10/2020 10:58:52 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+07/10/2020 10:58:53 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+redis.clients.jedis.exceptions.JedisDataException: ERR wrong number of arguments for 'hmset' command
+	at redis.clients.jedis.Protocol.processError(Protocol.java:131)
+	at redis.clients.jedis.Protocol.process(Protocol.java:165)
+	at redis.clients.jedis.Protocol.read(Protocol.java:219)
+	at redis.clients.jedis.Connection.readProtocolWithCheckingBroken(Connection.java:309)
+	at redis.clients.jedis.Connection.getStatusCodeReply(Connection.java:236)
+	at redis.clients.jedis.Jedis.hmset(Jedis.java:788)
+	at com.app.server.handler.LoginHandler.lambda$handle$0(LoginHandler.java:73)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+07/10/2020 10:58:53 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+07/10/2020 10:58:53 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+07/10/2020 10:58:53 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+07/10/2020 10:59:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Wed Oct 07 10:59:00 ICT 2020
+07/10/2020 11:00:04 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+07/10/2020 11:00:04 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+07/10/2020 11:00:04 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+07/10/2020 11:00:04 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+07/10/2020 11:00:05 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+07/10/2020 11:00:13 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /tts/api/login *************
+07/10/2020 11:00:13 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+07/10/2020 11:00:14 INFO  com.app.server.handler.common.ResponseHandler : 
+
+07/10/2020 11:00:14 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+07/10/2020 11:00:14 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"email":"dungnhm","status":"login successed"}
+07/10/2020 11:00:14 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+07/10/2020 11:00:24 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /tts/api/createShipments *************
+07/10/2020 11:00:24 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "sessionId":"f28cabe16670a1aa3a645e7c2c995f2d",
+    "name":"phuctq",
+    "phoneNumber":"0123456321",
+    "company":"copany1",
+    "address1":"address 1",
+    "address2":"address 2",
+    "country":"Vietnam",
+    "state":"Hanoi",
+    "zip":"1000",
+    "parcelHeight":"10.5",
+    "parcelWidth":"7.5",
+    "parcelLength":"5.5",
+    "parcelWeight":"1.0",
+    "note":"happy new year"
+}
+
+07/10/2020 11:00:25 INFO  com.app.server.handler.common.ResponseHandler : 
+
+07/10/2020 11:00:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+07/10/2020 11:00:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {}
+07/10/2020 11:00:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+07/10/2020 11:01:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Wed Oct 07 11:01:00 ICT 2020
+07/10/2020 11:02:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Wed Oct 07 11:02:00 ICT 2020
+07/10/2020 11:03:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Wed Oct 07 11:03:00 ICT 2020
+07/10/2020 11:04:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Wed Oct 07 11:04:00 ICT 2020
+07/10/2020 11:05:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Wed Oct 07 11:05:00 ICT 2020

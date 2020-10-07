@@ -63,15 +63,17 @@ public class LoginHandler implements Handler<RoutingContext>, SessionStore {
                             //check whether server is running or not
                             System.out.println("Server is running: " + jedis.ping());
                             HashMap<String, String> sessionData = new HashMap<String, String>(); 
-                            sessionData.put("email", email);
-                            sessionData.put("password", password);
+                           // sessionData.put("email", email);
+                           // sessionData.put("password", password);
+                           // jsonRequest.put("name",list.get(0).getName());
+                            jedis.set(session.id(), gson.toJson(list.get(0)));
                             SetParams sp = new SetParams();
                             sp.ex(30 * 60);//
                            // jedis.set(session.id(), email, sp);
-                            jedis.hmset(session.id(), sessionData);
+                            //jedis.hmset(session.id(), sessionData);
                             System.out.println("store session timeout " + session.timeout());
-                            System.out.println("store sessin id: " + jedis.hgetAll(session.id()).get("email"));
-                            System.out.println("store sessin id: " + jedis.hgetAll(session.id()).get("password"));
+                            //System.out.println("store sessin id: " + jedis.hgetAll(session.id()).get("email"));
+                            //System.out.println("store sessin id: " + jedis.hgetAll(session.id()).get("password"));
                             //Cookie cookie = routingContext.getCookie("vertx-web.session");
                             //cookie.setDomain("192.168.0.226");
                             //System.out.println("session cookie: " + cookie.getValue());

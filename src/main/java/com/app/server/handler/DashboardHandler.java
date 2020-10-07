@@ -44,8 +44,9 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
                 JsonObject dataBilling = new JsonObject();
                 JsonObject dataLastShipments = new JsonObject();
                 JsonObject dataLastTransactions = new JsonObject();
-
-                String email = jedis.hgetAll(sessionId).get("email");
+                Gson gson = new Gson();
+                Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
+                String email = loggedInUser.getEmail();
 
 //                routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
 //                routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());

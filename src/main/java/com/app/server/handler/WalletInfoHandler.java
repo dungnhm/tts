@@ -10,6 +10,7 @@ import com.app.models.ClipServices;
 import com.app.pojo.Users;
 import com.app.session.redis.SessionStore;
 import com.app.util.AppParams;
+import com.google.gson.Gson;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
@@ -30,8 +31,9 @@ public class WalletInfoHandler implements Handler<RoutingContext>, SessionStore 
                 HttpServerRequest httpServerRequest = routingContext.request();
                 String sessionId = httpServerRequest.getParam("sessionId");
                 JsonObject data = new JsonObject();
-
-                String email = jedis.hgetAll(sessionId).get("email");
+                Gson gson = new Gson();
+                Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
+                String email = loggedInUser.getEmail();
                 System.out.println("email nhan duoc tu sessionid: " + email);
                 List<Users> list = (List<Users>) clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0, Users.class, 0);
 

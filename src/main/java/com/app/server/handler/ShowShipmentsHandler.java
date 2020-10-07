@@ -28,14 +28,13 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 
         routingContext.vertx().executeBlocking(future -> {
             try {
-                Gson gson = new Gson();
                 Session session = routingContext.session();
                 HttpServerRequest httpServerRequest = routingContext.request();
                 JsonObject jsonRequest = routingContext.getBodyAsJson();
 
                 String fromDate = jsonRequest.getString("fromDate");
                 String toDate = jsonRequest.getString("toDate");
-
+                Gson gson = new Gson();
                 JsonObject data = new JsonObject();
                 //DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                 //Date fromDate = dateFormat.parse(source);

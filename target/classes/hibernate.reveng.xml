@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+    <schema-selection match-catalog="tts"/>
+    <table-filter match-name="shipping_carriers"/>
+    <table-filter match-name="wallets"/>
+    <table-filter match-name="parcels"/>
+    <table-filter match-name="transfer"/>
+    <table-filter match-name="users"/>
+    <table-filter match-name="shipments"/>
+    <table-filter match-name="content"/>
+    <table-filter match-name="addresses"/>
+    <table-filter match-name="user_token"/>
+</hibernate-reverse-engineering>

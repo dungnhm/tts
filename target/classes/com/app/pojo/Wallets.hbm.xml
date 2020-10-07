@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 25, 2020 2:22:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.app.pojo.Wallets" table="wallets" catalog="tts">
+        <id name="id" type="string">
+            <column name="id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="java.lang.Integer">
+            <column name="version" />
+        </version>
+        <property name="userId" type="string">
+            <column name="user_id" length="32" unique="true" />
+        </property>
+        <property name="balance" type="java.lang.Long">
+            <column name="balance" precision="10" scale="0" />
+        </property>
+        <property name="dueAmount" type="java.lang.Long">
+            <column name="due_amount" precision="10" scale="0" />
+        </property>
+        <property name="spentAmount" type="java.lang.Long">
+            <column name="spent_amount" precision="10" scale="0" />
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="19" />
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>
