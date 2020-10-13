@@ -4,7 +4,6 @@ package com.app.util;
 //import com.app.services.DetectHandset;
 //import com.app.services.LoggerInterface;
 import java.io.*;
-import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
@@ -84,7 +83,7 @@ public class Common {
                 return new java.util.Date();
             }
             converttodt = new SimpleDateFormat(pattern);
-            date = (java.util.Date) converttodt.parse(sDate.trim());
+            date = converttodt.parse(sDate.trim());
         } catch (Exception e) {
             date = null;
         }
@@ -217,7 +216,7 @@ public class Common {
         if (sum <= 0) {
             ret = 0;
         } else {
-            temp = (double) sum / ((double) pageSize * 1.0D);
+            temp = sum / (pageSize * 1.0D);
             ret = (int) Math.ceil(temp);
         }
         return ret;
@@ -310,7 +309,7 @@ public class Common {
         byte[] digest = md.digest();
         StringBuilder sb = new StringBuilder();
         for (byte b : digest) {
-            sb.append(Integer.toHexString((int) (b & 0xff)));
+            sb.append(Integer.toHexString(b & 0xff));
         }
 
         return sb.toString();
@@ -559,7 +558,7 @@ public class Common {
         String ret = "";
         int t;
         for (int i = 0; i < info.length(); i++) {
-            t = (int) info.charAt(i);
+            t = info.charAt(i);
             if (((t >= 48) && (t <= 57)) || ((t >= 65) && (t <= 90)) || ((t >= 97) && (t <= 122)) || (t == 45) || (t == 32)) {
                 ret += info.charAt(i);
             } else if ((t == 10) || (t == 13)) {
@@ -599,7 +598,7 @@ public class Common {
         String ret = "";
         int t;
         for (int i = 0; i < info.length(); i++) {
-            t = (int) info.charAt(i);
+            t = info.charAt(i);
             if (((t >= 48) && (t <= 57)) || ((t >= 65) && (t <= 90)) || ((t >= 97) && (t <= 122)) || (t == 45) || (t == 32) || (t == 93) || (t == 47)) {
                 if (t == 93) {
                     ret += " ";

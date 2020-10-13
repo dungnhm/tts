@@ -1,11 +1,9 @@
 package com.app.server.handler.common;
 
-import com.app.error.SystemError;
 import com.app.error.exception.SystemException;
 import com.app.error.exception.UsersException;
 import com.app.pojo.MainObject;
 import com.app.util.AppConstants;
-import com.app.util.AppParams;
 import com.app.util.AppUtil;
 import com.app.util.LoggerInterface;
 import com.app.util.StringPool;

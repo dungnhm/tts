@@ -13,29 +13,24 @@ import com.app.server.handler.LoginHandler;
 import com.app.server.handler.OptionHandler;
 import com.app.server.handler.OrderNotifyHandler;
 import com.app.server.handler.RegisterHandler;
-import com.app.server.handler.ShipmentsHandler;
 import com.app.server.handler.ShowShipmentsHandler;
 import com.app.server.handler.WalletInfoHandler;
 import com.app.server.handler.common.ExceptionHandler;
 import com.app.server.handler.common.RequestLoggingHandler;
 import com.app.server.handler.common.ResponseHandler;
+import com.app.server.handler.common.SessionsHandler;
 import com.app.util.LoggerInterface;
 import com.app.util.StringPool;
-import com.mysql.cj.protocol.AuthenticationProvider;
+
 import io.vertx.core.http.HttpClientOptions;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.core.http.HttpServerOptions;
-import io.vertx.ext.auth.shiro.ShiroAuthOptions;
 import io.vertx.rxjava.core.AbstractVerticle;
 import io.vertx.rxjava.core.http.HttpClient;
 import io.vertx.rxjava.core.http.HttpServer;
-import io.vertx.rxjava.ext.auth.AuthProvider;
-import io.vertx.rxjava.ext.auth.shiro.ShiroAuth;
 import io.vertx.rxjava.ext.web.Router;
-import io.vertx.rxjava.ext.web.handler.AuthHandler;
 import io.vertx.rxjava.ext.web.handler.BodyHandler;
 import io.vertx.rxjava.ext.web.handler.CookieHandler;
-import io.vertx.rxjava.ext.web.handler.RedirectAuthHandler;
 import io.vertx.rxjava.ext.web.handler.ResponseTimeHandler;
 import io.vertx.rxjava.ext.web.handler.SessionHandler;
 import io.vertx.rxjava.ext.web.handler.TimeoutHandler;
@@ -45,7 +40,7 @@ import io.vertx.rxjava.ext.web.sstore.LocalSessionStore;
  *
  * @author hungdt
  */
-public class OrderVertical extends  AbstractVerticle implements LoggerInterface {
+public class OrderVertical extends AbstractVerticle implements LoggerInterface {
 
 	private String serverHost;
 	private int serverPort;
@@ -57,7 +52,7 @@ public class OrderVertical extends  AbstractVerticle implements LoggerInterface 
 	public static HttpClient httpClient;
 	public static HttpClient httpsClient;
 
-	protected AuthenticationProvider authProvider;
+	// protected AuthenticationProvider authProvider;
 
 	public void setServerHost(String serverHost) {
 		this.serverHost = serverHost;
@@ -97,10 +92,6 @@ public class OrderVertical extends  AbstractVerticle implements LoggerInterface 
 		router.route().handler(CookieHandler.create());
 		router.route().handler(BodyHandler.create());
 
-		// authProvider = PropertyFileAuthentication.create(vertx,
-		// "login/loginusers.properties");
-		// router.route().handler(SessionHandler.create(LocalSessionStore.create(vertx)).setAuthProvider(authProvider));
-
 		router.route().handler(ResponseTimeHandler.create());
 		router.route().handler(TimeoutHandler.create(connectionTimeOut));
 		router.route().handler(new RequestLoggingHandler());
@@ -108,6 +99,7 @@ public class OrderVertical extends  AbstractVerticle implements LoggerInterface 
 		router.route().handler(SessionHandler.create(LocalSessionStore.create(vertx, "test tts", 30000))
 				.setCookieHttpOnlyFlag(true).setCookieSecureFlag(true));
 
+		router.route().handler(new SessionsHandler());
 		// AuthHandler redirectAuthHandler = RedirectAuthHandler.create(authProvider);
 		router.mountSubRouter(apiPrefix, initAPI());
 
@@ -144,13 +136,12 @@ public class OrderVertical extends  AbstractVerticle implements LoggerInterface 
 		router.route(HttpMethod.OPTIONS, "/login").handler(new OptionHandler());
 		router.route(HttpMethod.POST, "/login").handler(new LoginHandler());
 		router.route(HttpMethod.POST, "/register").handler(new RegisterHandler());
-		router.route(HttpMethod.PUT, "/changePassword").handler(new ChangePasswordHandler());
+		router.route(HttpMethod.POST, "/changePassword").handler(new ChangePasswordHandler());
 		router.route(HttpMethod.GET, "/wallet/:sessionId").handler(new WalletInfoHandler());
 		router.route(HttpMethod.GET, "/dashboard/:sessionId").handler(new DashboardHandler());
 		router.route(HttpMethod.POST, "/showShipments").handler(new ShowShipmentsHandler());
 		router.route(HttpMethod.POST, "/createShipments").handler(new CreateShipmentsHandler());
-		router.route(HttpMethod.POST, "/shipments/:sessionId").handler(new ShipmentsHandler());
-		router.route(HttpMethod.POST, "/billing/:sessionId").handler(new BillingHandler());
+		router.route(HttpMethod.POST, "/billing").handler(new BillingHandler());
 		return router;
 	}
 }
