@@ -5,63 +5,70 @@
  */
 package com.app.server.handler;
 
-import com.app.encode.Md5Code;
+import java.util.List;
+
 import com.app.models.ClipServices;
 import com.app.pojo.Users;
+import com.app.pojo.Wallets;
 import com.app.session.redis.SessionStore;
 import com.app.util.AppParams;
 import com.google.gson.Gson;
+
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
 import io.vertx.rxjava.core.http.HttpServerRequest;
 import io.vertx.rxjava.ext.web.RoutingContext;
-import io.vertx.rxjava.ext.web.Session;
-import java.util.List;
 
 public class WalletInfoHandler implements Handler<RoutingContext>, SessionStore {
 
-    static ClipServices clipServices;
+	static ClipServices clipServices;
 
-    @Override
-    public void handle(RoutingContext routingContext) {
+	@Override
+	public void handle(RoutingContext routingContext) {
 
-        routingContext.vertx().executeBlocking(future -> {
-            try {
-                HttpServerRequest httpServerRequest = routingContext.request();
-                String sessionId = httpServerRequest.getParam("sessionId");
-                JsonObject data = new JsonObject();
-                Gson gson = new Gson();
-                Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
-                String email = loggedInUser.getEmail();
-                System.out.println("email nhan duoc tu sessionid: " + email);
-                List<Users> list = (List<Users>) clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0, Users.class, 0);
+		routingContext.vertx().executeBlocking(future -> {
+			try {
+				HttpServerRequest httpServerRequest = routingContext.request();
+				String sessionId = httpServerRequest.getParam("sessionId");
+				JsonObject data = new JsonObject();
+				Gson gson = new Gson();
+				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
+				String email = loggedInUser.getEmail();
+				List<Wallets> listWallets = clipServices.findAllByProperty(
+						"from Wallets where user_id = '" + loggedInUser.getId() + "'", null, 0, Wallets.class, 0);
+				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
+				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
+				if (listWallets.size() > 0) {
+					Wallets resultWallets = listWallets.get(0);
+					data.put("id", resultWallets.getId());
+					data.put("balance", resultWallets.getBalance());
+					data.put("dueAmount", resultWallets.getDueAmount());
+					data.put("spendAmount", resultWallets.getSpentAmount());
+					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
+					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
+				} else {
+					data.put("id", "");
+					data.put("balance", "");
+					data.put("dueAmount", "");
+					data.put("spendAmount", "");
+				}
+				routingContext.put(AppParams.RESPONSE_DATA, data);
+				future.complete();
+			} catch (Exception e) {
+				routingContext.fail(e);
+			}
+		}, asyncResult -> {
+			if (asyncResult.succeeded()) {
+				routingContext.next();
+			} else {
+				routingContext.fail(asyncResult.cause());
+			}
+		});
+	}
 
-                if (list.size() > 0) {
-                    Users userResult = list.get(0);
-
-                    data.put("id", userResult.getId());
-                    data.put("name", userResult.getName());
-                } else {
-                    data.put("message", "fail");
-                }
-                //data.put("ssid2", jedis.hgetAll(sessionId).get("password"));
-                routingContext.put(AppParams.RESPONSE_DATA, data);
-                future.complete();
-            } catch (Exception e) {
-                routingContext.fail(e);
-            }
-        }, asyncResult -> {
-            if (asyncResult.succeeded()) {
-                routingContext.next();
-            } else {
-                routingContext.fail(asyncResult.cause());
-            }
-        });
-    }
-
-    public static void setClipServices(ClipServices clipServices) {
-        WalletInfoHandler.clipServices = clipServices;
-    }
+	public static void setClipServices(ClipServices clipServices) {
+		WalletInfoHandler.clipServices = clipServices;
+	}
 
 }

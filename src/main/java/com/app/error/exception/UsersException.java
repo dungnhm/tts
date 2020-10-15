@@ -4,7 +4,12 @@ import com.app.pojo.MainObject;
 
 public class UsersException extends SystemException {
 
-    public UsersException(MainObject error) {
-        super(error);
-    }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public UsersException(MainObject error) {
+		super(error);
+	}
 }

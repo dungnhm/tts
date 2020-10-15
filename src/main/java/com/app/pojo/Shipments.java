@@ -26,7 +26,7 @@ public class Shipments implements java.io.Serializable {
 	private String fromAddress;
 	private String toAddress;
 	private String carrierId;
-	
+
 	@Column(nullable = false)
 	private BigDecimal appliedFee;
 	@Column(nullable = false)
@@ -56,10 +56,6 @@ public class Shipments implements java.io.Serializable {
 	private Date deliveryAt;
 
 	public Shipments() {
-	}
-
-	public Shipments(String id) {
-		this.id = id;
 	}
 
 	public Shipments(String id, String fromAddress, String toAddress, String carrierId, BigDecimal appliedFee,

@@ -7,7 +7,6 @@ package com.app.util;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
-import java.util.logging.Level;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;

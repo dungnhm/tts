@@ -27,7 +27,7 @@ public class SchedulerManager implements LoggerInterface {
     private static List<SchedulerJob> jobList;
 
     public void setExecutionJobs(List<SchedulerJob> executionJobs) {
-        this.jobList = executionJobs;
+        SchedulerManager.jobList = executionJobs;
     }
 
     public void init() {
