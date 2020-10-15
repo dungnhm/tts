@@ -56,11 +56,11 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 				String walletId = listWallets.get(0).getId();
 				System.out.println(walletId);
 				// LIST ALL
-				List<Transfer> list = clipServices.findAllByProperty("Select createdAt,amount,details,financialStatus from Transfer Where (from_wallet_id ='" + walletId
+				List<Transfer> list = clipServices.findAllByProperty(" from Transfer Where (from_wallet_id ='" + walletId
 						+ "') OR (to_wallet_id ='" + walletId + "')", null, 0, Transfer.class, 0);
 				// LIST THEO DATE
 				List<Transfer> dates = clipServices.findAllByProperty(
-						"Select createdAt,amount,details,financialStatus FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='" + walletId
+						" FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='" + walletId
 								+ "')) AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')",
 						null, 0, Transfer.class, 0);
 				// LIST THEO CODE
@@ -96,7 +96,7 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 								routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 							} else {
 								List<Transfer> search = clipServices.findAllByProperty(
-										"Select createdAt,amount,details,financialStatus FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='"
+										"FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='"
 												+ walletId + "')) AND (created_at BETWEEN '" + dateFrom + "' AND '"
 												+ dateTo + "') AND (financial_status ='" + status + "')",
 										null, 0, Transfer.class, 0);
@@ -113,7 +113,7 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 						dateTo = dateFormat.format(new Date());
 						List<Transfer> search = clipServices
 								.findAllByProperty(
-										"Select createdAt,amount,details,financialStatus FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='"
+										"FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='"
 												+ walletId + "')) AND (created_at BETWEEN '" + dateFrom + "' AND '"
 												+ dateTo + "') AND (financial_status ='" + status + "')",
 										null, 0, Transfer.class, 0);
