@@ -73,7 +73,7 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 				if (list.size() > 0) {
 					data.put("available", listWallets.get(0).getBalance());
 					if (dateFrom == null && dateTo == null && status == null) {
-						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01"));
+						dateFrom = dateFormat.format(dateFormat.parse("0001-01-01"));
 						dateTo = dateFormat.format(new Date());
 						data.put("message", "list tranfer");
 						data.put("list size: ", list.size());
