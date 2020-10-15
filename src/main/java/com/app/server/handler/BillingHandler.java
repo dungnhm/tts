@@ -56,11 +56,11 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 				String walletId = listWallets.get(0).getId();
 				System.out.println(walletId);
 				// LIST ALL
-				List<Transfer> list = clipServices.findAllByProperty("from Transfer Where (from_wallet_id ='" + walletId
+				List<Transfer> list = clipServices.findAllByProperty("Select createdAt,amount,details,financialStatus from Transfer Where (from_wallet_id ='" + walletId
 						+ "') OR (to_wallet_id ='" + walletId + "')", null, 0, Transfer.class, 0);
 				// LIST THEO DATE
 				List<Transfer> dates = clipServices.findAllByProperty(
-						"FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='" + walletId
+						"Select createdAt,amount,details,financialStatus FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='" + walletId
 								+ "')) AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')",
 						null, 0, Transfer.class, 0);
 				// LIST THEO CODE
@@ -76,28 +76,32 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01"));
 						dateTo = dateFormat.format(new Date());
 						data.put("message", "list tranfer");
+						data.put("list size: ", list.size());
 						data.put("list", list);
 						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 					} else if (dates.size() > 0) {
 						if (dateFrom == null || dateTo == null) {
 							data.put("message", "list tranfer");
+							data.put("list size: ", list.size());
 							data.put("list", list);
 							routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 							routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 						} else {
 							if (status == null) {
 								data.put("message", "list tranfer with dates");
+								data.put("list size: ", dates.size());
 								data.put("list", dates);
 								routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 								routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 							} else {
 								List<Transfer> search = clipServices.findAllByProperty(
-										"FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='"
+										"Select createdAt,amount,details,financialStatus FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='"
 												+ walletId + "')) AND (created_at BETWEEN '" + dateFrom + "' AND '"
 												+ dateTo + "') AND (financial_status ='" + status + "')",
 										null, 0, Transfer.class, 0);
 								data.put("message", "list tranfer with status and dates");
+								data.put("list size: ", search.size());
 								data.put("list", search);
 								routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 								routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
@@ -109,12 +113,13 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 						dateTo = dateFormat.format(new Date());
 						List<Transfer> search = clipServices
 								.findAllByProperty(
-										"FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='"
+										"Select createdAt,amount,details,financialStatus FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='"
 												+ walletId + "')) AND (created_at BETWEEN '" + dateFrom + "' AND '"
 												+ dateTo + "') AND (financial_status ='" + status + "')",
 										null, 0, Transfer.class, 0);
 						System.out.println("102");
 						data.put("message", "list transfer with status");
+						data.put("list size: ", search.size());
 						data.put("list", search);
 						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
