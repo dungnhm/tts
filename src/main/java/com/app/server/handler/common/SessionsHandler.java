@@ -51,6 +51,8 @@ public class SessionsHandler implements Handler<RoutingContext>, LoggerInterface
 					// Session session = routingContext.session();
 					if (currentSessionId == null
 							&& (routingContext.request().method().compareTo(HttpMethod.GET) == 0)) {
+						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
+						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 						System.out.println("55");
 						future.complete();
 					} else if (jedis.get(currentSessionId) != null) {

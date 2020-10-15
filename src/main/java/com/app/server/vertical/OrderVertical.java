@@ -139,9 +139,16 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
 		router.route(HttpMethod.POST, "/changePassword").handler(new ChangePasswordHandler());
 		router.route(HttpMethod.GET, "/wallet/:sessionId").handler(new WalletInfoHandler());
 		router.route(HttpMethod.GET, "/dashboard/:sessionId").handler(new DashboardHandler());
-		router.route(HttpMethod.POST, "/showShipments").handler(new ShowShipmentsHandler());
 		router.route(HttpMethod.POST, "/createShipments").handler(new CreateShipmentsHandler());
-		router.route(HttpMethod.POST, "/billing").handler(new BillingHandler());
+		router.route(HttpMethod.GET, "/showShipments/:sessionId").handler(new ShowShipmentsHandler());
+		router.route(HttpMethod.GET, "/showShipments/:sessionId/:trackingCode").handler(new ShowShipmentsHandler());
+		router.route(HttpMethod.GET, "/showShipments/:sessionId/:dateFrom/:dateTo").handler(new ShowShipmentsHandler());
+		router.route(HttpMethod.GET, "/showShipments/:sessionId/:trackingCode/:dateFrom/:dateTo")
+				.handler(new ShowShipmentsHandler());
+		router.route(HttpMethod.GET, "/billing/:sessionId").handler(new BillingHandler());
+		router.route(HttpMethod.GET, "/billing/:sessionId/:status").handler(new BillingHandler());
+		router.route(HttpMethod.GET, "/billing/:sessionId/:dateFrom/:dateTo").handler(new BillingHandler());
+		router.route(HttpMethod.GET, "/billing/:sessionId/:dateFrom/:dateTo/:status").handler(new BillingHandler());
 		return router;
 	}
 }
