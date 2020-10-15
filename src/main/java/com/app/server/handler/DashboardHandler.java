@@ -64,8 +64,8 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 				dataShipmentsStatus.put("Delivered", listShipments.size());
 
 				// Lay thong tin billing
-				List<Users> listUsers = clipServices
-						.findAllByProperty("FROM Users WHERE email = '" + email + "'", null, 0, Users.class, 0);
+				List<Users> listUsers = clipServices.findAllByProperty("FROM Users WHERE email = '" + email + "'", null,
+						0, Users.class, 0);
 				if (listUsers.size() > 0) {
 					String userId = listUsers.get(0).getId();
 					System.out.println(userId);

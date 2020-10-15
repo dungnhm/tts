@@ -1309,3 +1309,491 @@ java.lang.IllegalStateException: Response has already been written
 13/10/2020 16:43:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Oct 13 16:43:00 ICT 2020
 13/10/2020 16:44:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Oct 13 16:44:00 ICT 2020
 13/10/2020 16:45:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Oct 13 16:45:00 ICT 2020
+15/10/2020 15:40:39 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 15:40:39 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 15:40:39 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 15:40:39 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 15:40:41 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 15:40:47 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+15/10/2020 15:40:47 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+15/10/2020 15:40:48 INFO  com.app.server.handler.common.ResponseHandler : 
+
+15/10/2020 15:40:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+15/10/2020 15:40:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm","sessionId":"5d0765004d4a02080c90cc88ac830026"}
+15/10/2020 15:40:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 15:40:55 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/logout *************
+15/10/2020 15:40:55 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "sessionId": "5d0765004d4a02080c90cc88ac830026"
+}
+
+15/10/2020 15:40:55 INFO  com.app.server.handler.common.ResponseHandler : 
+
+15/10/2020 15:40:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+15/10/2020 15:40:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"log out successed"}
+15/10/2020 15:40:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 15:41:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 15:41:00 ICT 2020
+15/10/2020 16:21:59 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 16:21:59 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 16:21:59 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 16:21:59 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 16:22:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 16:22:00 ICT 2020
+15/10/2020 16:22:00 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 16:22:07 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+15/10/2020 16:22:07 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+15/10/2020 16:22:11 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+redis.clients.jedis.exceptions.JedisConnectionException: Failed connecting to host localhost:6379
+	at redis.clients.jedis.Connection.connect(Connection.java:204)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:100)
+	at redis.clients.jedis.Connection.sendCommand(Connection.java:125)
+	at redis.clients.jedis.Connection.sendCommand(Connection.java:120)
+	at redis.clients.jedis.BinaryClient.ping(BinaryClient.java:113)
+	at redis.clients.jedis.BinaryJedis.ping(BinaryJedis.java:186)
+	at com.app.server.handler.LoginHandler.lambda$0(LoginHandler.java:62)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method)
+	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
+	at java.base/java.net.Socket.connect(Socket.java:591)
+	at redis.clients.jedis.Connection.connect(Connection.java:181)
+	... 14 more
+15/10/2020 16:22:11 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+15/10/2020 16:22:11 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+15/10/2020 16:22:11 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 16:22:47 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 16:22:47 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 16:22:47 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 16:22:47 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 16:22:48 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 16:22:57 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+15/10/2020 16:22:57 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+15/10/2020 16:22:59 INFO  com.app.server.handler.common.ResponseHandler : 
+
+15/10/2020 16:22:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+15/10/2020 16:22:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm","sessionId":"b473a5296e61916e86d0770d871c49d2"}
+15/10/2020 16:22:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 16:23:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 16:23:00 ICT 2020
+15/10/2020 16:23:43 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/dashboard/b473a5296e61916e86d0770d871c49d2 *************
+15/10/2020 16:23:45 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.IllegalStateException: Illegal type in JsonObject: class java.sql.Timestamp
+	at io.vertx.core.json.JsonObject.checkAndCopy(JsonObject.java:1072)
+	at io.vertx.core.json.JsonObject.put(JsonObject.java:702)
+	at com.app.server.handler.DashboardHandler.lambda$0(DashboardHandler.java:91)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+15/10/2020 16:23:45 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+15/10/2020 16:23:45 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+15/10/2020 16:23:45 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 16:24:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 16:24:00 ICT 2020
+15/10/2020 16:26:00 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 16:26:00 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 16:26:00 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 16:26:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 16:26:00 ICT 2020
+15/10/2020 16:26:00 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 16:26:01 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 16:26:07 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/dashboard/b473a5296e61916e86d0770d871c49d2 *************
+15/10/2020 16:26:10 INFO  com.app.server.handler.common.ResponseHandler : 
+
+15/10/2020 16:26:10 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+15/10/2020 16:26:10 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"shipmentStatus":{"New":4,"Processing":0,"In Transit":0,"Delivered":0},"billing":{"Due amount":21,"Available balance":12,"Paid amount":0},"lastShipments":[{"date":"2020-10-07","to":"address 2","statu...
+15/10/2020 16:26:10 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:04:22 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 17:04:22 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 17:04:22 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 17:04:22 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 17:04:23 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 17:04:34 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+15/10/2020 17:04:34 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+15/10/2020 17:04:35 INFO  com.app.server.handler.common.ResponseHandler : 
+
+15/10/2020 17:04:35 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+15/10/2020 17:04:35 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm","sessionId":"7f1247021afc51f8cf2d0085df9e0b18"}
+15/10/2020 17:04:35 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:04:43 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments/7f1247021afc51f8cf2d0085df9e0b18/47 *************
+15/10/2020 17:04:44 INFO  com.app.server.handler.common.ResponseHandler : 
+
+15/10/2020 17:04:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+15/10/2020 17:04:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode","list":[{"id":"7f2636e709234e25bc8e667d992324df","version":0,"fromAddress":"address 1","toAddress":"address 2","carrierId":"0","appliedFee":7.59,"actualFe...
+15/10/2020 17:04:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:05:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:05:00 ICT 2020
+15/10/2020 17:06:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:06:00 ICT 2020
+15/10/2020 17:06:12 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 17:06:12 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 17:06:12 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 17:06:12 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 17:06:13 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 17:06:16 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments/7f1247021afc51f8cf2d0085df9e0b18/47 *************
+15/10/2020 17:06:17 INFO  com.app.server.handler.common.ResponseHandler : 
+
+15/10/2020 17:06:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+15/10/2020 17:06:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode","list":[{"id":"7f2636e709234e25bc8e667d992324df","version":0,"fromAddress":"address 1","toAddress":"address 2","carrierId":"0","appliedFee":7.59,"actualFe...
+15/10/2020 17:06:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:07:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:07:00 ICT 2020
+15/10/2020 17:09:01 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 17:09:01 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 17:09:01 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 17:09:01 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 17:09:02 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 17:09:07 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments/7f1247021afc51f8cf2d0085df9e0b18/47 *************
+15/10/2020 17:09:09 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.IndexOutOfBoundsException: Index 19 out of bounds for length 2
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
+	at java.base/java.util.Objects.checkIndex(Objects.java:372)
+	at java.base/java.util.ArrayList.get(ArrayList.java:458)
+	at io.vertx.core.json.JsonArray.getString(JsonArray.java:102)
+	at com.app.server.handler.ShowShipmentsHandler.lambda$0(ShowShipmentsHandler.java:102)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+15/10/2020 17:09:09 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+15/10/2020 17:09:09 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+15/10/2020 17:09:09 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:09:31 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 17:09:31 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 17:09:31 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 17:09:31 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 17:09:32 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 17:09:35 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments/7f1247021afc51f8cf2d0085df9e0b18/47 *************
+15/10/2020 17:09:37 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.ClassCastException: class com.app.pojo.Shipments cannot be cast to class java.lang.CharSequence (com.app.pojo.Shipments is in unnamed module of loader 'app'; java.lang.CharSequence is in module java.base of loader 'bootstrap')
+	at io.vertx.core.json.JsonArray.getString(JsonArray.java:102)
+	at com.app.server.handler.ShowShipmentsHandler.lambda$0(ShowShipmentsHandler.java:102)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+15/10/2020 17:09:37 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+15/10/2020 17:09:37 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+15/10/2020 17:09:37 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:10:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:10:00 ICT 2020
+15/10/2020 17:11:35 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 17:11:35 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 17:11:35 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 17:11:35 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 17:11:36 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 17:11:39 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments/7f1247021afc51f8cf2d0085df9e0b18/47 *************
+15/10/2020 17:11:40 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.text.ParseException: Unparseable date: "2000-01-01"
+	at java.base/java.text.DateFormat.parse(DateFormat.java:395)
+	at com.app.server.handler.ShowShipmentsHandler.lambda$0(ShowShipmentsHandler.java:84)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+15/10/2020 17:11:40 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+15/10/2020 17:11:40 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+15/10/2020 17:11:40 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:12:48 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 17:12:48 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 17:12:48 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 17:12:48 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 17:12:49 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 17:12:56 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments/7f1247021afc51f8cf2d0085df9e0b18/47 *************
+15/10/2020 17:12:57 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.text.ParseException: Unparseable date: "2000-01-01"
+	at java.base/java.text.DateFormat.parse(DateFormat.java:395)
+	at com.app.server.handler.ShowShipmentsHandler.lambda$0(ShowShipmentsHandler.java:84)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+15/10/2020 17:12:57 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+15/10/2020 17:12:57 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+15/10/2020 17:12:57 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:13:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:13:00 ICT 2020
+15/10/2020 17:13:24 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 17:13:24 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 17:13:24 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 17:13:24 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 17:13:25 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 17:13:28 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments/7f1247021afc51f8cf2d0085df9e0b18/47 *************
+15/10/2020 17:13:30 INFO  com.app.server.handler.common.ResponseHandler : 
+
+15/10/2020 17:13:30 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+15/10/2020 17:13:30 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode","list":[{"id":"7f2636e709234e25bc8e667d992324df","version":0,"fromAddress":"address 1","toAddress":"address 2","carrierId":"0","appliedFee":7.59,"actualFe...
+15/10/2020 17:13:30 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:14:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:14:00 ICT 2020
+15/10/2020 17:15:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:15:00 ICT 2020
+15/10/2020 17:16:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:16:00 ICT 2020
+15/10/2020 17:16:11 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 17:16:11 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 17:16:11 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 17:16:11 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 17:16:12 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 17:16:16 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments/7f1247021afc51f8cf2d0085df9e0b18 *************
+15/10/2020 17:16:17 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.text.ParseException: Unparseable date: "1970-01-01"
+	at java.base/java.text.DateFormat.parse(DateFormat.java:395)
+	at com.app.server.handler.ShowShipmentsHandler.lambda$0(ShowShipmentsHandler.java:53)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+15/10/2020 17:16:17 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+15/10/2020 17:16:17 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+15/10/2020 17:16:17 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:16:43 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 17:16:43 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 17:16:43 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 17:16:44 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 17:16:45 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 17:16:47 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments/7f1247021afc51f8cf2d0085df9e0b18 *************
+15/10/2020 17:16:48 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.ClassCastException: class java.lang.String cannot be cast to class io.vertx.core.json.JsonArray (java.lang.String is in module java.base of loader 'bootstrap'; io.vertx.core.json.JsonArray is in unnamed module of loader 'app')
+	at io.vertx.core.json.JsonObject.getJsonArray(JsonObject.java:257)
+	at com.app.server.handler.ShowShipmentsHandler.lambda$0(ShowShipmentsHandler.java:100)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+15/10/2020 17:16:48 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+15/10/2020 17:16:48 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+15/10/2020 17:16:48 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:17:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:17:00 ICT 2020
+15/10/2020 17:17:14 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 17:17:14 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 17:17:14 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 17:17:15 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 17:17:16 ERROR com.app.server.vertical.OrderVertical : [INIT] START ORDER API ERROR java.net.BindException: Address already in use: bind
+15/10/2020 17:17:45 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 17:17:45 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 17:17:45 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 17:17:46 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 17:17:47 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 17:17:47 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 17:17:47 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 17:17:47 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 17:17:48 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 17:17:49 ERROR com.app.server.vertical.OrderVertical : [INIT] START ORDER API ERROR java.net.BindException: Address already in use: bind
+15/10/2020 17:17:51 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments/7f1247021afc51f8cf2d0085df9e0b18 *************
+15/10/2020 17:17:52 INFO  com.app.server.handler.common.ResponseHandler : 
+
+15/10/2020 17:17:52 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+15/10/2020 17:17:52 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","list":"[{\"id\":\"3fe4de655d7547e6aa4d373e2cfe3ba8\",\"version\":0,\"fromAddress\":\"address 1\",\"toAddress\":\"address 2\",\"carrierId\":\"0\",\"appliedFee\":12.59,\"act...
+15/10/2020 17:17:52 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:18:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:18:00 ICT 2020
+15/10/2020 17:18:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:18:00 ICT 2020
+15/10/2020 17:19:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:19:00 ICT 2020
+15/10/2020 17:19:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:19:00 ICT 2020
+15/10/2020 17:23:32 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 17:23:32 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 17:23:32 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 17:23:33 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 17:23:34 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 17:23:39 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments/7f1247021afc51f8cf2d0085df9e0b18 *************
+15/10/2020 17:23:40 INFO  com.app.server.handler.common.ResponseHandler : 
+
+15/10/2020 17:23:40 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+15/10/2020 17:23:40 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","list":"[{\"id\":\"3fe4de655d7547e6aa4d373e2cfe3ba8\",\"version\":0,\"fromAddress\":\"address 1\",\"toAddress\":\"address 2\",\"carrierId\":\"0\",\"appliedFee\":12.59,\"act...
+15/10/2020 17:23:40 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:24:07 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 17:24:07 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 17:24:07 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 17:24:07 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 17:24:08 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 17:24:14 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments/7f1247021afc51f8cf2d0085df9e0b18 *************
+15/10/2020 17:24:15 INFO  com.app.server.handler.common.ResponseHandler : 
+
+15/10/2020 17:24:15 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+15/10/2020 17:24:15 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","list":[{"id":"3fe4de655d7547e6aa4d373e2cfe3ba8","version":0,"fromAddress":"address 1","toAddress":"address 2","carrierId":"0","appliedFee":12.59,"actualFee":16.00,"discoun...
+15/10/2020 17:24:15 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:25:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:25:00 ICT 2020
+15/10/2020 17:25:21 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/dashboard/b473a5296e61916e86d0770d871c49d2 *************
+15/10/2020 17:25:21 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.server.handler.DashboardHandler.lambda$0(DashboardHandler.java:47)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+15/10/2020 17:25:21 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+15/10/2020 17:25:21 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+15/10/2020 17:25:21 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:25:45 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/dashboard/7f1247021afc51f8cf2d0085df9e0b18 *************
+15/10/2020 17:25:47 INFO  com.app.server.handler.common.ResponseHandler : 
+
+15/10/2020 17:25:47 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+15/10/2020 17:25:47 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"shipmentStatus":{"New":4,"Processing":0,"In Transit":0,"Delivered":0},"billing":{"Due amount":21,"Available balance":12,"Paid amount":0},"lastShipments":[{"id":"fa53c08742b94e5f99aa3754ff75f870","ve...
+15/10/2020 17:25:47 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:26:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:26:00 ICT 2020
+15/10/2020 17:27:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:27:00 ICT 2020
+15/10/2020 17:28:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:28:00 ICT 2020
+15/10/2020 17:33:30 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 17:33:30 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 17:33:30 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 17:33:31 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 17:33:32 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 17:34:43 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+15/10/2020 17:34:43 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+15/10/2020 17:34:43 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+15/10/2020 17:34:43 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+15/10/2020 17:34:44 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+15/10/2020 17:34:47 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+15/10/2020 17:34:47 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+15/10/2020 17:34:49 INFO  com.app.server.handler.common.ResponseHandler : 
+
+15/10/2020 17:34:49 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+15/10/2020 17:34:49 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm","sessionId":"d3eab80d2f16b45c53295646bf02e5da"}
+15/10/2020 17:34:49 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:34:53 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/logout *************
+15/10/2020 17:34:53 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "sessionId": "d3eab80d2f16b45c53295646bf02e5da"
+}
+
+15/10/2020 17:34:55 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.springframework.orm.hibernate5.SessionFactoryUtils.convertHibernateAccessException(SessionFactoryUtils.java:247)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.convertHibernateAccessException(HibernateTransactionManager.java:801)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:637)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:746)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:714)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:533)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:304)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy33.save(Unknown Source)
+	at com.app.server.handler.LogoutHandler.lambda$0(LogoutHandler.java:54)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:59)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:111)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:97)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:208)
+	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:45)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3003)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3503)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:89)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:589)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:463)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:337)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1435)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:491)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3201)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2411)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:467)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:146)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$100(JdbcResourceLocalTransactionCoordinatorImpl.java:38)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:220)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:68)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:625)
+	... 17 more
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '639fbc2edf0c45a7ae81ac2d4c6b2aae' for key 'users.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ServerPreparedStatement.serverExecute(ServerPreparedStatement.java:634)
+	at com.mysql.cj.jdbc.ServerPreparedStatement.executeInternal(ServerPreparedStatement.java:414)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1113)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1381)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1046)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:205)
+	... 35 more
+15/10/2020 17:34:55 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+15/10/2020 17:34:55 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+15/10/2020 17:34:55 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+15/10/2020 17:35:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:35:00 ICT 2020
+15/10/2020 17:36:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:36:00 ICT 2020
+15/10/2020 17:37:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Thu Oct 15 17:37:00 ICT 2020

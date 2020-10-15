@@ -31,12 +31,7 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 				Gson gson = new Gson();
 				Session session = routingContext.session();
 				HttpServerRequest httpServerRequest = routingContext.request();
-				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//				JsonObject jsonRequest = routingContext.getBodyAsJson();
-//				String dateFrom = jsonRequest.getString("dateFrom");
-//				String dateTo = jsonRequest.getString("dateTo");
-//				String trackingCode = jsonRequest.getString("trackingCode");
-//				String sessionId = jsonRequest.getString("sessionId");
+				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				String sessionId = httpServerRequest.getParam("sessionId");
 				String dateFrom = httpServerRequest.getParam("dateFrom");
 				String dateTo = httpServerRequest.getParam("dateTo");
@@ -55,7 +50,7 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 				if (list.size() > 0) {
 					if (dateFrom == null && dateTo == null && trackingCode == null) {
-						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01"));
+						dateFrom = dateFormat.format(dateFormat.parse("1970-01-01 00:00:00"));
 						dateTo = dateFormat.format(new Date());
 						data.put("message", "list shipments");
 						data.put("list", list);
@@ -86,7 +81,7 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 							}
 						}
 					} else {
-						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01"));
+						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
 						dateTo = dateFormat.format(new Date());
 						List<Shipments> search = clipServices.findAllByProperty("FROM Shipments WHERE (created_by = '"
 								+ email + "') AND (tracking_code LIKE '%" + trackingCode

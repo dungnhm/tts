@@ -154,6 +154,10 @@
 		class="com.app.server.handler.LoginHandler">
 		<property name="clipServices" ref="clipServices" />
 	</bean>
+	<bean id="logoutHandler"
+		class="com.app.server.handler.LogoutHandler">
+		<property name="clipServices" ref="clipServices" />
+	</bean>
 	<bean id="registerHandler"
 		class="com.app.server.handler.RegisterHandler">
 		<property name="clipServices" ref="clipServices" />
@@ -172,6 +176,10 @@
 	</bean>
 	<bean id="showShipmentsHandler"
 		class="com.app.server.handler.ShowShipmentsHandler">
+		<property name="clipServices" ref="clipServices" />
+	</bean>
+	<bean id="detailShipmentsHandler"
+		class="com.app.server.handler.DetailShipmentsHandler">
 		<property name="clipServices" ref="clipServices" />
 	</bean>
 	<bean id="createShipmentsHandler"

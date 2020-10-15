@@ -31,11 +31,6 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 				Session session = routingContext.session();
 				HttpServerRequest httpServerRequest = routingContext.request();
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//				JsonObject jsonRequest = routingContext.getBodyAsJson();
-//				String dateFrom = jsonRequest.getString("dateFrom");
-//				String dateTo = jsonRequest.getString("dateTo");
-//				String status = jsonRequest.getString("status");
-//				String sessionId = jsonRequest.getString("sessionId");
 				String sessionId = httpServerRequest.getParam("sessionId");
 				String dateFrom = httpServerRequest.getParam("dateFrom");
 				String dateTo = httpServerRequest.getParam("dateTo");
