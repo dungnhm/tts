@@ -32,11 +32,6 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 				Session session = routingContext.session();
 				HttpServerRequest httpServerRequest = routingContext.request();
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//				JsonObject jsonRequest = routingContext.getBodyAsJson();
-//				String dateFrom = jsonRequest.getString("dateFrom");
-//				String dateTo = jsonRequest.getString("dateTo");
-//				String trackingCode = jsonRequest.getString("trackingCode");
-//				String sessionId = jsonRequest.getString("sessionId");
 				String sessionId = httpServerRequest.getParam("sessionId");
 				String dateFrom = httpServerRequest.getParam("dateFrom");
 				String dateTo = httpServerRequest.getParam("dateTo");
@@ -46,8 +41,8 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 				System.out.println("email request: " + email);
 				HttpServerResponse httpServerReponse = routingContext.response();
 				List<Shipments> list = clipServices.findAllByProperty(
-						"from Shipments WHERE created_by = '" + email + "'", null, 0, Shipments.class, 0);
-				List<Shipments> dates = clipServices.findAllByProperty("FROM Shipments WHERE (created_by = '" + email
+						"Select createdAt,toAddress,shippingStatus,trackingCode,currency from Shipments WHERE created_by = '" + email + "'", null, 0, Shipments.class, 0);
+				List<Shipments> dates = clipServices.findAllByProperty("Select createdAt,toAddress,shippingStatus,trackingCode,currency FROM Shipments WHERE (created_by = '" + email
 						+ "') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')", null, 0,
 						Shipments.class, 0);
 				JsonObject data = new JsonObject();
@@ -58,42 +53,47 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01"));
 						dateTo = dateFormat.format(new Date());
 						data.put("message", "list shipments");
+						data.put("list size", list.size());
 						data.put("list", list);
 						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 					} else if (dates.size() > 0) {
 						if (dateFrom == null || dateTo == null) {
 							data.put("message", "list shipments");
+							data.put("list size", list.size());
 							data.put("list", list);
 							routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 							routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 						} else {
 							if (trackingCode == null) {
 								data.put("message", "list shipments with dates");
+								data.put("list size", dates.size());
 								data.put("list", dates);
 								routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 								routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 							} else {
 								List<Shipments> search = clipServices.findAllByProperty(
-										"FROM Shipments WHERE (created_by = '" + email + "') AND (tracking_code LIKE '%"
+										"Select createdAt,toAddress,shippingStatus,trackingCode,currency FROM Shipments WHERE (created_by = '" + email + "') AND (tracking_code LIKE '%"
 												+ trackingCode + "%') AND (created_at BETWEEN '" + dateFrom + "' AND '"
 												+ dateTo + "')",
 										null, 0, Shipments.class, 0);
 								data.put("message", "list shipments with trackingCode and dates");
+								data.put("list size", search.size());
 								data.put("list", search);
 								routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 								routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 							}
 						}
 					} else {
-						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01"));
+						dateFrom = dateFormat.format(dateFormat.parse("0001-01-01"));
 						dateTo = dateFormat.format(new Date());
-						List<Shipments> search = clipServices.findAllByProperty("FROM Shipments WHERE (created_by = '"
+						List<Shipments> search = clipServices.findAllByProperty("Select createdAt,toAddress,shippingStatus,trackingCode,currency FROM Shipments WHERE (created_by = '"
 								+ email + "') AND (tracking_code LIKE '%" + trackingCode
 								+ "%') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')", null, 0,
 								Shipments.class, 0);
 						System.out.println("102");
 						data.put("message", "list shipments with trackingCode");
+						data.put("list size", search.size());
 						data.put("list", search);
 						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
