@@ -69,9 +69,9 @@ public class SessionsHandler implements Handler<RoutingContext>, LoggerInterface
 						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
 						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
 						int responseCode = ContextUtil.getInt(routingContext, AppParams.RESPONSE_CODE,
-								HttpResponseStatus.NOT_FOUND.code());
+								HttpResponseStatus.UNAUTHORIZED.code());
 						String responseDesc = ContextUtil.getString(routingContext, AppParams.RESPONSE_MSG,
-								HttpResponseStatus.NOT_FOUND.reasonPhrase());
+								HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
 						httpServerResponse.setStatusCode(responseCode);
 						httpServerResponse.setStatusMessage(responseDesc);
 						String responseBody = ContextUtil.getString(routingContext, AppParams.RESPONSE_DATA, "{}");

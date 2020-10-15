@@ -44,53 +44,41 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
 				String email = loggedInUser.getEmail();
 				HttpServerResponse httpServerReponse = routingContext.response();
-				// List Users(Lay Id cua Users)
 				List<Users> listUsers = clipServices.findAllByProperty("FROM Users WHERE email = '" + email + "'", null,
 						0, Users.class, 0);
 				String userId = loggedInUser.getId();
-				System.out.println(userId);
-
-				// LIST ALL WALLET
 				List<Wallets> listWallets = clipServices
 						.findAllByProperty("from Wallets Where user_id ='" + userId + "'", null, 0, Wallets.class, 0);
 				String walletId = listWallets.get(0).getId();
 				System.out.println(walletId);
-				// LIST ALL
-				List<Transfer> list = clipServices.findAllByProperty(" from Transfer Where (from_wallet_id ='" + walletId
+				List<Transfer> list = clipServices.findAllByProperty("from Transfer Where (from_wallet_id ='" + walletId
 						+ "') OR (to_wallet_id ='" + walletId + "')", null, 0, Transfer.class, 0);
-				// LIST THEO DATE
 				List<Transfer> dates = clipServices.findAllByProperty(
-						" FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='" + walletId
+						"FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='" + walletId
 								+ "')) AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')",
 						null, 0, Transfer.class, 0);
-				// LIST THEO CODE
-
 				JsonObject data = new JsonObject();
-
 				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 
 				if (list.size() > 0) {
 					data.put("available", listWallets.get(0).getBalance());
 					if (dateFrom == null && dateTo == null && status == null) {
-						dateFrom = dateFormat.format(dateFormat.parse("0001-01-01"));
+						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01"));
 						dateTo = dateFormat.format(new Date());
 						data.put("message", "list tranfer");
-						data.put("list size: ", list.size());
 						data.put("list", list);
 						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 					} else if (dates.size() > 0) {
 						if (dateFrom == null || dateTo == null) {
 							data.put("message", "list tranfer");
-							data.put("list size: ", list.size());
 							data.put("list", list);
 							routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 							routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 						} else {
 							if (status == null) {
 								data.put("message", "list tranfer with dates");
-								data.put("list size: ", dates.size());
 								data.put("list", dates);
 								routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 								routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
@@ -101,12 +89,10 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 												+ dateTo + "') AND (financial_status ='" + status + "')",
 										null, 0, Transfer.class, 0);
 								data.put("message", "list tranfer with status and dates");
-								data.put("list size: ", search.size());
 								data.put("list", search);
 								routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 								routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 							}
-
 						}
 					} else {
 						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01"));
@@ -119,12 +105,10 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 										null, 0, Transfer.class, 0);
 						System.out.println("102");
 						data.put("message", "list transfer with status");
-						data.put("list size: ", search.size());
 						data.put("list", search);
 						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 					}
-
 				} else {
 					System.out.println("110");
 					data.put("message", "empty");

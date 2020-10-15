@@ -10,6 +10,7 @@ import com.app.server.handler.ChangePasswordHandler;
 import com.app.server.handler.CreateShipmentsHandler;
 import com.app.server.handler.DashboardHandler;
 import com.app.server.handler.LoginHandler;
+import com.app.server.handler.LogoutHandler;
 import com.app.server.handler.OptionHandler;
 import com.app.server.handler.OrderNotifyHandler;
 import com.app.server.handler.RegisterHandler;
@@ -137,13 +138,15 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
 		router.route(HttpMethod.POST, "/login").handler(new LoginHandler());
 		router.route(HttpMethod.POST, "/register").handler(new RegisterHandler());
 		router.route(HttpMethod.POST, "/changePassword").handler(new ChangePasswordHandler());
+		router.route(HttpMethod.POST, "/createShipments").handler(new CreateShipmentsHandler());
+		router.route(HttpMethod.POST, "/logout").handler(new LogoutHandler());
 		router.route(HttpMethod.GET, "/wallet/:sessionId").handler(new WalletInfoHandler());
 		router.route(HttpMethod.GET, "/dashboard/:sessionId").handler(new DashboardHandler());
-		router.route(HttpMethod.POST, "/createShipments").handler(new CreateShipmentsHandler());
+
 		router.route(HttpMethod.GET, "/showShipments/:sessionId").handler(new ShowShipmentsHandler());
 		router.route(HttpMethod.GET, "/showShipments/:sessionId/:trackingCode").handler(new ShowShipmentsHandler());
 		router.route(HttpMethod.GET, "/showShipments/:sessionId/:dateFrom/:dateTo").handler(new ShowShipmentsHandler());
-		router.route(HttpMethod.GET, "/showShipments/:sessionId/:trackingCode/:dateFrom/:dateTo")
+		router.route(HttpMethod.GET, "/showShipments/:sessionId/:dateFrom/:dateTo/:trackingCode")
 				.handler(new ShowShipmentsHandler());
 		router.route(HttpMethod.GET, "/billing/:sessionId").handler(new BillingHandler());
 		router.route(HttpMethod.GET, "/billing/:sessionId/:status").handler(new BillingHandler());

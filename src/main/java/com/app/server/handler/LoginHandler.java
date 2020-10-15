@@ -48,8 +48,8 @@ public class LoginHandler implements Handler<RoutingContext>, SessionStore {
 				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
 
-				List<Users> list = clipServices
-						.findAllByProperty("from Users where email = '" + email + "'", null, 0, Users.class, 0);
+				List<Users> list = clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0,
+						Users.class, 0);
 				// Users là class chứ ko phải là table trong database
 				System.out.println("users size: " + list.size());
 				if (list.size() > 0) {
@@ -60,11 +60,9 @@ public class LoginHandler implements Handler<RoutingContext>, SessionStore {
 							System.out.println("Connection to server sucessfully");
 							// check whether server is running or not
 							System.out.println("Server is running: " + jedis.ping());
-							jedis.set(session.id(), gson.toJson(list.get(0)));
 							SetParams sp = new SetParams();
-							sp.ex(30 * 60);//
-							// jedis.set(session.id(), email, sp);
-							// jedis.hmset(session.id(), sessionData);
+							sp.ex(30 * 60);
+							jedis.set(session.id(), gson.toJson(list.get(0)), sp);
 							System.out.println("store session timeout " + session.timeout());
 						} else {
 							System.out.println("session is null");
