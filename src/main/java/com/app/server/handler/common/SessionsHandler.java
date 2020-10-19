@@ -10,10 +10,9 @@ import com.google.gson.Gson;
 
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
-import io.vertx.core.http.HttpMethod;
-import io.vertx.core.json.JsonObject;
 import io.vertx.rxjava.core.http.HttpServerRequest;
 import io.vertx.rxjava.core.http.HttpServerResponse;
+import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 
 /**
@@ -31,28 +30,20 @@ public class SessionsHandler implements Handler<RoutingContext>, LoggerInterface
 
 				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
-				JsonObject jsonRequest = new JsonObject();
-				String currentSessionId = "1";
-				Gson gson = new Gson();
-				if (routingContext.request().method().compareTo(HttpMethod.POST) == 0
-						|| routingContext.request().method().compareTo(HttpMethod.PUT) == 0
-						|| routingContext.request().method().compareTo(HttpMethod.PATCH) == 0) {
-					jsonRequest = routingContext.getBodyAsJson();
-					currentSessionId = jsonRequest.getString("sessionId");
-				} else if (routingContext.request().method().compareTo(HttpMethod.GET) == 0) {
-					System.out.println(httpServerRequest.getParam("GET sessionId"));
-					currentSessionId = httpServerRequest.getParam("sessionId");
-				}
-				System.out.println("current session id: = " + currentSessionId);
+
 				// get uri
 				String uri = httpServerRequest.uri();
 				// if uri can log in
 				if (!uri.equals("/webhook/api/login") && !uri.equals("/webhook/api/register")) {
+
+					Cookie c = routingContext.getCookie("sessionId");
+					String currentSessionId = c.getValue();
+					Gson gson = new Gson();
+
 					// Session session = routingContext.session();
-					if (currentSessionId == null
-							&& (routingContext.request().method().compareTo(HttpMethod.GET) == 0)) {
-						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
-						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
+					if (currentSessionId == null) {
+						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
+						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
 						System.out.println("55");
 						future.complete();
 					} else if (jedis.get(currentSessionId) != null) {
@@ -60,8 +51,6 @@ public class SessionsHandler implements Handler<RoutingContext>, LoggerInterface
 						// if redis check duoc user co session
 						Users loggedInUser = gson.fromJson(jedis.get(currentSessionId), Users.class);
 						System.out.println(loggedInUser.getName() + " " + loggedInUser.getId());
-						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
-						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 						future.complete();
 					} else {
 						System.out.println("64");
@@ -75,14 +64,11 @@ public class SessionsHandler implements Handler<RoutingContext>, LoggerInterface
 						httpServerResponse.setStatusCode(responseCode);
 						httpServerResponse.setStatusMessage(responseDesc);
 						String responseBody = ContextUtil.getString(routingContext, AppParams.RESPONSE_DATA, "{}");
-						// httpServerResponse.end(new JsonObject(responseBody).encode());
 						httpServerResponse.end(responseBody);
 					}
-
 				} else {
 					future.complete();
 				}
-
 				// get uri
 				// uri can login
 				// check redis co user

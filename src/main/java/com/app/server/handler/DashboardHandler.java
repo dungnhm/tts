@@ -20,6 +20,7 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
 import io.vertx.rxjava.core.http.HttpServerRequest;
+import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 import io.vertx.rxjava.ext.web.Session;
 
@@ -34,7 +35,9 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 			try {
 				Session session = routingContext.session();
 				HttpServerRequest httpServerRequest = routingContext.request();
-				String sessionId = httpServerRequest.getParam("sessionId");
+				Cookie c = routingContext.getCookie("sessionId");
+				String sessionId = c.getValue();
+
 				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 				JsonObject data = new JsonObject();

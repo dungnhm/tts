@@ -17,6 +17,7 @@ import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
 import io.vertx.rxjava.core.http.HttpServerRequest;
 import io.vertx.rxjava.core.http.HttpServerResponse;
+import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 import io.vertx.rxjava.ext.web.Session;
 
@@ -32,7 +33,13 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 				Session session = routingContext.session();
 				HttpServerRequest httpServerRequest = routingContext.request();
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				String sessionId = httpServerRequest.getParam("sessionId");
+				// String sessionId = httpServerRequest.getParam("sessionId");
+				Cookie c = routingContext.getCookie("sessionId");
+				String sessionId = c.getValue();
+
+				// System.out.println("id 1: " + sid);
+				System.out.println("id 2: " + sessionId);
+				System.out.println("id 3: " + routingContext.session().id());
 				String dateFrom = httpServerRequest.getParam("dateFrom");
 				String dateTo = httpServerRequest.getParam("dateTo");
 				String trackingCode = httpServerRequest.getParam("trackingCode");

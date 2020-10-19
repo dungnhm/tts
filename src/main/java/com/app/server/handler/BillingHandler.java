@@ -17,7 +17,7 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
 import io.vertx.rxjava.core.http.HttpServerRequest;
-import io.vertx.rxjava.core.http.HttpServerResponse;
+import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 import io.vertx.rxjava.ext.web.Session;
 
@@ -31,21 +31,24 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 				Session session = routingContext.session();
 				HttpServerRequest httpServerRequest = routingContext.request();
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-				String sessionId = httpServerRequest.getParam("sessionId");
+				Cookie c = routingContext.getCookie("sessionId");
+				String sessionId = c.getValue();
+
 				String dateFrom = httpServerRequest.getParam("dateFrom");
 				String dateTo = httpServerRequest.getParam("dateTo");
 				String status = httpServerRequest.getParam("status");
 				Gson gson = new Gson();
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
 				String email = loggedInUser.getEmail();
-				HttpServerResponse httpServerReponse = routingContext.response();
-				List<Users> listUsers = clipServices.findAllByProperty("FROM Users WHERE email = '" + email + "'", null,
-						0, Users.class, 0);
+				// HttpServerResponse httpServerReponse = routingContext.response();
+				// List<Users> listUsers = clipServices.findAllByProperty("FROM Users WHERE
+				// email = '" + email + "'", null,
+				// 0, Users.class, 0);
 				String userId = loggedInUser.getId();
 				List<Wallets> listWallets = clipServices
 						.findAllByProperty("from Wallets Where user_id ='" + userId + "'", null, 0, Wallets.class, 0);
 				String walletId = listWallets.get(0).getId();
-				System.out.println(walletId);
+				System.out.println("walletId = " + walletId);
 				List<Transfer> list = clipServices.findAllByProperty("from Transfer Where (from_wallet_id ='" + walletId
 						+ "') OR (to_wallet_id ='" + walletId + "')", null, 0, Transfer.class, 0);
 				List<Transfer> dates = clipServices.findAllByProperty(

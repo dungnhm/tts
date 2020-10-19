@@ -5,11 +5,6 @@
  */
 package com.app.server.handler;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
 import com.app.models.ClipServices;
 import com.app.pojo.Users;
 import com.app.session.redis.SessionStore;
@@ -43,16 +38,10 @@ public class LogoutHandler implements Handler<RoutingContext>, SessionStore {
 
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
 				String email = loggedInUser.getEmail();
-				List<Users> listUsers = clipServices.findAllByProperty("FROM Users WHERE email = '" + email + "'", null,
-						0, Users.class, 0);
+
 				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
 				if (!jedis.get(sessionId).isEmpty()) {
-					DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-					Date date = new Date();
-					System.out.println("date = " + date);
-					loggedInUser.setLastLogin(date);
-					clipServices.saveOrUpdate(loggedInUser, Users.class, 0);
 
 					System.out.println("ss info " + jedis.get(sessionId));
 					jedis.del(sessionId);

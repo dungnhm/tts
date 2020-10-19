@@ -23,6 +23,7 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
 import io.vertx.rxjava.core.http.HttpServerRequest;
+import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 
 public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionStore {
@@ -40,7 +41,9 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
 				HttpServerRequest httpServerRequest = routingContext.request();
 				JsonObject jsonRequest = routingContext.getBodyAsJson();
 				// session of logging in user
-				String sessionId = jsonRequest.getString("sessionId");
+				Cookie c = routingContext.getCookie("sessionId");
+				String sessionId = c.getValue();
+
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
 				String email = loggedInUser.getEmail();
 				System.out.println(loggedInUser.getName() + " " + loggedInUser.getId());

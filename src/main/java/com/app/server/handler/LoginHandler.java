@@ -5,6 +5,7 @@
  */
 package com.app.server.handler;
 
+import java.util.Date;
 import java.util.List;
 
 import com.app.models.ClipServices;
@@ -16,7 +17,7 @@ import com.google.gson.Gson;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
-import io.vertx.rxjava.core.http.HttpServerRequest;
+import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 import io.vertx.rxjava.ext.web.Session;
 import redis.clients.jedis.params.SetParams;
@@ -32,31 +33,26 @@ public class LoginHandler implements Handler<RoutingContext>, SessionStore {
 			try {
 				Gson gson = new Gson();
 				Session session = routingContext.session();
-				HttpServerRequest httpServerRequest = routingContext.request();
 
-				System.out.println("session id from LoginHandler: " + session.id());
-				JsonObject jsonResponse = new JsonObject();
 				// lay tham so username, password tu path
 				JsonObject jsonRequest = routingContext.getBodyAsJson();
 				// String username = jsonRequest.getString("name");
 				String email = jsonRequest.getString("email");
 				// String password = Md5Code.md5(jsonRequest.getString("password"));
 				String password = jsonRequest.getString("password");
-				// String data = "login failed";
+
 				JsonObject data = new JsonObject();
 				data.put("status", "login failed");
 				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
 
 				List<Users> list = clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0,
-						Users.class, 0);
-				// Users là class chứ ko phải là table trong database
-				System.out.println("users size: " + list.size());
+						Users.class, 0); // Users là class chứ ko phải là table trong database
+
 				if (list.size() > 0) {
 					Users userResult = list.get(0);
 					if (userResult.getPassword().equals(password)) {
 						if (session != null) {
-							// session.put("email", email);// session dang co id va email
 							System.out.println("Connection to server sucessfully");
 							// check whether server is running or not
 							System.out.println("Server is running: " + jedis.ping());
@@ -64,12 +60,21 @@ public class LoginHandler implements Handler<RoutingContext>, SessionStore {
 							sp.ex(30 * 60);
 							jedis.set(session.id(), gson.toJson(list.get(0)), sp);
 							System.out.println("store session timeout " + session.timeout());
+							Cookie cookie = Cookie.cookie("sessionId", session.id());
+							routingContext.addCookie(cookie);
 						} else {
 							System.out.println("session is null");
 						}
 						data.put("name", list.get(0).getName());
 						data.put("status", "login successed");
-						data.put("sessionId", session.id());
+						Date date = new Date();
+
+						// update last log in
+						List<Users> listUsers = clipServices
+								.findAllByProperty("FROM Users WHERE email = '" + email + "'", null, 0, Users.class, 0);
+						Users loggedInUser = listUsers.get(0);
+						loggedInUser.setLastLogin(date);
+						clipServices.saveOrUpdate(loggedInUser, Users.class, 0);
 						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 					}

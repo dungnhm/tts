@@ -18,6 +18,7 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
 import io.vertx.rxjava.core.http.HttpServerRequest;
+import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 
 public class ChangePasswordHandler implements Handler<RoutingContext>, SessionStore {
@@ -34,7 +35,9 @@ public class ChangePasswordHandler implements Handler<RoutingContext>, SessionSt
 				Gson gson = new Gson();
 				// lay tham so username, password tu path
 				JsonObject jsonRequest = routingContext.getBodyAsJson();
-				String sessionId = jsonRequest.getString("sessionId");
+				Cookie c = routingContext.getCookie("sessionId");
+				String sessionId = c.getValue();
+
 				String oldPassword = jsonRequest.getString("oldPassword");
 				String newPassword = jsonRequest.getString("newPassword");
 				String confirmPassword = jsonRequest.getString("confirmPassword");
@@ -46,8 +49,8 @@ public class ChangePasswordHandler implements Handler<RoutingContext>, SessionSt
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
 				String email = loggedInUser.getEmail();
 				String password = loggedInUser.getPassword();
-				List<Users> list = clipServices
-						.findAllByProperty("from Users where email = '" + email + "'", null, 0, Users.class, 0);
+				List<Users> list = clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0,
+						Users.class, 0);
 				if (list.size() > 0) {
 					if (newPassword.equals(confirmPassword)) {
 						Users resultUser = list.get(0);

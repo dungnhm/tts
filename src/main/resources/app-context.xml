@@ -146,6 +146,7 @@
 
 	<!-- Khai báo Handler. Truyền ref = clipServices vào handler, với clipServices 
 		là thuộc tính có trong lớp Handler -->
+		
 	<bean id="orderNotifyHandler"
 		class="com.app.server.handler.OrderNotifyHandler">
 		<property name="clipServices" ref="clipServices" />
@@ -186,8 +187,12 @@
 		class="com.app.server.handler.CreateShipmentsHandler">
 		<property name="clipServices" ref="clipServices" />
 	</bean>
-	<bean id="BillingHandler"
+	<bean id="billingHandler"
 		class="com.app.server.handler.BillingHandler">
+		<property name="clipServices" ref="clipServices" />
+	</bean>
+	<bean id="createPaymentsHandler"
+		class="com.app.server.handler.CreatePaymentsHandler">
 		<property name="clipServices" ref="clipServices" />
 	</bean>
 

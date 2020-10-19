@@ -51,7 +51,7 @@ public class RegisterHandler implements Handler<RoutingContext> {
 				if (list.size() > 0) {
 					duplicate = true;
 				}
-				if (name.equals("")) {
+				if (name.equals("") || name == null) {
 					duplicate = true;
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
