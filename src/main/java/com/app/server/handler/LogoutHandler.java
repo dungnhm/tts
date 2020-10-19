@@ -48,8 +48,9 @@ public class LogoutHandler implements Handler<RoutingContext>, SessionStore {
 				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
 				if (!jedis.get(sessionId).isEmpty()) {
-					DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+					DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 					Date date = new Date();
+					System.out.println("date = " + date);
 					loggedInUser.setLastLogin(date);
 					clipServices.saveOrUpdate(loggedInUser, Users.class, 0);
 

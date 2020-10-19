@@ -18,7 +18,7 @@
     <!--<property name="hibernate.hikari.dataSourceClassName">com.mysql.jdbc.jdbc2.optional.MysqlDataSource</property>-->
     <!--<property name="hibernate.hikari.dataSource.url">jdbc:mysql://159.65.140.140:3306/tts?zeroDateTimeBehavior=convertToNull&amp;serverTimezone=GMT&amp;useUnicode=true&amp;characterEncoding=UTF-8</property>-->
     <property name="hibernate.hikari.dataSourceClassName">com.mysql.cj.jdbc.MysqlDataSource</property>
-    <property name="hibernate.hikari.dataSource.url">jdbc:mysql://159.65.140.140:3306/tts?zeroDateTimeBehavior=convertToNull&amp;serverTimezone=GMT</property>
+    <property name="hibernate.hikari.dataSource.url">jdbc:mysql://159.65.140.140:3306/tts?zeroDateTimeBehavior=convertToNull&amp;serverTimezone=Asia/Ho_Chi_Minh</property>
     <property name="hibernate.hikari.dataSource.user">tts-user</property>
     <property name="hibernate.hikari.dataSource.password">tvFXyV8R5875db4W@</property>
     <!--mapping dabase-->

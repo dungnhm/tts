@@ -42,21 +42,34 @@ public class RegisterHandler implements Handler<RoutingContext> {
 				String confirmPassword = jsonRequest.getString("confirmPassword");
 				JsonObject data = new JsonObject();
 				data.put("email", email);
-				List<Users> list = clipServices
-						.findAllByProperty("from Users where email = '" + email + "'", null, 0, Users.class, 0);
+				List<Users> list = clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0,
+						Users.class, 0);
 				// generate uuid:
 				String uuid = UUID.randomUUID().toString().replace("-", "");
 				// uuid.randomUUID sinh ra 36 ki tu
 				boolean duplicate = false;
 				if (list.size() > 0) {
 					duplicate = true;
-					data.put("message", "register failed, email is duplicated");
 				}
-				if (!password.equals(confirmPassword)) {
+				if (name.equals("")) {
 					duplicate = true;
+					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
+					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
+					data.put("message", "register failed, name can not be blank");
+				} else if (!password.equals(confirmPassword)) {
+					duplicate = true;
+					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
+					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 					data.put("message", "register failed, password and confirm password are not matched");
+				} else if (!isValid(email)) {
+					data.put("message", "register failed, email is not valid");
+					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
+					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
+				} else if (duplicate) {
+					data.put("message", "register failed, email is duplicated");
+					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
+					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 				} else if (!duplicate && isValid(email)) {
-
 					Users newUser = new Users(uuid, name, email, password);
 					DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 					Date date = new Date();
