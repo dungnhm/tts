@@ -16,7 +16,6 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
 import io.vertx.rxjava.core.http.HttpServerRequest;
-import io.vertx.rxjava.core.http.HttpServerResponse;
 import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 import io.vertx.rxjava.ext.web.Session;
@@ -24,6 +23,7 @@ import io.vertx.rxjava.ext.web.Session;
 public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionStore {
 	static ClipServices clipServices;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void handle(RoutingContext routingContext) {
 		// TODO Auto-generated method stub
@@ -46,7 +46,6 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
 				String email = loggedInUser.getEmail();
 				System.out.println("email request: " + email);
-				HttpServerResponse httpServerReponse = routingContext.response();
 				List<Shipments> list = clipServices.findAllByProperty(
 						"from Shipments WHERE created_by = '" + email + "'", null, 0, Shipments.class, 0);
 				List<Shipments> dates = clipServices.findAllByProperty("FROM Shipments WHERE (created_by = '" + email
@@ -94,7 +93,6 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 								+ email + "') AND (tracking_code LIKE '%" + trackingCode
 								+ "%') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')", null, 0,
 								Shipments.class, 0);
-						System.out.println("102");
 						data.put("message", "list shipments with trackingCode");
 						data.put("list", search);
 						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());

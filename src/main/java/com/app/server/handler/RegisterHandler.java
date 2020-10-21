@@ -33,8 +33,8 @@ public class RegisterHandler implements Handler<RoutingContext> {
 		routingContext.vertx().executeBlocking(future -> {
 			try {
 				HttpServerRequest httpServerRequest = routingContext.request();
-				JsonObject jsonResponse = new JsonObject();
-				// lay tham so username, password tu path
+
+				// Lấy tham số từ Request
 				JsonObject jsonRequest = routingContext.getBodyAsJson();
 				String name = jsonRequest.getString("name");
 				String password = jsonRequest.getString("password");

@@ -5,8 +5,6 @@
  */
 package com.app.server.handler;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -21,8 +19,8 @@ import com.google.gson.Gson;
 
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
+import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
-import io.vertx.rxjava.core.http.HttpServerRequest;
 import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 
@@ -37,10 +35,7 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
 			try {
 				Gson gson = new Gson();
 				JsonObject data = new JsonObject();
-				// Session session = routingContext.session();
-				HttpServerRequest httpServerRequest = routingContext.request();
 				JsonObject jsonRequest = routingContext.getBodyAsJson();
-				// session of logging in user
 				Cookie c = routingContext.getCookie("sessionId");
 				String sessionId = c.getValue();
 
@@ -48,24 +43,27 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
 				String email = loggedInUser.getEmail();
 				System.out.println(loggedInUser.getName() + " " + loggedInUser.getId());
 				data.put("message", "create shipment failed");
+				// ship from
+				String fromAddress = jsonRequest.getString("fromAddress");
 				// ship to
 				String name = jsonRequest.getString("name");
 				String phoneNumber = jsonRequest.getString("phoneNumber");
-				// ship address
+				// shipping address
 				String company = jsonRequest.getString("company");
 				String address1 = jsonRequest.getString("address1");
 				String address2 = jsonRequest.getString("address2");
 				String country = jsonRequest.getString("country");
 				String state = jsonRequest.getString("state");
 				String zip = jsonRequest.getString("zip");
-				// package info
+				// package dimensions
 				float parcelHeight = Float.parseFloat(jsonRequest.getString("parcelHeight"));
 				float parcelWidth = Float.parseFloat(jsonRequest.getString("parcelWidth"));
 				float parcelLength = Float.parseFloat(jsonRequest.getString("parcelLength"));
 				float parcelWeight = Float.parseFloat(jsonRequest.getString("parcelWeight"));
 				String note = jsonRequest.getString("note");
+				// items
+				JsonArray newItems = jsonRequest.getJsonArray("item");
 
-				DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 				Date date = new Date();
 
 				// create pojo object
@@ -94,6 +92,7 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
 				newShipment.setToAddress(address2);
 				newShipment.setCarrierId("0");
 				newShipment.setShippingStatus("New");
+				newShipment.setPayload(gson.toJson(newItems));
 				String tracking_code = UUID.randomUUID().toString().replace("-", "");
 				newShipment.setTrackingCode(tracking_code);
 				newShipment.setCreatedAt(date);

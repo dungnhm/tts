@@ -49,17 +49,19 @@ public class ChangePasswordHandler implements Handler<RoutingContext>, SessionSt
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
 				String email = loggedInUser.getEmail();
 				String password = loggedInUser.getPassword();
+				System.out.println("pass = " + password);
 				List<Users> list = clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0,
 						Users.class, 0);
 				if (list.size() > 0) {
 					if (newPassword.equals(confirmPassword)) {
 						Users resultUser = list.get(0);
-						if (!oldPassword.equals(newPassword) && newPassword.equals(confirmPassword)) {
+						if (!oldPassword.equals(newPassword) && password.equals(oldPassword)) {
 							Date date = new Date();
 							Users newUser = new Users(resultUser.getId(), resultUser.getName(), email, newPassword,
 									resultUser.getCreatedAt(), date, resultUser.getLastLogin(), resultUser.getState(),
 									resultUser.getCountryCode());
 							clipServices.update(newUser, newUser.getId(), Users.class, 0);
+							jedis.del(sessionId);
 							data.put("message", "change password successed");
 							routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 							routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());

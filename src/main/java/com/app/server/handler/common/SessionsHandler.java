@@ -33,30 +33,27 @@ public class SessionsHandler implements Handler<RoutingContext>, LoggerInterface
 
 				// get uri
 				String uri = httpServerRequest.uri();
-				// if uri can log in
+				// Nếu URI cần yêu cầu đăng nhập
 				if (!uri.equals("/webhook/api/login") && !uri.equals("/webhook/api/register")) {
-
+					// Lấy sessionId từ header sessionId, đã set trong cookie từ LoginHandler
 					Cookie c = routingContext.getCookie("sessionId");
-					String currentSessionId = c.getValue();
-					Gson gson = new Gson();
-
-					// Session session = routingContext.session();
-					if (currentSessionId == null) {
+					String sessionId = c.getValue();
+					if (sessionId == null) {
+						System.out.println("SessionHandler: sessionId == null");
 						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
 						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
-						System.out.println("55");
 						future.complete();
-					} else if (jedis.get(currentSessionId) != null) {
-						System.out.println("57");
-						// if redis check duoc user co session
-						Users loggedInUser = gson.fromJson(jedis.get(currentSessionId), Users.class);
+					} else if (jedis.get(sessionId) != null) {
+						System.out.println("SessionHandler: jedis.get(sessionId) != null");
+						Gson gson = new Gson();
+						Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
 						System.out.println(loggedInUser.getName() + " " + loggedInUser.getId());
+						// reset time out cho session
+						int ttl = 1800;
+						jedis.expire(sessionId, ttl);
 						future.complete();
 					} else {
-						System.out.println("64");
-						// if redis khong check duoc user
-						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
-						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
+						System.out.println("SessionHandler: jedis.get(sessionId) == null");
 						int responseCode = ContextUtil.getInt(routingContext, AppParams.RESPONSE_CODE,
 								HttpResponseStatus.UNAUTHORIZED.code());
 						String responseDesc = ContextUtil.getString(routingContext, AppParams.RESPONSE_MSG,
