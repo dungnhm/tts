@@ -5,8 +5,6 @@
  */
 package com.app.server.handler;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -15,6 +13,7 @@ import org.apache.commons.validator.routines.EmailValidator;
 
 import com.app.models.ClipServices;
 import com.app.pojo.Users;
+import com.app.pojo.Wallets;
 import com.app.util.AppParams;
 
 import io.netty.handler.codec.http.HttpResponseStatus;
@@ -71,10 +70,21 @@ public class RegisterHandler implements Handler<RoutingContext> {
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 				} else if (!duplicate && isValid(email)) {
 					Users newUser = new Users(uuid, name, email, password);
-					DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 					Date date = new Date();
 					newUser.setCreatedAt(date);
-					clipServices.save(newUser, uuid, Users.class, 0);
+
+					Wallets newWallet = new Wallets();
+					uuid = UUID.randomUUID().toString().replace("-", "");
+					newWallet.setId(uuid);
+					newWallet.setUserId(newUser.getId());
+					newWallet.setBalance((long) 0);
+					newWallet.setDueAmount((long) 0);
+					newWallet.setSpentAmount((long) 0);
+					newWallet.setCreatedAt(date);
+					newWallet.setVersion(0);
+
+					clipServices.save(newUser, newUser.getId(), Users.class, 0);
+					clipServices.save(newWallet, newWallet.getId(), Wallets.class, 0);
 					data.put("message", "register successed");
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.CREATED.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.CREATED.reasonPhrase());

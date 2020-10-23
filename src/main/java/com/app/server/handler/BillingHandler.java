@@ -2,7 +2,7 @@ package com.app.server.handler;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.app.models.ClipServices;
@@ -19,16 +19,15 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.rxjava.core.http.HttpServerRequest;
 import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
-import io.vertx.rxjava.ext.web.Session;
 
 public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 	static ClipServices clipServices;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void handle(RoutingContext routingContext) {
 		routingContext.vertx().executeBlocking(future -> {
 			try {
-				Session session = routingContext.session();
 				HttpServerRequest httpServerRequest = routingContext.request();
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 				Cookie c = routingContext.getCookie("sessionId");
@@ -39,11 +38,6 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 				String status = httpServerRequest.getParam("status");
 				Gson gson = new Gson();
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
-				String email = loggedInUser.getEmail();
-				// HttpServerResponse httpServerReponse = routingContext.response();
-				// List<Users> listUsers = clipServices.findAllByProperty("FROM Users WHERE
-				// email = '" + email + "'", null,
-				// 0, Users.class, 0);
 				String userId = loggedInUser.getId();
 				List<Wallets> listWallets = clipServices
 						.findAllByProperty("from Wallets Where user_id ='" + userId + "'", null, 0, Wallets.class, 0);
@@ -63,7 +57,9 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 					data.put("available", listWallets.get(0).getBalance());
 					if (dateFrom == null && dateTo == null && status == null) {
 						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01"));
-						dateTo = dateFormat.format(new Date());
+
+						dateTo = dateFormat.format(java.sql.Date.valueOf(LocalDate.now().plusDays(1)));
+
 						data.put("message", "list tranfer");
 						data.put("list", list);
 						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
@@ -94,7 +90,7 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 						}
 					} else {
 						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01"));
-						dateTo = dateFormat.format(new Date());
+						dateTo = dateFormat.format(java.sql.Date.valueOf(LocalDate.now().plusDays(1)));
 						List<Transfer> search = clipServices
 								.findAllByProperty(
 										"FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='"

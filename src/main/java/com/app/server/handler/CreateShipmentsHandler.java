@@ -5,6 +5,7 @@
  */
 package com.app.server.handler;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.UUID;
 
@@ -63,7 +64,10 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
 				String note = jsonRequest.getString("note");
 				// items
 				JsonArray newItems = jsonRequest.getJsonArray("item");
-
+				Float amount = (float) 0;
+				for (int i = 0; i < newItems.size(); i++) {
+					amount += newItems.getJsonObject(i).getFloat("amount");
+				}
 				Date date = new Date();
 
 				// create pojo object
@@ -93,6 +97,9 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
 				newShipment.setCarrierId("0");
 				newShipment.setShippingStatus("New");
 				newShipment.setPayload(gson.toJson(newItems));
+				newShipment.setAppliedFee(BigDecimal.valueOf(amount));
+				newShipment.setActualFee(BigDecimal.valueOf(amount * 8 / 10));
+				newShipment.setDiscount(BigDecimal.valueOf(amount * 2 / 10));
 				String tracking_code = UUID.randomUUID().toString().replace("-", "");
 				newShipment.setTrackingCode(tracking_code);
 				newShipment.setCreatedAt(date);
