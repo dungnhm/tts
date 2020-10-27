@@ -17,7 +17,6 @@ import com.google.gson.Gson;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
-import io.vertx.rxjava.core.http.HttpServerRequest;
 import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 
@@ -25,13 +24,12 @@ public class ChangePasswordHandler implements Handler<RoutingContext>, SessionSt
 
 	private static ClipServices clipServices;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void handle(RoutingContext routingContext) {
 
 		routingContext.vertx().executeBlocking(future -> {
 			try {
-				HttpServerRequest httpServerRequest = routingContext.request();
-				JsonObject jsonResponse = new JsonObject();
 				Gson gson = new Gson();
 				// lay tham so username, password tu path
 				JsonObject jsonRequest = routingContext.getBodyAsJson();
@@ -42,14 +40,12 @@ public class ChangePasswordHandler implements Handler<RoutingContext>, SessionSt
 				String newPassword = jsonRequest.getString("newPassword");
 				String confirmPassword = jsonRequest.getString("confirmPassword");
 				JsonObject data = new JsonObject();
-				// data.put("sessionId", sessionId);
 				data.put("message", "change password failed");
 				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
 				String email = loggedInUser.getEmail();
 				String password = loggedInUser.getPassword();
-				System.out.println("pass = " + password);
 				List<Users> list = clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0,
 						Users.class, 0);
 				if (list.size() > 0) {

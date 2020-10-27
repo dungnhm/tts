@@ -28,9 +28,6 @@ public class SessionsHandler implements Handler<RoutingContext>, LoggerInterface
 				HttpServerRequest httpServerRequest = routingContext.request();
 				HttpServerResponse httpServerResponse = routingContext.response();
 
-				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
-				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
-
 				// get uri
 				String uri = httpServerRequest.uri();
 				// Nếu URI cần yêu cầu đăng nhập
@@ -66,10 +63,6 @@ public class SessionsHandler implements Handler<RoutingContext>, LoggerInterface
 				} else {
 					future.complete();
 				}
-				// get uri
-				// uri can login
-				// check redis co user
-				// if uri khong can login => end
 			} catch (Exception e) {
 				routingContext.fail(e);
 			}

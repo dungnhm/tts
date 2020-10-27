@@ -26,6 +26,7 @@ public class LoginHandler implements Handler<RoutingContext>, SessionStore {
 
 	static ClipServices clipServices;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void handle(RoutingContext routingContext) {
 
@@ -33,8 +34,6 @@ public class LoginHandler implements Handler<RoutingContext>, SessionStore {
 			try {
 				Gson gson = new Gson();
 				Session session = routingContext.session();
-
-				// Lấy tham số từ Request
 				JsonObject jsonRequest = routingContext.getBodyAsJson();
 				String email = jsonRequest.getString("email");
 				// String password = Md5Code.md5(jsonRequest.getString("password"));

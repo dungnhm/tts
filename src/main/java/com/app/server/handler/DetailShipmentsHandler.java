@@ -28,7 +28,7 @@ public class DetailShipmentsHandler implements Handler<RoutingContext>, SessionS
 				Session session = routingContext.session();
 				HttpServerRequest httpServerRequest = routingContext.request();
 				HttpServerResponse httpServerReponse = routingContext.response();
-				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				String sessionId = httpServerRequest.getParam("sessionId");
 				String trackingCode = httpServerRequest.getParam("trackingCode");
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);

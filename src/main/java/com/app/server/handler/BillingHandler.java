@@ -2,7 +2,7 @@ package com.app.server.handler;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import com.app.models.ClipServices;
@@ -29,7 +29,7 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 		routingContext.vertx().executeBlocking(future -> {
 			try {
 				HttpServerRequest httpServerRequest = routingContext.request();
-				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				Cookie c = routingContext.getCookie("sessionId");
 				String sessionId = c.getValue();
 
@@ -42,40 +42,33 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 				List<Wallets> listWallets = clipServices
 						.findAllByProperty("from Wallets Where user_id ='" + userId + "'", null, 0, Wallets.class, 0);
 				String walletId = listWallets.get(0).getId();
-				System.out.println("walletId = " + walletId);
+
 				List<Transfer> list = clipServices.findAllByProperty("from Transfer Where (from_wallet_id ='" + walletId
 						+ "') OR (to_wallet_id ='" + walletId + "')", null, 0, Transfer.class, 0);
 				List<Transfer> dates = clipServices.findAllByProperty(
 						"FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='" + walletId
 								+ "')) AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')",
 						null, 0, Transfer.class, 0);
+
 				JsonObject data = new JsonObject();
-				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
-				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 
 				if (list.size() > 0) {
 					data.put("available", listWallets.get(0).getBalance());
+					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
+					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 					if (dateFrom == null && dateTo == null && status == null) {
-						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01"));
-
-						dateTo = dateFormat.format(java.sql.Date.valueOf(LocalDate.now().plusDays(1)));
-
+						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
+						dateTo = dateFormat.format(new Date());
 						data.put("message", "list tranfer");
 						data.put("list", list);
-						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
-						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 					} else if (dates.size() > 0) {
 						if (dateFrom == null || dateTo == null) {
 							data.put("message", "list tranfer");
 							data.put("list", list);
-							routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
-							routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 						} else {
 							if (status == null) {
 								data.put("message", "list tranfer with dates");
 								data.put("list", dates);
-								routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
-								routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 							} else {
 								List<Transfer> search = clipServices.findAllByProperty(
 										"FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='"
@@ -84,13 +77,11 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 										null, 0, Transfer.class, 0);
 								data.put("message", "list tranfer with status and dates");
 								data.put("list", search);
-								routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
-								routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 							}
 						}
 					} else {
-						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01"));
-						dateTo = dateFormat.format(java.sql.Date.valueOf(LocalDate.now().plusDays(1)));
+						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
+						dateTo = dateFormat.format(new Date());
 						List<Transfer> search = clipServices
 								.findAllByProperty(
 										"FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='"
@@ -104,9 +95,10 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 					}
 				} else {
-					System.out.println("110");
 					data.put("message", "empty");
-					data.put("list", "empty");
+					data.put("list", "{}");
+					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
+					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 				}
 				routingContext.put(AppParams.RESPONSE_DATA, data);
 				future.complete();

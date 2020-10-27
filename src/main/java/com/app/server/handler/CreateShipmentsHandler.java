@@ -42,7 +42,7 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
 
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
 				String email = loggedInUser.getEmail();
-				System.out.println(loggedInUser.getName() + " " + loggedInUser.getId());
+				Date date = new Date();
 				data.put("message", "create shipment failed");
 				// ship from
 				String fromAddress = jsonRequest.getString("fromAddress");
@@ -68,12 +68,12 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
 				for (int i = 0; i < newItems.size(); i++) {
 					amount += newItems.getJsonObject(i).getFloat("amount");
 				}
-				Date date = new Date();
 
 				// create pojo object
 				Addresses newAddress = new Addresses();
 				Parcels newParcel = new Parcels();
 				Shipments newShipment = new Shipments();
+
 				// add newAddress into database
 				String addressId = UUID.randomUUID().toString().replace("-", "");
 				newAddress.setId(addressId);
@@ -89,6 +89,7 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
 				newAddress.setCreatedBy(email);
 				newAddress.setCreatedAt(date);
 				clipServices.save(newAddress, addressId, Addresses.class, 0);
+
 				// add newShipment into database
 				String shipmentId = UUID.randomUUID().toString().replace("-", "");
 				newShipment.setId(shipmentId);
@@ -105,6 +106,7 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
 				newShipment.setCreatedAt(date);
 				newShipment.setCreatedBy(email);
 				clipServices.save(newShipment, shipmentId, Shipments.class, 0);
+
 				// add newParcel into database
 				String parcelId = UUID.randomUUID().toString().replace("-", "");
 				newParcel.setId(parcelId);

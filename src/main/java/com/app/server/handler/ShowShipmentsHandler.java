@@ -18,7 +18,6 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.rxjava.core.http.HttpServerRequest;
 import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
-import io.vertx.rxjava.ext.web.Session;
 
 public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionStore {
 	static ClipServices clipServices;
@@ -30,50 +29,38 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 		routingContext.vertx().executeBlocking(future -> {
 			try {
 				Gson gson = new Gson();
-				Session session = routingContext.session();
 				HttpServerRequest httpServerRequest = routingContext.request();
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				// String sessionId = httpServerRequest.getParam("sessionId");
 				Cookie c = routingContext.getCookie("sessionId");
 				String sessionId = c.getValue();
 
-				// System.out.println("id 1: " + sid);
-				System.out.println("id 2: " + sessionId);
-				System.out.println("id 3: " + routingContext.session().id());
 				String dateFrom = httpServerRequest.getParam("dateFrom");
 				String dateTo = httpServerRequest.getParam("dateTo");
 				String trackingCode = httpServerRequest.getParam("trackingCode");
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
 				String email = loggedInUser.getEmail();
-				System.out.println("email request: " + email);
+
 				List<Shipments> list = clipServices.findAllByProperty(
 						"from Shipments WHERE created_by = '" + email + "'", null, 0, Shipments.class, 0);
 				List<Shipments> dates = clipServices.findAllByProperty("FROM Shipments WHERE (created_by = '" + email
 						+ "') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')", null, 0,
 						Shipments.class, 0);
 				JsonObject data = new JsonObject();
-				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
-				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
+
 				if (list.size() > 0) {
 					if (dateFrom == null && dateTo == null && trackingCode == null) {
 						dateFrom = dateFormat.format(dateFormat.parse("1970-01-01 00:00:00"));
 						dateTo = dateFormat.format(new Date());
 						data.put("message", "list shipments");
 						data.put("list", list);
-						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
-						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 					} else if (dates.size() > 0) {
 						if (dateFrom == null || dateTo == null) {
 							data.put("message", "list shipments");
 							data.put("list", list);
-							routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
-							routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 						} else {
 							if (trackingCode == null) {
 								data.put("message", "list shipments with dates");
 								data.put("list", dates);
-								routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
-								routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 							} else {
 								List<Shipments> search = clipServices.findAllByProperty(
 										"FROM Shipments WHERE (created_by = '" + email + "') AND (tracking_code LIKE '%"
@@ -82,8 +69,6 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 										null, 0, Shipments.class, 0);
 								data.put("message", "list shipments with trackingCode and dates");
 								data.put("list", search);
-								routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
-								routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 							}
 						}
 					} else {
@@ -95,12 +80,14 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 								Shipments.class, 0);
 						data.put("message", "list shipments with trackingCode");
 						data.put("list", search);
-						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
-						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 					}
+					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
+					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 				} else {
 					data.put("message", "empty");
 					data.put("list", "empty");
+					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
+					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 				}
 				routingContext.put(AppParams.RESPONSE_DATA, data);
 				future.complete();

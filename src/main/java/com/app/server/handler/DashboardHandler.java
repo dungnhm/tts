@@ -36,14 +36,13 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 				String sessionId = c.getValue();
 
 				JsonObject data = new JsonObject();
-				JsonObject dataShipmentsStatus = new JsonObject();
-				JsonObject dataBilling = new JsonObject();
-				JsonObject dataLastShipments = new JsonObject();
-				JsonObject dataLastTransactions = new JsonObject();
 				Gson gson = new Gson();
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
 				String email = loggedInUser.getEmail();
 				String walletId = "";
+				// delivery info
+				JsonObject dataShipmentsStatus = new JsonObject();
+
 				List<Shipments> listShipments = clipServices.findAllByProperty(
 						"FROM Shipments WHERE shipping_status = 'New' AND created_by = '" + email + "'", null, 0,
 						Shipments.class, 0);
@@ -61,7 +60,8 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 						Shipments.class, 0);
 				dataShipmentsStatus.put("delivered", listShipments.size());
 
-				// Lay thong tin billing
+				// wallet info
+				JsonObject dataBilling = new JsonObject();
 				List<Users> listUsers = clipServices.findAllByProperty("FROM Users WHERE email = '" + email + "'", null,
 						0, Users.class, 0);
 				if (listUsers.size() > 0) {
@@ -77,14 +77,16 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 					}
 				}
 
-				// Lay thong tin last shipments
+				// shipments info
+				JsonObject dataLastShipments = new JsonObject();
 				List<Shipments> listLastShipments = clipServices.findAllByProperty(
 						"FROM Shipments WHERE created_by = '" + email + "' ORDER BY created_at DESC", null, 0,
 						Shipments.class, 0);
 				if (listLastShipments.size() > 0) {
 					dataLastShipments.put("shipments", listLastShipments);
 				}
-				// Lay thong tin last transaction
+				// transfer info
+				JsonObject dataLastTransactions = new JsonObject();
 				List<Transfer> listLastTransactions = clipServices.findAllByProperty(
 						"from Transfer Where (from_wallet_id ='" + walletId + "') OR (to_wallet_id ='" + walletId
 								+ "') ORDER BY created_at",

@@ -19,55 +19,48 @@ import com.app.util.AppParams;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
-import io.vertx.rxjava.core.http.HttpServerRequest;
 import io.vertx.rxjava.ext.web.RoutingContext;
 
 public class RegisterHandler implements Handler<RoutingContext> {
 
 	static ClipServices clipServices;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void handle(RoutingContext routingContext) {
 
 		routingContext.vertx().executeBlocking(future -> {
 			try {
-				HttpServerRequest httpServerRequest = routingContext.request();
-
-				// Lấy tham số từ Request
 				JsonObject jsonRequest = routingContext.getBodyAsJson();
 				String name = jsonRequest.getString("name");
 				String password = jsonRequest.getString("password");
 				String email = jsonRequest.getString("email");
 				String confirmPassword = jsonRequest.getString("confirmPassword");
+
 				JsonObject data = new JsonObject();
+				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
+				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 				data.put("email", email);
 				List<Users> list = clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0,
 						Users.class, 0);
 				// generate uuid:
 				String uuid = UUID.randomUUID().toString().replace("-", "");
-				// uuid.randomUUID sinh ra 36 ki tu
+				// uuid.randomUUID sinh ra 36 ký tự nên phải replace "-" thành "" để còn 32 ký
+				// tự
 				boolean duplicate = false;
 				if (list.size() > 0) {
 					duplicate = true;
 				}
 				if (name.equals("") || name == null) {
 					duplicate = true;
-					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
-					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 					data.put("message", "register failed, name can not be blank");
 				} else if (!password.equals(confirmPassword)) {
 					duplicate = true;
-					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
-					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 					data.put("message", "register failed, password and confirm password are not matched");
 				} else if (!isValid(email)) {
 					data.put("message", "register failed, email is not valid");
-					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
-					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 				} else if (duplicate) {
 					data.put("message", "register failed, email is duplicated");
-					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
-					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 				} else if (!duplicate && isValid(email)) {
 					Users newUser = new Users(uuid, name, email, password);
 					Date date = new Date();
@@ -90,8 +83,6 @@ public class RegisterHandler implements Handler<RoutingContext> {
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.CREATED.reasonPhrase());
 				} else {
 					data.put("message", "register failed");
-					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
-					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 				}
 				routingContext.put(AppParams.RESPONSE_DATA, data);
 				future.complete();
