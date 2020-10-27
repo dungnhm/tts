@@ -26,26 +26,25 @@ public class LoginHandler implements Handler<RoutingContext>, SessionStore {
 
 	static ClipServices clipServices;
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void handle(RoutingContext routingContext) {
 
 		routingContext.vertx().executeBlocking(future -> {
 			try {
-				Gson gson = new Gson();
-				Session session = routingContext.session();
 				JsonObject jsonRequest = routingContext.getBodyAsJson();
-				String email = jsonRequest.getString("email");
-				// String password = Md5Code.md5(jsonRequest.getString("password"));
-				String password = jsonRequest.getString("password");
+				Session session = routingContext.session();
 
+				String email = jsonRequest.getString("email");
+				String password = jsonRequest.getString("password");
+				// String password = Md5Code.md5(jsonRequest.getString("password"));
+				Gson gson = new Gson();
 				JsonObject data = new JsonObject();
+
 				data.put("status", "login failed");
 				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
 
-				List<Users> list = clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0,
-						Users.class, 0); // Users là class pojo chứ ko phải là table trong database
+				List<Users> list = getUserByEmail(email);
 
 				if (list.size() > 0) {
 					Users userResult = list.get(0);
@@ -54,10 +53,14 @@ public class LoginHandler implements Handler<RoutingContext>, SessionStore {
 							System.out.println("Connection to server sucessfully");
 							// Check server redis có chạy không
 							System.out.println("Server is running: " + jedis.ping());
+							// Set timout cho session
 							SetParams ttl = new SetParams();
 							ttl.ex(30 * 60);
+
+							// Lưu data của user vào session
 							jedis.set(session.id(), gson.toJson(list.get(0)), ttl);
-							System.out.println("store session timeout " + session.timeout());
+
+							// Lưu sessionId vào cookie
 							Cookie cookie = Cookie.cookie("sessionId", session.id());
 							routingContext.addCookie(cookie);
 						} else {
@@ -68,11 +71,8 @@ public class LoginHandler implements Handler<RoutingContext>, SessionStore {
 						Date date = new Date();
 
 						// update last log in
-						List<Users> listUsers = clipServices
-								.findAllByProperty("FROM Users WHERE email = '" + email + "'", null, 0, Users.class, 0);
-						Users loggedInUser = listUsers.get(0);
-						loggedInUser.setLastLogin(date);
-						clipServices.saveOrUpdate(loggedInUser, Users.class, 0);
+						userResult.setLastLogin(date);
+						clipServices.saveOrUpdate(userResult, Users.class, 0);
 						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 					}
@@ -89,6 +89,18 @@ public class LoginHandler implements Handler<RoutingContext>, SessionStore {
 				routingContext.fail(asyncResult.cause());
 			}
 		});
+	}
+
+	@SuppressWarnings("unchecked")
+	public static List<Users> getUserByEmail(String email) {
+		List<Users> list = null;
+		try {
+			list = clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0, Users.class, 0);
+			// Users là class pojo chứ ko phải là table trong database
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	public static void setClipServices(ClipServices clipServices) {

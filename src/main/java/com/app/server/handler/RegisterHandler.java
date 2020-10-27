@@ -38,19 +38,21 @@ public class RegisterHandler implements Handler<RoutingContext> {
 				String confirmPassword = jsonRequest.getString("confirmPassword");
 
 				JsonObject data = new JsonObject();
+
 				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 				data.put("email", email);
-				List<Users> list = clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0,
-						Users.class, 0);
+
+				List<Users> list = getUserByEmail(email);
+
 				// generate uuid:
 				String uuid = UUID.randomUUID().toString().replace("-", "");
-				// uuid.randomUUID sinh ra 36 ký tự nên phải replace "-" thành "" để còn 32 ký
-				// tự
+				// uuid sinh ra 36 ký tự nên phải replace "-" thành "" để còn 32 ký tự
 				boolean duplicate = false;
 				if (list.size() > 0) {
 					duplicate = true;
 				}
+
 				if (name.equals("") || name == null) {
 					duplicate = true;
 					data.put("message", "register failed, name can not be blank");
@@ -62,6 +64,7 @@ public class RegisterHandler implements Handler<RoutingContext> {
 				} else if (duplicate) {
 					data.put("message", "register failed, email is duplicated");
 				} else if (!duplicate && isValid(email)) {
+					// Đăng ký thành công
 					Users newUser = new Users(uuid, name, email, password);
 					Date date = new Date();
 					newUser.setCreatedAt(date);
@@ -96,6 +99,18 @@ public class RegisterHandler implements Handler<RoutingContext> {
 				routingContext.fail(asyncResult.cause());
 			}
 		});
+	}
+
+	@SuppressWarnings("unchecked")
+	public static List<Users> getUserByEmail(String email) {
+		List<Users> list = null;
+		try {
+			list = clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0, Users.class, 0);
+			// Users là class pojo chứ ko phải là table trong database
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	public static void setClipServices(ClipServices clipServices) {

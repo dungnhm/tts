@@ -22,70 +22,63 @@ import io.vertx.rxjava.ext.web.RoutingContext;
 public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionStore {
 	static ClipServices clipServices;
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void handle(RoutingContext routingContext) {
-		// TODO Auto-generated method stub
 		routingContext.vertx().executeBlocking(future -> {
 			try {
-				Gson gson = new Gson();
 				HttpServerRequest httpServerRequest = routingContext.request();
-				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				Cookie c = routingContext.getCookie("sessionId");
-				String sessionId = c.getValue();
-
+				Cookie cookie = routingContext.getCookie("sessionId"); // Gọi cookie
 				String dateFrom = httpServerRequest.getParam("dateFrom");
 				String dateTo = httpServerRequest.getParam("dateTo");
 				String trackingCode = httpServerRequest.getParam("trackingCode");
-				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
-				String email = loggedInUser.getEmail();
 
-				List<Shipments> list = clipServices.findAllByProperty(
-						"from Shipments WHERE created_by = '" + email + "'", null, 0, Shipments.class, 0);
-				List<Shipments> dates = clipServices.findAllByProperty("FROM Shipments WHERE (created_by = '" + email
-						+ "') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')", null, 0,
-						Shipments.class, 0);
+				Gson gson = new Gson();
 				JsonObject data = new JsonObject();
 
+				String sessionId = cookie.getValue(); // Lấy sessionId từ cookie
+				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class); // Lấy dữ liệu từ redis
+
+				String email = loggedInUser.getEmail();
+
+				// tìm shipments theo email
+				List<Shipments> list = getShipmentsByEmail(email);
+
+				// tìm shipments theo email, dates
+				List<Shipments> dates = getShipments(email, dateFrom, dateTo);
+
 				if (list.size() > 0) {
+					DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 					if (dateFrom == null && dateTo == null && trackingCode == null) {
 						dateFrom = dateFormat.format(dateFormat.parse("1970-01-01 00:00:00"));
 						dateTo = dateFormat.format(new Date());
 						data.put("message", "list shipments");
-						data.put("list", list);
 					} else if (dates.size() > 0) {
 						if (dateFrom == null || dateTo == null) {
 							data.put("message", "list shipments");
-							data.put("list", list);
 						} else {
 							if (trackingCode == null) {
 								data.put("message", "list shipments with dates");
-								data.put("list", dates);
+								list = dates;
 							} else {
-								List<Shipments> search = clipServices.findAllByProperty(
-										"FROM Shipments WHERE (created_by = '" + email + "') AND (tracking_code LIKE '%"
-												+ trackingCode + "%') AND (created_at BETWEEN '" + dateFrom + "' AND '"
-												+ dateTo + "')",
-										null, 0, Shipments.class, 0);
+								// tìm shipments theo email, dates và tracking_code
+								list = getShipments(email, trackingCode, dateFrom, dateTo);
 								data.put("message", "list shipments with trackingCode and dates");
-								data.put("list", search);
 							}
 						}
 					} else {
 						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
 						dateTo = dateFormat.format(new Date());
-						List<Shipments> search = clipServices.findAllByProperty("FROM Shipments WHERE (created_by = '"
-								+ email + "') AND (tracking_code LIKE '%" + trackingCode
-								+ "%') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')", null, 0,
-								Shipments.class, 0);
+						// tìm shipments theo email, dates và tracking_code
+						list = getShipments(email, trackingCode, dateFrom, dateTo);
 						data.put("message", "list shipments with trackingCode");
-						data.put("list", search);
 					}
+
+					data.put("list", list);
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 				} else {
-					data.put("message", "empty");
-					data.put("list", "empty");
+					data.put("message", " ");
+					data.put("list", " ");
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 				}
@@ -101,6 +94,46 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 				routingContext.fail(asyncResult.cause());
 			}
 		});
+	}
+
+	@SuppressWarnings("unchecked")
+	public static List<Shipments> getShipmentsByEmail(String email) {
+		List<Shipments> list = null;
+		try {
+			list = clipServices.findAllByProperty(
+					"FROM Shipments WHERE created_by = '" + email + "' ORDER BY created_at DESC", null, 0,
+					Shipments.class, 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static List<Shipments> getShipments(String email, String dateFrom, String dateTo) {
+		List<Shipments> list = null;
+		try {
+			list = clipServices.findAllByProperty("FROM Shipments WHERE (created_by = '" + email
+					+ "') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')", null, 0, Shipments.class,
+					0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static List<Shipments> getShipments(String email, String trackingCode, String dateFrom, String dateTo) {
+		List<Shipments> list = null;
+		try {
+			list = clipServices.findAllByProperty(
+					"FROM Shipments WHERE (created_by = '" + email + "') AND (tracking_code LIKE '%" + trackingCode
+							+ "%') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')",
+					null, 0, Shipments.class, 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	public static void setClipServices(ClipServices clipServices) {

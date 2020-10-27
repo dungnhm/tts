@@ -31,12 +31,12 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 
 		routingContext.vertx().executeBlocking(future -> {
 			try {
-				Cookie c = routingContext.getCookie("sessionId");
+				Cookie cookie = routingContext.getCookie("sessionId");
 
 				Gson gson = new Gson();
 				JsonObject data = new JsonObject();
 
-				String sessionId = c.getValue();
+				String sessionId = cookie.getValue();
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
 
 				String email = loggedInUser.getEmail();
