@@ -23,36 +23,35 @@ import io.vertx.rxjava.ext.web.RoutingContext;
 public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 	static ClipServices clipServices;
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void handle(RoutingContext routingContext) {
 		routingContext.vertx().executeBlocking(future -> {
 			try {
 				HttpServerRequest httpServerRequest = routingContext.request();
-				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				Cookie c = routingContext.getCookie("sessionId");
-				String sessionId = c.getValue();
-
+				Cookie cookie = routingContext.getCookie("sessionId");
 				String dateFrom = httpServerRequest.getParam("dateFrom");
 				String dateTo = httpServerRequest.getParam("dateTo");
 				String status = httpServerRequest.getParam("status");
+
 				Gson gson = new Gson();
-				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
-				String userId = loggedInUser.getId();
-				List<Wallets> listWallets = clipServices
-						.findAllByProperty("from Wallets Where user_id ='" + userId + "'", null, 0, Wallets.class, 0);
-				String walletId = listWallets.get(0).getId();
-
-				List<Transfer> list = clipServices.findAllByProperty("from Transfer Where (from_wallet_id ='" + walletId
-						+ "') OR (to_wallet_id ='" + walletId + "')", null, 0, Transfer.class, 0);
-				List<Transfer> dates = clipServices.findAllByProperty(
-						"FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='" + walletId
-								+ "')) AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')",
-						null, 0, Transfer.class, 0);
-
 				JsonObject data = new JsonObject();
 
+				String sessionId = cookie.getValue();
+				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
+
+				String userId = loggedInUser.getId();
+
+				List<Wallets> listWallets = getWalletsByUserId(userId);
+
+				String walletId = listWallets.get(0).getId();
+
+				List<Transfer> list = getTransferByWalletId(walletId);
+
+				// get Transfer By walletId and Dates
+				List<Transfer> dates = getTransfer(walletId, dateFrom, dateTo);
+
 				if (list.size() > 0) {
+					DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 					data.put("available", listWallets.get(0).getBalance());
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
@@ -70,11 +69,8 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 								data.put("message", "list tranfer with dates");
 								data.put("list", dates);
 							} else {
-								List<Transfer> search = clipServices.findAllByProperty(
-										"FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='"
-												+ walletId + "')) AND (created_at BETWEEN '" + dateFrom + "' AND '"
-												+ dateTo + "') AND (financial_status ='" + status + "')",
-										null, 0, Transfer.class, 0);
+								// get Transfer by walletId and Dates and Status
+								List<Transfer> search = getTransfer(walletId, dateFrom, dateTo, status);
 								data.put("message", "list tranfer with status and dates");
 								data.put("list", search);
 							}
@@ -82,21 +78,14 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 					} else {
 						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
 						dateTo = dateFormat.format(new Date());
-						List<Transfer> search = clipServices
-								.findAllByProperty(
-										"FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='"
-												+ walletId + "')) AND (created_at BETWEEN '" + dateFrom + "' AND '"
-												+ dateTo + "') AND (financial_status ='" + status + "')",
-										null, 0, Transfer.class, 0);
-						System.out.println("102");
+						// get Transfer by walletId and Dates and Status
+						List<Transfer> search = getTransfer(walletId, dateFrom, dateTo, status);
 						data.put("message", "list transfer with status");
 						data.put("list", search);
-						routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
-						routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 					}
 				} else {
-					data.put("message", "empty");
-					data.put("list", "{}");
+					data.put("message", " ");
+					data.put("list", " ");
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 				}
@@ -112,6 +101,58 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 				routingContext.fail(asyncResult.cause());
 			}
 		});
+	}
+
+	@SuppressWarnings("unchecked")
+	public static List<Transfer> getTransferByWalletId(String walletId) {
+		List<Transfer> list = null;
+		try {
+			list = clipServices.findAllByProperty(
+					"from Transfer Where (from_wallet_id ='" + walletId + "') OR (to_wallet_id ='" + walletId + "')",
+					null, 0, Transfer.class, 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static List<Wallets> getWalletsByUserId(String userId) {
+		List<Wallets> list = null;
+		try {
+			list = clipServices.findAllByProperty("from Wallets Where user_id ='" + userId + "'", null, 0,
+					Wallets.class, 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static List<Transfer> getTransfer(String walletId, String dateFrom, String dateTo) {
+		List<Transfer> list = null;
+		try {
+			list = clipServices.findAllByProperty(
+					"FROM Transfer WHERE ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='" + walletId
+							+ "')) AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')",
+					null, 0, Transfer.class, 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static List<Transfer> getTransfer(String walletId, String dateFrom, String dateTo, String status) {
+		List<Transfer> list = null;
+		try {
+			list = clipServices.findAllByProperty("FROM Transfer WHERE ((from_wallet_id ='" + walletId
+					+ "') OR (to_wallet_id ='" + walletId + "')) AND (created_at BETWEEN '" + dateFrom + "' AND '"
+					+ dateTo + "') AND (financial_status ='" + status + "')", null, 0, Transfer.class, 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	public static void setClipServices(ClipServices clipServices) {

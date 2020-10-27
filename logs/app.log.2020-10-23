@@ -1,0 +1,2282 @@
+23/10/2020 09:13:42 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 09:13:42 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 09:13:42 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 09:13:42 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 09:13:43 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 09:14:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:14:00 ICT 2020
+23/10/2020 09:15:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:15:00 ICT 2020
+23/10/2020 09:16:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:16:00 ICT 2020
+23/10/2020 09:17:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:17:00 ICT 2020
+23/10/2020 09:18:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:18:00 ICT 2020
+23/10/2020 09:18:44 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+23/10/2020 09:18:45 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+23/10/2020 09:18:46 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 09:18:46 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 09:18:46 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+23/10/2020 09:18:46 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 09:18:49 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/Fail *************
+23/10/2020 09:18:50 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 09:18:50 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 09:18:50 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":12,"message":"list transfer with status","list":[{"id":"TR03","version":0,"fromWalletId":"WA2","toWalletId":"WA5","type":"card","amount":12,"shipmentId":"SH004","details":"purchase","fina...
+23/10/2020 09:18:50 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 09:19:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:19:00 ICT 2020
+23/10/2020 09:20:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:20:00 ICT 2020
+23/10/2020 09:21:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:21:00 ICT 2020
+23/10/2020 09:22:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:22:00 ICT 2020
+23/10/2020 09:22:34 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 09:22:34 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "f6c5d5c743d54a97a4a11f253e62h4f4"
+        },
+        {
+            "trackingCode": "12f1217cd6ea48e9b2551713caa2e381"
+        }
+    ],
+    "total": 15
+}
+
+23/10/2020 09:22:35 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
+	at java.base/java.util.Objects.checkIndex(Objects.java:372)
+	at java.base/java.util.ArrayList.get(ArrayList.java:458)
+	at com.app.server.handler.CreatePaymentsHandler.lambda$0(CreatePaymentsHandler.java:73)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+23/10/2020 09:22:35 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 09:22:35 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 09:22:35 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 09:23:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:23:00 ICT 2020
+23/10/2020 09:24:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:24:00 ICT 2020
+23/10/2020 09:25:46 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 09:25:46 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 09:25:46 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 09:25:46 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 09:25:47 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 09:25:53 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 09:25:53 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "f6c5d5c743d54a97a4a11f253e62h4f4"
+        },
+        {
+            "trackingCode": "12f1217cd6ea48e9b2551713caa2e381"
+        }
+    ],
+    "total": 15
+}
+
+23/10/2020 09:25:55 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
+	at java.base/java.util.Objects.checkIndex(Objects.java:372)
+	at java.base/java.util.ArrayList.get(ArrayList.java:458)
+	at com.app.server.handler.CreatePaymentsHandler.lambda$0(CreatePaymentsHandler.java:77)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+23/10/2020 09:25:55 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 09:25:55 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 09:25:55 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 09:26:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:26:00 ICT 2020
+23/10/2020 09:27:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:27:00 ICT 2020
+23/10/2020 09:28:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:28:00 ICT 2020
+23/10/2020 09:29:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:29:00 ICT 2020
+23/10/2020 09:30:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:30:00 ICT 2020
+23/10/2020 09:31:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:31:00 ICT 2020
+23/10/2020 09:32:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:32:00 ICT 2020
+23/10/2020 09:33:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:33:00 ICT 2020
+23/10/2020 09:33:22 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 09:33:22 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 09:33:22 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 09:33:22 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 09:33:23 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 09:33:27 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 09:33:27 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "f6c5d5c743d54a97a4a11f253e62h4f4"
+        },
+        {
+            "trackingCode": "12f1217cd6ea48e9b2551713caa2e381"
+        }
+    ],
+    "total": 15
+}
+
+23/10/2020 09:33:28 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
+	at java.base/java.util.Objects.checkIndex(Objects.java:372)
+	at java.base/java.util.ArrayList.get(ArrayList.java:458)
+	at com.app.server.handler.CreatePaymentsHandler.lambda$0(CreatePaymentsHandler.java:77)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+23/10/2020 09:33:28 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 09:33:28 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 09:33:28 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 09:34:08 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 09:34:08 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 09:34:08 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 09:34:08 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 09:34:09 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 09:34:22 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 09:34:22 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "f6c5d5c743d54a97a4a11f253e62h4f4"
+        },
+        {
+            "trackingCode": "12f1217cd6ea48e9b2551713caa2e381"
+        }
+    ],
+    "total": 15
+}
+
+23/10/2020 09:34:24 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
+	at java.base/java.util.Objects.checkIndex(Objects.java:372)
+	at java.base/java.util.ArrayList.get(ArrayList.java:458)
+	at com.app.server.handler.CreatePaymentsHandler.lambda$0(CreatePaymentsHandler.java:77)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+23/10/2020 09:34:24 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 09:34:24 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 09:34:24 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 09:35:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:35:00 ICT 2020
+23/10/2020 09:35:28 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 09:35:28 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 09:35:28 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 09:35:28 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 09:35:30 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 09:35:32 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 09:35:32 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "f6c5d5c743d54a97a4a11f253e62h4f4"
+        },
+        {
+            "trackingCode": "12f1217cd6ea48e9b2551713caa2e381"
+        }
+    ],
+    "total": 15
+}
+
+23/10/2020 09:35:33 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 09:35:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 09:35:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"messsage":"ok"}
+23/10/2020 09:35:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 09:36:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:36:00 ICT 2020
+23/10/2020 09:39:32 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 09:39:32 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 09:39:32 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 09:39:32 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 09:39:33 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 09:39:42 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 09:39:42 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "f6c5d5c743d54a97a4a11f253e62h4f4"
+        },
+        {
+            "trackingCode": "12f1217cd6ea48e9b2551713caa2e381"
+        }
+    ],
+    "total": 15
+}
+
+23/10/2020 09:39:44 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement
+	at org.springframework.orm.hibernate5.SessionFactoryUtils.convertHibernateAccessException(SessionFactoryUtils.java:251)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.convertHibernateAccessException(HibernateTransactionManager.java:801)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:637)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:746)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:714)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:533)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:304)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy31.update(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy33.update(Unknown Source)
+	at com.app.server.handler.CreatePaymentsHandler.lambda$0(CreatePaymentsHandler.java:81)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+Caused by: org.hibernate.exception.DataException: could not execute statement
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:52)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:111)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:97)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:208)
+	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:45)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3188)
+	at org.hibernate.persister.entity.AbstractEntityPersister.updateOrInsert(AbstractEntityPersister.java:3067)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3447)
+	at org.hibernate.action.internal.EntityUpdateAction.execute(EntityUpdateAction.java:145)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:589)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:463)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:337)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1435)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:491)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3201)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2411)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:467)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:146)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$100(JdbcResourceLocalTransactionCoordinatorImpl.java:38)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:220)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:68)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:625)
+	... 26 more
+Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Out of range value for column 'balance' at row 1
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:104)
+	at com.mysql.cj.jdbc.ServerPreparedStatement.serverExecute(ServerPreparedStatement.java:634)
+	at com.mysql.cj.jdbc.ServerPreparedStatement.executeInternal(ServerPreparedStatement.java:414)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1113)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1381)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1046)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:205)
+	... 45 more
+23/10/2020 09:39:44 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 09:39:44 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 09:39:44 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 09:40:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:40:00 ICT 2020
+23/10/2020 09:44:53 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 09:44:54 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 09:44:54 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 09:44:54 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 09:44:55 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 09:45:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:45:00 ICT 2020
+23/10/2020 09:45:10 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 09:45:10 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "f6c5d5c743d54a97a4a11f253e62h4f4"
+        },
+        {
+            "trackingCode": "12f1217cd6ea48e9b2551713caa2e381"
+        }
+    ],
+    "total": 15
+}
+
+23/10/2020 09:45:12 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement
+	at org.springframework.orm.hibernate5.SessionFactoryUtils.convertHibernateAccessException(SessionFactoryUtils.java:251)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.convertHibernateAccessException(HibernateTransactionManager.java:801)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:637)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:746)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:714)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:533)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:304)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy31.update(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy33.update(Unknown Source)
+	at com.app.server.handler.CreatePaymentsHandler.lambda$0(CreatePaymentsHandler.java:85)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+Caused by: org.hibernate.exception.DataException: could not execute statement
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:52)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:111)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:97)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:208)
+	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:45)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3188)
+	at org.hibernate.persister.entity.AbstractEntityPersister.updateOrInsert(AbstractEntityPersister.java:3067)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3447)
+	at org.hibernate.action.internal.EntityUpdateAction.execute(EntityUpdateAction.java:145)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:589)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:463)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:337)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1435)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:491)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3201)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2411)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:467)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:146)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$100(JdbcResourceLocalTransactionCoordinatorImpl.java:38)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:220)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:68)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:625)
+	... 26 more
+Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Out of range value for column 'balance' at row 1
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:104)
+	at com.mysql.cj.jdbc.ServerPreparedStatement.serverExecute(ServerPreparedStatement.java:634)
+	at com.mysql.cj.jdbc.ServerPreparedStatement.executeInternal(ServerPreparedStatement.java:414)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1113)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1381)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1046)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:205)
+	... 45 more
+23/10/2020 09:45:12 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 09:45:12 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 09:45:12 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 09:45:58 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 09:45:59 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 09:45:59 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 09:45:59 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 09:46:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:46:00 ICT 2020
+23/10/2020 09:46:00 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 09:46:04 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 09:46:04 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "f6c5d5c743d54a97a4a11f253e62h4f4"
+        },
+        {
+            "trackingCode": "12f1217cd6ea48e9b2551713caa2e381"
+        }
+    ],
+    "total": 15
+}
+
+23/10/2020 09:46:06 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+org.springframework.orm.hibernate5.HibernateOptimisticLockingFailureException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1; nested exception is org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1
+	at org.springframework.orm.hibernate5.SessionFactoryUtils.convertHibernateAccessException(SessionFactoryUtils.java:289)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.convertHibernateAccessException(HibernateTransactionManager.java:801)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:637)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:746)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:714)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:533)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:304)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy31.update(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy33.update(Unknown Source)
+	at com.app.server.handler.CreatePaymentsHandler.lambda$0(CreatePaymentsHandler.java:86)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+Caused by: org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1
+	at org.hibernate.jdbc.Expectations$BasicExpectation.checkBatched(Expectations.java:67)
+	at org.hibernate.jdbc.Expectations$BasicExpectation.verifyOutcome(Expectations.java:54)
+	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:46)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3188)
+	at org.hibernate.persister.entity.AbstractEntityPersister.updateOrInsert(AbstractEntityPersister.java:3067)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3447)
+	at org.hibernate.action.internal.EntityUpdateAction.execute(EntityUpdateAction.java:145)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:589)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:463)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:337)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1435)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:491)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3201)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2411)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:467)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:146)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$100(JdbcResourceLocalTransactionCoordinatorImpl.java:38)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:220)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:68)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:625)
+	... 26 more
+23/10/2020 09:46:06 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 09:46:06 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 09:46:06 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 09:47:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:47:00 ICT 2020
+23/10/2020 09:48:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:48:00 ICT 2020
+23/10/2020 09:49:30 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 09:49:30 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 09:49:30 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 09:49:30 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 09:49:31 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 09:49:35 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 09:49:35 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "f6c5d5c743d54a97a4a11f253e62h4f4"
+        },
+        {
+            "trackingCode": "12f1217cd6ea48e9b2551713caa2e381"
+        }
+    ],
+    "total": 15
+}
+
+23/10/2020 09:49:36 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
+	at java.base/java.util.Objects.checkIndex(Objects.java:372)
+	at java.base/java.util.ArrayList.get(ArrayList.java:458)
+	at com.app.server.handler.CreatePaymentsHandler.lambda$0(CreatePaymentsHandler.java:60)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+23/10/2020 09:49:36 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 09:49:36 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 09:49:36 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 09:50:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:50:00 ICT 2020
+23/10/2020 09:50:16 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/Fail *************
+23/10/2020 09:50:17 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 09:50:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 09:50:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":105,"message":"list transfer with status","list":[{"id":"TR02","version":0,"fromWalletId":"WA5","toWalletId":"WA6","type":"card","amount":6,"shipmentId":"8aa8e7c9b7944d95aa33d57652e5c0da"...
+23/10/2020 09:50:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 09:51:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:51:00 ICT 2020
+23/10/2020 09:52:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:52:00 ICT 2020
+23/10/2020 09:53:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:53:00 ICT 2020
+23/10/2020 09:54:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:54:00 ICT 2020
+23/10/2020 09:55:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:55:00 ICT 2020
+23/10/2020 09:56:32 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 09:56:32 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 09:56:32 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 09:56:32 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 09:56:33 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 09:56:40 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/Fail *************
+23/10/2020 09:56:42 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 09:56:42 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 09:56:42 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":105,"message":"list transfer with status","list":[{"id":"TR02","version":0,"fromWalletId":"WA5","toWalletId":"WA6","type":"card","amount":6,"shipmentId":"8aa8e7c9b7944d95aa33d57652e5c0da"...
+23/10/2020 09:56:42 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 09:57:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:57:00 ICT 2020
+23/10/2020 09:58:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:58:00 ICT 2020
+23/10/2020 09:59:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 09:59:00 ICT 2020
+23/10/2020 10:00:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:00:00 ICT 2020
+23/10/2020 10:03:37 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 10:03:37 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 10:03:37 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 10:03:37 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 10:03:38 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 10:03:38 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/Fail *************
+23/10/2020 10:03:40 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:03:40 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 10:03:40 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":105,"message":"list transfer with status","list":[{"id":"TR02","version":0,"fromWalletId":"WA5","toWalletId":"WA6","type":"card","amount":6,"shipmentId":"791dd90b7ead4d51a92c289cdc2996a1"...
+23/10/2020 10:03:40 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:04:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:04:00 ICT 2020
+23/10/2020 10:05:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:05:00 ICT 2020
+23/10/2020 10:05:30 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 10:05:30 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+             "trackingCode": "8aa8e7c9b7944d95aa33d57652e5c0da"
+        },
+        {
+            "trackingCode": "f6c5d5c743d54a97a4a11f253e62h4f4"
+        },
+        {
+            "trackingCode": "7147eb1c2e364ae9a70af13618194d7b"
+        }
+    ],
+    "total": 15
+}
+
+23/10/2020 10:05:33 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:05:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 10:05:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"messsage":"ok"}
+23/10/2020 10:05:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:06:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:06:00 ICT 2020
+23/10/2020 10:06:18 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/Fail *************
+23/10/2020 10:06:19 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:06:19 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 10:06:19 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":75,"message":"list transfer with status","list":[{"id":"TR06","version":0,"fromWalletId":"WA6","toWalletId":"WA5","type":"card","amount":1,"shipmentId":"056087dd76614248bbcf115dd8e6a891",...
+23/10/2020 10:06:19 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:07:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:07:00 ICT 2020
+23/10/2020 10:07:23 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 10:07:23 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 10:07:23 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 10:07:23 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 10:07:24 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 10:07:35 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 10:07:35 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        
+        {
+            "trackingCode": "7147eb1c2e364ae9a70af13618194d7b"
+        }
+    ],
+    "total": 15
+}
+
+23/10/2020 10:07:38 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+org.springframework.orm.hibernate5.HibernateOptimisticLockingFailureException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1; nested exception is org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1
+	at org.springframework.orm.hibernate5.SessionFactoryUtils.convertHibernateAccessException(SessionFactoryUtils.java:289)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.convertHibernateAccessException(HibernateTransactionManager.java:801)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:637)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:746)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:714)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:533)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:304)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy31.update(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy33.update(Unknown Source)
+	at com.app.server.handler.CreatePaymentsHandler.lambda$0(CreatePaymentsHandler.java:86)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+Caused by: org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1
+	at org.hibernate.jdbc.Expectations$BasicExpectation.checkBatched(Expectations.java:67)
+	at org.hibernate.jdbc.Expectations$BasicExpectation.verifyOutcome(Expectations.java:54)
+	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:46)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3188)
+	at org.hibernate.persister.entity.AbstractEntityPersister.updateOrInsert(AbstractEntityPersister.java:3067)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3447)
+	at org.hibernate.action.internal.EntityUpdateAction.execute(EntityUpdateAction.java:145)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:589)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:463)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:337)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1435)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:491)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3201)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2411)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:467)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:146)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$100(JdbcResourceLocalTransactionCoordinatorImpl.java:38)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:220)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:68)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:625)
+	... 26 more
+23/10/2020 10:07:38 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 10:07:38 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 10:07:38 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:08:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:08:00 ICT 2020
+23/10/2020 10:09:08 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 10:09:08 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 10:09:08 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 10:09:08 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 10:09:09 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 10:09:11 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 10:09:11 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        
+        {
+            "trackingCode": "7147eb1c2e364ae9a70af13618194d7b"
+        }
+    ],
+    "total": 15
+}
+
+23/10/2020 10:09:13 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:09:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 10:09:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"messsage":"ok"}
+23/10/2020 10:09:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:10:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:10:00 ICT 2020
+23/10/2020 10:11:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:11:00 ICT 2020
+23/10/2020 10:12:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:12:00 ICT 2020
+23/10/2020 10:13:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:13:00 ICT 2020
+23/10/2020 10:14:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:14:00 ICT 2020
+23/10/2020 10:15:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:15:00 ICT 2020
+23/10/2020 10:16:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:16:00 ICT 2020
+23/10/2020 10:16:01 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createShipments *************
+23/10/2020 10:16:01 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "fromAddress": "HN",
+    "name": "dungnhm",
+    "phoneNumber": "0388354992",
+    "company": "Burger",
+    "address1": "HN",
+    "address2": "HP",
+    "country": "Vietnam",
+    "zip": "1000",
+    "state": "HN",
+    "parcelHeight": "2",
+    "parcelWidth": "4",
+    "parcelLength": "4",
+    "parcelWeight": "8",
+    "note": "VN no1",
+    "item": [
+        {
+            "itemName": "item1",
+            "quantity": 2,
+            "amount": 600,
+            "weightPerItem": 1
+        },
+        {
+           "itemName": "item2",
+            "quantity": 3,
+            "amount": 200,
+            "weightPerItem": 2
+        }
+    ]
+}
+
+23/10/2020 10:16:02 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:16:02 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+23/10/2020 10:16:02 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"create shipment successed"}
+23/10/2020 10:16:02 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:17:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:17:00 ICT 2020
+23/10/2020 10:18:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:18:00 ICT 2020
+23/10/2020 10:19:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:19:00 ICT 2020
+23/10/2020 10:20:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:20:00 ICT 2020
+23/10/2020 10:21:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:21:00 ICT 2020
+23/10/2020 10:22:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:22:00 ICT 2020
+23/10/2020 10:23:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:23:00 ICT 2020
+23/10/2020 10:24:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:24:00 ICT 2020
+23/10/2020 10:25:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:25:00 ICT 2020
+23/10/2020 10:26:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:26:00 ICT 2020
+23/10/2020 10:27:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:27:00 ICT 2020
+23/10/2020 10:28:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:28:00 ICT 2020
+23/10/2020 10:29:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:29:00 ICT 2020
+23/10/2020 10:29:34 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 10:29:34 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 10:29:34 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 10:29:34 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 10:29:35 ERROR com.app.server.vertical.OrderVertical : [INIT] START ORDER API ERROR java.net.BindException: Address already in use: bind
+23/10/2020 10:29:51 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 10:29:51 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 10:29:51 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 10:29:51 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 10:29:52 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 10:29:58 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createShipments *************
+23/10/2020 10:29:58 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "fromAddress": "HN",
+    "name": "dungnhm",
+    "phoneNumber": "0388354992",
+    "company": "Burger",
+    "address1": "HN",
+    "address2": "HP",
+    "country": "Vietnam",
+    "zip": "1000",
+    "state": "HN",
+    "parcelHeight": "2",
+    "parcelWidth": "4",
+    "parcelLength": "4",
+    "parcelWeight": "8",
+    "note": "VN no1",
+    "item": [
+        {
+            "itemName": "item1",
+            "quantity": 2,
+            "amount": 2,
+            "weightPerItem": 1
+        },
+        {
+           "itemName": "item2",
+            "quantity": 3,
+            "amount": 6,
+            "weightPerItem": 2
+        }
+    ]
+}
+
+23/10/2020 10:30:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:30:00 ICT 2020
+23/10/2020 10:30:00 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:30:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+23/10/2020 10:30:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"create shipment successed"}
+23/10/2020 10:30:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:31:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:31:00 ICT 2020
+23/10/2020 10:32:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:32:00 ICT 2020
+23/10/2020 10:32:09 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createShipments *************
+23/10/2020 10:32:09 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "fromAddress": "HN",
+    "name": "dungnhm",
+    "phoneNumber": "0388354992",
+    "company": "Burger",
+    "address1": "HN",
+    "address2": "HP",
+    "country": "Vietnam",
+    "zip": "1000",
+    "state": "HN",
+    "parcelHeight": "2",
+    "parcelWidth": "4",
+    "parcelLength": "4",
+    "parcelWeight": "8",
+    "note": "VN no1",
+    "item": [
+        {
+            "itemName": "item1",
+            "quantity": 2,
+            "amount": 2,
+            "weightPerItem": 1
+        },
+        {
+           "itemName": "item2",
+            "quantity": 3,
+            "amount": 6,
+            "weightPerItem": 2
+        }
+    ]
+}
+
+23/10/2020 10:32:10 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:32:10 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+23/10/2020 10:32:10 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"create shipment successed"}
+23/10/2020 10:32:10 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:32:27 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createShipments *************
+23/10/2020 10:32:27 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "fromAddress": "HN",
+    "name": "dungnhm",
+    "phoneNumber": "0388354992",
+    "company": "Burger",
+    "address1": "HN",
+    "address2": "HP",
+    "country": "Vietnam",
+    "zip": "1000",
+    "state": "HN",
+    "parcelHeight": "2",
+    "parcelWidth": "4",
+    "parcelLength": "4",
+    "parcelWeight": "8",
+    "note": "VN no1",
+    "item": [
+        {
+            "itemName": "item1",
+            "quantity": 2,
+            "amount": 2,
+            "weightPerItem": 1
+        },
+        {
+           "itemName": "item2",
+            "quantity": 3,
+            "amount": 6,
+            "weightPerItem": 2
+        }
+    ]
+}
+
+23/10/2020 10:32:28 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:32:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+23/10/2020 10:32:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"create shipment successed"}
+23/10/2020 10:32:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:32:48 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 10:32:48 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 10:32:48 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 10:32:49 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 10:32:50 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 10:32:54 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createShipments *************
+23/10/2020 10:32:54 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "fromAddress": "HN",
+    "name": "dungnhm",
+    "phoneNumber": "0388354992",
+    "company": "Burger",
+    "address1": "HN",
+    "address2": "HP",
+    "country": "Vietnam",
+    "zip": "1000",
+    "state": "HN",
+    "parcelHeight": "2",
+    "parcelWidth": "4",
+    "parcelLength": "4",
+    "parcelWeight": "8",
+    "note": "VN no1",
+    "item": [
+        {
+            "itemName": "item1",
+            "quantity": 2,
+            "amount": 2,
+            "weightPerItem": 1
+        },
+        {
+           "itemName": "item2",
+            "quantity": 3,
+            "amount": 6,
+            "weightPerItem": 2
+        }
+    ]
+}
+
+23/10/2020 10:32:55 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:32:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+23/10/2020 10:32:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"create shipment successed"}
+23/10/2020 10:32:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:33:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:33:00 ICT 2020
+23/10/2020 10:33:27 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createShipments *************
+23/10/2020 10:33:27 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "fromAddress": "HN",
+    "name": "dungnhm",
+    "phoneNumber": "0388354992",
+    "company": "Burger",
+    "address1": "HN",
+    "address2": "HP",
+    "country": "Vietnam",
+    "zip": "1000",
+    "state": "HN",
+    "parcelHeight": "2",
+    "parcelWidth": "4",
+    "parcelLength": "4",
+    "parcelWeight": "8",
+    "note": "VN no1",
+    "item": [
+        {
+            "itemName": "item1",
+            "quantity": 2,
+            "amount": 4,
+            "weightPerItem": 1
+        },
+        {
+           "itemName": "item2",
+            "quantity": 3,
+            "amount": 6,
+            "weightPerItem": 2
+        }
+    ]
+}
+
+23/10/2020 10:33:27 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:33:27 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+23/10/2020 10:33:27 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"create shipment successed"}
+23/10/2020 10:33:27 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:33:52 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createShipments *************
+23/10/2020 10:33:52 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "fromAddress": "HN",
+    "name": "dungnhm",
+    "phoneNumber": "0388354992",
+    "company": "Burger",
+    "address1": "HN",
+    "address2": "HP",
+    "country": "Vietnam",
+    "zip": "1000",
+    "state": "HN",
+    "parcelHeight": "2",
+    "parcelWidth": "4",
+    "parcelLength": "4",
+    "parcelWeight": "8",
+    "note": "VN no1",
+    "item": [
+        {
+            "itemName": "item1",
+            "quantity": 2,
+            "amount": 4,
+            "weightPerItem": 1
+        },
+        {
+           "itemName": "item2",
+            "quantity": 1,
+            "amount": 10,
+            "weightPerItem": 2
+        }
+    ]
+}
+
+23/10/2020 10:33:53 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:33:53 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+23/10/2020 10:33:53 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"create shipment successed"}
+23/10/2020 10:33:53 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:33:59 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createShipments *************
+23/10/2020 10:33:59 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "fromAddress": "HN",
+    "name": "dungnhm",
+    "phoneNumber": "0388354992",
+    "company": "Burger",
+    "address1": "HN",
+    "address2": "HP",
+    "country": "Vietnam",
+    "zip": "1000",
+    "state": "HN",
+    "parcelHeight": "2",
+    "parcelWidth": "4",
+    "parcelLength": "4",
+    "parcelWeight": "8",
+    "note": "VN no1",
+    "item": [
+        {
+            "itemName": "item1",
+            "quantity": 2,
+            "amount": 4,
+            "weightPerItem": 1
+        },
+        {
+           "itemName": "item2",
+            "quantity": 1,
+            "amount": 5,
+            "weightPerItem": 2
+        }
+    ]
+}
+
+23/10/2020 10:34:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:34:00 ICT 2020
+23/10/2020 10:34:00 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:34:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+23/10/2020 10:34:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"create shipment successed"}
+23/10/2020 10:34:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:35:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:35:00 ICT 2020
+23/10/2020 10:36:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:36:00 ICT 2020
+23/10/2020 10:37:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:37:00 ICT 2020
+23/10/2020 10:38:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:38:00 ICT 2020
+23/10/2020 10:39:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:39:00 ICT 2020
+23/10/2020 10:40:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:40:00 ICT 2020
+23/10/2020 10:41:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:41:00 ICT 2020
+23/10/2020 10:42:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:42:00 ICT 2020
+23/10/2020 10:42:27 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/Fail *************
+23/10/2020 10:42:28 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:42:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 10:42:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":100,"message":"list transfer with status","list":[]}
+23/10/2020 10:42:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:43:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:43:00 ICT 2020
+23/10/2020 10:43:43 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 10:43:43 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 10:43:43 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 10:43:43 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 10:43:44 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 10:43:47 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/Fail *************
+23/10/2020 10:43:48 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:43:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 10:43:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":100,"message":"list transfer with status","list":[]}
+23/10/2020 10:43:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:44:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:44:00 ICT 2020
+23/10/2020 10:45:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:45:00 ICT 2020
+23/10/2020 10:45:28 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+23/10/2020 10:45:28 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+23/10/2020 10:45:28 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:45:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 10:45:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+23/10/2020 10:45:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:45:31 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/Fail *************
+23/10/2020 10:45:32 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:45:32 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 10:45:32 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":100,"message":"list transfer with status","list":[]}
+23/10/2020 10:45:32 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:46:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:46:00 ICT 2020
+23/10/2020 10:47:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:47:00 ICT 2020
+23/10/2020 10:48:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:48:00 ICT 2020
+23/10/2020 10:48:13 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing *************
+23/10/2020 10:48:13 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:48:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 10:48:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":100,"message":"list tranfer","list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":null,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"12389c2edf0c45a7ae81ac2d4c6b2a...
+23/10/2020 10:48:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:49:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:49:00 ICT 2020
+23/10/2020 10:50:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:50:00 ICT 2020
+23/10/2020 10:51:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:51:00 ICT 2020
+23/10/2020 10:51:56 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/Fail *************
+23/10/2020 10:51:57 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:51:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 10:51:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":100,"message":"list transfer with status","list":[]}
+23/10/2020 10:51:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:52:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:52:00 ICT 2020
+23/10/2020 10:52:58 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 10:52:58 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 10:52:58 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 10:52:58 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 10:52:59 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 10:53:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:53:00 ICT 2020
+23/10/2020 10:53:03 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/Fail *************
+23/10/2020 10:53:05 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:53:05 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 10:53:05 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":100,"message":"list transfer with status","list":[]}
+23/10/2020 10:53:05 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:54:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:54:00 ICT 2020
+23/10/2020 10:55:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:55:00 ICT 2020
+23/10/2020 10:55:31 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 10:55:31 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "ebc5e7c8fbe44ab19897a0be02feb8b7"
+        }
+    ],
+    "total": 7.20
+}
+
+23/10/2020 10:55:32 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at org.hibernate.type.IntegerType.next(IntegerType.java:70)
+	at org.hibernate.type.IntegerType.next(IntegerType.java:22)
+	at org.hibernate.engine.internal.Versioning.increment(Versioning.java:92)
+	at org.hibernate.event.internal.DefaultFlushEntityEventListener.getNextVersion(DefaultFlushEntityEventListener.java:379)
+	at org.hibernate.event.internal.DefaultFlushEntityEventListener.scheduleUpdate(DefaultFlushEntityEventListener.java:275)
+	at org.hibernate.event.internal.DefaultFlushEntityEventListener.onFlushEntity(DefaultFlushEntityEventListener.java:143)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.flushEntities(AbstractFlushingEventListener.java:216)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.flushEverythingToExecutions(AbstractFlushingEventListener.java:85)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:38)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1435)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:491)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3201)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2411)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:467)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:146)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$100(JdbcResourceLocalTransactionCoordinatorImpl.java:38)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:220)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:68)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:625)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:746)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:714)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:533)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:304)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy31.update(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy33.update(Unknown Source)
+	at com.app.server.handler.CreatePaymentsHandler.lambda$0(CreatePaymentsHandler.java:85)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+23/10/2020 10:55:32 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 10:55:32 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 10:55:32 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:56:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:56:00 ICT 2020
+23/10/2020 10:57:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:57:00 ICT 2020
+23/10/2020 10:58:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:58:00 ICT 2020
+23/10/2020 10:59:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 10:59:00 ICT 2020
+23/10/2020 10:59:18 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+23/10/2020 10:59:18 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+23/10/2020 10:59:19 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:59:19 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 10:59:19 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+23/10/2020 10:59:19 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:59:25 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing *************
+23/10/2020 10:59:25 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 10:59:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 10:59:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":100,"message":"list tranfer","list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":null,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"12389c2edf0c45a7ae81ac2d4c6b2a...
+23/10/2020 10:59:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 10:59:29 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 10:59:29 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "ebc5e7c8fbe44ab19897a0be02feb8b7"
+        }
+    ],
+    "total": 7.20
+}
+
+23/10/2020 10:59:30 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at org.hibernate.type.IntegerType.next(IntegerType.java:70)
+	at org.hibernate.type.IntegerType.next(IntegerType.java:22)
+	at org.hibernate.engine.internal.Versioning.increment(Versioning.java:92)
+	at org.hibernate.event.internal.DefaultFlushEntityEventListener.getNextVersion(DefaultFlushEntityEventListener.java:379)
+	at org.hibernate.event.internal.DefaultFlushEntityEventListener.scheduleUpdate(DefaultFlushEntityEventListener.java:275)
+	at org.hibernate.event.internal.DefaultFlushEntityEventListener.onFlushEntity(DefaultFlushEntityEventListener.java:143)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.flushEntities(AbstractFlushingEventListener.java:216)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.flushEverythingToExecutions(AbstractFlushingEventListener.java:85)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:38)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1435)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:491)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3201)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2411)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:467)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:146)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$100(JdbcResourceLocalTransactionCoordinatorImpl.java:38)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:220)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:68)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:625)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:746)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:714)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:533)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:304)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy31.update(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy33.update(Unknown Source)
+	at com.app.server.handler.CreatePaymentsHandler.lambda$0(CreatePaymentsHandler.java:85)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+23/10/2020 10:59:30 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 10:59:30 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 10:59:30 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 11:00:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:00:00 ICT 2020
+23/10/2020 11:01:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:01:00 ICT 2020
+23/10/2020 11:02:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:02:00 ICT 2020
+23/10/2020 11:02:09 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 11:02:09 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "ebc5e7c8fbe44ab19897a0be02feb8b7"
+        }
+    ],
+    "total": 7.20
+}
+
+23/10/2020 11:02:11 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 11:02:11 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 11:02:11 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"messsage":"ok"}
+23/10/2020 11:02:11 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 11:03:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:03:00 ICT 2020
+23/10/2020 11:04:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:04:00 ICT 2020
+23/10/2020 11:05:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:05:00 ICT 2020
+23/10/2020 11:06:31 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 11:06:32 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 11:06:32 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 11:06:32 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 11:06:33 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 11:06:37 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 11:06:37 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "ce0563a6e3f346ae82340d16caa0c108"
+        },
+        {
+            "trackingCode": "5d854cebce754e72b2c87d655932d3ba"
+        }
+    ],
+    "total": 7.20
+}
+
+23/10/2020 11:06:41 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 11:06:41 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 11:06:41 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"messsage":"ok"}
+23/10/2020 11:06:41 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 11:07:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:07:00 ICT 2020
+23/10/2020 11:08:28 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 11:08:28 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 11:08:28 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 11:08:28 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 11:08:29 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 11:08:41 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/2020-10-10/2020-10-24 *************
+23/10/2020 11:08:42 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 11:08:42 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 11:08:42 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":79,"message":"list tranfer with dates","list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"12389c2edf0c45a7ae81ac2...
+23/10/2020 11:08:42 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 11:08:53 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/2020-10-10/2020-10-24/Fail *************
+23/10/2020 11:08:53 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 11:08:53 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 11:08:53 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":79,"message":"list tranfer with status and dates","list":[{"id":"88877f6281c94d7892c6759993fa1a94","version":0,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"12389c2edf0c...
+23/10/2020 11:08:53 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 11:09:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:09:00 ICT 2020
+23/10/2020 11:09:02 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/2020-10-10/2020-10-23/Fail *************
+23/10/2020 11:09:03 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 11:09:03 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 11:09:03 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":79,"message":"list transfer with status","list":[]}
+23/10/2020 11:09:03 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 11:16:56 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 11:16:56 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 11:16:56 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 11:16:56 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 11:16:57 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 11:17:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:17:00 ICT 2020
+23/10/2020 11:17:05 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/Fail *************
+23/10/2020 11:17:06 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 11:17:06 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 11:17:06 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":79,"message":"list transfer with status","list":[]}
+23/10/2020 11:17:06 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 11:17:29 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing *************
+23/10/2020 11:17:30 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.IllegalArgumentException: Cannot format given Object as a Date
+	at java.base/java.text.DateFormat.format(DateFormat.java:338)
+	at java.base/java.text.Format.format(Format.java:158)
+	at com.app.server.handler.BillingHandler.lambda$0(BillingHandler.java:66)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+23/10/2020 11:17:30 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 11:17:30 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 11:17:30 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 11:20:58 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 11:20:58 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 11:20:58 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 11:20:58 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 11:20:59 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 11:21:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:21:00 ICT 2020
+23/10/2020 11:21:05 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing *************
+23/10/2020 11:21:06 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.IllegalArgumentException: Cannot format given Object as a Date
+	at java.base/java.text.DateFormat.format(DateFormat.java:338)
+	at java.base/java.text.Format.format(Format.java:158)
+	at com.app.server.handler.BillingHandler.lambda$0(BillingHandler.java:68)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+23/10/2020 11:21:06 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 11:21:06 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 11:21:06 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 11:22:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:22:00 ICT 2020
+23/10/2020 11:23:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:23:00 ICT 2020
+23/10/2020 11:24:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:24:00 ICT 2020
+23/10/2020 11:24:26 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 11:24:26 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 11:24:26 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 11:24:26 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 11:24:27 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 11:24:31 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing *************
+23/10/2020 11:24:33 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 11:24:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 11:24:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":79,"message":"list tranfer","list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"12389c2edf0c45a7ae81ac2d4c6b2aae",...
+23/10/2020 11:24:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 11:24:41 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/Fail *************
+23/10/2020 11:24:42 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 11:24:42 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 11:24:42 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":79,"message":"list transfer with status","list":[]}
+23/10/2020 11:24:42 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 11:25:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:25:00 ICT 2020
+23/10/2020 11:25:46 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 11:25:46 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 11:25:46 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 11:25:46 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 11:25:47 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 11:25:49 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/Fail *************
+23/10/2020 11:25:50 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 11:25:50 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 11:25:50 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":79,"message":"list transfer with status","list":[{"id":"88877f6281c94d7892c6759993fa1a94","version":0,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"12389c2edf0c45a7ae81a...
+23/10/2020 11:25:50 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 11:26:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:26:00 ICT 2020
+23/10/2020 11:32:17 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 11:32:17 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 11:32:17 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 11:32:17 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 11:32:18 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 11:33:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:33:00 ICT 2020
+23/10/2020 11:33:06 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 11:33:06 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "2f60b038f98a4a57a3b03b40498a34ff"
+        }
+       
+    ],
+    "total": 11.20
+}
+
+23/10/2020 11:33:09 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 11:33:09 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 11:33:09 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"messsage":"ok"}
+23/10/2020 11:33:09 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 11:34:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:34:00 ICT 2020
+23/10/2020 11:35:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:35:00 ICT 2020
+23/10/2020 11:36:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:36:00 ICT 2020
+23/10/2020 11:41:22 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 11:41:22 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 11:41:22 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 11:41:23 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 11:41:24 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 11:42:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:42:00 ICT 2020
+23/10/2020 11:43:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:43:00 ICT 2020
+23/10/2020 11:44:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:44:00 ICT 2020
+23/10/2020 11:44:43 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/register *************
+23/10/2020 11:44:43 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email":"tungcs@gmail.com",
+    "name":"tungcs",
+    "password":"tungcs",
+    "confirmPassword":"tungcs"
+}
+
+23/10/2020 11:44:44 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 11:44:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+23/10/2020 11:44:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"email":"tungcs@gmail.com","message":"register successed"}
+23/10/2020 11:44:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 11:45:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:45:00 ICT 2020
+23/10/2020 11:46:15 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 11:46:15 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 11:46:15 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 11:46:15 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 11:46:16 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 11:46:32 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/register *************
+23/10/2020 11:46:32 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email":"tungcs@gmail.com",
+    "name":"tungcs",
+    "password":"tungcs",
+    "confirmPassword":"tungcs"
+}
+
+23/10/2020 11:46:33 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 11:46:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+23/10/2020 11:46:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"email":"tungcs@gmail.com","message":"register successed"}
+23/10/2020 11:46:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 11:47:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:47:00 ICT 2020
+23/10/2020 11:48:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:48:00 ICT 2020
+23/10/2020 11:49:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:49:00 ICT 2020
+23/10/2020 11:50:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:50:00 ICT 2020
+23/10/2020 11:51:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:51:00 ICT 2020
+23/10/2020 11:52:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:52:00 ICT 2020
+23/10/2020 11:53:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:53:00 ICT 2020
+23/10/2020 11:54:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:54:00 ICT 2020
+23/10/2020 11:55:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:55:00 ICT 2020
+23/10/2020 11:56:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:56:00 ICT 2020
+23/10/2020 11:57:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:57:00 ICT 2020
+23/10/2020 11:58:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:58:00 ICT 2020
+23/10/2020 11:59:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 11:59:00 ICT 2020
+23/10/2020 12:00:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:00:00 ICT 2020
+23/10/2020 12:01:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:01:00 ICT 2020
+23/10/2020 12:02:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:02:00 ICT 2020
+23/10/2020 12:03:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:03:00 ICT 2020
+23/10/2020 12:04:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:04:00 ICT 2020
+23/10/2020 12:05:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:05:00 ICT 2020
+23/10/2020 12:06:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:06:00 ICT 2020
+23/10/2020 12:07:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:07:00 ICT 2020
+23/10/2020 12:08:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:08:00 ICT 2020
+23/10/2020 12:09:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:09:00 ICT 2020
+23/10/2020 12:10:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:10:00 ICT 2020
+23/10/2020 12:11:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:11:00 ICT 2020
+23/10/2020 12:12:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:12:00 ICT 2020
+23/10/2020 12:13:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:13:00 ICT 2020
+23/10/2020 12:14:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:14:00 ICT 2020
+23/10/2020 12:15:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:15:00 ICT 2020
+23/10/2020 12:16:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:16:00 ICT 2020
+23/10/2020 12:17:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:17:00 ICT 2020
+23/10/2020 12:18:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:18:00 ICT 2020
+23/10/2020 12:19:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:19:00 ICT 2020
+23/10/2020 12:20:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:20:00 ICT 2020
+23/10/2020 12:21:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:21:00 ICT 2020
+23/10/2020 12:22:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:22:00 ICT 2020
+23/10/2020 12:55:26 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:55:26 ICT 2020
+23/10/2020 12:56:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:56:00 ICT 2020
+23/10/2020 12:57:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:57:00 ICT 2020
+23/10/2020 12:58:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:58:00 ICT 2020
+23/10/2020 12:59:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 12:59:00 ICT 2020
+23/10/2020 13:00:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:00:00 ICT 2020
+23/10/2020 13:01:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:01:00 ICT 2020
+23/10/2020 13:02:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:02:00 ICT 2020
+23/10/2020 13:03:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:03:00 ICT 2020
+23/10/2020 13:04:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:04:00 ICT 2020
+23/10/2020 13:05:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:05:00 ICT 2020
+23/10/2020 13:06:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:06:00 ICT 2020
+23/10/2020 13:07:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:07:00 ICT 2020
+23/10/2020 13:08:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:08:00 ICT 2020
+23/10/2020 13:09:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:09:00 ICT 2020
+23/10/2020 13:10:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:10:00 ICT 2020
+23/10/2020 13:11:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:11:00 ICT 2020
+23/10/2020 13:12:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:12:00 ICT 2020
+23/10/2020 13:13:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:13:00 ICT 2020
+23/10/2020 13:14:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:14:00 ICT 2020
+23/10/2020 13:15:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:15:00 ICT 2020
+23/10/2020 13:16:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:16:00 ICT 2020
+23/10/2020 13:17:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:17:00 ICT 2020
+23/10/2020 13:18:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:18:00 ICT 2020
+23/10/2020 13:19:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:19:00 ICT 2020
+23/10/2020 13:20:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:20:00 ICT 2020
+23/10/2020 13:21:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:21:00 ICT 2020
+23/10/2020 13:22:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:22:00 ICT 2020
+23/10/2020 13:23:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:23:00 ICT 2020
+23/10/2020 13:24:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:24:00 ICT 2020
+23/10/2020 13:25:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:25:00 ICT 2020
+23/10/2020 13:26:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:26:00 ICT 2020
+23/10/2020 13:27:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:27:00 ICT 2020
+23/10/2020 13:28:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:28:00 ICT 2020
+23/10/2020 13:29:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:29:00 ICT 2020
+23/10/2020 13:30:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:30:00 ICT 2020
+23/10/2020 13:31:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:31:00 ICT 2020
+23/10/2020 13:32:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:32:00 ICT 2020
+23/10/2020 13:33:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:33:00 ICT 2020
+23/10/2020 13:34:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:34:00 ICT 2020
+23/10/2020 13:35:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:35:00 ICT 2020
+23/10/2020 13:36:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:36:00 ICT 2020
+23/10/2020 13:43:11 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 13:43:11 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 13:43:11 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 13:43:11 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 13:43:12 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 13:43:18 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+23/10/2020 13:43:18 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+23/10/2020 13:43:21 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+redis.clients.jedis.exceptions.JedisConnectionException: Failed connecting to host localhost:6379
+	at redis.clients.jedis.Connection.connect(Connection.java:204)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:100)
+	at redis.clients.jedis.Connection.sendCommand(Connection.java:125)
+	at redis.clients.jedis.Connection.sendCommand(Connection.java:120)
+	at redis.clients.jedis.BinaryClient.ping(BinaryClient.java:113)
+	at redis.clients.jedis.BinaryJedis.ping(BinaryJedis.java:186)
+	at com.app.server.handler.LoginHandler.lambda$0(LoginHandler.java:57)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method)
+	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
+	at java.base/java.net.Socket.connect(Socket.java:591)
+	at redis.clients.jedis.Connection.connect(Connection.java:181)
+	... 14 more
+23/10/2020 13:43:21 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 13:43:21 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 13:43:21 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 13:43:52 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+23/10/2020 13:43:52 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+23/10/2020 13:43:53 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 13:43:53 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 13:43:53 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+23/10/2020 13:43:53 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 13:43:56 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/completed *************
+23/10/2020 13:43:57 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 13:43:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 13:43:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":68,"message":"list transfer with status","list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"12389c2edf0c45a7ae81a...
+23/10/2020 13:43:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 13:44:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:44:00 ICT 2020
+23/10/2020 13:45:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:45:00 ICT 2020
+23/10/2020 13:46:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:46:00 ICT 2020
+23/10/2020 13:47:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:47:00 ICT 2020
+23/10/2020 13:48:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:48:00 ICT 2020
+23/10/2020 13:49:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:49:00 ICT 2020
+23/10/2020 13:50:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:50:00 ICT 2020
+23/10/2020 13:51:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:51:00 ICT 2020
+23/10/2020 13:52:02 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 13:52:02 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 13:52:02 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 13:52:02 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 13:52:03 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 13:52:14 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments *************
+23/10/2020 13:52:16 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 13:52:16 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 13:52:16 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","list":[{"id":"28fa043a4c654346879f6cc5c42e57c9","version":1,"fromAddress":"HN","toAddress":"HP","carrierId":"0","appliedFee":10.00,"actualFee":8.00,"discount":2.00,"curren...
+23/10/2020 13:52:16 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 13:53:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:53:00 ICT 2020
+23/10/2020 13:53:34 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments/5d854cebce754e72b2c87d655932d3ba *************
+23/10/2020 13:53:35 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 13:53:35 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 13:53:35 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode","list":[{"id":"28fa043a4c654346879f6cc5c42e57c9","version":1,"fromAddress":"HN","toAddress":"HP","carrierId":"0","appliedFee":10.00,"actualFee":8.00,"disc...
+23/10/2020 13:53:35 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 13:53:57 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments/2020-10-01/2020-10-23/5d854cebce754e72b2c87d655932d3ba *************
+23/10/2020 13:53:57 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 13:53:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 13:53:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode and dates","list":[{"id":"28fa043a4c654346879f6cc5c42e57c9","version":1,"fromAddress":"HN","toAddress":"HP","carrierId":"0","appliedFee":10.00,"actualFee":...
+23/10/2020 13:53:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 13:54:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:54:00 ICT 2020
+23/10/2020 13:54:09 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments/2020-10-01/2020-10-23 *************
+23/10/2020 13:54:10 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 13:54:10 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 13:54:10 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with dates","list":[{"id":"28fa043a4c654346879f6cc5c42e57c9","version":1,"fromAddress":"HN","toAddress":"HP","carrierId":"0","appliedFee":10.00,"actualFee":8.00,"discount":2...
+23/10/2020 13:54:10 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 13:55:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:55:00 ICT 2020
+23/10/2020 13:58:19 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 13:58:19 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 13:58:19 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 13:58:19 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 13:58:20 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 13:59:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 13:59:00 ICT 2020
+23/10/2020 13:59:14 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing *************
+23/10/2020 13:59:16 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 13:59:16 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 13:59:16 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":68,"message":"list tranfer","list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"12389c2edf0c45a7ae81ac2d4c6b2aae",...
+23/10/2020 13:59:16 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 13:59:23 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/completed *************
+23/10/2020 13:59:24 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 13:59:24 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 13:59:24 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":68,"message":"list transfer with status","list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"12389c2edf0c45a7ae81a...
+23/10/2020 13:59:24 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 14:00:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:00:00 ICT 2020
+23/10/2020 14:01:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:01:00 ICT 2020
+23/10/2020 14:02:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:02:00 ICT 2020
+23/10/2020 14:03:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:03:00 ICT 2020
+23/10/2020 14:09:39 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 14:09:39 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 14:09:39 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 14:09:39 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 14:09:40 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 14:09:42 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/completed/2020-10-20 *************
+23/10/2020 14:09:43 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 14:09:43 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 14:09:43 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":68,"message":"list transfer with status","list":[]}
+23/10/2020 14:09:43 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 14:09:48 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/2020-10-20 *************
+23/10/2020 14:09:48 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 14:09:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 14:09:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":68,"message":"list transfer with status","list":[]}
+23/10/2020 14:09:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 14:09:55 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/2020-10-20 *************
+23/10/2020 14:09:56 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 14:09:56 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 14:09:56 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":68,"message":"list transfer with status","list":[]}
+23/10/2020 14:09:56 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 14:10:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:10:00 ICT 2020
+23/10/2020 14:10:11 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/2020-10-20/completed *************
+23/10/2020 14:10:12 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 14:10:12 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 14:10:12 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":68,"message":"list transfer with status","list":[]}
+23/10/2020 14:10:12 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 14:10:21 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/2020-10-20/completed/2020-10-24 *************
+23/10/2020 14:10:22 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 14:10:22 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 14:10:22 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":68,"message":"list transfer with status","list":[]}
+23/10/2020 14:10:22 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 14:10:56 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing *************
+23/10/2020 14:10:57 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 14:10:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 14:10:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":68,"message":"list tranfer","list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"12389c2edf0c45a7ae81ac2d4c6b2aae",...
+23/10/2020 14:10:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 14:11:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:11:00 ICT 2020
+23/10/2020 14:12:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:12:00 ICT 2020
+23/10/2020 14:13:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:13:00 ICT 2020
+23/10/2020 14:14:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:14:00 ICT 2020
+23/10/2020 14:15:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:15:00 ICT 2020
+23/10/2020 14:16:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:16:00 ICT 2020
+23/10/2020 14:17:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:17:00 ICT 2020
+23/10/2020 14:18:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:18:00 ICT 2020
+23/10/2020 14:19:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:19:00 ICT 2020
+23/10/2020 14:20:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:20:00 ICT 2020
+23/10/2020 14:21:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:21:00 ICT 2020
+23/10/2020 14:22:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:22:00 ICT 2020
+23/10/2020 14:23:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:23:00 ICT 2020
+23/10/2020 14:24:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:24:00 ICT 2020
+23/10/2020 14:25:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:25:00 ICT 2020
+23/10/2020 14:26:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:26:00 ICT 2020
+23/10/2020 14:27:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:27:00 ICT 2020
+23/10/2020 14:28:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:28:00 ICT 2020
+23/10/2020 14:29:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:29:00 ICT 2020
+23/10/2020 14:30:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:30:00 ICT 2020
+23/10/2020 14:31:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:31:00 ICT 2020
+23/10/2020 14:32:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:32:00 ICT 2020
+23/10/2020 14:33:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:33:00 ICT 2020
+23/10/2020 14:34:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:34:00 ICT 2020
+23/10/2020 14:35:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:35:00 ICT 2020
+23/10/2020 14:36:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:36:00 ICT 2020
+23/10/2020 14:37:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:37:00 ICT 2020
+23/10/2020 14:38:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:38:00 ICT 2020
+23/10/2020 14:39:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:39:00 ICT 2020
+23/10/2020 14:40:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:40:00 ICT 2020
+23/10/2020 14:41:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:41:00 ICT 2020
+23/10/2020 14:42:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:42:00 ICT 2020
+23/10/2020 14:43:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:43:00 ICT 2020
+23/10/2020 14:44:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:44:00 ICT 2020
+23/10/2020 14:45:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:45:00 ICT 2020
+23/10/2020 14:46:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:46:00 ICT 2020
+23/10/2020 14:47:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:47:00 ICT 2020
+23/10/2020 14:48:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:48:00 ICT 2020
+23/10/2020 14:49:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:49:00 ICT 2020
+23/10/2020 14:50:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 14:50:00 ICT 2020
+23/10/2020 15:11:33 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 15:11:33 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 15:11:33 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 15:11:33 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 15:11:34 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 15:11:52 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 15:11:52 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "2f60b038f98a4a57a3b03b40498a34ff"
+        }
+       
+    ],
+    "total": 11.20
+}
+
+23/10/2020 15:11:55 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing *************
+23/10/2020 15:11:57 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing *************
+23/10/2020 15:12:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:12:00 ICT 2020
+23/10/2020 15:12:15 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+23/10/2020 15:12:15 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "hungdt",
+    "password": "hungdt"
+}
+
+23/10/2020 15:12:17 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 15:12:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 15:12:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"hungdt"}
+23/10/2020 15:12:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:12:20 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 15:12:20 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "2f60b038f98a4a57a3b03b40498a34ff"
+        }
+       
+    ],
+    "total": 11.20
+}
+
+23/10/2020 15:12:20 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NullPointerException
+	at com.app.server.handler.CreatePaymentsHandler.lambda$0(CreatePaymentsHandler.java:49)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+23/10/2020 15:12:20 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 15:12:20 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 15:12:20 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:13:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:13:00 ICT 2020
+23/10/2020 15:13:38 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+23/10/2020 15:13:38 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "phuctq@gmail.com",
+    "password": "phuctq"
+}
+
+23/10/2020 15:13:38 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 15:13:38 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 401  Unauthorized
+23/10/2020 15:13:38 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login failed"}
+23/10/2020 15:13:38 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:14:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:14:00 ICT 2020
+23/10/2020 15:14:02 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+23/10/2020 15:14:02 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "phuctq@gmail.com",
+    "password": "phuctq"
+}
+
+23/10/2020 15:14:02 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 15:14:02 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 401  Unauthorized
+23/10/2020 15:14:02 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login failed"}
+23/10/2020 15:14:02 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:15:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:15:00 ICT 2020
+23/10/2020 15:16:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:16:00 ICT 2020
+23/10/2020 15:17:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:17:00 ICT 2020
+23/10/2020 15:17:27 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+23/10/2020 15:17:27 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "phuctq@gmail.com",
+    "password": "phuc123"
+}
+
+23/10/2020 15:17:28 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 15:17:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 15:17:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"phuctq"}
+23/10/2020 15:17:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:18:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:18:00 ICT 2020
+23/10/2020 15:18:40 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+23/10/2020 15:18:40 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email":"phuctq@gmail.com",
+    "password":"phuc123"
+}
+
+23/10/2020 15:18:41 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 15:18:41 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 15:18:41 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"phuctq"}
+23/10/2020 15:18:41 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:19:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:19:00 ICT 2020
+23/10/2020 15:19:06 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+23/10/2020 15:19:06 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+23/10/2020 15:19:06 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 15:19:06 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 15:19:06 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+23/10/2020 15:19:06 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:19:16 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+23/10/2020 15:19:16 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+23/10/2020 15:19:17 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 15:19:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 15:19:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+23/10/2020 15:19:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:19:17 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+23/10/2020 15:19:17 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email":"duc@gmail.com",
+    "password":"123"
+}
+
+23/10/2020 15:19:18 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 15:19:18 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 15:19:18 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"duc"}
+23/10/2020 15:19:18 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:20:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:20:00 ICT 2020
+23/10/2020 15:20:02 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing *************
+23/10/2020 15:20:03 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 15:20:03 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 15:20:03 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":68,"message":"list tranfer","list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"12389c2edf0c45a7ae81ac2d4c6b2aae",...
+23/10/2020 15:20:03 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:20:03 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing *************
+23/10/2020 15:20:04 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 15:20:04 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 15:20:04 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":117,"message":"list tranfer","list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"12389c2edf0c45a7ae81ac2d4c6b2aae"...
+23/10/2020 15:20:04 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:39:26 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 15:42:38 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 15:42:38 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 15:42:38 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 15:42:38 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 15:42:39 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 15:42:58 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+23/10/2020 15:42:58 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+23/10/2020 15:42:59 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 15:42:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 15:42:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+23/10/2020 15:42:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:43:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:43:00 ICT 2020
+23/10/2020 15:43:07 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/Fail *************
+23/10/2020 15:43:08 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 15:43:08 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 15:43:08 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":68,"message":"list transfer with status","list":[{"id":"90007f6281c94d7892c6759993fa1a94","version":0,"fromWalletId":"71e19ed2560c4fe6aab3d9b2bdda3728","toWalletId":"12345c2edf0c45a7ae81a...
+23/10/2020 15:43:08 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:44:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:44:00 ICT 2020
+23/10/2020 15:44:12 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 15:44:12 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "1f22d036087d42d38b36699ca44d8c1a"
+        }
+    ],
+    "total": 500
+}
+
+23/10/2020 15:44:13 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement
+	at org.springframework.orm.hibernate5.SessionFactoryUtils.convertHibernateAccessException(SessionFactoryUtils.java:251)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.convertHibernateAccessException(HibernateTransactionManager.java:801)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:637)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:746)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:714)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:533)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:304)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy31.update(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy33.update(Unknown Source)
+	at com.app.server.handler.CreatePaymentsHandler.lambda$0(CreatePaymentsHandler.java:90)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+Caused by: org.hibernate.exception.DataException: could not execute statement
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:52)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:111)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:97)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:208)
+	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:45)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3188)
+	at org.hibernate.persister.entity.AbstractEntityPersister.updateOrInsert(AbstractEntityPersister.java:3067)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3447)
+	at org.hibernate.action.internal.EntityUpdateAction.execute(EntityUpdateAction.java:145)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:589)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:463)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:337)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1435)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:491)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3201)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2411)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:467)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:146)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$100(JdbcResourceLocalTransactionCoordinatorImpl.java:38)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:220)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:68)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:625)
+	... 26 more
+Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Out of range value for column 'balance' at row 1
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:104)
+	at com.mysql.cj.jdbc.ServerPreparedStatement.serverExecute(ServerPreparedStatement.java:634)
+	at com.mysql.cj.jdbc.ServerPreparedStatement.executeInternal(ServerPreparedStatement.java:414)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1113)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1381)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1046)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:205)
+	... 45 more
+23/10/2020 15:45:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:45:00 ICT 2020
+23/10/2020 15:46:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:46:00 ICT 2020
+23/10/2020 15:46:42 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+23/10/2020 15:46:42 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+23/10/2020 15:46:42 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+23/10/2020 15:46:42 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+23/10/2020 15:46:44 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+23/10/2020 15:46:46 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 15:46:46 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "1f22d036087d42d38b36699ca44d8c1a"
+        }
+    ],
+    "total": 500
+}
+
+23/10/2020 15:46:48 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 15:46:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 15:46:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"availableBalance":68,"invoiceDue":500,"messsage":"You need to add $432 to pay the invoices"}
+23/10/2020 15:46:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:47:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:47:00 ICT 2020
+23/10/2020 15:48:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:48:00 ICT 2020
+23/10/2020 15:48:58 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 15:48:58 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "1f22d036087d42d38b36699ca44d8c1a"
+        }
+    ],
+    "total": 7.20
+}
+
+23/10/2020 15:48:59 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+org.springframework.orm.hibernate5.HibernateOptimisticLockingFailureException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1; nested exception is org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1
+	at org.springframework.orm.hibernate5.SessionFactoryUtils.convertHibernateAccessException(SessionFactoryUtils.java:289)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.convertHibernateAccessException(HibernateTransactionManager.java:801)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:637)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:746)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:714)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:533)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:304)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy31.update(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy33.update(Unknown Source)
+	at com.app.server.handler.CreatePaymentsHandler.lambda$0(CreatePaymentsHandler.java:83)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+Caused by: org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1
+	at org.hibernate.jdbc.Expectations$BasicExpectation.checkBatched(Expectations.java:67)
+	at org.hibernate.jdbc.Expectations$BasicExpectation.verifyOutcome(Expectations.java:54)
+	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:46)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3188)
+	at org.hibernate.persister.entity.AbstractEntityPersister.updateOrInsert(AbstractEntityPersister.java:3067)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3447)
+	at org.hibernate.action.internal.EntityUpdateAction.execute(EntityUpdateAction.java:145)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:589)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:463)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:337)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1435)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:491)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3201)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2411)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:467)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:146)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$100(JdbcResourceLocalTransactionCoordinatorImpl.java:38)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:220)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:68)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:625)
+	... 26 more
+23/10/2020 15:48:59 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 15:48:59 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 15:48:59 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:49:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:49:00 ICT 2020
+23/10/2020 15:50:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:50:00 ICT 2020
+23/10/2020 15:51:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:51:00 ICT 2020
+23/10/2020 15:52:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:52:00 ICT 2020
+23/10/2020 15:52:22 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createPayments *************
+23/10/2020 15:52:22 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "listPay":[
+        {
+            "trackingCode": "1f22d036087d42d38b36699ca44d8c1a"
+        }
+    ],
+    "total": 7.20
+}
+
+23/10/2020 15:52:23 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+org.springframework.orm.hibernate5.HibernateOptimisticLockingFailureException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1; nested exception is org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1
+	at org.springframework.orm.hibernate5.SessionFactoryUtils.convertHibernateAccessException(SessionFactoryUtils.java:289)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.convertHibernateAccessException(HibernateTransactionManager.java:801)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:637)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:746)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:714)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:533)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:304)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:98)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy31.update(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:205)
+	at com.sun.proxy.$Proxy33.update(Unknown Source)
+	at com.app.server.handler.CreatePaymentsHandler.lambda$0(CreatePaymentsHandler.java:83)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+Caused by: org.hibernate.StaleStateException: Batch update returned unexpected row count from update [0]; actual row count: 0; expected: 1
+	at org.hibernate.jdbc.Expectations$BasicExpectation.checkBatched(Expectations.java:67)
+	at org.hibernate.jdbc.Expectations$BasicExpectation.verifyOutcome(Expectations.java:54)
+	at org.hibernate.engine.jdbc.batch.internal.NonBatchingBatch.addToBatch(NonBatchingBatch.java:46)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3188)
+	at org.hibernate.persister.entity.AbstractEntityPersister.updateOrInsert(AbstractEntityPersister.java:3067)
+	at org.hibernate.persister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:3447)
+	at org.hibernate.action.internal.EntityUpdateAction.execute(EntityUpdateAction.java:145)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:589)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:463)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:337)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:39)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1435)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:491)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3201)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2411)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:467)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:146)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$100(JdbcResourceLocalTransactionCoordinatorImpl.java:38)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:220)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:68)
+	at org.springframework.orm.hibernate5.HibernateTransactionManager.doCommit(HibernateTransactionManager.java:625)
+	... 26 more
+23/10/2020 15:52:23 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+23/10/2020 15:52:23 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+23/10/2020 15:52:23 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:53:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:53:00 ICT 2020
+23/10/2020 15:53:30 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing/Fail *************
+23/10/2020 15:53:31 INFO  com.app.server.handler.common.ResponseHandler : 
+
+23/10/2020 15:53:31 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+23/10/2020 15:53:31 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":54,"message":"list transfer with status","list":[{"id":"90007f6281c94d7892c6759993fa1a94","version":0,"fromWalletId":"12389c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"12345c2edf0c45a7ae81a...
+23/10/2020 15:53:31 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+23/10/2020 15:54:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:54:00 ICT 2020
+23/10/2020 15:55:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:55:00 ICT 2020
+23/10/2020 15:56:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:56:00 ICT 2020
+23/10/2020 15:57:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:57:00 ICT 2020
+23/10/2020 15:58:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:58:00 ICT 2020
+23/10/2020 15:59:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 15:59:00 ICT 2020
+23/10/2020 16:00:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:00:00 ICT 2020
+23/10/2020 16:01:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:01:00 ICT 2020
+23/10/2020 16:02:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:02:00 ICT 2020
+23/10/2020 16:03:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:03:00 ICT 2020
+23/10/2020 16:04:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:04:00 ICT 2020
+23/10/2020 16:05:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:05:00 ICT 2020
+23/10/2020 16:06:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:06:00 ICT 2020
+23/10/2020 16:07:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:07:00 ICT 2020
+23/10/2020 16:08:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:08:00 ICT 2020
+23/10/2020 16:09:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:09:00 ICT 2020
+23/10/2020 16:10:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:10:00 ICT 2020
+23/10/2020 16:11:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:11:00 ICT 2020
+23/10/2020 16:12:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:12:00 ICT 2020
+23/10/2020 16:13:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:13:00 ICT 2020
+23/10/2020 16:14:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:14:00 ICT 2020
+23/10/2020 16:15:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:15:00 ICT 2020
+23/10/2020 16:16:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:16:00 ICT 2020
+23/10/2020 16:17:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:17:00 ICT 2020
+23/10/2020 16:18:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:18:00 ICT 2020
+23/10/2020 16:19:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:19:00 ICT 2020
+23/10/2020 16:20:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:20:00 ICT 2020
+23/10/2020 16:21:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:21:00 ICT 2020
+23/10/2020 16:22:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:22:00 ICT 2020
+23/10/2020 16:23:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:23:00 ICT 2020
+23/10/2020 16:24:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:24:00 ICT 2020
+23/10/2020 16:25:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:25:00 ICT 2020
+23/10/2020 16:26:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:26:00 ICT 2020
+23/10/2020 16:27:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:27:00 ICT 2020
+23/10/2020 16:28:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:28:00 ICT 2020
+23/10/2020 16:29:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:29:00 ICT 2020
+23/10/2020 16:30:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:30:00 ICT 2020
+23/10/2020 16:31:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:31:00 ICT 2020
+23/10/2020 16:32:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:32:00 ICT 2020
+23/10/2020 16:33:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:33:00 ICT 2020
+23/10/2020 16:34:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:34:00 ICT 2020
+23/10/2020 16:35:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:35:00 ICT 2020
+23/10/2020 16:36:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:36:00 ICT 2020
+23/10/2020 16:37:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:37:00 ICT 2020
+23/10/2020 16:38:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:38:00 ICT 2020
+23/10/2020 16:39:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:39:00 ICT 2020
+23/10/2020 16:40:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:40:00 ICT 2020
+23/10/2020 16:41:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:41:00 ICT 2020
+23/10/2020 16:42:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:42:00 ICT 2020
+23/10/2020 16:43:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Fri Oct 23 16:43:00 ICT 2020

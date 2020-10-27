@@ -26,71 +26,57 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 
 	static ClipServices clipServices;
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void handle(RoutingContext routingContext) {
 
 		routingContext.vertx().executeBlocking(future -> {
 			try {
 				Cookie c = routingContext.getCookie("sessionId");
-				String sessionId = c.getValue();
 
-				JsonObject data = new JsonObject();
 				Gson gson = new Gson();
+				JsonObject data = new JsonObject();
+
+				String sessionId = c.getValue();
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
+
 				String email = loggedInUser.getEmail();
+				String userId = loggedInUser.getId();
 				String walletId = "";
+
 				// delivery info
 				JsonObject dataShipmentsStatus = new JsonObject();
 
-				List<Shipments> listShipments = clipServices.findAllByProperty(
-						"FROM Shipments WHERE shipping_status = 'New' AND created_by = '" + email + "'", null, 0,
-						Shipments.class, 0);
+				// get Shipments by Email and Status
+				List<Shipments> listShipments = getShipments(email, "New");
 				dataShipmentsStatus.put("new", listShipments.size());
-				listShipments = clipServices.findAllByProperty(
-						"FROM Shipments WHERE shipping_status = 'Processing' AND created_by = '" + email + "'", null, 0,
-						Shipments.class, 0);
+				listShipments = getShipments(email, "Processing");
 				dataShipmentsStatus.put("processing", listShipments.size());
-				listShipments = clipServices.findAllByProperty(
-						"FROM Shipments WHERE shipping_status = 'In Transit' AND created_by = '" + email + "'", null, 0,
-						Shipments.class, 0);
+				listShipments = getShipments(email, "In Transit");
 				dataShipmentsStatus.put("inTransit", listShipments.size());
-				listShipments = clipServices.findAllByProperty(
-						"FROM Shipments WHERE shipping_status = 'Delivered'AND created_by = '" + email + "'", null, 0,
-						Shipments.class, 0);
+				listShipments = getShipments(email, "Delivered");
 				dataShipmentsStatus.put("delivered", listShipments.size());
 
 				// wallet info
 				JsonObject dataBilling = new JsonObject();
-				List<Users> listUsers = clipServices.findAllByProperty("FROM Users WHERE email = '" + email + "'", null,
-						0, Users.class, 0);
-				if (listUsers.size() > 0) {
-					String userId = listUsers.get(0).getId();
-					System.out.println(userId);
-					List<Wallets> listWallets = clipServices.findAllByProperty(
-							"FROM Wallets WHERE user_id = '" + userId + "'", null, 0, Wallets.class, 0);
-					if (listWallets.size() > 0) {
-						walletId = listWallets.get(0).getId();
-						dataBilling.put("dueAmount", listWallets.get(0).getDueAmount());
-						dataBilling.put("availableBalance", listWallets.get(0).getBalance());
-						dataBilling.put("paidAmount", listWallets.get(0).getSpentAmount());
-					}
+
+				List<Wallets> listWallets = getWalletsByUserId(userId);
+
+				if (listWallets.size() > 0) {
+					walletId = listWallets.get(0).getId();
+					dataBilling.put("dueAmount", listWallets.get(0).getDueAmount());
+					dataBilling.put("availableBalance", listWallets.get(0).getBalance());
+					dataBilling.put("paidAmount", listWallets.get(0).getSpentAmount());
 				}
 
 				// shipments info
 				JsonObject dataLastShipments = new JsonObject();
-				List<Shipments> listLastShipments = clipServices.findAllByProperty(
-						"FROM Shipments WHERE created_by = '" + email + "' ORDER BY created_at DESC", null, 0,
-						Shipments.class, 0);
+				List<Shipments> listLastShipments = getShipmentsByEmail(email);
 				if (listLastShipments.size() > 0) {
 					dataLastShipments.put("shipments", listLastShipments);
 				}
 				// transfer info
 				JsonObject dataLastTransactions = new JsonObject();
-				List<Transfer> listLastTransactions = clipServices.findAllByProperty(
-						"from Transfer Where (from_wallet_id ='" + walletId + "') OR (to_wallet_id ='" + walletId
-								+ "') ORDER BY created_at",
-						null, 0, Transfer.class, 0);
+				List<Transfer> listLastTransactions = getTransferByWalletId(walletId);
 				if (listLastTransactions.size() > 0) {
 					dataLastTransactions.put("transactions", listLastTransactions);
 				}
@@ -113,6 +99,57 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 				routingContext.fail(asyncResult.cause());
 			}
 		});
+	}
+
+	@SuppressWarnings("unchecked")
+	public static List<Shipments> getShipments(String email, String status) {
+		List<Shipments> list = null;
+		try {
+			list = clipServices.findAllByProperty(
+					"FROM Shipments WHERE shipping_status = '" + status + "' AND created_by = '" + email + "'", null, 0,
+					Shipments.class, 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static List<Wallets> getWalletsByUserId(String userId) {
+		List<Wallets> list = null;
+		try {
+			list = clipServices.findAllByProperty("from Wallets Where user_id ='" + userId + "'", null, 0,
+					Wallets.class, 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static List<Shipments> getShipmentsByEmail(String email) {
+		List<Shipments> list = null;
+		try {
+			list = clipServices.findAllByProperty(
+					"FROM Shipments WHERE created_by = '" + email + "' ORDER BY created_at DESC", null, 0,
+					Shipments.class, 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static List<Transfer> getTransferByWalletId(String walletId) {
+		List<Transfer> list = null;
+		try {
+			list = clipServices.findAllByProperty(
+					"from Transfer Where (from_wallet_id ='" + walletId + "') OR (to_wallet_id ='" + walletId + "')",
+					null, 0, Transfer.class, 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	public static void setClipServices(ClipServices clipServices) {

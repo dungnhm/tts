@@ -34,21 +34,16 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
 
 		routingContext.vertx().executeBlocking(future -> {
 			try {
-				Gson gson = new Gson();
-				JsonObject data = new JsonObject();
 				JsonObject jsonRequest = routingContext.getBodyAsJson();
-				Cookie c = routingContext.getCookie("sessionId");
-				String sessionId = c.getValue();
+				Cookie cookie = routingContext.getCookie("sessionId");
 
-				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
-				String email = loggedInUser.getEmail();
-				Date date = new Date();
-				data.put("message", "create shipment failed");
 				// ship from
 				String fromAddress = jsonRequest.getString("fromAddress");
+
 				// ship to
 				String name = jsonRequest.getString("name");
 				String phoneNumber = jsonRequest.getString("phoneNumber");
+
 				// shipping address
 				String company = jsonRequest.getString("company");
 				String address1 = jsonRequest.getString("address1");
@@ -56,18 +51,30 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
 				String country = jsonRequest.getString("country");
 				String state = jsonRequest.getString("state");
 				String zip = jsonRequest.getString("zip");
+
 				// package dimensions
 				float parcelHeight = Float.parseFloat(jsonRequest.getString("parcelHeight"));
 				float parcelWidth = Float.parseFloat(jsonRequest.getString("parcelWidth"));
 				float parcelLength = Float.parseFloat(jsonRequest.getString("parcelLength"));
 				float parcelWeight = Float.parseFloat(jsonRequest.getString("parcelWeight"));
 				String note = jsonRequest.getString("note");
+
 				// items
 				JsonArray newItems = jsonRequest.getJsonArray("item");
 				Float amount = (float) 0;
 				for (int i = 0; i < newItems.size(); i++) {
 					amount += newItems.getJsonObject(i).getFloat("amount");
 				}
+
+				Gson gson = new Gson();
+				JsonObject data = new JsonObject();
+
+				String sessionId = cookie.getValue();
+				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
+
+				String email = loggedInUser.getEmail();
+
+				Date date = new Date();
 
 				// create pojo object
 				Addresses newAddress = new Addresses();
