@@ -10,6 +10,7 @@ import com.app.server.handler.ChangePasswordHandler;
 import com.app.server.handler.CreatePaymentsHandler;
 import com.app.server.handler.CreateShipmentsHandler;
 import com.app.server.handler.DashboardHandler;
+import com.app.server.handler.DetailShipmentsHandler;
 import com.app.server.handler.LoginHandler;
 import com.app.server.handler.LogoutHandler;
 import com.app.server.handler.OptionHandler;
@@ -145,15 +146,21 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
 
 		router.route(HttpMethod.GET, "/wallet").handler(new WalletInfoHandler());
 		router.route(HttpMethod.GET, "/dashboard").handler(new DashboardHandler());
+		
+		
+		
 		router.route(HttpMethod.GET, "/showShipments").handler(new ShowShipmentsHandler());
-		router.route(HttpMethod.GET, "/showShipments/:trackingCode").handler(new ShowShipmentsHandler());
-		router.route(HttpMethod.GET, "/showShipments/:dateFrom/:dateTo").handler(new ShowShipmentsHandler());
-		router.route(HttpMethod.GET, "/showShipments/:dateFrom/:dateTo/:trackingCode")
+		router.route(HttpMethod.GET, "/showShipments?trackingCode=:trackingCode").handler(new ShowShipmentsHandler());
+		router.route(HttpMethod.GET, "/showShipments?dateFrom=:dateFrom&dateTo=:dateTo").handler(new ShowShipmentsHandler());
+		router.route(HttpMethod.GET, "/showShipments?dateFrom=:dateFrom&dateTo=:dateTo&trackingCode=:trackingCode")		
 				.handler(new ShowShipmentsHandler());
+		
 		router.route(HttpMethod.GET, "/billing").handler(new BillingHandler());
-		router.route(HttpMethod.GET, "/billing/:status").handler(new BillingHandler());
-		router.route(HttpMethod.GET, "/billing/:dateFrom/:dateTo").handler(new BillingHandler());
-		router.route(HttpMethod.GET, "/billing/:dateFrom/:dateTo/:status").handler(new BillingHandler());
+		router.route(HttpMethod.GET, "/billing?status=:status").handler(new BillingHandler());
+		router.route(HttpMethod.GET, "/billing?dateFrom=:dateFrom&dateTo=:dateTo").handler(new BillingHandler());
+		router.route(HttpMethod.GET, "/billing?dateFrom=:dateFrom&dateTo=:dateTo&status=:status").handler(new BillingHandler());
+		
+		router.route(HttpMethod.GET, "/detailShipment?trackingCode=:trackingCode").handler(new DetailShipmentsHandler());
 		return router;
 	}
 }
