@@ -167,8 +167,8 @@
 		class="com.app.server.handler.ChangePasswordHandler">
 		<property name="clipServices" ref="clipServices" />
 	</bean>
-	<bean id="walletInfoHandler"
-		class="com.app.server.handler.WalletInfoHandler">
+	<bean id="trackShipmentHandler"
+		class="com.app.server.handler.TrackShipmentHandler">
 		<property name="clipServices" ref="clipServices" />
 	</bean>
 	<bean id="dashboardHandler"
@@ -193,6 +193,10 @@
 	</bean>
 	<bean id="createPaymentsHandler"
 		class="com.app.server.handler.CreatePaymentsHandler">
+		<property name="clipServices" ref="clipServices" />
+	</bean>
+	<bean id="overDueShipmentsHandler"
+		class="com.app.server.handler.OverDueShipmentsHandler">
 		<property name="clipServices" ref="clipServices" />
 	</bean>
 

@@ -14,11 +14,13 @@ import com.app.pojo.Users;
 import com.app.pojo.Wallets;
 import com.app.session.redis.SessionStore;
 import com.app.util.AppParams;
+import com.app.util.PageBean;
 import com.google.gson.Gson;
 
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
+import io.vertx.rxjava.core.http.HttpServerRequest;
 import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 
@@ -31,7 +33,19 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 
 		routingContext.vertx().executeBlocking(future -> {
 			try {
+				HttpServerRequest httpServerRequest = routingContext.request();
 				Cookie cookie = routingContext.getCookie("sessionId");
+				String pageString = httpServerRequest.getParam("page");
+				String pageSizeString = httpServerRequest.getParam("pageSize");
+				int page = 1;
+				int pageSize = 10;
+				if (pageString != null && pageSizeString != null) {
+					page = Integer.parseInt(pageString);
+					pageSize = Integer.parseInt(pageSizeString);
+				} else {
+					page = 1;
+					pageSize = 10;
+				}
 
 				Gson gson = new Gson();
 				JsonObject data = new JsonObject();
@@ -45,6 +59,8 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 
 				// delivery info
 				JsonObject dataShipmentsStatus = new JsonObject();
+
+				//
 
 				// get Shipments by Email and Status
 				List<Shipments> listShipments = getShipments(email, "New");
@@ -72,6 +88,7 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 				JsonObject dataLastShipments = new JsonObject();
 				List<Shipments> listLastShipments = getShipmentsByEmail(email);
 				if (listLastShipments.size() > 0) {
+					// listLastShipments.subList(0, 9);
 					dataLastShipments.put("shipments", listLastShipments);
 				}
 				// transfer info
@@ -83,7 +100,7 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 
 				data.put("shipmentStatus", dataShipmentsStatus);
 				data.put("billing", dataBilling);
-				data.put("lastShipments", listLastShipments);
+				data.put("lastShipments", listLastShipments); // select top 3 records
 				data.put("lastTransactions", listLastTransactions);
 				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
@@ -105,9 +122,11 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 	public static List<Shipments> getShipments(String email, String status) {
 		List<Shipments> list = null;
 		try {
+
 			list = clipServices.findAllByProperty(
 					"FROM Shipments WHERE shipping_status = '" + status + "' AND created_by = '" + email + "'", null, 0,
 					Shipments.class, 0);
+			// Query q = session.createQuery("FROM table");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -130,8 +149,11 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 	public static List<Shipments> getShipmentsByEmail(String email) {
 		List<Shipments> list = null;
 		try {
+			PageBean pageBean = new PageBean();
+			pageBean.setPage(1);
+			pageBean.setPageSize(10);
 			list = clipServices.findAllByProperty(
-					"FROM Shipments WHERE created_by = '" + email + "' ORDER BY created_at DESC", null, 0,
+					"FROM Shipments WHERE created_by = '" + email + "' ORDER BY created_at DESC", pageBean, 0,
 					Shipments.class, 0);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -143,9 +165,12 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 	public static List<Transfer> getTransferByWalletId(String walletId) {
 		List<Transfer> list = null;
 		try {
+			PageBean pageBean = new PageBean();
+			pageBean.setPage(1);
+			pageBean.setPageSize(10);
 			list = clipServices.findAllByProperty(
 					"from Transfer Where (from_wallet_id ='" + walletId + "') OR (to_wallet_id ='" + walletId + "')",
-					null, 0, Transfer.class, 0);
+					pageBean, 0, Transfer.class, 0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

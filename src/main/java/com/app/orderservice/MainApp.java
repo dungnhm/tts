@@ -14,14 +14,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class MainApp {
 
-    public static ApplicationContext appContext;
+	public static ApplicationContext appContext;
 
-    public MainApp() {
-    }
+	public MainApp() {
+	}
 
-    public static void main(String[] args) throws Exception {
-        appContext = new ClassPathXmlApplicationContext("app-context.xml");
-        
-        
-    }
+	public static void main(String[] args) throws Exception {
+		appContext = new ClassPathXmlApplicationContext("app-context.xml");
+	}
 }

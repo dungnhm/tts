@@ -29,6 +29,7 @@ public class CreatePaymentsHandler implements Handler<RoutingContext>, SessionSt
 				JsonObject jsonRequest = routingContext.getBodyAsJson();
 				Cookie cookie = routingContext.getCookie("sessionId");
 				JsonArray listPay = jsonRequest.getJsonArray("listPay");
+				// listPay là 1 mảng Json, bên trong các phần tử Json có 1 key là trackingCode
 				Long total = jsonRequest.getLong("total");
 
 				Gson gson = new Gson();

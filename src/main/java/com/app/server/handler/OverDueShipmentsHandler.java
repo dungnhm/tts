@@ -20,7 +20,7 @@ import io.vertx.rxjava.core.http.HttpServerRequest;
 import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 
-public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionStore {
+public class OverDueShipmentsHandler implements Handler<RoutingContext>, SessionStore {
 	static ClipServices clipServices;
 
 	@Override
@@ -29,9 +29,7 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 			try {
 				HttpServerRequest httpServerRequest = routingContext.request();
 				Cookie cookie = routingContext.getCookie("sessionId"); // Gọi cookie
-				String dateFrom = httpServerRequest.getParam("dateFrom");
-				String dateTo = httpServerRequest.getParam("dateTo");
-				String trackingCode = httpServerRequest.getParam("trackingCode");
+				// Page
 				String pageString = httpServerRequest.getParam("page");
 				String pageSizeString = httpServerRequest.getParam("pageSize");
 				int page = 1;
@@ -43,6 +41,11 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 					page = 1;
 					pageSize = 10;
 				}
+
+				String dateFrom = httpServerRequest.getParam("dateFrom");
+				String dateTo = httpServerRequest.getParam("dateTo");
+				String trackingCode = httpServerRequest.getParam("trackingCode");
+
 				Gson gson = new Gson();
 				JsonObject data = new JsonObject();
 
@@ -53,7 +56,9 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 
 				// tìm shipments theo email
 				List<Shipments> list = getShipmentsByEmail(email, page, pageSize);
-
+				// tim OverDueShipments theo email
+				List<Shipments> listOverDue = getOverDueShipments(email, trackingCode, dateFrom, dateTo, page,
+						pageSize);
 				// tìm shipments theo email, dates
 				List<Shipments> dates = getShipments(email, dateFrom, dateTo, page, pageSize);
 
@@ -80,7 +85,7 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
 						dateTo = dateFormat.format(new Date());
 						// tìm shipments theo email, dates và tracking_code
-						list = getShipments(email, trackingCode, dateFrom, dateTo, page, pageSize);
+						list = getShipments(email, dateFrom, dateTo, page, pageSize);
 						data.put("message", "list shipments with trackingCode");
 					}
 
@@ -115,8 +120,9 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 			pageBean.setPage(page);
 			pageBean.setPageSize(pageSize);
 			list = clipServices.findAllByProperty(
-					"FROM Shipments WHERE created_by = '" + email + "' ORDER BY created_at DESC", pageBean, 0,
+					"FROM Shipments WHERE created_by = '" + email + "' AND ( (financial_status='Fail')) ", pageBean, 0,
 					Shipments.class, 0);
+			// (financial_status='Wait') OR
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -130,9 +136,11 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 			PageBean pageBean = new PageBean();
 			pageBean.setPage(page);
 			pageBean.setPageSize(pageSize);
-			list = clipServices.findAllByProperty("FROM Shipments WHERE (created_by = '" + email
-					+ "') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')", pageBean, 0,
-					Shipments.class, 0);
+			list = clipServices.findAllByProperty(
+					"FROM Shipments WHERE (created_by = '" + email + "') AND (created_at BETWEEN '" + dateFrom
+							+ "' AND '" + dateTo + "') AND ( (financial_status='Fail'))",
+					pageBean, 0, Shipments.class, 0);
+			// (financial_status='Wait') OR
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -149,7 +157,8 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 			pageBean.setPageSize(pageSize);
 			list = clipServices.findAllByProperty(
 					"FROM Shipments WHERE (created_by = '" + email + "') AND (tracking_code LIKE '%" + trackingCode
-							+ "%') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')",
+							+ "%') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo
+							+ "') AND ((financial_status='Wait') OR (financial_status='Fail')) ",
 					pageBean, 0, Shipments.class, 0);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -157,8 +166,27 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 		return list;
 	}
 
+	// Get OverDueShipments
+	@SuppressWarnings("unchecked")
+	public static List<Shipments> getOverDueShipments(String email, String trackingCode, String dateFrom, String dateTo,
+			int page, int pageSize) {
+		List<Shipments> list = null;
+		try {
+			PageBean pageBean = new PageBean();
+			pageBean.setPage(page);
+			pageBean.setPageSize(pageSize);
+			list = clipServices.findAllByProperty("FROM Shipments WHERE (created_by = '" + email
+					+ "') AND (tracking_code LIKE '%" + trackingCode + "%') AND (created_at BETWEEN '" + dateFrom
+					+ "' AND '" + dateTo + "') AND ( (financial_status='Fail'))", pageBean, 0, Shipments.class, 0);
+			// (financial_status='Wait') OR
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 	public static void setClipServices(ClipServices clipServices) {
-		ShowShipmentsHandler.clipServices = clipServices;
+		OverDueShipmentsHandler.clipServices = clipServices;
 	}
 
 }

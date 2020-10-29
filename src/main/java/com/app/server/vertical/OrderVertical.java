@@ -7,7 +7,6 @@ package com.app.server.vertical;
 
 import com.app.server.handler.BillingHandler;
 import com.app.server.handler.ChangePasswordHandler;
-import com.app.server.handler.CreatePaymentsHandler;
 import com.app.server.handler.CreateShipmentsHandler;
 import com.app.server.handler.DashboardHandler;
 import com.app.server.handler.DetailShipmentsHandler;
@@ -15,9 +14,10 @@ import com.app.server.handler.LoginHandler;
 import com.app.server.handler.LogoutHandler;
 import com.app.server.handler.OptionHandler;
 import com.app.server.handler.OrderNotifyHandler;
+import com.app.server.handler.OverDueShipmentsHandler;
 import com.app.server.handler.RegisterHandler;
 import com.app.server.handler.ShowShipmentsHandler;
-import com.app.server.handler.WalletInfoHandler;
+import com.app.server.handler.TrackShipmentHandler;
 import com.app.server.handler.common.ExceptionHandler;
 import com.app.server.handler.common.RequestLoggingHandler;
 import com.app.server.handler.common.ResponseHandler;
@@ -142,25 +142,58 @@ public class OrderVertical extends AbstractVerticle implements LoggerInterface {
 		router.route(HttpMethod.POST, "/changePassword").handler(new ChangePasswordHandler());
 		router.route(HttpMethod.POST, "/createShipments").handler(new CreateShipmentsHandler());
 		router.route(HttpMethod.POST, "/logout").handler(new LogoutHandler());
-		router.route(HttpMethod.POST, "/createPayments").handler(new CreatePaymentsHandler());
 
-		router.route(HttpMethod.GET, "/wallet").handler(new WalletInfoHandler());
+		router.route(HttpMethod.GET, "/trackShipments").handler(new TrackShipmentHandler());
+		router.route(HttpMethod.GET, "/trackShipments?trackingCode=:trackingCode").handler(new TrackShipmentHandler());
 		router.route(HttpMethod.GET, "/dashboard").handler(new DashboardHandler());
-		
-		
-		
+		router.route(HttpMethod.GET, "/dashboard?page=:page&pageSize=:pageSize").handler(new DashboardHandler());
+
 		router.route(HttpMethod.GET, "/showShipments").handler(new ShowShipmentsHandler());
 		router.route(HttpMethod.GET, "/showShipments?trackingCode=:trackingCode").handler(new ShowShipmentsHandler());
-		router.route(HttpMethod.GET, "/showShipments?dateFrom=:dateFrom&dateTo=:dateTo").handler(new ShowShipmentsHandler());
-		router.route(HttpMethod.GET, "/showShipments?dateFrom=:dateFrom&dateTo=:dateTo&trackingCode=:trackingCode")		
+		router.route(HttpMethod.GET, "/showShipments?dateFrom=:dateFrom&dateTo=:dateTo")
 				.handler(new ShowShipmentsHandler());
-		
+		router.route(HttpMethod.GET, "/showShipments?dateFrom=:dateFrom&dateTo=:dateTo&trackingCode=:trackingCode")
+				.handler(new ShowShipmentsHandler());
+		router.route(HttpMethod.GET, "/showShipments?page=:page&pageSize=:pageSize")
+				.handler(new ShowShipmentsHandler());
+		router.route(HttpMethod.GET, "/showShipments?trackingCode=:trackingCode?page=:page&pageSize=:pageSize")
+				.handler(new ShowShipmentsHandler());
+		router.route(HttpMethod.GET, "/showShipments?dateFrom=:dateFrom&dateTo=:dateTo?page=:page&pageSize=:pageSize")
+				.handler(new ShowShipmentsHandler());
+		router.route(HttpMethod.GET,
+				"/showShipments?dateFrom=:dateFrom&dateTo=:dateTo&trackingCode=:trackingCode?page=:page&pageSize=:pageSize")
+				.handler(new ShowShipmentsHandler());
+
 		router.route(HttpMethod.GET, "/billing").handler(new BillingHandler());
-		router.route(HttpMethod.GET, "/billing?status=:status").handler(new BillingHandler());
-		router.route(HttpMethod.GET, "/billing?dateFrom=:dateFrom&dateTo=:dateTo").handler(new BillingHandler());
-		router.route(HttpMethod.GET, "/billing?dateFrom=:dateFrom&dateTo=:dateTo&status=:status").handler(new BillingHandler());
-		
-		router.route(HttpMethod.GET, "/detailShipment?trackingCode=:trackingCode").handler(new DetailShipmentsHandler());
+		router.route(HttpMethod.GET, "/billing?page=:page&pageSize=:pageSize").handler(new BillingHandler());
+		router.route(HttpMethod.GET, "/billing?status=:status&page=:page&pageSize=:pageSize")
+				.handler(new BillingHandler());
+		router.route(HttpMethod.GET, "/billing?dateFrom=:dateFrom&dateTo=:dateTo&page=:page&pageSize=:pageSize")
+				.handler(new BillingHandler());
+		router.route(HttpMethod.GET,
+				"/billing?dateFrom=:dateFrom&dateTo=:dateTo&status=:status&page=:page&pageSize=:pageSize")
+				.handler(new BillingHandler());
+
+		// ShipmentOverDue
+		router.route(HttpMethod.GET, "/overDueShipments").handler(new OverDueShipmentsHandler());
+		router.route(HttpMethod.GET, "/overDueShipments?trackingCode=:trackingCode")
+				.handler(new OverDueShipmentsHandler());
+		router.route(HttpMethod.GET, "/overDueShipments?dateFrom=:dateFrom&dateTo=:dateTo")
+				.handler(new OverDueShipmentsHandler());
+		router.route(HttpMethod.GET, "/overDueShipments?trackingCode=:trackingCode&dateFrom=:dateFrom&dateTo=:dateTo")
+				.handler(new OverDueShipmentsHandler());
+		router.route(HttpMethod.GET, "/overDueShipments?page=:page&pageSize=:pageSize")
+				.handler(new OverDueShipmentsHandler());
+		router.route(HttpMethod.GET, "/overDueShipments?trackingCode=:trackingCode&page=:page&pageSize=:pageSize")
+				.handler(new OverDueShipmentsHandler());
+		router.route(HttpMethod.GET,
+				"/overDueShipments?dateFrom=:dateFrom&dateTo=:dateTo&page=:page&pageSize=:pageSize")
+				.handler(new OverDueShipmentsHandler());
+		router.route(HttpMethod.GET,
+				"/overDueShipments?trackingCode=:trackingCode&dateFrom=:dateFrom&dateTo=:dateTo&page=:page&pageSize=:pageSize")
+				.handler(new OverDueShipmentsHandler());
+		router.route(HttpMethod.GET, "/detailShipments?trackingCode=:trackingCode")
+				.handler(new DetailShipmentsHandler());
 		return router;
 	}
 }
