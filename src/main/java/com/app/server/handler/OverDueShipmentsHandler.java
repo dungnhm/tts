@@ -56,9 +56,6 @@ public class OverDueShipmentsHandler implements Handler<RoutingContext>, Session
 
 				// tìm shipments theo email
 				List<Shipments> list = getShipmentsByEmail(email, page, pageSize);
-				// tim OverDueShipments theo email
-				List<Shipments> listOverDue = getOverDueShipments(email, trackingCode, dateFrom, dateTo, page,
-						pageSize);
 				// tìm shipments theo email, dates
 				List<Shipments> dates = getShipments(email, dateFrom, dateTo, page, pageSize);
 
@@ -85,7 +82,7 @@ public class OverDueShipmentsHandler implements Handler<RoutingContext>, Session
 						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
 						dateTo = dateFormat.format(new Date());
 						// tìm shipments theo email, dates và tracking_code
-						list = getShipments(email, dateFrom, dateTo, page, pageSize);
+						list = getShipments(email, trackingCode, dateFrom, dateTo, page, pageSize);
 						data.put("message", "list shipments with trackingCode");
 					}
 					data.put("totalEntry", totalEntry(email));

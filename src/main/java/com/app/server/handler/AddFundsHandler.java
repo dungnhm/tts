@@ -5,6 +5,8 @@
  */
 package com.app.server.handler;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.app.models.ClipServices;
@@ -17,10 +19,10 @@ import com.google.gson.Gson;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
-import io.vertx.rxjava.core.http.HttpServerRequest;
+import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 
-public class WalletInfoHandler implements Handler<RoutingContext>, SessionStore {
+public class AddFundsHandler implements Handler<RoutingContext>, SessionStore {
 
 	static ClipServices clipServices;
 
@@ -29,29 +31,33 @@ public class WalletInfoHandler implements Handler<RoutingContext>, SessionStore 
 
 		routingContext.vertx().executeBlocking(future -> {
 			try {
-				HttpServerRequest httpServerRequest = routingContext.request();
-				String sessionId = httpServerRequest.getParam("sessionId");
-				JsonObject data = new JsonObject();
+				JsonObject jsonRequest = routingContext.getBodyAsJson();
+				Cookie cookie = routingContext.getCookie("sessionId");
+				Long amount = Long.parseLong(jsonRequest.getString("amount"));
+
 				Gson gson = new Gson();
+				JsonObject data = new JsonObject();
+
+				String sessionId = cookie.getValue(); // Lấy sessionId từ cookie
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
-				String email = loggedInUser.getEmail();
-				List<Wallets> listWallets = clipServices.findAllByProperty(
-						"from Wallets where user_id = '" + loggedInUser.getId() + "'", null, 0, Wallets.class, 0);
-				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
-				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
+
+				String userId = loggedInUser.getId();
+
+				List<Wallets> listWallets = getWalletsByUserId(userId);
+
 				if (listWallets.size() > 0) {
 					Wallets resultWallets = listWallets.get(0);
-					data.put("id", resultWallets.getId());
-					data.put("balance", resultWallets.getBalance());
-					data.put("dueAmount", resultWallets.getDueAmount());
-					data.put("spendAmount", resultWallets.getSpentAmount());
+					resultWallets.setBalance(resultWallets.getBalance() + amount);
+					resultWallets.setUpdatedAt(new Date());
+					clipServices.saveOrUpdate(resultWallets, Wallets.class, 0);
+
+					data.put("message", "add funds successed");
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 				} else {
-					data.put("id", "");
-					data.put("balance", "");
-					data.put("dueAmount", "");
-					data.put("spendAmount", "");
+					data.put("message", "add funds failed");
+					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
+					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 				}
 				routingContext.put(AppParams.RESPONSE_DATA, data);
 				future.complete();
@@ -67,8 +73,20 @@ public class WalletInfoHandler implements Handler<RoutingContext>, SessionStore 
 		});
 	}
 
+	@SuppressWarnings("unchecked")
+	public static List<Wallets> getWalletsByUserId(String userId) {
+		List<Wallets> list = new ArrayList<>();
+		try {
+			list = clipServices.findAllByProperty("from Wallets where user_id = '" + userId + "'", null, 0,
+					Wallets.class, 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 	public static void setClipServices(ClipServices clipServices) {
-		WalletInfoHandler.clipServices = clipServices;
+		AddFundsHandler.clipServices = clipServices;
 	}
 
 }

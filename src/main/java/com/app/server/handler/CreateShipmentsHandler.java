@@ -101,8 +101,9 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
 				// add newShipment into database
 				String shipmentId = UUID.randomUUID().toString().replace("-", "");
 				newShipment.setId(shipmentId);
-				newShipment.setFromAddress(address1);
-				newShipment.setToAddress(address2);
+				newShipment.setFromAddress(fromAddress);
+				newShipment.setToAddress(address1);
+				newShipment.setCurrency("$");
 				newShipment.setCarrierId("0");
 				newShipment.setShippingStatus("New");
 				newShipment.setPayload(gson.toJson(newItems));

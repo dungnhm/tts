@@ -11,17 +11,7 @@ import redis.clients.jedis.Jedis;
  *
  * @author Admin
  */
-public interface  SessionStore {
+public interface SessionStore {
 
-//    public static Map<String, Session> SessionMap = new HashMap<String, Session>();
-    public static Jedis jedis = new Jedis("localhost");
-
-//    public static void setSession(Session session) {
-//        SessionMap.put(session.id(), session);
-//        //SessionMap.put("email", session.get("email"));
-//    }
-//
-//    public static Session getSession(String SessionId) {
-//        return SessionMap.get(SessionId);
-//    }
+	public static Jedis jedis = new Jedis("localhost");
 }

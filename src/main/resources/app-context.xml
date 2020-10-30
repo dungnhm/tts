@@ -199,6 +199,10 @@
 		class="com.app.server.handler.OverDueShipmentsHandler">
 		<property name="clipServices" ref="clipServices" />
 	</bean>
+	<bean id="addFundsHandler"
+		class="com.app.server.handler.AddFundsHandler">
+		<property name="clipServices" ref="clipServices" />
+	</bean>
 
 
 	<!-- config scheduler -->

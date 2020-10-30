@@ -2,6 +2,7 @@ package com.app.server.handler;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -79,14 +80,13 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 					} else {
 						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
 						dateTo = dateFormat.format(new Date());
+						System.out.println(dateFrom + "----" + dateTo);
 						// tìm shipments theo email, dates và tracking_code
 						list = getShipments(email, trackingCode, dateFrom, dateTo, page, pageSize);
 						data.put("message", "list shipments with trackingCode");
 					}
-
 					data.put("totalEntry", totalEntry(email));
 					data.put("list", list);
-
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 				} else {
@@ -113,7 +113,7 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 
 	@SuppressWarnings("unchecked")
 	public static List<Shipments> getShipmentsByEmail(String email, int page, int pageSize) {
-		List<Shipments> list = null;
+		List<Shipments> list = new ArrayList<>();
 		try {
 			PageBean pageBean = new PageBean();
 			pageBean.setPage(page);
