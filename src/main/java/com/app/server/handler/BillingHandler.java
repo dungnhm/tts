@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.List;
 
 import com.app.models.ClipServices;
-import com.app.pojo.Shipments;
 import com.app.pojo.Transfer;
 import com.app.pojo.Users;
 import com.app.pojo.Wallets;
@@ -64,42 +63,41 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 
 				if (list.size() > 0) {
 					data.put("message", "list tranfer");
-					data.put("totalEntry", totalEntry(walletId));
+
 					DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 					data.put("available", listWallets.get(0).getBalance());
-					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
-					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
+
 					if (dateFrom == null && dateTo == null && status == null) {
 						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
 						dateTo = dateFormat.format(new Date());
 						data.put("message", "list tranfer");
-						data.put("list", list);
 					} else if (dates.size() > 0) {
 						if (dateFrom == null || dateTo == null) {
 							data.put("message", "list tranfer");
-							data.put("list", list);
 						} else {
 							if (status == null) {
 								data.put("message", "list tranfer with dates");
-								data.put("list", dates);
+								list = dates;
 							} else {
 								// get Transfer by walletId and Dates and Status
-								List<Transfer> search = getTransfer(walletId, dateFrom, dateTo, status, page, pageSize);
 								data.put("message", "list tranfer with status and dates");
-								data.put("list", search);
+								list = getTransfer(walletId, dateFrom, dateTo, status, page, pageSize);
 							}
 						}
 					} else {
 						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
 						dateTo = dateFormat.format(new Date());
 						// get Transfer by walletId and Dates and Status
-						List<Transfer> search = getTransfer(walletId, dateFrom, dateTo, status, page, pageSize);
 						data.put("message", "list transfer with status");
-						data.put("list", search);
+						list = getTransfer(walletId, dateFrom, dateTo, status, page, pageSize);
 					}
+					data.put("totalEntry", totalEntry(walletId, dateFrom, dateTo, status));
+					data.put("list", list);
+					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
+					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 				} else {
 					data.put("message", " ");
-					data.put("totalEntry", totalEntry(walletId));
+					data.put("totalEntry", totalEntry(walletId, dateFrom, dateTo, status));
 					data.put("list", " ");
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
@@ -119,13 +117,19 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static long totalEntry(String walletId) {
+	public static long totalEntry(String walletId, String dateFrom, String dateTo, String status) {
 		long rs = 0;
 		List<Long> count = null;
 		try {
-			count = clipServices.findAllByProperty(
-					"select count(id) FROM Transfer WHERE from_wallet_id = '" + walletId + "'", null, 0,
-					Shipments.class, 0);
+			if (status == null) {
+				count = clipServices.findAllByProperty(
+						"select count(id) FROM Transfer WHERE (from_wallet_id ='" + walletId
+								+ "') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')",
+						null, 0, Transfer.class, 0);
+			} else
+				count = clipServices.findAllByProperty("select count(id) FROM Transfer WHERE ((from_wallet_id ='"
+						+ walletId + "')) AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo
+						+ "') AND (financial_status ='" + status + "')", null, 0, Transfer.class, 0);
 			if (count.size() > 0) {
 				rs = count.get(0);
 			}

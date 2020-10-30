@@ -85,13 +85,13 @@ public class OverDueShipmentsHandler implements Handler<RoutingContext>, Session
 						list = getShipments(email, trackingCode, dateFrom, dateTo, page, pageSize);
 						data.put("message", "list shipments with trackingCode");
 					}
-					data.put("totalEntry", totalEntry(email));
+					data.put("totalEntry", totalEntry(email, dateFrom, dateTo, trackingCode));
 					data.put("list", list);
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 				} else {
 					data.put("message", " ");
-					data.put("totalEntry", totalEntry(email));
+					data.put("totalEntry", totalEntry(email, dateFrom, dateTo, trackingCode));
 					data.put("list", " ");
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
@@ -111,12 +111,17 @@ public class OverDueShipmentsHandler implements Handler<RoutingContext>, Session
 	}
 
 	@SuppressWarnings("unchecked")
-	public static long totalEntry(String email) {
+	public static long totalEntry(String email, String dateFrom, String dateTo, String trackingCode) {
 		long rs = 0;
 		List<Long> count = null;
 		try {
-			count = clipServices.findAllByProperty("select count(id) FROM Shipments WHERE (created_by = '" + email
-					+ "') AND (financial_status='Fail')", null, 0, Shipments.class, 0);
+			if (trackingCode == null) {
+				trackingCode = "";
+			}
+			count = clipServices.findAllByProperty(
+					"select count(id) FROM Shipments WHERE (created_by = '" + email + "') AND (tracking_code LIKE '%"
+							+ trackingCode + "%') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')",
+					null, 0, Shipments.class, 0);
 			if (count.size() > 0) {
 				rs = count.get(0);
 			}

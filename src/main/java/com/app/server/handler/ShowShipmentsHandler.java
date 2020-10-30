@@ -80,18 +80,17 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 					} else {
 						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
 						dateTo = dateFormat.format(new Date());
-						System.out.println(dateFrom + "----" + dateTo);
 						// tìm shipments theo email, dates và tracking_code
 						list = getShipments(email, trackingCode, dateFrom, dateTo, page, pageSize);
 						data.put("message", "list shipments with trackingCode");
 					}
-					data.put("totalEntry", totalEntry(email));
+					data.put("totalEntry", totalEntry(email, dateFrom, dateTo, trackingCode));
 					data.put("list", list);
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 				} else {
 					data.put("message", " ");
-					data.put("totalEntry", totalEntry(email));
+					data.put("totalEntry", totalEntry(email, dateFrom, dateTo, trackingCode));
 					data.put("list", " ");
 
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
@@ -127,13 +126,17 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 	}
 
 	@SuppressWarnings("unchecked")
-	public static long totalEntry(String email) {
+	public static long totalEntry(String email, String dateFrom, String dateTo, String trackingCode) {
 		long rs = 0;
 		List<Long> count = null;
 		try {
+			if (trackingCode == null) {
+				trackingCode = "";
+			}
 			count = clipServices.findAllByProperty(
-					"select count(id) FROM Shipments WHERE created_by = '" + email + "' ORDER BY created_at DESC", null,
-					0, Shipments.class, 0);
+					"select count(id) FROM Shipments WHERE (created_by = '" + email + "') AND (tracking_code LIKE '%"
+							+ trackingCode + "%') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')",
+					null, 0, Shipments.class, 0);
 			if (count.size() > 0) {
 				rs = count.get(0);
 			}
