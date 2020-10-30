@@ -84,12 +84,16 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 						data.put("message", "list shipments with trackingCode");
 					}
 
+					data.put("totalEntry", totalEntry(email));
 					data.put("list", list);
+
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 				} else {
 					data.put("message", " ");
+					data.put("totalEntry", totalEntry(email));
 					data.put("list", " ");
+
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
 				}
@@ -114,13 +118,29 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 			PageBean pageBean = new PageBean();
 			pageBean.setPage(page);
 			pageBean.setPageSize(pageSize);
-			list = clipServices.findAllByProperty(
-					"FROM Shipments WHERE created_by = '" + email + "' ORDER BY created_at DESC", pageBean, 0,
+			list = clipServices.findAllByProperty("FROM Shipments WHERE created_by = '" + email + "'", pageBean, 0,
 					Shipments.class, 0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static long totalEntry(String email) {
+		long rs = 0;
+		List<Long> count = null;
+		try {
+			count = clipServices.findAllByProperty(
+					"select count(id) FROM Shipments WHERE created_by = '" + email + "' ORDER BY created_at DESC", null,
+					0, Shipments.class, 0);
+			if (count.size() > 0) {
+				rs = count.get(0);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 
 	@SuppressWarnings("unchecked")

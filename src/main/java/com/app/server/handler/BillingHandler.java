@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.app.models.ClipServices;
+import com.app.pojo.Shipments;
 import com.app.pojo.Transfer;
 import com.app.pojo.Users;
 import com.app.pojo.Wallets;
@@ -62,6 +63,8 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 				List<Transfer> dates = getTransfer(walletId, dateFrom, dateTo, page, pageSize);
 
 				if (list.size() > 0) {
+					data.put("message", "list tranfer");
+					data.put("totalEntry", totalEntry(walletId));
 					DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 					data.put("available", listWallets.get(0).getBalance());
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
@@ -96,6 +99,7 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 					}
 				} else {
 					data.put("message", " ");
+					data.put("totalEntry", totalEntry(walletId));
 					data.put("list", " ");
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
@@ -112,6 +116,23 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 				routingContext.fail(asyncResult.cause());
 			}
 		});
+	}
+
+	@SuppressWarnings("unchecked")
+	public static long totalEntry(String walletId) {
+		long rs = 0;
+		List<Long> count = null;
+		try {
+			count = clipServices.findAllByProperty(
+					"select count(id) FROM Transfer WHERE from_wallet_id = '" + walletId + "'", null, 0,
+					Shipments.class, 0);
+			if (count.size() > 0) {
+				rs = count.get(0);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 
 	@SuppressWarnings("unchecked")

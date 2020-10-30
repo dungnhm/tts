@@ -63,7 +63,8 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
 				JsonArray newItems = jsonRequest.getJsonArray("item");
 				Float amount = (float) 0;
 				for (int i = 0; i < newItems.size(); i++) {
-					amount += newItems.getJsonObject(i).getFloat("amount");
+					amount += Float.parseFloat(newItems.getJsonObject(i).getString("amount"));
+					// amount += newItems.getJsonObject(i).getFloat("amount");
 				}
 
 				Gson gson = new Gson();

@@ -88,12 +88,13 @@ public class OverDueShipmentsHandler implements Handler<RoutingContext>, Session
 						list = getShipments(email, dateFrom, dateTo, page, pageSize);
 						data.put("message", "list shipments with trackingCode");
 					}
-
+					data.put("totalEntry", totalEntry(email));
 					data.put("list", list);
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 				} else {
 					data.put("message", " ");
+					data.put("totalEntry", totalEntry(email));
 					data.put("list", " ");
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
@@ -110,6 +111,22 @@ public class OverDueShipmentsHandler implements Handler<RoutingContext>, Session
 				routingContext.fail(asyncResult.cause());
 			}
 		});
+	}
+
+	@SuppressWarnings("unchecked")
+	public static long totalEntry(String email) {
+		long rs = 0;
+		List<Long> count = null;
+		try {
+			count = clipServices.findAllByProperty("select count(id) FROM Shipments WHERE (created_by = '" + email
+					+ "') AND (financial_status='Fail')", null, 0, Shipments.class, 0);
+			if (count.size() > 0) {
+				rs = count.get(0);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 
 	@SuppressWarnings("unchecked")
