@@ -37,7 +37,7 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 				String pageSizeString = httpServerRequest.getParam("pageSize");
 				int page = 1;
 				int pageSize = 10;
-				if (pageString != null && pageSizeString != null) {
+				if (pageString != null && pageSizeString != null && pageString != "" && pageSizeString != "") {
 					page = Integer.parseInt(pageString);
 					pageSize = Integer.parseInt(pageSizeString);
 				} else {
@@ -56,22 +56,21 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 
 				String walletId = listWallets.get(0).getId();
 
-				List<Transfer> list = getTransferByWalletId(walletId, page, pageSize);
+				List<Transfer> list = getTransferByWalletId(walletId, status, page, pageSize);
 
-				// get Transfer By walletId and Dates
-				List<Transfer> dates = getTransfer(walletId, dateFrom, dateTo, page, pageSize);
+				if (dateFrom == "" && dateTo == "") {
+					DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+					dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
+					dateTo = dateFormat.format(new Date());
+				}
 
-				if (list.size() > 0) {
+				long totalEntry = getTotalEntry(walletId, dateFrom, dateTo, status);
+
+				if (totalEntry > 0) {
 
 					data.put("available", listWallets.get(0).getBalance());
 
-					if (dateFrom == "" && dateTo == "") {
-						DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
-						dateTo = dateFormat.format(new Date());
-					}
-
-					if (status == "") {
+					if (status == "" || status == "All") {
 						data.put("message", "list tranfer with dates");
 						list = getTransfer(walletId, dateFrom, dateTo, page, pageSize);
 					} else {
@@ -79,13 +78,13 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 						list = getTransfer(walletId, dateFrom, dateTo, status, page, pageSize);
 					}
 
-					data.put("totalEntry", totalEntry(walletId, dateFrom, dateTo, status));
+					data.put("totalEntry", totalEntry);
 					data.put("list", list);
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 				} else {
-					data.put("message", " ");
-					data.put("totalEntry", totalEntry(walletId, dateFrom, dateTo, status));
+					data.put("message", "error");
+					data.put("totalEntry", totalEntry);
 					data.put("list", " ");
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
@@ -105,7 +104,7 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static long totalEntry(String walletId, String dateFrom, String dateTo, String status) {
+	public static long getTotalEntry(String walletId, String dateFrom, String dateTo, String status) {
 		long rs = 0;
 		List<Long> count = null;
 		try {
@@ -128,15 +127,22 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static List<Transfer> getTransferByWalletId(String walletId, int page, int pageSize) {
+	public static List<Transfer> getTransferByWalletId(String walletId, String status, int page, int pageSize) {
 		List<Transfer> list = null;
 		try {
 			PageBean pageBean = new PageBean();
 			pageBean.setPage(page);
 			pageBean.setPageSize(pageSize);
-			list = clipServices.findAllByProperty(
-					"from Transfer Where (from_wallet_id ='" + walletId + "') OR (to_wallet_id ='" + walletId + "')",
-					pageBean, 0, Transfer.class, 0);
+			if (status != "" && status != "All") {
+				list = clipServices
+						.findAllByProperty(
+								"from Transfer Where ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='"
+										+ walletId + "')) AND financial_status = '" + status + "'",
+								pageBean, 0, Transfer.class, 0);
+			} else {
+				list = clipServices.findAllByProperty("from Transfer Where (from_wallet_id ='" + walletId
+						+ "') OR (to_wallet_id ='" + walletId + "')'", pageBean, 0, Transfer.class, 0);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -182,7 +188,7 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 			pageBean.setPageSize(pageSize);
 			list = clipServices.findAllByProperty("FROM Transfer WHERE ((from_wallet_id ='" + walletId
 					+ "') OR (to_wallet_id ='" + walletId + "')) AND (created_at BETWEEN '" + dateFrom + "' AND '"
-					+ dateTo + "') AND (financial_status ='" + status + "')", null, 0, Transfer.class, 0);
+					+ dateTo + "') AND (financial_status ='" + status + "')", pageBean, 0, Transfer.class, 0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

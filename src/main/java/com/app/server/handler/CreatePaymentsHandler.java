@@ -81,12 +81,12 @@ public class CreatePaymentsHandler implements Handler<RoutingContext>, SessionSt
 						clipServices.update(walletReceive, walletReceive.getId(), Wallets.class, 0);
 
 						// update transfer
-						transfer.setFinancialStatus("completed");
+						transfer.setFinancialStatus("Completed");
 						transfer.setUpdatedAt(date);
 						clipServices.update(transfer, transfer.getId(), Transfer.class, 0);
 
 						// update shipment
-						shipment.setFinancialStatus("completed");
+						shipment.setFinancialStatus("Completed");
 						shipment.setUpdatedAt(date);
 						shipment.setPaymentAt(date);
 						clipServices.update(shipment, shipment.getId(), Shipments.class, 0);

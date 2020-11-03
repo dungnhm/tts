@@ -106,6 +106,7 @@ public class CreateShipmentsHandler implements Handler<RoutingContext>, SessionS
 				newShipment.setCurrency("$");
 				newShipment.setCarrierId("0");
 				newShipment.setShippingStatus("New");
+				newShipment.setFinancialStatus("Wait");
 				newShipment.setPayload(gson.toJson(newItems));
 				newShipment.setAppliedFee(BigDecimal.valueOf(amount));
 				newShipment.setActualFee(BigDecimal.valueOf(amount * 8 / 10));

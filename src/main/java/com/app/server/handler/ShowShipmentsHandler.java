@@ -37,7 +37,7 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 				String pageSizeString = httpServerRequest.getParam("pageSize");
 				int page = 1;
 				int pageSize = 10;
-				if (pageString != null && pageSizeString != null) {
+				if (pageString != null && pageSizeString != null && pageString != "" && pageSizeString != "") {
 					page = Integer.parseInt(pageString);
 					pageSize = Integer.parseInt(pageSizeString);
 				} else {
@@ -55,22 +55,26 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 				// tìm shipments theo email
 				List<Shipments> list = getShipmentsByEmail(email, page, pageSize);
 
-				if (list.size() > 0) {
-					if (dateFrom == "" && dateTo == "") {
-						DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
-						dateTo = dateFormat.format(new Date());
-					}
+				if (dateFrom == "" && dateTo == "") {
+					DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+					dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
+					dateTo = dateFormat.format(new Date());
+				}
+
+				long totalEntry = getTotalEntry(email, dateFrom, dateTo, trackingCode);
+
+				if (totalEntry > 0) {
 
 					list = getShipments(email, trackingCode, dateFrom, dateTo, page, pageSize);
+
 					data.put("message", "list Shipments");
-					data.put("totalEntry", totalEntry(email, dateFrom, dateTo, trackingCode));
+					data.put("totalEntry", totalEntry);
 					data.put("list", list);
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
 				} else {
-					data.put("message", " ");
-					data.put("totalEntry", totalEntry(email, dateFrom, dateTo, trackingCode));
+					data.put("message", "error");
+					data.put("totalEntry", totalEntry);
 					data.put("list", " ");
 
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
@@ -106,7 +110,7 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 	}
 
 	@SuppressWarnings("unchecked")
-	public static long totalEntry(String email, String dateFrom, String dateTo, String trackingCode) {
+	public static long getTotalEntry(String email, String dateFrom, String dateTo, String trackingCode) {
 		long rs = 0;
 		List<Long> count = null;
 		try {
