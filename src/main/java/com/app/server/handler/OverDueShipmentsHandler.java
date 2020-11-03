@@ -56,35 +56,17 @@ public class OverDueShipmentsHandler implements Handler<RoutingContext>, Session
 
 				// tìm shipments theo email
 				List<Shipments> list = getShipmentsByEmail(email, page, pageSize);
-				// tìm shipments theo email, dates
-				List<Shipments> dates = getShipments(email, dateFrom, dateTo, page, pageSize);
 
 				if (list.size() > 0) {
-					DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-					if (dateFrom == null && dateTo == null && trackingCode == null) {
-						dateFrom = dateFormat.format(dateFormat.parse("1970-01-01 00:00:00"));
-						dateTo = dateFormat.format(new Date());
-						data.put("message", "list shipments");
-					} else if (dates.size() > 0) {
-						if (dateFrom == null || dateTo == null) {
-							data.put("message", "list shipments");
-						} else {
-							if (trackingCode == null) {
-								data.put("message", "list shipments with dates");
-								list = dates;
-							} else {
-								// tìm shipments theo email, dates và tracking_code
-								list = getShipments(email, trackingCode, dateFrom, dateTo, page, pageSize);
-								data.put("message", "list shipments with trackingCode and dates");
-							}
-						}
-					} else {
+
+					if (dateFrom == "" && dateTo == "") {
+						DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
 						dateTo = dateFormat.format(new Date());
-						// tìm shipments theo email, dates và tracking_code
-						list = getShipments(email, trackingCode, dateFrom, dateTo, page, pageSize);
-						data.put("message", "list shipments with trackingCode");
 					}
+
+					list = getShipments(email, trackingCode, dateFrom, dateTo, page, pageSize);
+					data.put("message", "list Shipments");
 					data.put("totalEntry", totalEntry(email, dateFrom, dateTo, trackingCode));
 					data.put("list", list);
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
@@ -118,10 +100,9 @@ public class OverDueShipmentsHandler implements Handler<RoutingContext>, Session
 			if (trackingCode == null) {
 				trackingCode = "";
 			}
-			count = clipServices.findAllByProperty(
-					"select count(id) FROM Shipments WHERE (created_by = '" + email + "') AND (tracking_code LIKE '%"
-							+ trackingCode + "%') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')",
-					null, 0, Shipments.class, 0);
+			count = clipServices.findAllByProperty("select count(id) FROM Shipments WHERE (created_by = '" + email
+					+ "') AND (tracking_code LIKE '%" + trackingCode + "%') AND (created_at BETWEEN '" + dateFrom
+					+ "' AND '" + dateTo + "')AND ( financial_status='Fail')", null, 0, Shipments.class, 0);
 			if (count.size() > 0) {
 				rs = count.get(0);
 			}
@@ -139,7 +120,7 @@ public class OverDueShipmentsHandler implements Handler<RoutingContext>, Session
 			pageBean.setPage(page);
 			pageBean.setPageSize(pageSize);
 			list = clipServices.findAllByProperty(
-					"FROM Shipments WHERE created_by = '" + email + "' AND ( (financial_status='Fail')) ", pageBean, 0,
+					"FROM Shipments WHERE created_by = '" + email + "' AND ( financial_status='Fail') ", pageBean, 0,
 					Shipments.class, 0);
 			// (financial_status='Wait') OR
 		} catch (Exception e) {
@@ -157,7 +138,7 @@ public class OverDueShipmentsHandler implements Handler<RoutingContext>, Session
 			pageBean.setPageSize(pageSize);
 			list = clipServices.findAllByProperty(
 					"FROM Shipments WHERE (created_by = '" + email + "') AND (created_at BETWEEN '" + dateFrom
-							+ "' AND '" + dateTo + "') AND ( (financial_status='Fail'))",
+							+ "' AND '" + dateTo + "') AND ( financial_status='Fail')",
 					pageBean, 0, Shipments.class, 0);
 			// (financial_status='Wait') OR
 		} catch (Exception e) {
@@ -174,11 +155,9 @@ public class OverDueShipmentsHandler implements Handler<RoutingContext>, Session
 			PageBean pageBean = new PageBean();
 			pageBean.setPage(page);
 			pageBean.setPageSize(pageSize);
-			list = clipServices.findAllByProperty(
-					"FROM Shipments WHERE (created_by = '" + email + "') AND (tracking_code LIKE '%" + trackingCode
-							+ "%') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo
-							+ "') AND ((financial_status='Wait') OR (financial_status='Fail')) ",
-					pageBean, 0, Shipments.class, 0);
+			list = clipServices.findAllByProperty("FROM Shipments WHERE (created_by = '" + email
+					+ "') AND (tracking_code LIKE '%" + trackingCode + "%') AND (created_at BETWEEN '" + dateFrom
+					+ "' AND '" + dateTo + "') AND (financial_status='Fail') ", pageBean, 0, Shipments.class, 0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

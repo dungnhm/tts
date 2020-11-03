@@ -55,35 +55,15 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 				// tìm shipments theo email
 				List<Shipments> list = getShipmentsByEmail(email, page, pageSize);
 
-				// tìm shipments theo email, dates
-				List<Shipments> dates = getShipments(email, dateFrom, dateTo, page, pageSize);
-
 				if (list.size() > 0) {
-					DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-					if (dateFrom == null && dateTo == null && trackingCode == null) {
-						dateFrom = dateFormat.format(dateFormat.parse("1970-01-01 00:00:00"));
-						dateTo = dateFormat.format(new Date());
-						data.put("message", "list shipments");
-					} else if (dates.size() > 0) {
-						if (dateFrom == null || dateTo == null) {
-							data.put("message", "list shipments");
-						} else {
-							if (trackingCode == null) {
-								data.put("message", "list shipments with dates");
-								list = dates;
-							} else {
-								// tìm shipments theo email, dates và tracking_code
-								list = getShipments(email, trackingCode, dateFrom, dateTo, page, pageSize);
-								data.put("message", "list shipments with trackingCode and dates");
-							}
-						}
-					} else {
+					if (dateFrom == "" && dateTo == "") {
+						DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
 						dateTo = dateFormat.format(new Date());
-						// tìm shipments theo email, dates và tracking_code
-						list = getShipments(email, trackingCode, dateFrom, dateTo, page, pageSize);
-						data.put("message", "list shipments with trackingCode");
 					}
+
+					list = getShipments(email, trackingCode, dateFrom, dateTo, page, pageSize);
+					data.put("message", "list Shipments");
 					data.put("totalEntry", totalEntry(email, dateFrom, dateTo, trackingCode));
 					data.put("list", list);
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());

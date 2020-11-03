@@ -62,35 +62,23 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 				List<Transfer> dates = getTransfer(walletId, dateFrom, dateTo, page, pageSize);
 
 				if (list.size() > 0) {
-					data.put("message", "list tranfer");
 
-					DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 					data.put("available", listWallets.get(0).getBalance());
 
-					if (dateFrom == null && dateTo == null && status == null) {
+					if (dateFrom == "" && dateTo == "") {
+						DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
 						dateTo = dateFormat.format(new Date());
-						data.put("message", "list tranfer");
-					} else if (dates.size() > 0) {
-						if (dateFrom == null || dateTo == null) {
-							data.put("message", "list tranfer");
-						} else {
-							if (status == null) {
-								data.put("message", "list tranfer with dates");
-								list = dates;
-							} else {
-								// get Transfer by walletId and Dates and Status
-								data.put("message", "list tranfer with status and dates");
-								list = getTransfer(walletId, dateFrom, dateTo, status, page, pageSize);
-							}
-						}
+					}
+
+					if (status == "") {
+						data.put("message", "list tranfer with dates");
+						list = getTransfer(walletId, dateFrom, dateTo, page, pageSize);
 					} else {
-						dateFrom = dateFormat.format(dateFormat.parse("2000-01-01 00:00:00"));
-						dateTo = dateFormat.format(new Date());
-						// get Transfer by walletId and Dates and Status
-						data.put("message", "list transfer with status");
+						data.put("message", "list tranfer with dates and status");
 						list = getTransfer(walletId, dateFrom, dateTo, status, page, pageSize);
 					}
+
 					data.put("totalEntry", totalEntry(walletId, dateFrom, dateTo, status));
 					data.put("list", list);
 					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
@@ -121,7 +109,7 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 		long rs = 0;
 		List<Long> count = null;
 		try {
-			if (status == null) {
+			if (status == "") {
 				count = clipServices.findAllByProperty(
 						"select count(id) FROM Transfer WHERE (from_wallet_id ='" + walletId
 								+ "') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')",
