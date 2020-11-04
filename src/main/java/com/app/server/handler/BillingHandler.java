@@ -56,7 +56,7 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 
 				String walletId = listWallets.get(0).getId();
 
-				List<Transfer> list = getTransferByWalletId(walletId, status, page, pageSize);
+				List<Transfer> list;
 
 				if (dateFrom == "" && dateTo == "") {
 					DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -70,7 +70,7 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 
 					data.put("available", listWallets.get(0).getBalance());
 
-					if (status == "" || status == "All") {
+					if (status == "" || status.equals("All")) {
 						data.put("message", "list tranfer with dates");
 						list = getTransfer(walletId, dateFrom, dateTo, page, pageSize);
 					} else {
@@ -108,7 +108,9 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 		long rs = 0;
 		List<Long> count = null;
 		try {
-			if (status == "") {
+			System.out.println(status + "--------------------");
+			if (status == "" || status.equals("All")) {
+				System.out.println(status + "--------------------");
 				count = clipServices.findAllByProperty(
 						"select count(id) FROM Transfer WHERE (from_wallet_id ='" + walletId
 								+ "') AND (created_at BETWEEN '" + dateFrom + "' AND '" + dateTo + "')",
@@ -124,29 +126,6 @@ public class BillingHandler implements Handler<RoutingContext>, SessionStore {
 			e.printStackTrace();
 		}
 		return rs;
-	}
-
-	@SuppressWarnings("unchecked")
-	public static List<Transfer> getTransferByWalletId(String walletId, String status, int page, int pageSize) {
-		List<Transfer> list = null;
-		try {
-			PageBean pageBean = new PageBean();
-			pageBean.setPage(page);
-			pageBean.setPageSize(pageSize);
-			if (status != "" && status != "All") {
-				list = clipServices
-						.findAllByProperty(
-								"from Transfer Where ((from_wallet_id ='" + walletId + "') OR (to_wallet_id ='"
-										+ walletId + "')) AND financial_status = '" + status + "'",
-								pageBean, 0, Transfer.class, 0);
-			} else {
-				list = clipServices.findAllByProperty("from Transfer Where (from_wallet_id ='" + walletId
-						+ "') OR (to_wallet_id ='" + walletId + "')'", pageBean, 0, Transfer.class, 0);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return list;
 	}
 
 	@SuppressWarnings("unchecked")

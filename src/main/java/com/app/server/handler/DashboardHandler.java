@@ -37,15 +37,6 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 				Cookie cookie = routingContext.getCookie("sessionId");
 				String pageString = httpServerRequest.getParam("page");
 				String pageSizeString = httpServerRequest.getParam("pageSize");
-				int page = 1;
-				int pageSize = 10;
-				if (pageString != null && pageSizeString != null) {
-					page = Integer.parseInt(pageString);
-					pageSize = Integer.parseInt(pageSizeString);
-				} else {
-					page = 1;
-					pageSize = 10;
-				}
 
 				Gson gson = new Gson();
 				JsonObject data = new JsonObject();
@@ -122,11 +113,12 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 	public static List<Shipments> getShipments(String email, String status) {
 		List<Shipments> list = null;
 		try {
-
+			PageBean pageBean = new PageBean();
+			pageBean.setPage(1);
+			pageBean.setPageSize(10);
 			list = clipServices.findAllByProperty(
-					"FROM Shipments WHERE shipping_status = '" + status + "' AND created_by = '" + email + "'", null, 0,
-					Shipments.class, 0);
-			// Query q = session.createQuery("FROM table");
+					"FROM Shipments WHERE shipping_status = '" + status + "' AND created_by = '" + email + "'",
+					pageBean, 0, Shipments.class, 0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

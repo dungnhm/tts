@@ -1,0 +1,1686 @@
+03/11/2020 09:15:08 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 09:15:08 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 09:15:08 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 09:15:08 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 09:15:10 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 09:15:17 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 09:15:18 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+03/11/2020 09:15:21 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+redis.clients.jedis.exceptions.JedisConnectionException: Failed connecting to host localhost:6379
+	at redis.clients.jedis.Connection.connect(Connection.java:204)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:100)
+	at redis.clients.jedis.Connection.sendCommand(Connection.java:125)
+	at redis.clients.jedis.Connection.sendCommand(Connection.java:120)
+	at redis.clients.jedis.BinaryClient.ping(BinaryClient.java:113)
+	at redis.clients.jedis.BinaryJedis.ping(BinaryJedis.java:186)
+	at com.app.server.handler.LoginHandler.lambda$0(LoginHandler.java:55)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method)
+	at java.base/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:107)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
+	at java.base/java.net.Socket.connect(Socket.java:591)
+	at redis.clients.jedis.Connection.connect(Connection.java:181)
+	... 14 more
+03/11/2020 09:15:21 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+03/11/2020 09:15:21 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+03/11/2020 09:15:21 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:15:32 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 09:15:32 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+03/11/2020 09:15:33 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:15:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:15:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+03/11/2020 09:15:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:15:43 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=&dateTo= *************
+03/11/2020 09:15:44 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:15:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:15:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list tranfer","available":462,"totalEntry":0,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"123321123321123321...
+03/11/2020 09:15:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:15:48 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=&dateTo=&page=1&pageSize=2 *************
+03/11/2020 09:15:49 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:15:49 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:15:49 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list tranfer","available":462,"totalEntry":0,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"123321123321123321...
+03/11/2020 09:15:49 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:16:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:16:00 ICT 2020
+03/11/2020 09:16:13 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments *************
+03/11/2020 09:16:13 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:16:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:16:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode","totalEntry":35,"list":[]}
+03/11/2020 09:16:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:16:28 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments *************
+03/11/2020 09:16:29 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:16:29 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:16:29 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode","totalEntry":35,"list":[]}
+03/11/2020 09:16:29 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:17:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:17:00 ICT 2020
+03/11/2020 09:18:31 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 09:18:31 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 09:18:31 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 09:18:32 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 09:18:33 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 09:18:37 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments *************
+03/11/2020 09:18:38 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:18:38 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:18:38 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode","totalEntry":35,"list":[]}
+03/11/2020 09:18:38 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:18:51 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments? *************
+03/11/2020 09:18:52 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:18:52 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:18:52 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode","totalEntry":35,"list":[]}
+03/11/2020 09:18:52 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:19:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:19:00 ICT 2020
+03/11/2020 09:19:01 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?dateFrom=2020-01-01&trackingCode=1a&dateTo=2020-10-31 *************
+03/11/2020 09:19:02 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:19:02 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:19:02 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode and dates","totalEntry":1,"list":[{"id":"tbf5c4ee60b84879a1344f4abf7bbb06","version":1,"fromAddress":"Burger Print","toAddress":"HP","carrierId":"0","appli...
+03/11/2020 09:19:02 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:19:28 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?dateFrom=2020-01-01&dateTo=2020-10-31 *************
+03/11/2020 09:19:29 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:19:29 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:19:29 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with dates","totalEntry":29,"list":[{"id":"149376534c654f12a2b42f8ef0ff341b","version":0,"fromAddress":"HN","toAddress":"HP","carrierId":"0","appliedFee":9.00,"actualFee":7....
+03/11/2020 09:19:29 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:20:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:20:00 ICT 2020
+03/11/2020 09:21:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:21:00 ICT 2020
+03/11/2020 09:21:06 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=1&dateFrom=&dateTo=&pageSize=2 *************
+03/11/2020 09:21:07 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:21:07 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:21:07 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","totalEntry":35,"list":[{"id":"10db9e9b328e472aa6555e9fcdcf722d","version":0,"fromAddress":"Hanoi","toAddress":"HN","carrierId":"0","appliedFee":100.00,"actualFee":80.00,"d...
+03/11/2020 09:21:07 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:22:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:22:00 ICT 2020
+03/11/2020 09:22:12 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&dateFrom=&dateTo= *************
+03/11/2020 09:22:13 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:22:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:22:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","totalEntry":36,"list":[{"id":"10db9e9b328e472aa6555e9fcdcf722d","version":0,"fromAddress":"Hanoi","toAddress":"HN","carrierId":"0","appliedFee":100.00,"actualFee":80.00,"d...
+03/11/2020 09:22:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:22:26 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=1&dateFrom=&dateTo=&pageSize=2 *************
+03/11/2020 09:22:26 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:22:26 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:22:26 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode","totalEntry":24,"list":[{"id":"10db9e9b328e472aa6555e9fcdcf722d","version":0,"fromAddress":"Hanoi","toAddress":"HN","carrierId":"0","appliedFee":100.00,"a...
+03/11/2020 09:22:26 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:22:42 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=1&dateFrom=&dateTo=&pageSize=2 *************
+03/11/2020 09:22:43 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:22:43 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:22:43 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","totalEntry":36,"list":[{"id":"10db9e9b328e472aa6555e9fcdcf722d","version":0,"fromAddress":"Hanoi","toAddress":"HN","carrierId":"0","appliedFee":100.00,"actualFee":80.00,"d...
+03/11/2020 09:22:43 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:22:53 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=18&dateFrom=&dateTo=&pageSize=2 *************
+03/11/2020 09:22:54 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:22:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:22:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","totalEntry":36,"list":[{"id":"tbf5c4ee60b84879a1344f4abf7bbb06","version":1,"fromAddress":"Burger Print","toAddress":"HP","carrierId":"0","appliedFee":14.00,"actualFee":11...
+03/11/2020 09:22:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:22:58 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=19&dateFrom=&dateTo=&pageSize=2 *************
+03/11/2020 09:22:59 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:22:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 400  Bad Request
+03/11/2020 09:22:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":" ","totalEntry":0,"list":" "}
+03/11/2020 09:22:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:23:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:23:00 ICT 2020
+03/11/2020 09:23:23 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=&dateFrom=&dateTo=&pageSize= *************
+03/11/2020 09:23:23 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:68)
+	at java.base/java.lang.Integer.parseInt(Integer.java:668)
+	at java.base/java.lang.Integer.parseInt(Integer.java:776)
+	at com.app.server.handler.ShowShipmentsHandler.lambda$0(ShowShipmentsHandler.java:41)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+03/11/2020 09:23:23 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+03/11/2020 09:23:23 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+03/11/2020 09:23:23 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:24:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:24:00 ICT 2020
+03/11/2020 09:25:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:25:00 ICT 2020
+03/11/2020 09:25:06 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=&dateTo=&page=1&pageSize=50 *************
+03/11/2020 09:25:07 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:25:07 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:25:07 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list tranfer","available":462,"totalEntry":0,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"123321123321123321...
+03/11/2020 09:25:07 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:25:29 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?dateFrom=19990101&dateTo=20201201&page=1&pageSize=50 *************
+03/11/2020 09:25:30 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:25:30 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:25:30 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list tranfer with dates","available":462,"totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"1233211...
+03/11/2020 09:25:30 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:25:49 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?dateFrom=19990101&dateTo=20201201&page=1&pageSize=2 *************
+03/11/2020 09:25:50 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:25:50 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:25:50 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list tranfer with dates","available":462,"totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"1233211...
+03/11/2020 09:25:50 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:26:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:26:00 ICT 2020
+03/11/2020 09:27:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:27:00 ICT 2020
+03/11/2020 09:28:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:28:00 ICT 2020
+03/11/2020 09:29:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:29:00 ICT 2020
+03/11/2020 09:29:10 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 09:29:10 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 09:29:10 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 09:29:10 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 09:29:11 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 09:29:32 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=&dateTo=&page=1&pageSize=50 *************
+03/11/2020 09:29:34 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:29:34 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:29:34 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list tranfer","available":462,"totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"123321123321123321...
+03/11/2020 09:29:34 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:29:53 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?dateFrom=&dateTo=&page=1&pageSize=50 *************
+03/11/2020 09:29:54 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:29:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:29:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list transfer with status","available":462,"totalEntry":0,"list":[]}
+03/11/2020 09:29:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:30:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:30:00 ICT 2020
+03/11/2020 09:31:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:31:00 ICT 2020
+03/11/2020 09:32:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:32:00 ICT 2020
+03/11/2020 09:33:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:33:00 ICT 2020
+03/11/2020 09:35:28 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 09:35:28 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 09:35:28 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 09:35:28 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 09:35:29 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 09:35:35 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 09:35:35 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+03/11/2020 09:35:36 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:35:36 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:35:36 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+03/11/2020 09:35:36 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:35:54 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=dateFrom=&dateTo=&page=1&pageSize=20 *************
+03/11/2020 09:35:56 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:35:56 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:35:56 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":462,"message":"list tranfer with dates and status","totalEntry":0,"list":[]}
+03/11/2020 09:35:56 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:36:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:36:00 ICT 2020
+03/11/2020 09:36:51 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 09:36:51 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 09:36:51 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 09:36:51 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 09:36:52 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 09:36:57 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=dateFrom=&dateTo=&page=1&pageSize=20 *************
+03/11/2020 09:36:59 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:36:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:36:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":462,"message":"list tranfer with dates and status","totalEntry":0,"list":[]}
+03/11/2020 09:36:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:37:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:37:00 ICT 2020
+03/11/2020 09:37:16 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=dateFrom=&dateTo=&page=1&pageSize=20 *************
+03/11/2020 09:37:17 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:37:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:37:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":462,"message":"list tranfer with dates and status","totalEntry":0,"list":[]}
+03/11/2020 09:37:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:37:44 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=&dateTo=&page=1&pageSize=20 *************
+03/11/2020 09:37:45 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:37:45 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:37:45 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":462,"message":"list tranfer with dates","totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"1233211...
+03/11/2020 09:37:45 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:38:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:38:00 ICT 2020
+03/11/2020 09:38:16 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Fail&dateFrom=&dateTo=&page=1&pageSize=20 *************
+03/11/2020 09:38:17 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:38:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:38:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":462,"message":"list tranfer with dates and status","totalEntry":0,"list":[]}
+03/11/2020 09:38:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:38:22 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=1&pageSize=20 *************
+03/11/2020 09:38:23 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:38:23 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:38:23 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":462,"message":"list tranfer with dates and status","totalEntry":4,"list":[{"id":"77777f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletI...
+03/11/2020 09:38:23 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:38:35 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=completed&dateFrom=&dateTo=&page=1&pageSize=20 *************
+03/11/2020 09:38:36 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:38:36 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:38:36 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":462,"message":"list tranfer with dates and status","totalEntry":1,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletI...
+03/11/2020 09:38:36 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:38:50 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=&dateTo=&page=1&pageSize=2 *************
+03/11/2020 09:38:51 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:38:51 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:38:51 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":462,"message":"list tranfer with dates","totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"1233211...
+03/11/2020 09:38:51 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:39:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:39:00 ICT 2020
+03/11/2020 09:39:16 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=19990101&dateTo=20201212&page=1&pageSize=2 *************
+03/11/2020 09:39:17 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:39:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:39:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":462,"message":"list tranfer with dates","totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"1233211...
+03/11/2020 09:39:17 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:39:29 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=20201010&dateTo=20201212&page=1&pageSize=2 *************
+03/11/2020 09:39:30 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:39:30 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:39:30 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":462,"message":"list tranfer with dates","totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"1233211...
+03/11/2020 09:39:30 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:39:36 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=20201010&dateTo=20201212&page=1&pageSize=20 *************
+03/11/2020 09:39:37 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:39:37 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:39:37 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":462,"message":"list tranfer with dates","totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"1233211...
+03/11/2020 09:39:37 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:39:53 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=20201020&dateTo=20201212&page=1&pageSize=20 *************
+03/11/2020 09:39:54 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:39:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:39:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":462,"message":"list tranfer with dates","totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"1233211...
+03/11/2020 09:39:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:40:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:40:00 ICT 2020
+03/11/2020 09:40:00 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=20201020&dateTo=20201212&page=1&pageSize=20 *************
+03/11/2020 09:40:01 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:40:01 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:40:01 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":462,"message":"list tranfer with dates","totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"1233211...
+03/11/2020 09:40:01 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:41:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:41:00 ICT 2020
+03/11/2020 09:42:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:42:00 ICT 2020
+03/11/2020 09:42:25 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=20201020&dateTo=20201212&page=1&pageSize=20 *************
+03/11/2020 09:42:26 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:42:26 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:42:26 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":462,"message":"list tranfer with dates","totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"1233211...
+03/11/2020 09:42:26 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:43:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:43:00 ICT 2020
+03/11/2020 09:44:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:44:00 ICT 2020
+03/11/2020 09:45:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:45:00 ICT 2020
+03/11/2020 09:46:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:46:00 ICT 2020
+03/11/2020 09:47:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:47:00 ICT 2020
+03/11/2020 09:47:08 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/overDueShipments?dateFrom=20201010&dateTo=20201031&trackingCode=1 *************
+03/11/2020 09:47:09 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:47:09 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:47:09 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode and dates","totalEntry":16,"list":[{"id":"14cb92aa5de64874aec620eae4dabb86","version":0,"fromAddress":"HN","toAddress":"HP","carrierId":"0","appliedFee":80...
+03/11/2020 09:47:09 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:47:46 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/overDueShipments?dateFrom=20201010&dateTo=20201031&trackingCode=1a *************
+03/11/2020 09:47:47 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:47:47 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:47:47 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode and dates","totalEntry":0,"list":[]}
+03/11/2020 09:47:47 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:47:53 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/overDueShipments?dateFrom=&dateTo=&trackingCode=1a *************
+03/11/2020 09:47:54 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:47:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:47:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode","totalEntry":2,"list":[{"id":"tbf5c4ee60b84879a1344f4abf7bbb06","version":1,"fromAddress":"Burger Print","toAddress":"HP","carrierId":"0","appliedFee":14....
+03/11/2020 09:47:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:48:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:48:00 ICT 2020
+03/11/2020 09:49:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:49:00 ICT 2020
+03/11/2020 09:50:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:50:00 ICT 2020
+03/11/2020 09:51:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:51:00 ICT 2020
+03/11/2020 09:52:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:52:00 ICT 2020
+03/11/2020 09:52:43 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=1a&page=&dateFrom=&dateTo=&pageSize= *************
+03/11/2020 09:52:43 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:68)
+	at java.base/java.lang.Integer.parseInt(Integer.java:668)
+	at java.base/java.lang.Integer.parseInt(Integer.java:776)
+	at com.app.server.handler.ShowShipmentsHandler.lambda$0(ShowShipmentsHandler.java:41)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+03/11/2020 09:52:43 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+03/11/2020 09:52:43 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+03/11/2020 09:52:43 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:52:57 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=1a&page=1&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 09:52:57 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 09:52:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 09:52:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode","totalEntry":2,"list":[{"id":"58db9ee6145446448285deba9e5fc3d0","version":0,"fromAddress":"Thanhhoa","toAddress":"HN","carrierId":"0","appliedFee":1000.00...
+03/11/2020 09:52:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 09:53:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:53:00 ICT 2020
+03/11/2020 09:54:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:54:00 ICT 2020
+03/11/2020 09:55:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:55:00 ICT 2020
+03/11/2020 09:56:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:56:00 ICT 2020
+03/11/2020 09:57:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:57:00 ICT 2020
+03/11/2020 09:58:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:58:00 ICT 2020
+03/11/2020 09:59:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 09:59:00 ICT 2020
+03/11/2020 10:00:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:00:00 ICT 2020
+03/11/2020 10:01:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:01:00 ICT 2020
+03/11/2020 10:01:59 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createShipments *************
+03/11/2020 10:01:59 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "fromAddress": "DN",
+    "name": "dungnhm",
+    "phoneNumber": "0388354992",
+    "company": "Burger",
+    "address1": "PT",
+    "address2": "HP",
+    "country": "Vietnam",
+    "zip": "1000",
+    "state": "HN",
+    "parcelHeight": "2",
+    "parcelWidth": "4",
+    "parcelLength": "4",
+    "parcelWeight": "8",
+    "note": "VN no1",
+    "item": [
+        {
+            "itemName": "item1",
+            "quantity": 2,
+            "amount": "4",
+            "weightPerItem": 1
+        },
+        {
+           "itemName": "item2",
+            "quantity": 1,
+            "amount": "5",
+            "weightPerItem": 2
+        }
+    ]
+}
+
+03/11/2020 10:02:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:02:00 ICT 2020
+03/11/2020 10:02:00 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 10:02:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+03/11/2020 10:02:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"create shipment successed"}
+03/11/2020 10:02:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 10:03:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:03:00 ICT 2020
+03/11/2020 10:04:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:04:00 ICT 2020
+03/11/2020 10:05:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:05:00 ICT 2020
+03/11/2020 10:06:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:06:00 ICT 2020
+03/11/2020 10:07:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:07:00 ICT 2020
+03/11/2020 10:08:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:08:00 ICT 2020
+03/11/2020 10:09:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:09:00 ICT 2020
+03/11/2020 10:10:44 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 10:10:44 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 10:10:44 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 10:10:44 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 10:10:45 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 10:12:17 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 10:12:18 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 10:12:18 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 10:12:18 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 10:12:19 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 10:12:26 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 10:12:26 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+03/11/2020 10:12:27 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 10:12:27 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 10:12:27 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+03/11/2020 10:12:27 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 10:13:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:13:00 ICT 2020
+03/11/2020 10:14:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:14:00 ICT 2020
+03/11/2020 10:15:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:15:00 ICT 2020
+03/11/2020 10:16:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:16:00 ICT 2020
+03/11/2020 10:17:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:17:00 ICT 2020
+03/11/2020 10:18:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:18:00 ICT 2020
+03/11/2020 10:19:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:19:00 ICT 2020
+03/11/2020 10:20:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:20:00 ICT 2020
+03/11/2020 10:21:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:21:00 ICT 2020
+03/11/2020 10:22:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:22:00 ICT 2020
+03/11/2020 10:23:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:23:00 ICT 2020
+03/11/2020 10:24:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:24:00 ICT 2020
+03/11/2020 10:25:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:25:00 ICT 2020
+03/11/2020 10:26:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:26:00 ICT 2020
+03/11/2020 10:27:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:27:00 ICT 2020
+03/11/2020 10:28:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:28:00 ICT 2020
+03/11/2020 10:29:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:29:00 ICT 2020
+03/11/2020 10:30:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:30:00 ICT 2020
+03/11/2020 10:30:42 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 10:30:42 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 10:30:42 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 10:30:42 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 10:30:43 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 10:30:48 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 10:30:48 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+03/11/2020 10:30:50 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 10:30:50 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 10:30:50 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+03/11/2020 10:30:50 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 10:30:58 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=&dateTo=&page=1&pageSize=20 *************
+03/11/2020 10:30:59 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.text.ParseException: Unparseable date: "2000-01-01 00:00:00"
+	at java.base/java.text.DateFormat.parse(DateFormat.java:395)
+	at com.app.server.handler.BillingHandler.lambda$0(BillingHandler.java:76)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+03/11/2020 10:30:59 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+03/11/2020 10:30:59 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+03/11/2020 10:30:59 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 10:31:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:31:00 ICT 2020
+03/11/2020 10:33:00 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 10:33:00 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 10:33:00 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 10:33:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:33:00 ICT 2020
+03/11/2020 10:33:00 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 10:33:01 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 10:33:04 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=&dateTo=&page=1&pageSize=20 *************
+03/11/2020 10:33:06 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 10:33:06 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 10:33:06 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates","totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"1233211...
+03/11/2020 10:33:06 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 10:34:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:34:00 ICT 2020
+03/11/2020 10:35:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:35:00 ICT 2020
+03/11/2020 10:35:24 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 10:35:24 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 10:35:24 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 10:35:24 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 10:35:25 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 10:35:29 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=&dateTo=&page=1&pageSize=20 *************
+03/11/2020 10:35:31 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 10:35:31 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 10:35:31 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates","totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"1233211...
+03/11/2020 10:35:31 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 10:36:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:36:00 ICT 2020
+03/11/2020 10:37:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:37:00 ICT 2020
+03/11/2020 10:38:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:38:00 ICT 2020
+03/11/2020 10:38:28 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 10:38:28 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+03/11/2020 10:38:29 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 10:38:29 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 10:38:29 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+03/11/2020 10:38:29 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 10:39:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:39:00 ICT 2020
+03/11/2020 10:46:13 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 10:46:13 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 10:46:13 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 10:46:13 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 10:46:14 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 10:46:24 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 10:46:24 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+03/11/2020 10:46:25 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 10:46:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 10:46:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+03/11/2020 10:46:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 10:46:31 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=&dateTo=&page=1&pageSize=20 *************
+03/11/2020 10:46:33 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 10:46:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 10:46:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates","totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"1233211...
+03/11/2020 10:46:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 10:46:54 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=1a&page=1&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 10:46:55 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 10:46:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 10:46:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode","totalEntry":2,"list":[{"id":"58db9ee6145446448285deba9e5fc3d0","version":0,"fromAddress":"Thanhhoa","toAddress":"HN","carrierId":"0","appliedFee":1000.00...
+03/11/2020 10:46:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 10:47:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:47:00 ICT 2020
+03/11/2020 10:48:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:48:00 ICT 2020
+03/11/2020 10:49:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:49:00 ICT 2020
+03/11/2020 10:50:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:50:00 ICT 2020
+03/11/2020 10:51:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:51:00 ICT 2020
+03/11/2020 10:52:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:52:00 ICT 2020
+03/11/2020 10:52:40 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?page=1&pageSize=5&trackingCode=&dateFrom=&dateTo= *************
+03/11/2020 10:52:40 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 10:53:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:53:00 ICT 2020
+03/11/2020 10:54:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:54:00 ICT 2020
+03/11/2020 10:54:51 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 10:54:51 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 10:54:51 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 10:54:51 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 10:54:52 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 10:54:56 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 10:54:56 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 10:54:56 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: content-type : application/json
+03/11/2020 10:54:56 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {"email":"dungnhm","password":"dungnhm"}
+
+03/11/2020 10:54:57 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 10:54:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 10:54:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+03/11/2020 10:54:57 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 10:54:57 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/dashboard *************
+03/11/2020 10:54:57 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 10:54:59 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 10:54:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 10:54:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"shipmentStatus":{"new":27,"processing":4,"inTransit":5,"delivered":3},"billing":{"dueAmount":40,"availableBalance":467,"paidAmount":110},"lastShipments":[{"id":"e8265d35b427409f8c7fe6428af1339b","ve...
+03/11/2020 10:54:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 10:55:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:55:00 ICT 2020
+03/11/2020 10:55:01 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?page=1&pageSize=5&trackingCode=&dateFrom=&dateTo= *************
+03/11/2020 10:55:01 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 10:55:02 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 10:55:02 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 10:55:02 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","totalEntry":42,"list":[{"id":"0a6143b52c1848e7ac6bb1e28bd4187f","version":0,"fromAddress":"HN","toAddress":"HN","carrierId":"0","appliedFee":6200.00,"actualFee":4960.00,"d...
+03/11/2020 10:55:02 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 10:55:37 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createShipments *************
+03/11/2020 10:55:37 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 10:55:37 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: content-type : application/json
+03/11/2020 10:55:37 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {"fromAddress":"Thanhhoa","name":"Khang","phoneNumber":"01155555","company":"LeadsGen","address1":"HN","address2":"HD","country":"Vietnam","zip":"100000","state":"Thanhxuan","parcelHeight":"150","parcelLength":"150","parcelWidth":"150","parcelWeight":"10","note":"OK","item":[{"itemName":"1","quantity":1,"amount":"1","weightPerItem":10}]}
+
+03/11/2020 10:55:37 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 10:55:37 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+03/11/2020 10:55:37 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"create shipment successed"}
+03/11/2020 10:55:37 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 10:56:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:56:00 ICT 2020
+03/11/2020 10:57:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:57:00 ICT 2020
+03/11/2020 10:57:25 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 10:57:25 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 10:57:25 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 10:57:25 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 10:57:26 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 10:57:52 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 10:57:52 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 10:57:52 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 10:57:52 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 10:57:53 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 10:58:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 10:58:00 ICT 2020
+03/11/2020 10:58:22 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?page=1&pageSize=5&trackingCode=&dateFrom=&dateTo= *************
+03/11/2020 10:58:23 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 10:58:24 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 10:58:24 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 10:58:24 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","totalEntry":43,"list":[{"id":"06b580a4ef0b4c01a522174786592832","version":0,"fromAddress":"Thanhhoa","toAddress":"HN","carrierId":"0","appliedFee":1.00,"actualFee":0.80,"d...
+03/11/2020 10:58:24 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 10:58:33 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?page=1&pageSize=5&trackingCode=1a&dateFrom=&dateTo= *************
+03/11/2020 10:58:33 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 10:58:34 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 10:58:34 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 10:58:34 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode","totalEntry":2,"list":[{"id":"58db9ee6145446448285deba9e5fc3d0","version":0,"fromAddress":"Thanhhoa","toAddress":"HN","carrierId":"0","appliedFee":1000.00...
+03/11/2020 10:58:34 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 10:59:25 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 10:59:25 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 10:59:25 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 10:59:25 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 10:59:26 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 10:59:59 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 10:59:59 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+03/11/2020 11:00:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:00:00 ICT 2020
+03/11/2020 11:00:00 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:00:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:00:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+03/11/2020 11:00:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:00:06 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createShipments *************
+03/11/2020 11:00:06 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "fromAddress": "DN",
+    "name": "dungnhm",
+    "phoneNumber": "0388354992",
+    "company": "Burger",
+    "address1": "PT",
+    "address2": "HP",
+    "country": "Vietnam",
+    "zip": "1000",
+    "state": "HN",
+    "parcelHeight": "2",
+    "parcelWidth": "4",
+    "parcelLength": "4",
+    "parcelWeight": "8",
+    "note": "VN no1",
+    "item": [
+        {
+            "itemName": "item1",
+            "quantity": 2,
+            "amount": "4",
+            "weightPerItem": 1
+        },
+        {
+           "itemName": "item2",
+            "quantity": 1,
+            "amount": "5",
+            "weightPerItem": 2
+        }
+    ]
+}
+
+03/11/2020 11:00:06 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:00:06 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+03/11/2020 11:00:06 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"create shipment successed"}
+03/11/2020 11:00:06 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:00:13 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=1a&page=1&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 11:00:14 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:00:14 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:00:14 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode","totalEntry":2,"list":[{"id":"58db9ee6145446448285deba9e5fc3d0","version":0,"fromAddress":"Thanhhoa","toAddress":"HN","carrierId":"0","appliedFee":1000.00...
+03/11/2020 11:00:14 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:01:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:01:00 ICT 2020
+03/11/2020 11:04:54 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 11:04:54 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 11:04:54 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 11:04:54 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 11:04:55 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 11:05:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:05:00 ICT 2020
+03/11/2020 11:05:00 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?page=1&pageSize=5&trackingCode=&dateFrom=&dateTo= *************
+03/11/2020 11:05:00 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 11:05:01 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:05:01 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:05:01 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","totalEntry":44,"list":[{"id":"06b580a4ef0b4c01a522174786592832","version":0,"fromAddress":"Thanhhoa","toAddress":"HN","carrierId":"0","appliedFee":1.00,"actualFee":0.80,"d...
+03/11/2020 11:05:01 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:05:02 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 11:05:02 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 11:05:02 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: content-type : application/json
+03/11/2020 11:05:02 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {"email":"dungnhm","password":"dungnhm"}
+
+03/11/2020 11:05:03 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:05:03 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:05:03 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+03/11/2020 11:05:03 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:05:03 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/dashboard *************
+03/11/2020 11:05:03 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 11:05:05 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:05:05 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:05:05 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"shipmentStatus":{"new":29,"processing":4,"inTransit":5,"delivered":3},"billing":{"dueAmount":40,"availableBalance":467,"paidAmount":110},"lastShipments":[{"id":"e8265d35b427409f8c7fe6428af1339b","ve...
+03/11/2020 11:05:05 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:05:10 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?page=1&pageSize=5&trackingCode=&dateFrom=&dateTo= *************
+03/11/2020 11:05:10 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 11:05:10 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:05:10 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:05:10 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","totalEntry":44,"list":[{"id":"06b580a4ef0b4c01a522174786592832","version":0,"fromAddress":"Thanhhoa","toAddress":"HN","carrierId":"0","appliedFee":1.00,"actualFee":0.80,"d...
+03/11/2020 11:05:10 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:05:44 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createShipments *************
+03/11/2020 11:05:44 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 11:05:44 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: content-type : application/json
+03/11/2020 11:05:44 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {"fromAddress":"HCM","name":"Khang","phoneNumber":"011111111","company":"LeadsGen","address1":"HN","address2":"HD","country":"Vietnam","zip":"100000","state":"Thanhxuan","parcelHeight":"150","parcelLength":"150","parcelWidth":"150","parcelWeight":"1","note":"OK","item":[{"itemName":"1","quantity":1,"amount":"1","weightPerItem":1}]}
+
+03/11/2020 11:05:44 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:05:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+03/11/2020 11:05:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"create shipment successed"}
+03/11/2020 11:05:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:05:52 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?page=1&pageSize=5&trackingCode=&dateFrom=&dateTo= *************
+03/11/2020 11:05:52 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 11:05:53 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:05:53 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:05:53 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","totalEntry":45,"list":[{"id":"06b580a4ef0b4c01a522174786592832","version":0,"fromAddress":"Thanhhoa","toAddress":"HN","carrierId":"0","appliedFee":1.00,"actualFee":0.80,"d...
+03/11/2020 11:05:53 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:05:54 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?page=9&pageSize=5&trackingCode=&dateFrom=&dateTo= *************
+03/11/2020 11:05:54 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 11:05:55 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:05:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:05:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","totalEntry":45,"list":[{"id":"kbf5c4ee60b84879a1344f4abf7bbb06","version":1,"fromAddress":"Burger Print","toAddress":"HP","carrierId":"0","appliedFee":14.00,"actualFee":11...
+03/11/2020 11:05:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:06:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:06:00 ICT 2020
+03/11/2020 11:06:01 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?page=9&pageSize=5&trackingCode=1a&dateFrom=&dateTo= *************
+03/11/2020 11:06:01 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 11:06:02 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:06:02 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:06:02 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode","totalEntry":2,"list":[]}
+03/11/2020 11:06:02 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:07:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:07:00 ICT 2020
+03/11/2020 11:07:12 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?page=9&pageSize=5&trackingCode=&dateFrom=&dateTo= *************
+03/11/2020 11:07:12 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 11:07:13 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:07:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:07:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","totalEntry":45,"list":[{"id":"kbf5c4ee60b84879a1344f4abf7bbb06","version":1,"fromAddress":"Burger Print","toAddress":"HP","carrierId":"0","appliedFee":14.00,"actualFee":11...
+03/11/2020 11:07:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:07:35 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?page=7&pageSize=5&trackingCode=&dateFrom=&dateTo= *************
+03/11/2020 11:07:35 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 11:07:35 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:07:35 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:07:35 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","totalEntry":45,"list":[{"id":"d3513663a0464214bc3437f00b94bea8","version":0,"fromAddress":"HN","toAddress":"HP","carrierId":"0","appliedFee":9.00,"actualFee":7.20,"discoun...
+03/11/2020 11:07:35 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:07:36 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?page=8&pageSize=5&trackingCode=&dateFrom=&dateTo= *************
+03/11/2020 11:07:36 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 11:07:36 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:07:36 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:07:36 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","totalEntry":45,"list":[{"id":"e8265d35b427409f8c7fe6428af1339b","version":0,"fromAddress":"DN","toAddress":"PT","carrierId":"0","appliedFee":9.00,"actualFee":7.20,"discoun...
+03/11/2020 11:07:36 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:08:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:08:00 ICT 2020
+03/11/2020 11:08:59 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?page=7&pageSize=5&trackingCode=&dateFrom=&dateTo= *************
+03/11/2020 11:08:59 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 11:09:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:09:00 ICT 2020
+03/11/2020 11:09:00 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:09:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:09:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","totalEntry":45,"list":[{"id":"d3513663a0464214bc3437f00b94bea8","version":0,"fromAddress":"HN","toAddress":"HP","carrierId":"0","appliedFee":9.00,"actualFee":7.20,"discoun...
+03/11/2020 11:09:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:09:43 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?page=7&pageSize=5&trackingCode=&dateFrom=2020-11-11&dateTo=2020-12-03 *************
+03/11/2020 11:09:43 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 11:09:44 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:09:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:09:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments with trackingCode","totalEntry":45,"list":[{"id":"d3513663a0464214bc3437f00b94bea8","version":0,"fromAddress":"HN","toAddress":"HP","carrierId":"0","appliedFee":9.00,"actual...
+03/11/2020 11:09:44 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:10:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:10:00 ICT 2020
+03/11/2020 11:10:23 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/dashboard *************
+03/11/2020 11:10:23 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 11:10:25 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:10:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:10:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"shipmentStatus":{"new":30,"processing":4,"inTransit":5,"delivered":3},"billing":{"dueAmount":40,"availableBalance":467,"paidAmount":110},"lastShipments":[{"id":"e8265d35b427409f8c7fe6428af1339b","ve...
+03/11/2020 11:10:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:11:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:11:00 ICT 2020
+03/11/2020 11:11:10 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?page=1&pageSize=5&trackingCode=&dateFrom=&dateTo= *************
+03/11/2020 11:11:10 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] HEADER: accept : application/json, text/plain, */*
+03/11/2020 11:11:11 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:11:11 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:11:11 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list shipments","totalEntry":45,"list":[{"id":"06b580a4ef0b4c01a522174786592832","version":0,"fromAddress":"Thanhhoa","toAddress":"HN","carrierId":"0","appliedFee":1.00,"actualFee":0.80,"d...
+03/11/2020 11:11:11 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:12:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:12:00 ICT 2020
+03/11/2020 11:20:24 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 11:20:24 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 11:20:24 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 11:20:24 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 11:20:25 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 11:21:52 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 11:21:52 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 11:21:52 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 11:21:52 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 11:21:53 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 11:21:58 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 11:21:58 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+03/11/2020 11:21:59 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:21:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:21:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+03/11/2020 11:21:59 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:22:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:22:00 ICT 2020
+03/11/2020 11:22:04 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=1a&page=1&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 11:22:05 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:22:05 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:22:05 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":2,"list":[{"id":"58db9ee6145446448285deba9e5fc3d0","version":0,"fromAddress":"Thanhhoa","toAddress":"HN","carrierId":"0","appliedFee":1000.00,"actualFee":800.0...
+03/11/2020 11:22:05 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:22:18 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=&dateTo=&page=1&pageSize=20 *************
+03/11/2020 11:22:19 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:22:19 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:22:19 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates","totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"1233211...
+03/11/2020 11:22:19 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:22:22 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/overDueShipments?dateFrom=&dateTo=&trackingCode=1a *************
+03/11/2020 11:22:23 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:22:23 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:22:23 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":2,"list":[{"id":"tbf5c4ee60b84879a1344f4abf7bbb06","version":1,"fromAddress":"Burger Print","toAddress":"HP","carrierId":"0","appliedFee":14.00,"actualFee":11....
+03/11/2020 11:22:23 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:22:34 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/overDueShipments?dateFrom=&dateTo=&trackingCode= *************
+03/11/2020 11:22:35 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:22:35 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:22:35 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":45,"list":[{"id":"14cb92aa5de64874aec620eae4dabb86","version":0,"fromAddress":"HN","toAddress":"HP","carrierId":"0","appliedFee":800.00,"actualFee":640.00,"dis...
+03/11/2020 11:22:35 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:23:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:23:00 ICT 2020
+03/11/2020 11:23:01 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=1&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 11:23:01 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:23:01 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:23:01 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":45,"list":[{"id":"06b580a4ef0b4c01a522174786592832","version":0,"fromAddress":"Thanhhoa","toAddress":"HN","carrierId":"0","appliedFee":1.00,"actualFee":0.80,"d...
+03/11/2020 11:23:01 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:23:19 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/overDueShipments?dateFrom=&dateTo=&trackingCode= *************
+03/11/2020 11:23:20 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:23:20 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:23:20 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":45,"list":[{"id":"14cb92aa5de64874aec620eae4dabb86","version":0,"fromAddress":"HN","toAddress":"HP","carrierId":"0","appliedFee":800.00,"actualFee":640.00,"dis...
+03/11/2020 11:23:20 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:23:24 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=1&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 11:23:25 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:23:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:23:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":45,"list":[{"id":"06b580a4ef0b4c01a522174786592832","version":0,"fromAddress":"Thanhhoa","toAddress":"HN","carrierId":"0","appliedFee":1.00,"actualFee":0.80,"d...
+03/11/2020 11:23:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:24:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:24:00 ICT 2020
+03/11/2020 11:25:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:25:00 ICT 2020
+03/11/2020 11:25:15 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 11:25:15 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 11:25:15 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 11:25:15 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 11:25:17 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 11:25:29 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=1&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 11:25:31 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:25:31 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:25:31 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":45,"list":[{"id":"06b580a4ef0b4c01a522174786592832","version":0,"fromAddress":"Thanhhoa","toAddress":"HN","carrierId":"0","appliedFee":1.00,"actualFee":0.80,"d...
+03/11/2020 11:25:31 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:25:34 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=&dateTo=&page=1&pageSize=20 *************
+03/11/2020 11:25:35 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:25:35 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:25:35 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates","totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"1233211...
+03/11/2020 11:25:35 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:25:38 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/overDueShipments?dateFrom=&dateTo=&trackingCode= *************
+03/11/2020 11:25:38 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 11:25:38 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 11:25:38 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":7,"list":[{"id":"14cb92aa5de64874aec620eae4dabb86","version":0,"fromAddress":"HN","toAddress":"HP","carrierId":"0","appliedFee":800.00,"actualFee":640.00,"disc...
+03/11/2020 11:25:38 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 11:26:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:26:00 ICT 2020
+03/11/2020 11:27:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:27:00 ICT 2020
+03/11/2020 11:28:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:28:00 ICT 2020
+03/11/2020 11:29:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:29:00 ICT 2020
+03/11/2020 11:30:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 11:30:00 ICT 2020
+03/11/2020 13:40:29 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 13:40:29 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 13:40:29 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 13:40:30 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 13:40:31 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 13:40:41 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 13:40:41 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+03/11/2020 13:40:43 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:40:43 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 13:40:43 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+03/11/2020 13:40:43 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:41:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:41:00 ICT 2020
+03/11/2020 13:41:13 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=1&pageSize=20 *************
+03/11/2020 13:41:14 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:41:14 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 13:41:14 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[{"id":"77777f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletI...
+03/11/2020 13:41:14 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:41:42 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=1&pageSize=4 *************
+03/11/2020 13:41:43 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:41:43 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 13:41:43 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[{"id":"77777f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletI...
+03/11/2020 13:41:43 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:42:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:42:00 ICT 2020
+03/11/2020 13:43:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:43:00 ICT 2020
+03/11/2020 13:43:19 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=2&pageSize=4 *************
+03/11/2020 13:43:19 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:43:19 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 13:43:19 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[{"id":"77777f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletI...
+03/11/2020 13:43:19 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:43:31 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=2&pageSize=4 *************
+03/11/2020 13:43:32 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:43:32 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 13:43:32 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[{"id":"77777f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletI...
+03/11/2020 13:43:32 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:43:36 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=3&pageSize=4 *************
+03/11/2020 13:43:37 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:43:37 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 400  Bad Request
+03/11/2020 13:43:37 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":" ","totalEntry":0,"list":" "}
+03/11/2020 13:43:37 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:43:42 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=2&pageSize=4 *************
+03/11/2020 13:43:43 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:43:43 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 13:43:43 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[{"id":"77777f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletI...
+03/11/2020 13:43:43 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:43:54 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=1&pageSize=4 *************
+03/11/2020 13:43:55 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:43:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 13:43:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[{"id":"77777f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletI...
+03/11/2020 13:43:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:44:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:44:00 ICT 2020
+03/11/2020 13:44:08 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=2&pageSize=4 *************
+03/11/2020 13:44:08 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:44:08 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 13:44:08 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[{"id":"77777f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletI...
+03/11/2020 13:44:08 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:44:21 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=1&pageSize=4 *************
+03/11/2020 13:44:21 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:44:21 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 13:44:21 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[{"id":"77777f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletI...
+03/11/2020 13:44:21 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:44:38 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=3&pageSize=4 *************
+03/11/2020 13:44:39 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:44:39 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 400  Bad Request
+03/11/2020 13:44:39 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":" ","totalEntry":0,"list":" "}
+03/11/2020 13:44:39 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:44:46 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=2&pageSize=4 *************
+03/11/2020 13:44:46 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:44:46 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 13:44:46 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[{"id":"77777f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletI...
+03/11/2020 13:44:46 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:45:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:45:00 ICT 2020
+03/11/2020 13:46:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:46:00 ICT 2020
+03/11/2020 13:47:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:47:00 ICT 2020
+03/11/2020 13:48:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:48:00 ICT 2020
+03/11/2020 13:48:28 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 13:48:28 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 13:48:28 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 13:48:28 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 13:48:29 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 13:48:34 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=2&pageSize=4 *************
+03/11/2020 13:48:36 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:48:36 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 13:48:36 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[]}
+03/11/2020 13:48:36 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:48:47 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=1&pageSize=4 *************
+03/11/2020 13:48:48 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:48:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 13:48:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[{"id":"77777f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletI...
+03/11/2020 13:48:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:48:54 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=3&pageSize=4 *************
+03/11/2020 13:48:55 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:48:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 400  Bad Request
+03/11/2020 13:48:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":" ","totalEntry":0,"list":" "}
+03/11/2020 13:48:55 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:49:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:49:00 ICT 2020
+03/11/2020 13:50:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:50:00 ICT 2020
+03/11/2020 13:50:53 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=2&pageSize=4 *************
+03/11/2020 13:50:54 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:50:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 13:50:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[]}
+03/11/2020 13:50:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:51:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:51:00 ICT 2020
+03/11/2020 13:51:04 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=1&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 13:51:05 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:51:05 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 13:51:05 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":45,"list":[{"id":"06b580a4ef0b4c01a522174786592832","version":0,"fromAddress":"Thanhhoa","toAddress":"HN","carrierId":"0","appliedFee":1.00,"actualFee":0.80,"d...
+03/11/2020 13:51:05 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:51:14 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=4&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 13:51:15 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:51:15 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 13:51:15 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":45,"list":[{"id":"d3513663a0464214bc3437f00b94bea8","version":0,"fromAddress":"HN","toAddress":"HP","carrierId":"0","appliedFee":9.00,"actualFee":7.20,"discoun...
+03/11/2020 13:51:15 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:51:28 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=5&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 13:51:28 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:51:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 13:51:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":45,"list":[{"id":"kbf5c4ee60b84879a1344f4abf7bbb06","version":1,"fromAddress":"Burger Print","toAddress":"HP","carrierId":"0","appliedFee":14.00,"actualFee":11...
+03/11/2020 13:51:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:51:48 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=6&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 13:51:48 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 13:51:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 400  Bad Request
+03/11/2020 13:51:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":" ","totalEntry":0,"list":" "}
+03/11/2020 13:51:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 13:52:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:52:00 ICT 2020
+03/11/2020 13:53:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:53:00 ICT 2020
+03/11/2020 13:54:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:54:00 ICT 2020
+03/11/2020 13:55:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:55:00 ICT 2020
+03/11/2020 13:56:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:56:00 ICT 2020
+03/11/2020 13:57:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:57:00 ICT 2020
+03/11/2020 13:58:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:58:00 ICT 2020
+03/11/2020 13:59:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 13:59:00 ICT 2020
+03/11/2020 14:00:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:00:00 ICT 2020
+03/11/2020 14:01:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:01:00 ICT 2020
+03/11/2020 14:02:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:02:00 ICT 2020
+03/11/2020 14:03:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:03:00 ICT 2020
+03/11/2020 14:04:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:04:00 ICT 2020
+03/11/2020 14:05:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:05:00 ICT 2020
+03/11/2020 14:05:41 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 14:05:41 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 14:05:41 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 14:05:41 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 14:05:42 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 14:06:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:06:00 ICT 2020
+03/11/2020 14:06:09 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 14:06:09 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+03/11/2020 14:06:11 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:06:11 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:06:11 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+03/11/2020 14:06:11 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:06:15 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=2&pageSize=4 *************
+03/11/2020 14:06:16 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:06:16 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 400  Bad Request
+03/11/2020 14:06:16 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":" ","totalEntry":0,"list":" "}
+03/11/2020 14:06:16 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:06:28 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=1&pageSize=4 *************
+03/11/2020 14:06:29 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:06:29 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:06:29 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[{"id":"77777f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletI...
+03/11/2020 14:06:29 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:07:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:07:00 ICT 2020
+03/11/2020 14:08:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:08:00 ICT 2020
+03/11/2020 14:09:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:09:00 ICT 2020
+03/11/2020 14:10:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:10:00 ICT 2020
+03/11/2020 14:10:38 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=1a&page=2&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 14:10:39 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:10:39 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:10:39 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":2,"list":[]}
+03/11/2020 14:10:39 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:11:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:11:00 ICT 2020
+03/11/2020 14:12:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:12:00 ICT 2020
+03/11/2020 14:13:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:13:00 ICT 2020
+03/11/2020 14:14:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:14:00 ICT 2020
+03/11/2020 14:15:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:15:00 ICT 2020
+03/11/2020 14:16:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:16:00 ICT 2020
+03/11/2020 14:17:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:17:00 ICT 2020
+03/11/2020 14:18:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:18:00 ICT 2020
+03/11/2020 14:19:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:19:00 ICT 2020
+03/11/2020 14:23:32 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 14:23:32 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 14:23:32 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 14:23:32 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 14:23:34 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 14:23:37 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=1a&page=2&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 14:23:38 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:23:38 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:23:38 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":2,"list":[]}
+03/11/2020 14:23:38 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:24:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:24:00 ICT 2020
+03/11/2020 14:24:34 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/overDueShipments?dateFrom=&dateTo=&trackingCode= *************
+03/11/2020 14:24:34 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:24:34 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:24:34 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":7,"list":[{"id":"14cb92aa5de64874aec620eae4dabb86","version":0,"fromAddress":"HN","toAddress":"HP","carrierId":"0","appliedFee":800.00,"actualFee":640.00,"disc...
+03/11/2020 14:24:34 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:25:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:25:00 ICT 2020
+03/11/2020 14:25:48 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=1a&page=20&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 14:25:49 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:25:49 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 400  Bad Request
+03/11/2020 14:25:49 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":" ","totalEntry":0,"list":" "}
+03/11/2020 14:25:49 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:26:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:26:00 ICT 2020
+03/11/2020 14:38:36 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 14:38:36 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 14:38:36 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 14:38:36 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 14:38:37 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 14:38:46 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 14:38:46 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+03/11/2020 14:38:47 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:38:47 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:38:47 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+03/11/2020 14:38:47 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:38:55 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=&dateTo=&page=1&pageSize=5 *************
+03/11/2020 14:38:56 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:38:56 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:38:56 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates","totalEntry":5,"list":[{"id":"66677f6281c94d7892c6759993fa1a94","version":4,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletId":"1233211...
+03/11/2020 14:38:56 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:39:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:39:00 ICT 2020
+03/11/2020 14:39:20 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=&dateTo=&page=2&pageSize=5 *************
+03/11/2020 14:39:21 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:39:21 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:39:21 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates","totalEntry":5,"list":[]}
+03/11/2020 14:39:21 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:39:31 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=&dateTo=&page=3&pageSize=5 *************
+03/11/2020 14:39:33 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:39:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:39:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates","totalEntry":5,"list":[]}
+03/11/2020 14:39:33 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:39:43 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=&dateFrom=&dateTo=&page=8&pageSize=5 *************
+03/11/2020 14:39:45 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:39:45 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:39:45 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates","totalEntry":5,"list":[]}
+03/11/2020 14:39:45 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:40:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:40:00 ICT 2020
+03/11/2020 14:40:05 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=8&pageSize=5 *************
+03/11/2020 14:40:06 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:40:06 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:40:06 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[]}
+03/11/2020 14:40:06 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:41:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:41:00 ICT 2020
+03/11/2020 14:41:08 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 14:41:08 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "anhpt@anhpt.com",
+    "password": "123456"
+}
+
+03/11/2020 14:41:09 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:41:09 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:41:09 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"anhpt"}
+03/11/2020 14:41:09 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:41:18 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=1&pageSize=5 *************
+03/11/2020 14:41:19 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:41:19 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:41:19 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":0,"message":"list tranfer with dates and status","totalEntry":0,"list":[]}
+03/11/2020 14:41:19 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:41:24 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=2&pageSize=5 *************
+03/11/2020 14:41:25 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:41:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:41:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":0,"message":"list tranfer with dates and status","totalEntry":0,"list":[]}
+03/11/2020 14:41:25 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:42:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:42:00 ICT 2020
+03/11/2020 14:42:52 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=1&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 14:42:52 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:42:52 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 400  Bad Request
+03/11/2020 14:42:52 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"error","totalEntry":0,"list":" "}
+03/11/2020 14:42:52 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:43:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:43:00 ICT 2020
+03/11/2020 14:43:17 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=2&pageSize=5 *************
+03/11/2020 14:43:18 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:43:18 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:43:18 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":0,"message":"list tranfer with dates and status","totalEntry":0,"list":[]}
+03/11/2020 14:43:18 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:43:25 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=1&pageSize=5 *************
+03/11/2020 14:43:26 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:43:26 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:43:26 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":0,"message":"list tranfer with dates and status","totalEntry":0,"list":[]}
+03/11/2020 14:43:26 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:44:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:44:00 ICT 2020
+03/11/2020 14:45:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:45:00 ICT 2020
+03/11/2020 14:46:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:46:00 ICT 2020
+03/11/2020 14:47:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:47:00 ICT 2020
+03/11/2020 14:48:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:48:00 ICT 2020
+03/11/2020 14:49:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:49:00 ICT 2020
+03/11/2020 14:50:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:50:00 ICT 2020
+03/11/2020 14:51:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:51:00 ICT 2020
+03/11/2020 14:52:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:52:00 ICT 2020
+03/11/2020 14:52:54 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 14:52:54 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+03/11/2020 14:52:54 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:52:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:52:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+03/11/2020 14:52:54 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:52:59 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=1&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 14:53:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:53:00 ICT 2020
+03/11/2020 14:53:00 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:53:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:53:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":51,"list":[{"id":"06b580a4ef0b4c01a522174786592832","version":0,"fromAddress":"Thanhhoa","toAddress":"HN","carrierId":"0","appliedFee":1.00,"actualFee":0.80,"d...
+03/11/2020 14:53:00 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:53:13 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=12&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 14:53:13 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:53:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 400  Bad Request
+03/11/2020 14:53:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"error","totalEntry":0,"list":" "}
+03/11/2020 14:53:13 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:54:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:54:00 ICT 2020
+03/11/2020 14:54:46 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=1&pageSize=5 *************
+03/11/2020 14:54:47 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:54:47 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:54:47 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[{"id":"77777f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletI...
+03/11/2020 14:54:47 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:55:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:55:00 ICT 2020
+03/11/2020 14:56:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:56:00 ICT 2020
+03/11/2020 14:56:48 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 14:56:48 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 14:56:48 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 14:56:48 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 14:56:49 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 14:57:22 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 14:57:22 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 14:57:22 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 14:57:22 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 14:57:23 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 14:57:26 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=1&pageSize=5 *************
+03/11/2020 14:57:28 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:57:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:57:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[{"id":"77777f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletI...
+03/11/2020 14:57:28 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:57:38 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=2&pageSize=5 *************
+03/11/2020 14:57:39 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:57:39 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 14:57:39 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[]}
+03/11/2020 14:57:39 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:58:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:58:00 ICT 2020
+03/11/2020 14:58:31 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=12&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 14:58:31 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 14:58:31 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 400  Bad Request
+03/11/2020 14:58:31 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"error","totalEntry":0,"list":" "}
+03/11/2020 14:58:31 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 14:59:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 14:59:00 ICT 2020
+03/11/2020 15:00:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:00:00 ICT 2020
+03/11/2020 15:01:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:01:00 ICT 2020
+03/11/2020 15:02:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:02:00 ICT 2020
+03/11/2020 15:03:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:03:00 ICT 2020
+03/11/2020 15:04:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:04:00 ICT 2020
+03/11/2020 15:05:21 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 15:05:21 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 15:05:21 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 15:05:21 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 15:05:22 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 15:05:31 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=12&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 15:05:32 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 15:05:32 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 15:05:32 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":51,"list":[]}
+03/11/2020 15:05:32 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 15:05:48 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=1&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 15:05:49 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 15:05:49 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 15:05:49 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":51,"list":[{"id":"06b580a4ef0b4c01a522174786592832","version":0,"fromAddress":"Thanhhoa","toAddress":"HN","carrierId":"0","appliedFee":1.00,"actualFee":0.80,"d...
+03/11/2020 15:05:49 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 15:06:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:06:00 ICT 2020
+03/11/2020 15:06:43 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 15:06:43 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 15:06:43 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 15:06:43 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 15:06:44 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 15:07:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:07:00 ICT 2020
+03/11/2020 15:08:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:08:00 ICT 2020
+03/11/2020 15:09:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:09:00 ICT 2020
+03/11/2020 15:10:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:10:00 ICT 2020
+03/11/2020 15:11:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:11:00 ICT 2020
+03/11/2020 15:12:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:12:00 ICT 2020
+03/11/2020 15:13:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:13:00 ICT 2020
+03/11/2020 15:14:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:14:00 ICT 2020
+03/11/2020 15:14:36 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/overDueShipments?dateFrom=&dateTo=&trackingCode=&page=10&pageSize=10 *************
+03/11/2020 15:14:37 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 15:14:37 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 15:14:37 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":7,"list":[]}
+03/11/2020 15:14:37 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 15:15:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:15:00 ICT 2020
+03/11/2020 15:15:58 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/overDueShipments?dateFrom=&dateTo=&trackingCode=&page=&pageSize= *************
+03/11/2020 15:15:58 ERROR com.app.server.handler.common.ExceptionHandler : [ERROR]
+java.lang.NumberFormatException: For input string: ""
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:68)
+	at java.base/java.lang.Integer.parseInt(Integer.java:668)
+	at java.base/java.lang.Integer.parseInt(Integer.java:776)
+	at com.app.server.handler.OverDueShipmentsHandler.lambda$0(OverDueShipmentsHandler.java:38)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:748)
+	at io.vertx.rxjava.core.Vertx$3.handle(Vertx.java:746)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$2(ContextImpl.java:316)
+	at io.vertx.core.impl.TaskQueue.run(TaskQueue.java:76)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+03/11/2020 15:15:58 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] 500  Internal Server Error
+03/11/2020 15:15:58 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] BODY: {"error":500,"message":""}
+03/11/2020 15:15:58 INFO  com.app.server.handler.common.ExceptionHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 15:16:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:16:00 ICT 2020
+03/11/2020 15:17:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:17:00 ICT 2020
+03/11/2020 15:17:40 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 15:17:40 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 15:17:40 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 15:17:40 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 15:17:41 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 15:17:44 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/overDueShipments?dateFrom=&dateTo=&trackingCode=&page=&pageSize= *************
+03/11/2020 15:17:46 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 15:17:46 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 15:17:46 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":7,"list":[{"id":"14cb92aa5de64874aec620eae4dabb86","version":0,"fromAddress":"HN","toAddress":"HP","carrierId":"0","appliedFee":800.00,"actualFee":640.00,"disc...
+03/11/2020 15:17:46 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 15:18:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:18:00 ICT 2020
+03/11/2020 15:24:40 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 15:24:40 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 15:24:40 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 15:24:41 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 15:24:42 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 15:24:46 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/overDueShipments?dateFrom=&dateTo=&trackingCode=&page=&pageSize= *************
+03/11/2020 15:24:48 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 15:24:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 15:24:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":7,"list":[{"id":"14cb92aa5de64874aec620eae4dabb86","version":0,"fromAddress":"HN","toAddress":"HP","carrierId":"0","appliedFee":800.00,"actualFee":640.00,"disc...
+03/11/2020 15:24:48 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 15:24:51 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=2&pageSize=5 *************
+03/11/2020 15:24:52 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 15:24:52 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 15:24:52 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[]}
+03/11/2020 15:24:52 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 15:24:57 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/billing?status=Wait&dateFrom=&dateTo=&page=2&pageSize=2 *************
+03/11/2020 15:24:58 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 15:24:58 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 15:24:58 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"available":467,"message":"list tranfer with dates and status","totalEntry":4,"list":[{"id":"89977f6281c94d7892c6759993fa1a94","version":1,"fromWalletId":"12345c2edf0c45a7ae81ac2d4c6b2aae","toWalletI...
+03/11/2020 15:24:58 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 15:25:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:25:00 ICT 2020
+03/11/2020 15:25:11 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/addFunds *************
+03/11/2020 15:25:11 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "amount":"200"
+}
+
+03/11/2020 15:25:11 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 15:25:11 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 15:25:11 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"add funds successed"}
+03/11/2020 15:25:11 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 15:50:49 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 15:50:49 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 15:50:49 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 15:50:49 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 15:50:50 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 15:50:55 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* GET  /webhook/api/showShipments?trackingCode=&page=1&dateFrom=&dateTo=&pageSize=10 *************
+03/11/2020 15:50:56 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 15:50:56 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 15:50:56 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"list Shipments","totalEntry":56,"list":[{"id":"061f336e7dff4494bf9e11cba2772970","version":0,"fromAddress":"HCM","toAddress":"1","carrierId":"0","appliedFee":111.00,"actualFee":88.80,"disc...
+03/11/2020 15:50:56 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 15:51:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:51:00 ICT 2020
+03/11/2020 15:52:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:52:00 ICT 2020
+03/11/2020 15:53:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:53:00 ICT 2020
+03/11/2020 15:54:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:54:00 ICT 2020
+03/11/2020 15:55:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 15:55:00 ICT 2020
+03/11/2020 16:15:15 INFO  com.app.scheduler.SchedulerManager : Initializing scheduler for 1 jobs...
+03/11/2020 16:15:15 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] 0 */1 * ? * *
+03/11/2020 16:15:15 INFO  com.app.scheduler.SchedulerManager : [APP.ORDER_IMPORT] Init OK!
+03/11/2020 16:15:15 INFO  com.app.server.vertical.OrderVertical : [INIT] STARTING UP ORDER API SERVER...
+03/11/2020 16:15:16 INFO  com.app.server.vertical.OrderVertical : [INIT] ORDER STARTED AT  0.0.0.0:8085
+03/11/2020 16:15:22 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/login *************
+03/11/2020 16:15:22 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "email": "dungnhm",
+    "password": "dungnhm"
+}
+
+03/11/2020 16:15:23 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 16:15:23 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 200  OK
+03/11/2020 16:15:23 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"status":"login successed","name":"dungnhm"}
+03/11/2020 16:15:23 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 16:15:26 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] ************* POST  /webhook/api/createShipments *************
+03/11/2020 16:15:26 INFO  com.app.server.handler.common.RequestLoggingHandler : [REQUEST] BODY: {
+    "fromAddress": "DN",
+    "name": "dungnhm",
+    "phoneNumber": "0388354992",
+    "company": "Burger",
+    "address1": "PT",
+    "address2": "HP",
+    "country": "Vietnam",
+    "zip": "1000",
+    "state": "HN",
+    "parcelHeight": "2",
+    "parcelWidth": "4",
+    "parcelLength": "4",
+    "parcelWeight": "8",
+    "note": "VN no1",
+    "item": [
+        {
+            "itemName": "item1",
+            "quantity": 2,
+            "amount": "4",
+            "weightPerItem": 1
+        },
+        {
+           "itemName": "item2",
+            "quantity": 1,
+            "amount": "5",
+            "weightPerItem": 2
+        }
+    ]
+}
+
+03/11/2020 16:15:26 INFO  com.app.server.handler.common.ResponseHandler : 
+
+03/11/2020 16:15:26 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] 201  Created
+03/11/2020 16:15:26 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] BODY: {"message":"create shipment successed"}
+03/11/2020 16:15:26 INFO  com.app.server.handler.common.ResponseHandler : [RESPONSE] ****************************** DONE ******************************
+
+03/11/2020 16:16:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:16:00 ICT 2020
+03/11/2020 16:17:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:17:00 ICT 2020
+03/11/2020 16:18:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:18:00 ICT 2020
+03/11/2020 16:19:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:19:00 ICT 2020
+03/11/2020 16:20:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:20:00 ICT 2020
+03/11/2020 16:21:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:21:00 ICT 2020
+03/11/2020 16:22:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:22:00 ICT 2020
+03/11/2020 16:23:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:23:00 ICT 2020
+03/11/2020 16:24:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:24:00 ICT 2020
+03/11/2020 16:25:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:25:00 ICT 2020
+03/11/2020 16:26:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:26:00 ICT 2020
+03/11/2020 16:27:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:27:00 ICT 2020
+03/11/2020 16:28:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:28:00 ICT 2020
+03/11/2020 16:29:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:29:00 ICT 2020
+03/11/2020 16:30:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:30:00 ICT 2020
+03/11/2020 16:31:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:31:00 ICT 2020
+03/11/2020 16:32:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:32:00 ICT 2020
+03/11/2020 16:33:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:33:00 ICT 2020
+03/11/2020 16:34:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:34:00 ICT 2020
+03/11/2020 16:35:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:35:00 ICT 2020
+03/11/2020 16:36:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:36:00 ICT 2020
+03/11/2020 16:37:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:37:00 ICT 2020
+03/11/2020 16:38:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:38:00 ICT 2020
+03/11/2020 16:39:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:39:00 ICT 2020
+03/11/2020 16:40:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:40:00 ICT 2020
+03/11/2020 16:41:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:41:00 ICT 2020
+03/11/2020 16:42:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:42:00 ICT 2020
+03/11/2020 16:43:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:43:00 ICT 2020
+03/11/2020 16:44:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:44:00 ICT 2020
+03/11/2020 16:45:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:45:00 ICT 2020
+03/11/2020 16:46:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:46:00 ICT 2020
+03/11/2020 16:47:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:47:00 ICT 2020
+03/11/2020 16:48:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:48:00 ICT 2020
+03/11/2020 16:49:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:49:00 ICT 2020
+03/11/2020 16:50:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:50:00 ICT 2020
+03/11/2020 16:51:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:51:00 ICT 2020
+03/11/2020 16:52:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:52:00 ICT 2020
+03/11/2020 16:53:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:53:00 ICT 2020
+03/11/2020 16:54:00 INFO  com.app.scheduler.SchedulerJobOrderImport : SchedulerJobOrderImport start at Tue Nov 03 16:54:00 ICT 2020

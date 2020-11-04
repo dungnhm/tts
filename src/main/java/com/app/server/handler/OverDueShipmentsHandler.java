@@ -55,7 +55,7 @@ public class OverDueShipmentsHandler implements Handler<RoutingContext>, Session
 				String email = loggedInUser.getEmail();
 
 				// tìm shipments theo email
-				List<Shipments> list = getShipmentsByEmail(email, page, pageSize);
+				List<Shipments> list;
 
 				if (dateFrom == "" && dateTo == "") {
 					DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -113,23 +113,6 @@ public class OverDueShipmentsHandler implements Handler<RoutingContext>, Session
 			e.printStackTrace();
 		}
 		return rs;
-	}
-
-	@SuppressWarnings("unchecked")
-	public static List<Shipments> getShipmentsByEmail(String email, int page, int pageSize) {
-		List<Shipments> list = null;
-		try {
-			PageBean pageBean = new PageBean();
-			pageBean.setPage(page);
-			pageBean.setPageSize(pageSize);
-			list = clipServices.findAllByProperty(
-					"FROM Shipments WHERE created_by = '" + email + "' AND ( financial_status='Fail') ", pageBean, 0,
-					Shipments.class, 0);
-			// (financial_status='Wait') OR
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return list;
 	}
 
 	@SuppressWarnings("unchecked")
