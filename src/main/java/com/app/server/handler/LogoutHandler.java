@@ -42,7 +42,7 @@ public class LogoutHandler implements Handler<RoutingContext>, SessionStore {
 				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
 				if (!jedis.get(sessionId).isEmpty()) {
-
+					//Comment
 					System.out.println("ss info " + jedis.get(sessionId));
 					jedis.del(sessionId);
 					System.out.println("ss info " + jedis.get(sessionId));
