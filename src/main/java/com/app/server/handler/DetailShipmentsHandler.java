@@ -12,27 +12,20 @@ import com.google.gson.Gson;
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
 import io.vertx.rxjava.core.http.HttpServerRequest;
-import io.vertx.rxjava.core.http.HttpServerResponse;
 import io.vertx.rxjava.ext.web.RoutingContext;
-import io.vertx.rxjava.ext.web.Session;
 
 public class DetailShipmentsHandler implements Handler<RoutingContext>, SessionStore {
 	static ClipServices clipServices;
 
 	@Override
 	public void handle(RoutingContext routingContext) {
-		// TODO Auto-generated method stub
 		routingContext.vertx().executeBlocking(future -> {
 			try {
 				Gson gson = new Gson();
-				Session session = routingContext.session();
 				HttpServerRequest httpServerRequest = routingContext.request();
-				HttpServerResponse httpServerReponse = routingContext.response();
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				String sessionId = httpServerRequest.getParam("sessionId");
-				String trackingCode = httpServerRequest.getParam("trackingCode");
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
-				String email = loggedInUser.getEmail();
 				JsonObject data = new JsonObject();
 
 				routingContext.put(AppParams.RESPONSE_DATA, data);
