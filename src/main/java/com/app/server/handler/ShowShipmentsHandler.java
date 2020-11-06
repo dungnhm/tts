@@ -53,7 +53,7 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 				String email = loggedInUser.getEmail();
 
 				// tìm shipments theo email
-				List<Shipments> list = getShipmentsByEmail(email, page, pageSize);
+				List<Shipments> list ;
 
 				if (dateFrom == "" && dateTo == "") {
 					DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -94,20 +94,6 @@ public class ShowShipmentsHandler implements Handler<RoutingContext>, SessionSto
 		});
 	}
 
-	@SuppressWarnings("unchecked")
-	public static List<Shipments> getShipmentsByEmail(String email, int page, int pageSize) {
-		List<Shipments> list = new ArrayList<>();
-		try {
-			PageBean pageBean = new PageBean();
-			pageBean.setPage(page);
-			pageBean.setPageSize(pageSize);
-			list = clipServices.findAllByProperty("FROM Shipments WHERE created_by = '" + email + "'", pageBean, 0,
-					Shipments.class, 0);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return list;
-	}
 
 	@SuppressWarnings("unchecked")
 	public static long getTotalEntry(String email, String dateFrom, String dateTo, String trackingCode) {
