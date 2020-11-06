@@ -6,7 +6,6 @@
 package com.app.server.handler;
 
 import com.app.models.ClipServices;
-import com.app.pojo.Users;
 import com.app.session.redis.SessionStore;
 import com.app.util.AppParams;
 import com.google.gson.Gson;
@@ -14,7 +13,6 @@ import com.google.gson.Gson;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
 import io.vertx.core.json.JsonObject;
-import io.vertx.rxjava.core.http.HttpServerRequest;
 import io.vertx.rxjava.ext.web.RoutingContext;
 import io.vertx.rxjava.ext.web.Session;
 
@@ -29,15 +27,11 @@ public class LogoutHandler implements Handler<RoutingContext>, SessionStore {
 			try {
 				Gson gson = new Gson();
 				Session session = routingContext.session();
-				HttpServerRequest httpServerRequest = routingContext.request();
 				System.out.println("session id from LoginHandler: " + session.id());
 				JsonObject jsonRequest = routingContext.getBodyAsJson();
 				String sessionId = jsonRequest.getString("sessionId");
 				JsonObject data = new JsonObject();
 				data.put("message", "log out failed");
-
-				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
-				String email = loggedInUser.getEmail();
 
 				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
