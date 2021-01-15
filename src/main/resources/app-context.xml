@@ -13,10 +13,39 @@
        http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd   
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-	<!-- <mongo:mongo host="127.0.0.1" port="27017" /> <mongo:db-factory dbname="vpngate" 
-		username="admin" password="Hungdt20008"/> <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"> 
-		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" /> </bean> -->
+	<bean id="jedisConnectionFactoryDatabase0"
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+		p:hostName="127.0.0.1" p:port="6379" p:usePool="true" p:database="0" />
 
+	<bean id="jedisConnectionFactory"
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+		p:hostName="127.0.0.1" p:port="6379" p:usePool="true" p:database="1" />
+
+	<!-- Redis String Serializer -->
+	<bean id="stringRedisSerializer"
+		class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+	<!-- JDK Serialization Redis Serializer -->
+	<bean id="jdkSerializationRedisSerializer"
+		class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
+	<!-- Configuring the Redis Template -->
+	<bean id="redisTemplate"
+		class="org.springframework.data.redis.core.RedisTemplate"
+		p:connection-factory-ref="jedisConnectionFactory"
+		p:keySerializer-ref="stringRedisSerializer"
+		p:valueSerializer-ref="jdkSerializationRedisSerializer" />
+	<bean id="redisTemplateDatabase0"
+		class="org.springframework.data.redis.core.RedisTemplate"
+		p:connection-factory-ref="jedisConnectionFactoryDatabase0"
+		p:keySerializer-ref="stringRedisSerializer"
+		p:valueSerializer-ref="jdkSerializationRedisSerializer" />
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<value>classpath:/app.properties</value>
+		</property>
+		<property name="systemPropertiesModeName"
+			value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+	</bean>
 
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -27,97 +56,50 @@
 			value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
 	</bean>
 
-	<!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
-
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-		<property name="configLocation">
-			<value>classpath:hibernate.cfg.xml</value>
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="dataSourceClassName"
+			value="oracle.jdbc.pool.OracleDataSource" />
+		<property name="dataSourceProperties">
+			<props>
+				<prop key="url">${database.url}</prop>
+				<prop key="user">${database.username}</prop>
+				<prop key="password">${database.password}</prop>
+			</props>
 		</property>
+		<!-- <property name="initializationFailFast" value="false" /> -->
+		<property name="poolName" value="DASHCHAT_DB_POOL" />
+		<property name="minimumIdle"
+			value="${database.min.pool.size}" />
+		<property name="maximumPoolSize"
+			value="${database.max.pool.size}" />
+		<property name="idleTimeout" value="${database.idle.timeout}" />
+		<property name="validationTimeout"
+			value="${database.validation.timeout}" />
+		<property name="connectionTimeout"
+			value="${database.connection.timeout}" />
+		<property name="connectionTestQuery"
+			value="${database.connection.testquery}" />
+		<!-- <property name="leakDetectionThreshold" value="${database.leak.detection.threshold}" 
+			/> -->
 	</bean>
-
-	<bean id="hibernateTempate"
-		class="org.springframework.orm.hibernate5.HibernateTemplate">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
+	<bean id="dashchatDataSource"
+		class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+		<constructor-arg ref="hikariConfig" />
 	</bean>
-
-	<!-- Transaction manager for a single Hibernate SessionFactory (alternative 
-		to JTA) -->
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
-
-	<tx:advice id="txAdvice"
-		transaction-manager="transactionManager">
-		<tx:attributes>
-			<tx:method name="get*" read-only="true" />
-			<tx:method name="*" />
-		</tx:attributes>
-	</tx:advice>
-	<aop:config>
-		<aop:pointcut id="personServiceOperation"
-			expression="execution(* com.app.models.ClipServicesImpl.*(..))" />
-		<aop:advisor advice-ref="txAdvice"
-			pointcut-ref="personServiceOperation" />
-	</aop:config>
 
 	<!-- ========================= BUSINESS OBJECT DEFINITIONS ========================= -->
 	<!-- Data access object: Hibernate implementation. -->
 	<bean id="contextApplicationContextProvider"
-		class="com.app.services.ApplicationContextProvider" />
+		class="com.app.dashchat.services.ApplicationContextProvider" />
 
-	<bean id="clipDao" class="com.app.dao.hibernate.ClipDaoHibernate">
-		<!-- hibernateTemplate để thao tác với database chính, first-level cache 
-			nhớ lại cái sơ đồ kiến trúc Hibernate.. -->
-		<property name="hibernateTemplate" ref="hibernateTempate" />
-		<!-- mongoTemplate để thao tác với database khác bên ngoài, second-level 
-			cache nhớ lại cái sơ đồ kiến trúc Hibernate -->
-		<!--<property name="mongoTemplate" ref="mongoTemplate"/> -->
-	</bean>
-
-	<bean id="clipServiceTager"
-		class="com.app.models.ClipServicesImpl">
-		<property name="clipDao" ref="clipDao" />
-	</bean>
-
-	<bean id="baseTransactionProxy"
-		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
-		abstract="true">
-		<property name="transactionManager" ref="transactionManager" />
-		<property name="transactionAttributes">
-			<props>
-				<prop key="get*">PROPAGATION_REQUIRED,readOnly
-				</prop>
-				<prop key="save*">PROPAGATION_REQUIRED
-				</prop>
-				<prop key="delete*">PROPAGATION_REQUIRED
-				</prop>
-				<prop key="edit*">PROPAGATION_REQUIRED
-				</prop>
-				<prop key="load*">PROPAGATION_REQUIRED,readOnly
-				</prop>
-				<prop key="search*">PROPAGATION_REQUIRED,readOnly
-				</prop>
-			</props>
-		</property>
-	</bean>
-
-	<bean id="clipServices" parent="baseTransactionProxy">
-		<property name="target" ref="clipServiceTager" />
-		<property name="proxyInterfaces">
-			<value>com.app.models.ClipServices</value>
-		</property>
-	</bean>
+	<!-- <bean id="clipServices" parent="baseTransactionProxy"> <property name="target" 
+		ref="clipServiceTager" /> <property name="proxyInterfaces"> <value>com.app.dashchat.models.ClipServices</value> 
+		</property> </bean> -->
 
 	<!-- config server -->
 
-	<bean id="orderVertical"
-		class="com.app.server.vertical.OrderVertical">
+	<bean id="dashchatVertical"
+		class="com.app.dashchat.server.vertical.DashchatVertical">
 		<property name="serverHost" value="${server.host}" />
 		<property name="serverPort" value="${server.port}" />
 		<property name="apiPrefix" value="${server.api.uri.prefix}" />
@@ -129,7 +111,7 @@
 			value="${server.connection.idle.timeout}" />
 	</bean>
 
-	<bean id="orderServer" class="com.app.server.OrderServer"
+	<bean id="orderServer" class="com.app.dashchat.server.OrderServer"
 		init-method="init">
 		<property name="workerPoolSize"
 			value="${server.worker.poolsize}" />
@@ -141,88 +123,16 @@
 			value="${server.eventloop.max.execute.time}" />
 		<property name="threadCheckInterval"
 			value="${server.thread.checkinterval}" />
-		<property name="vertxVertical" ref="orderVertical" />
+		<property name="vertxVertical" ref="dashchatVertical" />
 	</bean>
 
-	<!-- Khai báo Handler. Truyền ref = clipServices vào handler, với clipServices 
-		là thuộc tính có trong lớp Handler -->
-		
-	<bean id="orderNotifyHandler"
-		class="com.app.server.handler.OrderNotifyHandler">
-		<property name="clipServices" ref="clipServices" />
+	<bean id="userService"
+		class="com.app.dashchat.services.UserService">
+		<property name="dataSource" ref="dashchatDataSource" />
 	</bean>
-	<bean id="loginHandler"
-		class="com.app.server.handler.LoginHandler">
-		<property name="clipServices" ref="clipServices" />
+	<bean id="messageService"
+		class="com.app.dashchat.services.MessageService">
+		<property name="dataSource" ref="dashchatDataSource" />
 	</bean>
-	<bean id="logoutHandler"
-		class="com.app.server.handler.LogoutHandler">
-		<property name="clipServices" ref="clipServices" />
-	</bean>
-	<bean id="registerHandler"
-		class="com.app.server.handler.RegisterHandler">
-		<property name="clipServices" ref="clipServices" />
-	</bean>
-	<bean id="changePasswordHandler"
-		class="com.app.server.handler.ChangePasswordHandler">
-		<property name="clipServices" ref="clipServices" />
-	</bean>
-	<bean id="trackShipmentHandler"
-		class="com.app.server.handler.TrackShipmentHandler">
-		<property name="clipServices" ref="clipServices" />
-	</bean>
-	<bean id="dashboardHandler"
-		class="com.app.server.handler.DashboardHandler">
-		<property name="clipServices" ref="clipServices" />
-	</bean>
-	<bean id="showShipmentsHandler"
-		class="com.app.server.handler.ShowShipmentsHandler">
-		<property name="clipServices" ref="clipServices" />
-	</bean>
-	<bean id="detailShipmentsHandler"
-		class="com.app.server.handler.DetailShipmentsHandler">
-		<property name="clipServices" ref="clipServices" />
-	</bean>
-	<bean id="createShipmentsHandler"
-		class="com.app.server.handler.CreateShipmentsHandler">
-		<property name="clipServices" ref="clipServices" />
-	</bean>
-	<bean id="billingHandler"
-		class="com.app.server.handler.BillingHandler">
-		<property name="clipServices" ref="clipServices" />
-	</bean>
-	<bean id="createPaymentsHandler"
-		class="com.app.server.handler.CreatePaymentsHandler">
-		<property name="clipServices" ref="clipServices" />
-	</bean>
-	<bean id="overDueShipmentsHandler"
-		class="com.app.server.handler.OverDueShipmentsHandler">
-		<property name="clipServices" ref="clipServices" />
-	</bean>
-	<bean id="addFundsHandler"
-		class="com.app.server.handler.AddFundsHandler">
-		<property name="clipServices" ref="clipServices" />
-	</bean>
-
-
-	<!-- config scheduler -->
-
-	<bean id="schedulerJobOrderImport"
-		class="com.app.scheduler.SchedulerJobOrderImport">
-		<property name="id" value="${order.import.job.id}" />
-		<property name="groupId" value="${order.import.job.group}" />
-		<property name="cronExpression"
-			value="${order.import.job.cron.expression}" />
-	</bean>
-
-	<util:list id="executionJobs" value-type="org.quartz.Job">
-		<ref bean="schedulerJobOrderImport" />
-
-	</util:list>
-	<bean id="scheduler" class="com.app.scheduler.SchedulerManager"
-		init-method="init">
-		<property name="executionJobs" ref="executionJobs" />
-	</bean>
-
 
 </beans>
