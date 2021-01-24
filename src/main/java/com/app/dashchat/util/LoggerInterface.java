@@ -12,6 +12,5 @@ import org.apache.log4j.Logger;
  */
 public interface LoggerInterface {
 
-//    static Logger logger = LogManager.getLogger("");
     static Logger logger = Logger.getLogger("");
 }

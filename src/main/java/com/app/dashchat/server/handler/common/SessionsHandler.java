@@ -45,6 +45,7 @@ public class SessionsHandler implements Handler<RoutingContext>, LoggerInterface
 						// reset time out cho session
 						int ttl = 1800;
 						jedis.expire(sessionId, ttl);
+						
 						future.complete();
 					} else {
 						int responseCode = ContextUtil.getInt(routingContext, AppParams.RESPONSE_CODE,

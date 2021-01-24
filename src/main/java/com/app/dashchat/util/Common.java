@@ -3,7 +3,13 @@ package com.app.dashchat.util;
 //import com.app.http.Youtube;
 //import com.app.services.DetectHandset;
 //import com.app.services.LoggerInterface;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
@@ -15,45 +21,19 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Properties;
 import java.util.Random;
-import java.util.zip.CRC32;
 
-public class Common {
+public class Common implements LoggerInterface {
 
     public Common() {
-    }
-
-    public static String genCRC32(String data) {
-        String ret = null;
-        try {
-            CRC32 crc = new CRC32();
-            crc.update(data.getBytes());
-            ret = Long.toHexString(crc.getValue());
-        } catch (Exception ex) {
-        }
-        return ret;
     }
 
     public static String hashPassword(String password) {
         String hashword = null;
         try {
-//            MessageDigest md5 = MessageDigest.getInstance("MD5");
-//            md5.update(password.getBytes());
-//            BigInteger hash = new BigInteger(1, md5.digest());
-//            hashword = hash.toString(32);
-            MessageDigest m = MessageDigest.getInstance("MD5");
-            m.update(password.getBytes());
-            byte messageDigest[] = m.digest();
-
-            StringBuffer hexString = new StringBuffer();
-            for (int i = 0; i < messageDigest.length; i++) {
-                String hex = Integer.toHexString(0xFF & messageDigest[i]);
-                if (hex.length() == 1) {
-                    hexString.append('0');
-                }
-
-                hexString.append(hex);
-            }
-            hashword = hexString.toString();
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            md5.update(password.getBytes());
+            BigInteger hash = new BigInteger(1, md5.digest());
+            hashword = hash.toString(32);
         } catch (NoSuchAlgorithmException nsae) {
         }
         return hashword;
@@ -83,7 +63,7 @@ public class Common {
                 return new java.util.Date();
             }
             converttodt = new SimpleDateFormat(pattern);
-            date = converttodt.parse(sDate.trim());
+            date = (java.util.Date) converttodt.parse(sDate.trim());
         } catch (Exception e) {
             date = null;
         }
@@ -93,7 +73,11 @@ public class Common {
 
     public static int parseInt(String value, int defaultValue) {
         try {
-            return Integer.parseInt(value);
+//            logger.log(Level.INFO, "parseInt: value= {0}", value);
+            double d = Double.parseDouble(value);
+//            return Integer.parseInt(value);
+//            logger.log(Level.INFO, "parseInt: double= {0}", d);
+            return (int) Math.round(d);
         } catch (Exception e) {
             return defaultValue;
         }
@@ -115,14 +99,6 @@ public class Common {
         }
     }
 
-    public static float parseFloat(String value, float defaultValue) {
-        try {
-            return Float.parseFloat(value);
-        } catch (Exception e) {
-            return defaultValue;
-        }
-    }
-
     public static java.util.Date addDaysToDate(java.util.Date date, int daysToAdd) {
         try {
             if (date == null) {
@@ -138,27 +114,22 @@ public class Common {
         }
     }
 
-    public static java.util.Date addMinuteToDate(java.util.Date date, int minute) {
-        try {
-            if (date == null) {
-                date = new java.util.Date();
-            }
-            DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            Calendar now = Calendar.getInstance();
-            now.setTime(date);
-            now.add(Calendar.MINUTE, minute);
-            return sdf.parse(sdf.format(now.getTime()));
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
     public static String getRandomString(int lenght) {
         String ret;
         Random r = new Random();
         String token = Long.toHexString(Math.abs(r.nextLong()));
         ret = token.substring(0, lenght);
         return ret;
+    }
+    
+    public static String generateRandomString(Random random, int length){
+        return random.ints(48,122)
+                .filter(i-> (i<57 || i>65) && (i <90 || i>97))
+                .mapToObj(i -> (char) i)
+                .limit(length)
+                .collect(StringBuilder::new, StringBuilder::append, StringBuilder::append)
+                .toString()
+                .toLowerCase();
     }
 
     public static String SubtractMonth(java.util.Date d, int month) {
@@ -216,7 +187,7 @@ public class Common {
         if (sum <= 0) {
             ret = 0;
         } else {
-            temp = sum / (pageSize * 1.0D);
+            temp = (double) sum / ((double) pageSize * 1.0D);
             ret = (int) Math.ceil(temp);
         }
         return ret;
@@ -309,7 +280,7 @@ public class Common {
         byte[] digest = md.digest();
         StringBuilder sb = new StringBuilder();
         for (byte b : digest) {
-            sb.append(Integer.toHexString(b & 0xff));
+            sb.append(Integer.toHexString((int) (b & 0xff)));
         }
 
         return sb.toString();
@@ -558,7 +529,7 @@ public class Common {
         String ret = "";
         int t;
         for (int i = 0; i < info.length(); i++) {
-            t = info.charAt(i);
+            t = (int) info.charAt(i);
             if (((t >= 48) && (t <= 57)) || ((t >= 65) && (t <= 90)) || ((t >= 97) && (t <= 122)) || (t == 45) || (t == 32)) {
                 ret += info.charAt(i);
             } else if ((t == 10) || (t == 13)) {
@@ -598,7 +569,7 @@ public class Common {
         String ret = "";
         int t;
         for (int i = 0; i < info.length(); i++) {
-            t = info.charAt(i);
+            t = (int) info.charAt(i);
             if (((t >= 48) && (t <= 57)) || ((t >= 65) && (t <= 90)) || ((t >= 97) && (t <= 122)) || (t == 45) || (t == 32) || (t == 93) || (t == 47)) {
                 if (t == 93) {
                     ret += " ";
@@ -613,24 +584,35 @@ public class Common {
         return ret;
     }
 
-    public static String getOrderName() {
-        String ret = "";
-        String[] orderprefix = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"};
-        Calendar calendar = Calendar.getInstance();
-        int month;
-        try {
-            month = calendar.get(Calendar.MONTH);
-            ret = "HS" + orderprefix[month];
-        } catch (Exception e) {
-
-        }
-        return ret;
-    }
+//    public static String initFolderName(String name) {
+//        String ret = name;
+//        try {
+//            CharactorProcess ch = new CharactorProcess();
+//            ret = ch.replaceNosign(ret);
+//            ret = Common.processInfo(ret).replaceAll(" ", "-").toLowerCase();
+//
+//            while (ret.indexOf("--") >= 0) {
+//                ret = ret.replaceAll("--", "-");
+//            }
+//            ret.trim();
+//        } catch (Exception e) {
+//            return "";
+//        }
+//
+//        return ret;
+//    }
+    
+    public static String concatenate(String... s) {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < s.length; i++) {
+			sb = sb.append(s[i]);
+		}
+		return sb.toString();
+	}
 
     public static void main(String a[]) {
 //        System.out.println((new Common()).unicodeEscape("H\u1EBFt m\u1EA1ng r\u1ED3i, b\u1EA1n mu\u1ED1n th\352m m\u1EA1ng \u0111\u1EC3 ch\u01A1i ti\u1EBFp kh\364ng ???"));
 //        System.out.println(hashPassword("ngat123456"));
-        System.out.println(getOrderName());
 //        System.out.println(getKey("http://gdata.youtube.com/feeds/api/videos?q=thonvl&format=5&max-results=18&v=2&alt=jsonc&filters=video&orderby=relevance&start-index=1"));
 //        int r;
 //        Random ran = new Random();
@@ -647,8 +629,10 @@ public class Common {
 //        long timeExpire = dd.getTime() - new java.util.Date().getTime();
 //        int date = (int) Math.ceil(timeExpire / (24 * 60 * 60 * 1000f));
 //        System.out.println("dd = " + date);
-//        System.out.println(genCRC32("bd72e86c21dcaaa6"));
-//        System.out.println("dd = " + getRandomString(4));
+        String d = "150.11";
+        System.out.println(d + "= " + Common.parseInt(d, 0));
+        d = "150.80";
+        System.out.println(d + "= " + Common.parseInt(d, 0));
     }
     private static final char hexChar[] = {
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',

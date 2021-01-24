@@ -5,16 +5,19 @@
  */
 package com.app.dashchat.server.vertical;
 
-import com.app.dashchat.server.handler.AaddChatHandler;
+import com.app.dashchat.server.handler.AddChatHandler;
+import com.app.dashchat.server.handler.AddContactUserHandler;
 import com.app.dashchat.server.handler.ChangePasswordHandler;
+import com.app.dashchat.server.handler.CreateGroupHandler;
 import com.app.dashchat.server.handler.DashboardHandler;
 import com.app.dashchat.server.handler.GetAllUsersHandler;
 import com.app.dashchat.server.handler.GetUserHandler;
 import com.app.dashchat.server.handler.LoginHandler;
-import com.app.dashchat.server.handler.LogoutHandler;
 import com.app.dashchat.server.handler.OptionHandler;
 import com.app.dashchat.server.handler.OrderNotifyHandler;
 import com.app.dashchat.server.handler.RegisterHandler;
+import com.app.dashchat.server.handler.SearchBarHandler;
+import com.app.dashchat.server.handler.StoreFileHandler;
 import com.app.dashchat.server.handler.UpdateUserHandler;
 import com.app.dashchat.server.handler.common.ExceptionHandler;
 import com.app.dashchat.server.handler.common.RequestLoggingHandler;
@@ -89,6 +92,15 @@ public class DashchatVertical extends AbstractVerticle implements LoggerInterfac
 		Router router = Router.router(vertx);
 		router.route().handler(CookieHandler.create());
 		router.route().handler(BodyHandler.create());
+		router.route().handler(io.vertx.rxjava.ext.web.handler.CorsHandler.create("*")
+				.allowedMethod(io.vertx.core.http.HttpMethod.GET)
+				.allowedMethod(io.vertx.core.http.HttpMethod.POST)
+				.allowedMethod(io.vertx.core.http.HttpMethod.OPTIONS)
+				.allowedHeader("Access-Control-Request-Method")
+				.allowedHeader("Access-Control-Allow-Credentials")
+				.allowedHeader("Access-Control-Allow-Origin")
+				.allowedHeader("Access-Control-Allow-Headers")
+				.allowedHeader("Content-Type"));
 
 		router.route().handler(ResponseTimeHandler.create());
 		router.route().handler(TimeoutHandler.create(connectionTimeOut));
@@ -130,20 +142,24 @@ public class DashchatVertical extends AbstractVerticle implements LoggerInterfac
 		// xet uri de xem handler nao se bat login, handler nao khong bat login
 		router.route(HttpMethod.POST, "/notifyOrder/:source").handler(new OrderNotifyHandler());
 		router.route(HttpMethod.OPTIONS, "/login").handler(new OptionHandler());
-		router.route(HttpMethod.POST, "/logout").handler(new LogoutHandler());
-
 		//======dashchat
 		router.route(HttpMethod.POST, "/login").handler(new LoginHandler());
 		router.route(HttpMethod.POST, "/register").handler(new RegisterHandler());
 		router.route(HttpMethod.GET, "/user/").handler(new GetUserHandler());
 		router.route(HttpMethod.GET, "/user/getAll").handler(new GetAllUsersHandler());
 		router.route(HttpMethod.GET, "/dashboard").handler(new DashboardHandler());
-		router.route(HttpMethod.POST, "/update-user").handler(new UpdateUserHandler());
+		router.route(HttpMethod.POST, "/add-contact").handler(new AddContactUserHandler());
+		router.route(HttpMethod.GET, "/search-bar").handler(new SearchBarHandler());
+		router.route(HttpMethod.POST, "/chat").handler(new AddChatHandler());
+		router.route(HttpMethod.POST, "/store-file").handler(new StoreFileHandler());
+		router.route(HttpMethod.POST, "/change-password").handler(new ChangePasswordHandler());
+		router.route(HttpMethod.POST, "/update-user-info").handler(new UpdateUserHandler());
 		
-		router.route(HttpMethod.POST, "/chat").handler(new AaddChatHandler());
+		router.route(HttpMethod.POST, "/create-group").handler(new CreateGroupHandler());
+		
 		//======
 		
-		router.route(HttpMethod.POST, "/change-password").handler(new ChangePasswordHandler());
+		
 		
 		return router;
 	}

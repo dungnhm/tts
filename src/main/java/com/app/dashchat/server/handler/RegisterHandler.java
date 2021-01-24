@@ -11,7 +11,6 @@ import java.util.logging.Logger;
 
 import org.apache.commons.validator.routines.EmailValidator;
 
-import com.app.dashchat.models.ClipServices;
 import com.app.dashchat.services.UserService;
 import com.app.dashchat.util.AppParams;
 
@@ -22,12 +21,6 @@ import io.vertx.rxjava.ext.web.RoutingContext;
 
 public class RegisterHandler implements Handler<RoutingContext> {
 
-	static ClipServices clipServices;
-
-	public static void setClipServices(ClipServices clipServices) {
-		RegisterHandler.clipServices = clipServices;
-	}
-	
 	@SuppressWarnings("unchecked")
 	@Override
 	public void handle(RoutingContext routingContext) {

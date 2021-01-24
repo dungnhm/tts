@@ -36,7 +36,7 @@ public class Users implements java.io.Serializable {
 	public static Users fromMap(Map<String, Object> input) {
 		Users obj = new Users();
 		obj.setId(ParamUtil.getString(input, AppParams.S_ID));
-		obj.setUsername(ParamUtil.getString(input, AppParams.S_USER_NAME));
+		obj.setUsername(ParamUtil.getString(input, AppParams.S_USERNAME));
 		obj.setPassword(ParamUtil.getString(input, AppParams.S_PASSWORD));
 		obj.setEmail(ParamUtil.getString(input, AppParams.S_EMAIL));
 		obj.setFirstName(ParamUtil.getString(input, AppParams.S_FIRST_NAME));

@@ -1,6 +1,7 @@
 package com.app.dashchat.services;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -26,6 +27,7 @@ public class MessageService {
 	}
 	
 	public static final String GET_CHAT_HISTORY = "{call PKG_MESSAGE.get_chat_common(?,?,?,?,?)}";
+	public static final String SEARCH_CHAT_BY_TEXT = "{call PKG_MESSAGE.search_chat_by_text(?,?,?,?,?,?)}";
 	public static final String INSERT_MESSAGE = "{call PKG_MESSAGE.insert_message(?,?,?,?,?,?,?,?,?,?)}";
 
 	public static List<Map> getChatHistory(String sender, String receiver) throws SQLException {
@@ -53,12 +55,52 @@ public class MessageService {
 			throw new OracleException(ParamUtil.getString(searchResultMap, AppParams.RESULT_MSG));
 		}
 
-		Map resultMap = new HashMap<>();
+		LOGGER.info("=> All chat result: " + ParamUtil.getListData(searchResultMap, AppParams.RESULT_DATA));
+		
+		List<Map> resultMap = new ArrayList<Map>();
 		List<Map> resultDataList = ParamUtil.getListData(searchResultMap, AppParams.RESULT_DATA);
+		for (Map result : resultDataList) {
+			resultMap.add(format(result));
+		}
+		
+		return resultMap;
+	}
+	
+	public static List<Map> searchChat(String sender, String receiver, String searchText) throws SQLException {
+
+		Map inputParams = new LinkedHashMap<Integer, String>();
+		inputParams.put(1, sender);
+		inputParams.put(2, receiver);
+		inputParams.put(3, searchText);
+
+		Map<Integer, Integer> outputParamsTypes = new LinkedHashMap<>();
+		outputParamsTypes.put(4, OracleTypes.NUMBER);
+		outputParamsTypes.put(5, OracleTypes.VARCHAR);
+		outputParamsTypes.put(6, OracleTypes.CURSOR);
+
+		Map<Integer, String> outputParamsNames = new LinkedHashMap<>();
+		outputParamsNames.put(4, AppParams.RESULT_CODE);
+		outputParamsNames.put(5, AppParams.RESULT_MSG);
+		outputParamsNames.put(6, AppParams.RESULT_DATA);
+
+		Map searchResultMap = DBProcedureUtil.execute(dataSource, SEARCH_CHAT_BY_TEXT, inputParams,
+				outputParamsTypes, outputParamsNames);
+
+		int resultCode = ParamUtil.getInt(searchResultMap, AppParams.RESULT_CODE);
+
+		if (resultCode != HttpResponseStatus.OK.code()) {
+			throw new OracleException(ParamUtil.getString(searchResultMap, AppParams.RESULT_MSG));
+		}
 
 		LOGGER.info("=> All chat result: " + ParamUtil.getListData(searchResultMap, AppParams.RESULT_DATA));
-
-		return resultDataList;
+		
+		List<Map> resultMap = new ArrayList<Map>();
+		List<Map> resultDataList = ParamUtil.getListData(searchResultMap, AppParams.RESULT_DATA);
+		for (Map result : resultDataList) {
+			resultMap.add(format(result));
+		}
+		
+		return resultMap;
 	}
 	
 	public static Map searchChat(String email) throws SQLException {
@@ -153,7 +195,7 @@ public class MessageService {
 		resultMap.put(AppParams.STATUS, ParamUtil.getString(queryData, AppParams.S_STATUS));
 		resultMap.put(AppParams.CREATE_AT, ParamUtil.getString(queryData, AppParams.D_CREATED_AT));
 		resultMap.put(AppParams.UPDATE_AT, ParamUtil.getString(queryData, AppParams.D_UPDATED_AT));
-		resultMap.put(AppParams.S_STATE, ParamUtil.getString(queryData, AppParams.S_STATE));
+		resultMap.put(AppParams.STATE, ParamUtil.getString(queryData, AppParams.S_STATE));
 		return resultMap;
 	}
 

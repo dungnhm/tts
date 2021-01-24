@@ -22,7 +22,7 @@ import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 import redis.clients.jedis.params.SetParams;
 
-public class UpdateUserHandler implements Handler<RoutingContext>, SessionStore {
+public class AddContactUserHandler implements Handler<RoutingContext>, SessionStore {
 
 	@Override
 	public void handle(RoutingContext routingContext) {
@@ -80,6 +80,6 @@ public class UpdateUserHandler implements Handler<RoutingContext>, SessionStore 
 		});
 	}
 
-	private static final Logger LOGGER = Logger.getLogger(UpdateUserHandler.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(AddContactUserHandler.class.getName());
 
 }

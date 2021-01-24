@@ -92,10 +92,6 @@
 	<bean id="contextApplicationContextProvider"
 		class="com.app.dashchat.services.ApplicationContextProvider" />
 
-	<!-- <bean id="clipServices" parent="baseTransactionProxy"> <property name="target" 
-		ref="clipServiceTager" /> <property name="proxyInterfaces"> <value>com.app.dashchat.models.ClipServices</value> 
-		</property> </bean> -->
-
 	<!-- config server -->
 
 	<bean id="dashchatVertical"
@@ -132,6 +128,10 @@
 	</bean>
 	<bean id="messageService"
 		class="com.app.dashchat.services.MessageService">
+		<property name="dataSource" ref="dashchatDataSource" />
+	</bean>
+	<bean id="groupService"
+		class="com.app.dashchat.services.GroupService">
 		<property name="dataSource" ref="dashchatDataSource" />
 	</bean>
 

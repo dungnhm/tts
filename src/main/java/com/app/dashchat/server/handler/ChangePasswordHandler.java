@@ -5,11 +5,11 @@
  */
 package com.app.dashchat.server.handler;
 
-import java.util.Date;
-import java.util.List;
+import java.util.Map;
+import java.util.logging.Logger;
 
-import com.app.dashchat.models.ClipServices;
 import com.app.dashchat.pojo.Users;
+import com.app.dashchat.services.UserService;
 import com.app.dashchat.session.redis.SessionStore;
 import com.app.dashchat.util.AppParams;
 import com.google.gson.Gson;
@@ -22,8 +22,6 @@ import io.vertx.rxjava.ext.web.RoutingContext;
 
 public class ChangePasswordHandler implements Handler<RoutingContext>, SessionStore {
 
-	private static ClipServices clipServices;
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public void handle(RoutingContext routingContext) {
@@ -31,40 +29,27 @@ public class ChangePasswordHandler implements Handler<RoutingContext>, SessionSt
 		routingContext.vertx().executeBlocking(future -> {
 			try {
 				Gson gson = new Gson();
-				// lay tham so username, password tu path
 				JsonObject jsonRequest = routingContext.getBodyAsJson();
-				Cookie c = routingContext.getCookie("sessionId");
-				String sessionId = c.getValue();
-
-				String oldPassword = jsonRequest.getString("oldPassword");
+				String currentPassword = jsonRequest.getString("currentPassword");
 				String newPassword = jsonRequest.getString("newPassword");
-				String confirmPassword = jsonRequest.getString("confirmPassword");
-				JsonObject data = new JsonObject();
-				data.put("message", "change password failed");
-				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.UNAUTHORIZED.code());
-				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.UNAUTHORIZED.reasonPhrase());
+				String confirmPassword = jsonRequest.getString("confirmNewPassword");
+				Cookie cookie = routingContext.getCookie("sessionId");
+				String sessionId = cookie.getValue();
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
-				String email = loggedInUser.getEmail();
-				String password = loggedInUser.getPassword();
-				List<Users> list = clipServices.findAllByProperty("from Users where email = '" + email + "'", null, 0,
-						Users.class, 0);
-				if (list.size() > 0) {
-					if (newPassword.equals(confirmPassword)) {
-						Users resultUser = list.get(0);
-						if (!oldPassword.equals(newPassword) && password.equals(oldPassword)) {
-							Date date = new Date();
-							Users newUser = new Users();
-							clipServices.update(newUser, newUser.getId(), Users.class, 0);
-							jedis.del(sessionId);
-							data.put("message", "change password successed");
-							routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
-							routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
-						}
-					} else {
-						data.put("message", "change password failed");
-					}
+
+				if (currentPassword.equals(loggedInUser.getPassword()) && newPassword.equals(confirmPassword) && !newPassword.equals(currentPassword)) {
+					Map userUpdate = UserService.updateUser(loggedInUser.getEmail(), newPassword,
+							loggedInUser.getFirstName(), loggedInUser.getLastName(), loggedInUser.getAddress(),
+							loggedInUser.getPhone(), loggedInUser.getContact());
+
+					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
+					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
+					routingContext.put(AppParams.RESPONSE_DATA, userUpdate);
+				} else {
+					routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.BAD_REQUEST.code());
+					routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.BAD_REQUEST.reasonPhrase());
+					routingContext.put(AppParams.RESPONSE_DATA, "{}");
 				}
-				routingContext.put(AppParams.RESPONSE_DATA, data);
 				future.complete();
 			} catch (Exception e) {
 				routingContext.fail(e);
@@ -78,8 +63,6 @@ public class ChangePasswordHandler implements Handler<RoutingContext>, SessionSt
 		});
 	}
 
-	public static void setClipServices(ClipServices clipServices) {
-		ChangePasswordHandler.clipServices = clipServices;
-	}
+	private static final Logger LOGGER = Logger.getLogger(ChangePasswordHandler.class.getName());
 
 }

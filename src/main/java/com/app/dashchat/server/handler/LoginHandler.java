@@ -35,8 +35,6 @@ public class LoginHandler implements Handler<RoutingContext>, SessionStore {
 				String password = jsonRequest.getString("password");
 				// String password = Md5Code.md5(jsonRequest.getString("password"));
 				Gson gson = new Gson();
-				JsonObject data = new JsonObject();
-
 				Map user = UserService.getUserByEmail(email);
 				
 				if (!user.isEmpty()) {
@@ -51,10 +49,11 @@ public class LoginHandler implements Handler<RoutingContext>, SessionStore {
 
 							// Lưu data của user vào session
 							jedis.set(session.id(), gson.toJson(user), ttl);
-
+//							LOGGER.info("user-id = "+ user.get(AppParams.ID).toString());
 							// Lưu sessionId vào cookie
 							Cookie cookie = Cookie.cookie("sessionId", session.id());
 							routingContext.addCookie(cookie);
+							routingContext.put(AppParams.USER_ID, user.get(AppParams.ID).toString());
 						} else {
 							LOGGER.info("session is null");
 						}

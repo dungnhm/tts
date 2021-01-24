@@ -5,20 +5,25 @@
  */
 package com.app.dashchat.server.handler;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import com.app.dashchat.pojo.Users;
+import com.app.dashchat.services.MessageService;
 import com.app.dashchat.services.UserService;
 import com.app.dashchat.session.redis.SessionStore;
 import com.app.dashchat.util.AppParams;
+import com.google.gson.Gson;
 
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.Handler;
-import io.vertx.core.json.JsonObject;
 import io.vertx.rxjava.core.http.HttpServerRequest;
+import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 
-public class GetUserHandler implements Handler<RoutingContext>, SessionStore {
+public class SearchBarHandler implements Handler<RoutingContext>, SessionStore {
 
 	@Override
 	public void handle(RoutingContext routingContext) {
@@ -26,21 +31,22 @@ public class GetUserHandler implements Handler<RoutingContext>, SessionStore {
 		routingContext.vertx().executeBlocking(future -> {
 			try {
 				HttpServerRequest httpServerRequest = routingContext.request();
-				String userId = httpServerRequest.getParam("userId");
-				LOGGER.info("---userId = "+ userId);
-				JsonObject data = new JsonObject();
+				Cookie cookie = routingContext.getCookie("sessionId");
+				String receiver = httpServerRequest.getParam("receiver");
+				String searchText = httpServerRequest.getParam("searchText");
 
-//				String sessionId = cookie.getValue();
-//				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
-				Map user = UserService.getUserById(userId);
+				String sessionId = cookie.getValue();
+				Users loggedInUser = new Gson().fromJson(jedis.get(sessionId), Users.class);
+				List<Map> searchChat = MessageService.searchChat(loggedInUser.getId(), receiver, searchText);
+				Map searchUser = UserService.getUserByUsername(searchText);
 				
-//				if (!user.isEmpty()) {
-//					data = new JsonObject(user.toString());
-//				}
+				Map response = new HashMap();
+				response.put("searchChat", searchChat);
+				response.put("searchUser", searchUser);
 				
 				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
-				routingContext.put(AppParams.RESPONSE_DATA, user);
+				routingContext.put(AppParams.RESPONSE_DATA, response);
 				future.complete();
 			} catch (Exception e) {
 				routingContext.fail(e);
@@ -54,6 +60,6 @@ public class GetUserHandler implements Handler<RoutingContext>, SessionStore {
 		});
 	}
 
-	private static final Logger LOGGER = Logger.getLogger(GetUserHandler.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(SearchBarHandler.class.getName());
 	
 }

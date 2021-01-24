@@ -5,7 +5,6 @@
  */
 package com.app.dashchat.server.handler;
 
-import com.app.dashchat.models.ClipServices;
 import com.app.dashchat.util.AppParams;
 import com.app.dashchat.util.LoggerInterface;
 
@@ -19,7 +18,6 @@ import io.vertx.rxjava.ext.web.RoutingContext;
  */
 public class OrderNotifyHandler implements Handler<RoutingContext>, LoggerInterface {
 
-    private static ClipServices clipServices;
     int hascache = 0;
     int mexpire = 0;
 
@@ -52,12 +50,5 @@ public class OrderNotifyHandler implements Handler<RoutingContext>, LoggerInterf
         });
     }
 
-    public static ClipServices getClipServices() {
-        return clipServices;
-    }
-
-    public static void setClipServices(ClipServices clipServices) {
-        OrderNotifyHandler.clipServices = clipServices;
-    }
 
 }

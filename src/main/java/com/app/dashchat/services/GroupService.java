@@ -17,16 +17,17 @@ import com.app.dashchat.util.ParamUtil;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import oracle.jdbc.OracleTypes;
 
-public class UserService {
+public class GroupService {
 	private static DataSource dataSource;
 
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
 
-	public static final String INSERT_USER = "{call PKG_USER.insert_user(?,?,?,?,?,?,?,?,?,?)}";
+	public static final String INSERT_GROUP = "{call PKG_GROUP.insert_group(?,?,?,?,?,?,?)}";
+	public static final String GET_GROUP_BY_ID = "{call PKG_GROUP.get_group_by_id(?,?,?,?)}";
+	
 	public static final String GET_USER_BY_EMAIL = "{call PKG_USER.get_user_by_email(?,?,?,?)}";
-	public static final String GET_USER_BY_ID = "{call PKG_USER.get_user_by_id(?,?,?,?)}";
 	public static final String GET_USER_BY_USERNAME = "{call PKG_USER.get_user_by_username(?,?,?,?)}";
 	public static final String GET_ALL_USER = "{call PKG_USER.get_all_user(?,?,?,?)}";
 	public static final String GET_CONTACT_BY_EMAIL = "{call PKG_USER.get_contact_by_email(?,?,?,?)}";
@@ -104,7 +105,7 @@ public class UserService {
 		return resultMap;
 	}
 
-	public static Map getUserById(String id) throws SQLException {
+	public static Map getGroupById(String id) throws SQLException {
 
 		Map inputParams = new LinkedHashMap<Integer, String>();
 		inputParams.put(1, id);
@@ -119,7 +120,7 @@ public class UserService {
 		outputParamsNames.put(3, AppParams.RESULT_MSG);
 		outputParamsNames.put(4, AppParams.RESULT_DATA);
 
-		Map searchResultMap = DBProcedureUtil.execute(dataSource, GET_USER_BY_ID, inputParams, outputParamsTypes,
+		Map searchResultMap = DBProcedureUtil.execute(dataSource, GET_GROUP_BY_ID, inputParams, outputParamsTypes,
 				outputParamsNames);
 
 		int resultCode = ParamUtil.getInt(searchResultMap, AppParams.RESULT_CODE);
@@ -221,29 +222,25 @@ public class UserService {
 		return resultMap;
 	}
 
-	public static Map insertUser(String username, String password, String email, String firstName, String lastName,
-			String address, String phone) throws SQLException {
+	public static Map insertGroup(String name, String admin, String type, String member) throws SQLException {
 
 		Map inputParams = new LinkedHashMap<Integer, String>();
-		inputParams.put(1, username);
-		inputParams.put(2, password);
-		inputParams.put(3, email);
-		inputParams.put(4, firstName);
-		inputParams.put(5, lastName);
-		inputParams.put(6, address);
-		inputParams.put(7, phone);
+		inputParams.put(1, name);
+		inputParams.put(2, admin);
+		inputParams.put(3, type);
+		inputParams.put(4, member);
 
 		Map<Integer, Integer> outputParamsTypes = new LinkedHashMap<>();
-		outputParamsTypes.put(8, OracleTypes.NUMBER);
-		outputParamsTypes.put(9, OracleTypes.VARCHAR);
-		outputParamsTypes.put(10, OracleTypes.CURSOR);
+		outputParamsTypes.put(5, OracleTypes.NUMBER);
+		outputParamsTypes.put(6, OracleTypes.VARCHAR);
+		outputParamsTypes.put(7, OracleTypes.CURSOR);
 
 		Map<Integer, String> outputParamsNames = new LinkedHashMap<>();
-		outputParamsNames.put(8, AppParams.RESULT_CODE);
-		outputParamsNames.put(9, AppParams.RESULT_MSG);
-		outputParamsNames.put(10, AppParams.RESULT_DATA);
+		outputParamsNames.put(5, AppParams.RESULT_CODE);
+		outputParamsNames.put(6, AppParams.RESULT_MSG);
+		outputParamsNames.put(7, AppParams.RESULT_DATA);
 
-		Map searchResultMap = DBProcedureUtil.execute(dataSource, INSERT_USER, inputParams, outputParamsTypes,
+		Map searchResultMap = DBProcedureUtil.execute(dataSource, INSERT_GROUP, inputParams, outputParamsTypes,
 				outputParamsNames);
 
 		int resultCode = ParamUtil.getInt(searchResultMap, AppParams.RESULT_CODE);
@@ -259,41 +256,8 @@ public class UserService {
 			resultMap = format(resultDataList.get(0));
 		}
 
-		LOGGER.info("=> insert user result: " + ParamUtil.getListData(searchResultMap, AppParams.RESULT_DATA));
+		LOGGER.info("=> insert group result: " + ParamUtil.getListData(searchResultMap, AppParams.RESULT_DATA));
 
-		return resultMap;
-	}
-
-	public static Map getContactUsers(String email) throws SQLException {
-
-		Map inputParams = new LinkedHashMap<Integer, String>();
-		inputParams.put(1, email);
-
-		Map<Integer, Integer> outputParamsTypes = new LinkedHashMap<>();
-		outputParamsTypes.put(2, OracleTypes.NUMBER);
-		outputParamsTypes.put(3, OracleTypes.VARCHAR);
-		outputParamsTypes.put(4, OracleTypes.CURSOR);
-
-		Map<Integer, String> outputParamsNames = new LinkedHashMap<>();
-		outputParamsNames.put(2, AppParams.RESULT_CODE);
-		outputParamsNames.put(3, AppParams.RESULT_MSG);
-		outputParamsNames.put(4, AppParams.RESULT_DATA);
-
-		Map searchResultMap = DBProcedureUtil.execute(dataSource, GET_CONTACT_BY_EMAIL, inputParams, outputParamsTypes,
-				outputParamsNames);
-
-		int resultCode = ParamUtil.getInt(searchResultMap, AppParams.RESULT_CODE);
-
-		if (resultCode != HttpResponseStatus.OK.code()) {
-			throw new OracleException(ParamUtil.getString(searchResultMap, AppParams.RESULT_MSG));
-		}
-
-		List<Map> resultDataList = ParamUtil.getListData(searchResultMap, AppParams.RESULT_DATA);
-		LOGGER.info(
-				"=> contact resultDataList result: " + ParamUtil.getListData(searchResultMap, AppParams.RESULT_DATA));
-		Map resultMap = new HashMap<>();
-		resultMap = resultDataList.get(0);
-		LOGGER.info("=> contact list result: " + resultMap);
 		return resultMap;
 	}
 
@@ -301,20 +265,15 @@ public class UserService {
 
 		Map resultMap = new LinkedHashMap<>();
 		resultMap.put(AppParams.ID, ParamUtil.getString(queryData, AppParams.S_ID));
-		resultMap.put(AppParams.USERNAME, ParamUtil.getString(queryData, AppParams.S_USERNAME));
-		resultMap.put(AppParams.PASSWORD, ParamUtil.getString(queryData, AppParams.S_PASSWORD));
-		resultMap.put(AppParams.EMAIL, ParamUtil.getString(queryData, AppParams.S_EMAIL));
-		resultMap.put(AppParams.FIRST_NAME, ParamUtil.getString(queryData, AppParams.S_FIRST_NAME));
-		resultMap.put(AppParams.LAST_NAME, ParamUtil.getString(queryData, AppParams.S_LAST_NAME));
-		resultMap.put(AppParams.ADDRESS, ParamUtil.getString(queryData, AppParams.S_ADDRESS));
+		resultMap.put(AppParams.NAME, ParamUtil.getString(queryData, AppParams.S_NAME));
+		resultMap.put(AppParams.ADMIN, ParamUtil.getString(queryData, AppParams.S_ADMIN));
+		resultMap.put(AppParams.TYPE, ParamUtil.getString(queryData, AppParams.S_TYPE));
 		resultMap.put(AppParams.STATE, ParamUtil.getString(queryData, AppParams.S_STATE));
-		resultMap.put(AppParams.PHONE, ParamUtil.getString(queryData, AppParams.S_PHONE));
 		resultMap.put(AppParams.CREATE_AT, ParamUtil.getString(queryData, AppParams.D_CREATED_AT));
 		resultMap.put(AppParams.UPDATE_AT, ParamUtil.getString(queryData, AppParams.D_UPDATED_AT));
-		resultMap.put(AppParams.LAST_LOGGED_IN, ParamUtil.getString(queryData, AppParams.D_LAST_LOGGED_IN));
-		resultMap.put(AppParams.CONTACT, ParamUtil.getString(queryData, AppParams.S_CONTACT));
+		resultMap.put(AppParams.MEMBER, ParamUtil.getString(queryData, AppParams.S_MEMBER));
 		return resultMap;
 	}
 
-	private static final Logger LOGGER = Logger.getLogger(UserService.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(GroupService.class.getName());
 }

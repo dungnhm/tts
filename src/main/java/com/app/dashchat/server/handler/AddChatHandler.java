@@ -22,7 +22,7 @@ import io.vertx.rxjava.core.http.HttpServerRequest;
 import io.vertx.rxjava.ext.web.Cookie;
 import io.vertx.rxjava.ext.web.RoutingContext;
 
-public class AaddChatHandler implements Handler<RoutingContext>, SessionStore {
+public class AddChatHandler implements Handler<RoutingContext>, SessionStore {
 
 	@Override
 	public void handle(RoutingContext routingContext) {
@@ -35,12 +35,12 @@ public class AaddChatHandler implements Handler<RoutingContext>, SessionStore {
 				
 				Cookie cookie = routingContext.getCookie("sessionId");
 				Users loggedInUser = new Gson().fromJson(jedis.get(cookie.getValue()), Users.class);
-				String email = loggedInUser.getEmail();
+				String sender = loggedInUser.getId();
 				String receiver = jsonRequest.getString("receiver");
 				String content = jsonRequest.getString("content");
 				String type = httpServerRequest.getParam("type");
 				
-				response = MessageService.insertMessage(email, receiver, type, content, "", "created", "draft");	
+				response = MessageService.insertMessage(sender, receiver, type, content, "", "created", "draft");	
 				
 				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());
@@ -58,6 +58,6 @@ public class AaddChatHandler implements Handler<RoutingContext>, SessionStore {
 		});
 	}
 
-	private static final Logger LOGGER = Logger.getLogger(AaddChatHandler.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(AddChatHandler.class.getName());
 	
 }

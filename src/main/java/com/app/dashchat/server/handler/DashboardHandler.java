@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 import com.app.dashchat.pojo.Users;
+import com.app.dashchat.services.GroupService;
 import com.app.dashchat.services.MessageService;
 import com.app.dashchat.services.UserService;
 import com.app.dashchat.session.redis.SessionStore;
@@ -36,6 +37,7 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 				String receiverId = httpServerRequest.getParam("receiver");
 
 				Gson gson = new Gson();
+				LOGGER.info("----cookie = "+ cookie);
 				String sessionId = cookie.getValue();
 				Users loggedInUser = gson.fromJson(jedis.get(sessionId), Users.class);
 
@@ -47,14 +49,22 @@ public class DashboardHandler implements Handler<RoutingContext>, SessionStore {
 				Map userInfo = UserService.getUserById(senderId);
 //				Map receiverInfo = UserService.getUserById(receiverId);
 				List<Map> chatHistory = new ArrayList<Map>();
-				if (receiverId.isBlank() || loggedInUser.getContact().contains(receiverId)) {
+				if (null==(receiverId) || receiverId.isBlank() || loggedInUser.getContact().contains(receiverId)) {
 					receiverId = receiverId.isBlank() ? senderId : receiverId;
 					LOGGER.info("---sender = " + senderId + " ---receiver = " + receiverId);
 					chatHistory = MessageService.getChatHistory(senderId, receiverId);
 //					LOGGER.info("contactList.get(0) = " + contactList);
 				}
+//				List<String> contactList = Arrays.asList(loggedInUser.getContact().split(",")) ;
+				List<Map> contactList = new ArrayList<Map>();
+				LOGGER.info("list id contact = "+loggedInUser.getContact());
+				for (String contact : userInfo.get("contact").toString().split(",")) {
+					LOGGER.info("id contact = "+contact);
+					if (contact.contains("U"))contactList.add(UserService.getUserById(contact));
+					if (contact.contains("G"))contactList.add(GroupService.getGroupById(contact));
+				}
 				response.put("userInfo", userInfo);
-				response.put("contactList", loggedInUser.getContact());
+				response.put("contactList", contactList);
 				response.put("chatHistory", chatHistory);
 				routingContext.put(AppParams.RESPONSE_CODE, HttpResponseStatus.OK.code());
 				routingContext.put(AppParams.RESPONSE_MSG, HttpResponseStatus.OK.reasonPhrase());

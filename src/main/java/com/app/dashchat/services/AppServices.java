@@ -1,6 +1,6 @@
 package com.app.dashchat.services;
 
-import com.app.dashchat.models.ClipServices;
+import com.app.dashchat.util.LoggerInterface;
 
 //import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 //import org.springframework.data.redis.serializer.StringRedisSerializer;
@@ -9,7 +9,6 @@ import com.app.dashchat.models.ClipServices;
 public class AppServices implements LoggerInterface {
 
 //    private List listBlackkey;
-    private ClipServices clipServices;
     private static volatile AppServices instance = null;
 //    private MongoOperations mongoOperations;
 //    private RedisTemplate redisTemplate;
@@ -35,14 +34,6 @@ public class AppServices implements LoggerInterface {
             }
         }
         return instance;
-    }
-
-    public ClipServices getClipServices() {
-        return clipServices;
-    }
-
-    public void setClipServices(ClipServices clipServices) {
-        this.clipServices = clipServices;
     }
 
 //    public MongoOperations getMongoOperations() {
